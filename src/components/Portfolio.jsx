@@ -1,17 +1,33 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiPlay, FiX } from 'react-icons/fi';
 
-const categories = ['All', 'Beauty', 'Fintech', 'Healthcare', 'Real Estate', 'E-commerce', 'Education', 'Automotive', 'Corporate'];
+const categories = ['All', 'Beauty', 'Fintech', 'Healthcare', 'E-commerce', 'Education', 'Automotive', 'Corporate'];
 
 function Portfolio({ projects }) {
   const [activeFilter, setActiveFilter] = useState('All');
   const [activeProject, setActiveProject] = useState(null);
+  const [hasError, setHasError] = useState(false);
 
   const filteredProjects = projects.filter((project) => activeFilter === 'All' || project.category === activeFilter);
 
-  const openProject = (project) => setActiveProject(project);
-  const closeProject = () => setActiveProject(null);
+  const openProject = (project) => {
+    setHasError(false);
+    setActiveProject(project);
+  };
+  const closeProject = () => {
+    setActiveProject(null);
+    setHasError(false);
+  };
+
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (!videoRef.current || !activeProject?.video) return;
+    setHasError(false);
+    videoRef.current.load();
+    videoRef.current.play().catch(() => {});
+  }, [activeProject]);
 
   return (
     <section id="portfolio" className="px-4 py-24 sm:px-6 lg:px-8">
@@ -93,16 +109,24 @@ function Portfolio({ projects }) {
                   <FiX size={20} />
                 </button>
               </div>
-              <video
-                controls
-                autoPlay
-                playsInline
-                preload="metadata"
-                className="mt-4 max-h-[60vh] w-full rounded-[1.5rem] bg-black object-contain"
-                poster={activeProject.thumbnail}
-              >
-                <source src={activeProject.video} type="video/mp4" />
-              </video>
+              {hasError ? (
+                <div className="mt-4 flex min-h-[40vh] items-center justify-center rounded-[1.5rem] bg-black px-6 text-center text-sm text-zinc-400">
+                  This video could not be loaded. Check that the URL is a public Vercel Blob link.
+                </div>
+              ) : (
+                <video
+                  key={activeProject.id}
+                  ref={videoRef}
+                  controls
+                  autoPlay
+                  playsInline
+                  preload="metadata"
+                  className="mt-4 max-h-[60vh] w-full rounded-[1.5rem] bg-black object-contain"
+                  poster={activeProject.thumbnail}
+                  src={activeProject.video}
+                  onError={() => setHasError(true)}
+                />
+              )}
               <p className="mt-4 text-sm leading-7 text-zinc-400">{activeProject.description}</p>
             </motion.div>
           </motion.div>

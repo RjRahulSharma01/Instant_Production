@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { FiInstagram, FiLinkedin, FiYoutube, FiMessageSquare } from 'react-icons/fi';
 
 function Footer({ footerData }) {
@@ -23,7 +24,11 @@ function Footer({ footerData }) {
           <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#f59e0b]">Quick Links</h3>
           <ul className="mt-4 space-y-3 text-sm text-zinc-300">
             {footerData.quickLinks.map((link) => (
-              <li key={link}><a href={`#${link.toLowerCase().replace(/ /g, '-')}`} className="transition hover:text-[#f59e0b]">{link}</a></li>
+              <li key={link.label}>
+                <Link to={link.to} className="transition hover:text-[#f59e0b]">
+                  {link.label}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>
@@ -32,7 +37,11 @@ function Footer({ footerData }) {
           <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-[#f59e0b]">Services</h3>
           <ul className="mt-4 space-y-3 text-sm text-zinc-300">
             {footerData.services.map((service) => (
-              <li key={service}>{service}</li>
+              <li key={service}>
+                <Link to="/services" className="transition hover:text-[#f59e0b]">
+                  {service}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>

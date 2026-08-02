@@ -71,7 +71,7 @@ const initialState = {
         },
         {
           title: 'Model Shoots Collection 2',
-          description: 'A gallery of fashion and catalogue-style images with additional model shoot visuals.',
+          description: 'A gallery of curated visuals and promotional shoot collections.',
           embedUrl: 'https://drive.google.com/embeddedfolderview?id=1cFKdVsVVBGinDU1PVS2W5_jgj9eEFV3C#grid',
           folderUrl: 'https://drive.google.com/drive/folders/1cFKdVsVVBGinDU1PVS2W5_jgj9eEFV3C?usp=sharing',
           mediaItems: ['IMG_1759.PNG', 'IMG_1977.JPG', 'IMG_3737.JPG', 'IMG_4246.jpeg', 'IMG_5000.jpeg', 'Kaveri_Seth_1.jpg', 'Kaveri_Seth_2.jpg'],

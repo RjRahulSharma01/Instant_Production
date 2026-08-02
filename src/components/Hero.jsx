@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiPlay } from 'react-icons/fi';
 
@@ -37,12 +38,12 @@ function Hero({ heroData }) {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <a href="#contact" className="inline-flex items-center gap-2 rounded-full bg-[#f59e0b] px-6 py-3 font-semibold text-black transition hover:scale-[1.02]">
+            <Link to="/portfolio" className="inline-flex items-center gap-2 rounded-full bg-[#f59e0b] px-6 py-3 font-semibold text-black transition hover:scale-[1.02]">
               {heroData.primaryCta} <FiArrowRight />
-            </a>
-            <a href="#portfolio" className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white transition hover:border-[#f59e0b]/30 hover:text-[#f59e0b]">
+            </Link>
+            <Link to="/#contact" className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white transition hover:border-[#f59e0b]/30 hover:text-[#f59e0b]">
               {heroData.secondaryCta} <FiPlay />
-            </a>
+            </Link>
           </div>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-3">

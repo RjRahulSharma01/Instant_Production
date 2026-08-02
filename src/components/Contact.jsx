@@ -50,7 +50,14 @@ function Contact({ contactData }) {
             <p><span className="font-semibold text-white">Location:</span> {contactData.address}</p>
           </div>
           <div className="mt-8 h-64 overflow-hidden rounded-[1.5rem] border border-white/10 bg-zinc-900">
-            <div className="flex h-full items-center justify-center text-zinc-500">Google Map Placeholder</div>
+            <iframe
+              title="Instant Production - Noida Sector 62"
+              src="https://maps.google.com/maps?q=Sector%2062%2C%20Noida%2C%20Uttar%20Pradesh%2C%20India&z=15&output=embed"
+              className="h-full w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
         </div>
 

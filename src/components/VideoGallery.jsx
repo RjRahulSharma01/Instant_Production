@@ -2,11 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiPlay, FiX } from 'react-icons/fi';
 
-const FALLBACK_VIDEO = 'https://www.w3schools.com/html/mov_bbb.mp4';
-
 function VideoGallery({ videos }) {
   const [activeVideo, setActiveVideo] = useState(null);
-  const [videoSrc, setVideoSrc] = useState(FALLBACK_VIDEO);
+  const [hasError, setHasError] = useState(false);
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -27,22 +25,21 @@ function VideoGallery({ videos }) {
     };
   }, [activeVideo]);
 
+  useEffect(() => {
+    if (!videoRef.current || !activeVideo?.video) return;
+    setHasError(false);
+    videoRef.current.load();
+    videoRef.current.play().catch(() => {});
+  }, [activeVideo]);
+
   const openVideo = (video) => {
+    setHasError(false);
     setActiveVideo(video);
-    setVideoSrc(video?.video || FALLBACK_VIDEO);
   };
 
   const closeVideo = () => {
     setActiveVideo(null);
-  };
-
-  const handleVideoError = () => {
-    if (videoSrc !== FALLBACK_VIDEO) {
-      setVideoSrc(FALLBACK_VIDEO);
-      if (videoRef.current) {
-        videoRef.current.load();
-      }
-    }
+    setHasError(false);
   };
 
   return (
@@ -96,17 +93,24 @@ function VideoGallery({ videos }) {
                 <FiX size={20} />
               </button>
             </div>
-            <video
-              ref={videoRef}
-              controls
-              autoPlay
-              playsInline
-              className="mt-2 max-h-[60vh] w-full rounded-[1.25rem] bg-black object-contain"
-              poster={activeVideo.thumbnail}
-              onError={handleVideoError}
-            >
-              <source src={videoSrc} type="video/mp4" />
-            </video>
+            {hasError ? (
+              <div className="mt-2 flex min-h-[40vh] items-center justify-center rounded-[1.25rem] bg-black px-6 text-center text-sm text-zinc-400">
+                This video could not be loaded. Check that the URL is a public Vercel Blob link.
+              </div>
+            ) : (
+              <video
+                key={activeVideo.id}
+                ref={videoRef}
+                controls
+                autoPlay
+                playsInline
+                preload="metadata"
+                className="mt-2 max-h-[60vh] w-full rounded-[1.25rem] bg-black object-contain"
+                poster={activeVideo.thumbnail}
+                src={activeVideo.video}
+                onError={() => setHasError(true)}
+              />
+            )}
           </div>
         </div>
       ) : null}
