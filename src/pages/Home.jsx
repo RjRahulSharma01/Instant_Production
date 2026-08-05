@@ -1,8 +1,10 @@
 import { lazy, Suspense } from 'react';
+import { services } from '../data/services';
 import { aboutData, contactData, heroData } from '../data/site';
 
 const Hero = lazy(() => import('../components/Hero'));
 const About = lazy(() => import('../components/About'));
+const ServicesSection = lazy(() => import('../components/Services'));
 const ContactSection = lazy(() => import('../components/Contact'));
 
 function PageFallback() {
@@ -17,6 +19,9 @@ function Home() {
       </Suspense>
       <Suspense fallback={<PageFallback />}>
         <About aboutData={aboutData} />
+      </Suspense>
+      <Suspense fallback={<PageFallback />}>
+        <ServicesSection services={services} />
       </Suspense>
       <Suspense fallback={<PageFallback />}>
         <ContactSection contactData={contactData} />
