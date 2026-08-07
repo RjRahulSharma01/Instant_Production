@@ -4,14 +4,14 @@ export const industries = [
     title: 'Healthcare',
     description: 'Patient-first narratives with clarity, warmth, and authority.',
     icon: 'FaHeartbeat',
-    thumbnail: encodeURI('/images/healthcare thumb.jpeg'),
+    thumbnail: encodeURI('/images/healthcare  thumb. industries.jpeg'),
   },
   {
     id: 'education',
     title: 'Education',
     description: 'EduTech visuals that explain, engage, and elevate brands.',
     icon: 'FaGraduationCap',
-    thumbnail: encodeURI('/images/education thumb.jpeg'),
+    thumbnail: encodeURI('/images/educational  thumb. industries.jpeg'),
   },
   {
     id: 'fintech',
@@ -25,7 +25,7 @@ export const industries = [
     title: 'E-commerce',
     description: 'Product and logistics content optimized for online shopping and fast fulfillment.',
     icon: 'FaShoppingBag',
-    thumbnail: encodeURI('/images/e commerce thumb.jpeg'),
+    thumbnail: encodeURI('/images/e  commerece thumb. industries.jpeg'),
   },
   {
     id: 'automobile',
@@ -46,7 +46,7 @@ export const industries = [
     title: 'Technology',
     description: 'Digital transformation visuals with software, cloud, AI, and modern development teams.',
     icon: 'FaLaptopCode',
-    thumbnail: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80',
+    thumbnail: encodeURI('/images/tech thumb.jpeg'),
   },
   {
     id: 'corporate',

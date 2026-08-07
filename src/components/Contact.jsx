@@ -51,8 +51,8 @@ function Contact({ contactData }) {
           </div>
           <div className="mt-8 h-64 overflow-hidden rounded-[1.5rem] border border-white/10 bg-zinc-900">
             <iframe
-              title="Instant Production - Noida Sector 62"
-              src="https://maps.google.com/maps?q=Sector%2062%2C%20Noida%2C%20Uttar%20Pradesh%2C%20India&z=15&output=embed"
+              title="Instant Production - B-25 Sector-69 Noida"
+              src="https://maps.google.com/maps?q=B-25%2C%20Sector-69%2C%20Noida%2C%20Uttar%20Pradesh%2C%20India&z=15&output=embed"
               className="h-full w-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

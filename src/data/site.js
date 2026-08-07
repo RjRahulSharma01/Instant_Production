@@ -59,7 +59,7 @@ export const footerData = {
   ],
   services: ['Commercial Shoots', 'Corporate Films', 'AI Generated Ads', 'Social Media Content', 'AI Videos'],
   industries: ['Beauty', 'Fintech', 'Healthcare', 'Real Estate', 'E-commerce', 'Education'],
-  address: 'Sector 62, Noida, Uttar Pradesh, India',
+  address: 'B-25, Sector-69, Noida, Uttar Pradesh, India',
   social: {
     instagram: 'https://instagram.com/instantproduction',
     linkedin: 'https://linkedin.com/company/instantproduction',
@@ -70,7 +70,7 @@ export const footerData = {
 export const contactData = {
   phone: '9821810933',
   email: 'team@instantproduction.in',
-  address: 'Sector 62, Noida, Uttar Pradesh, India',
+  address: 'B-25, Sector-69, Noida, Uttar Pradesh, India',
   directorName: 'Rahul Sharma',
   title: 'Let’s build something remarkable together',
   description: 'Share your vision and we’ll shape a premium campaign that feels elevated, intentional, and ready to perform.',
