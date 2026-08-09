@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { fadeUp, viewport } from '../lib/motion';
 import SplitText from './fx/SplitText';
+import StudioWave from './fx/StudioWave';
 import { useState } from 'react';
 
 // Web3Forms access key. Set VITE_WEB3FORMS_KEY in Vercel (and .env.local for dev).
@@ -86,12 +87,12 @@ function Contact({ contactData }) {
             <p><span className="font-semibold text-white">Phone:</span> {contactData.phone}</p>
             <p><span className="font-semibold text-white">Email:</span> {contactData.email}</p>
             <p><span className="font-semibold text-white">Director:</span> {contactData.directorName}</p>
-            <p><span className="font-semibold text-white">Location:</span> {contactData.address}</p>
+            <p><span className="font-semibold text-white">Studio:</span> {contactData.address}</p>
           </div>
           <div className="mt-8 h-64 overflow-hidden rounded-[1.5rem] border border-white/10 bg-zinc-900">
             <iframe
-              title="Instant Production - B-25 Sector-69 Noida"
-              src="https://maps.google.com/maps?q=B-25%2C%20Sector-69%2C%20Noida%2C%20Uttar%20Pradesh%2C%20India&z=15&output=embed"
+              title="Instant Production — Sector-69, Noida"
+              src="https://maps.google.com/maps?q=Sector%2069%2C%20Noida&z=14&output=embed"
               className="h-full w-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -100,6 +101,7 @@ function Contact({ contactData }) {
           </div>
         </div>
 
+        <div className="flex flex-col gap-4">
         <form onSubmit={handleSubmit} noValidate={false} className="relative rounded-card border border-white/10 bg-black/30 p-6">
           <div className="grid gap-4 sm:grid-cols-2">
             <input value={form.name} onChange={update('name')} required className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition-all duration-300 ease-expo placeholder:text-zinc-500 focus:border-brand/60 focus:bg-white/[0.08] focus:shadow-[0_0_0_3px_rgba(245,158,11,0.15)]" placeholder="Your Name" />
@@ -118,7 +120,15 @@ function Contact({ contactData }) {
             aria-hidden="true"
           />
 
-          <div className="mt-5 flex flex-wrap items-center gap-4">
+          <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-zinc-400">
+            <span className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              {contactData.responsePromise}
+            </span>
+            <span className="text-zinc-500">{contactData.privacyNote}</span>
+          </div>
+
+          <div className="mt-4 flex flex-wrap items-center gap-4">
             <button
               type="submit"
               disabled={status === 'sending'}
@@ -146,6 +156,39 @@ function Contact({ contactData }) {
             </p>
           </div>
         </form>
+
+        {/* Fills the dead space under the form: a live production timeline
+            plus the two channels Indian B2B buyers actually use. */}
+        <div className="flex flex-1 flex-col gap-4">
+          <StudioWave className="w-full flex-1" />
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            <a
+              href={`https://wa.me/91${contactData.phone}`}
+              target="_blank"
+              rel="noreferrer"
+              className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 transition-all duration-300 ease-expo hover:border-brand/40 hover:bg-white/[0.08]"
+            >
+              <span>
+                <span className="block text-sm font-semibold text-white">WhatsApp</span>
+                <span className="block text-xs text-zinc-400">Fastest reply</span>
+              </span>
+              <span className="text-brand transition-transform duration-300 ease-expo group-hover:translate-x-1">→</span>
+            </a>
+
+            <a
+              href={`tel:+91${contactData.phone}`}
+              className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 transition-all duration-300 ease-expo hover:border-brand/40 hover:bg-white/[0.08]"
+            >
+              <span>
+                <span className="block text-sm font-semibold text-white">Call us</span>
+                <span className="block text-xs text-zinc-400">+91 {contactData.phone}</span>
+              </span>
+              <span className="text-brand transition-transform duration-300 ease-expo group-hover:translate-x-1">→</span>
+            </a>
+          </div>
+        </div>
+        </div>
       </motion.div>
     </section>
   );
