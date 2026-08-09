@@ -90,7 +90,7 @@ const initialState = {
     contact: {
       title: 'Let’s discuss your next production.',
       description: 'Tell us about your project and we will help shape the cinematic experience your audience remembers.',
-      email: 'hello@instantproduction.in',
+      email: 'instantproduction.in@gmail.com',
     },
   },
 };

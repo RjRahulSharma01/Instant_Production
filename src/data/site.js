@@ -13,7 +13,6 @@ export const heroData = {
   title: 'Premium production for brands that demand cinematic storytelling.',
   description: 'Photography • Videography • Website Development • Digital Marketing • Creative Branding',
   backgroundVideo: 'https://wcvhc1swgp4jnn9a.public.blob.vercel-storage.com/Montage%20-%20Instant%20production%20%281%29.mp4',
-  backgroundPoster: encodeURI('/images/IMG_4246.jpeg'),
   primaryCta: 'View Portfolio',
   secondaryCta: 'Contact Us',
   stats: [
@@ -46,7 +45,7 @@ export const aboutData = {
 
 export const footerData = {
   phone: '9821810933',
-  email: 'team@instantproduction.in',
+  email: 'instantproduction.in@gmail.com',
   whatsapp: '919821810933',
   quickLinks: [
     { label: 'Home', to: '/' },
@@ -69,7 +68,7 @@ export const footerData = {
 
 export const contactData = {
   phone: '9821810933',
-  email: 'team@instantproduction.in',
+  email: 'instantproduction.in@gmail.com',
   address: 'B-25, Sector-69, Noida, Uttar Pradesh, India',
   directorName: 'Rahul Sharma',
   title: 'Let’s build something remarkable together',

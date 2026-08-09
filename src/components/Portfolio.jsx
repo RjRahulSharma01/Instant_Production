@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import TiltCard from './fx/TiltCard';
+import SplitText from './fx/SplitText';
+import { EASE, cardIn, fadeUp, stagger, viewport } from '../lib/motion';
 import { FiPlay, FiX } from 'react-icons/fi';
 
 const categories = ['All', 'Beauty', 'Fintech', 'Healthcare', 'E-commerce', 'Education', 'Automotive', 'Corporate'];
@@ -32,56 +35,79 @@ function Portfolio({ projects }) {
   return (
     <section id="portfolio" className="px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-[#f59e0b]">Portfolio</p>
-          <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">Work that feels polished, modern, and memorable.</h2>
+        <motion.div className="max-w-2xl" initial="hidden" whileInView="show" viewport={viewport} variants={fadeUp}>
+          <p className="text-sm font-semibold uppercase tracking-eyebrow text-brand">Portfolio</p>
+          <SplitText
+            as="h2"
+            text="Work that feels polished, modern, and memorable."
+            className="mt-4 block text-3xl font-semibold text-white sm:text-4xl"
+          />
+        </motion.div>
+
+        <div role="tablist" aria-label="Filter projects by category" className="mt-8 flex flex-wrap gap-3">
+          {categories.map((category) => {
+            const selected = activeFilter === category;
+            return (
+              <button
+                key={category}
+                role="tab"
+                aria-selected={selected}
+                onClick={() => setActiveFilter(category)}
+                className={`relative rounded-full border px-4 py-2 text-sm font-semibold transition-colors duration-200 ${
+                  selected
+                    ? 'border-brand text-black'
+                    : 'border-white/10 bg-white/5 text-zinc-300 hover:border-brand/40 hover:text-brand'
+                }`}
+              >
+                {selected && (
+                  <motion.span
+                    layoutId="portfolio-pill"
+                    className="absolute inset-0 -z-10 rounded-full bg-brand shadow-[0_0_22px_rgba(245,158,11,0.45)]"
+                    transition={{ type: 'spring', stiffness: 400, damping: 34 }}
+                  />
+                )}
+                <span className="relative z-10">{category}</span>
+              </button>
+            );
+          })}
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-3">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveFilter(category)}
-              className={`rounded-full border px-4 py-2 text-sm font-semibold transition ${activeFilter === category ? 'border-[#f59e0b] bg-[#f59e0b] text-black' : 'border-white/10 bg-white/5 text-zinc-300 hover:border-[#f59e0b]/40 hover:text-[#f59e0b]'}`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {filteredProjects.map((project, index) => (
-            <motion.article
+        <motion.div layout className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <AnimatePresence mode="popLayout">
+          {filteredProjects.map((project) => (
+            <TiltCard
               key={project.id}
-              initial={{ opacity: 0, y: 22 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: index * 0.05 }}
-              whileHover={{ y: -8, scale: 1.01 }}
-              className="group cursor-pointer overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.22)]"
+              layout
+              initial={{ opacity: 0, y: 24, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.92, transition: { duration: 0.25 } }}
+              transition={{ duration: 0.45, ease: EASE }}
+              max={8}
+              className="group cursor-pointer overflow-hidden rounded-card border border-white/10 bg-white/5 shadow-card"
               onClick={() => openProject(project)}
             >
               <div className="relative">
                 <div style={{ aspectRatio: '16/9' }} className="overflow-hidden bg-zinc-900">
-                  <img src={project.thumbnail} alt={project.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                  <img src={project.thumbnail} alt={project.title} className="h-full w-full object-cover transition-transform duration-700 ease-expo group-hover:scale-110" loading="lazy" />
                 </div>
-                <div className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 transition duration-300 group-hover:opacity-100">
-                  <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/40 bg-white/90 text-black shadow-lg">
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 transition-opacity duration-400 group-hover:opacity-100">
+                  <motion.span whileHover={{ scale: 1.12 }} className="flex h-16 w-16 scale-75 items-center justify-center rounded-full border border-white/40 bg-white/90 text-black shadow-lg transition-transform duration-400 ease-expo group-hover:scale-100">
                     <FiPlay size={24} />
-                  </span>
+                  </motion.span>
                 </div>
               </div>
               <div className="p-6">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#f59e0b]">{project.category}</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand">{project.category}</p>
                 <h3 className="mt-3 text-xl font-semibold text-white">{project.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-zinc-400">{project.description}</p>
-                <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-[#f59e0b]/40 hover:text-[#f59e0b]">
+                <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:border-brand/40 hover:text-brand">
                   Play Reel
                 </div>
               </div>
-            </motion.article>
+            </TiltCard>
           ))}
-        </div>
+          </AnimatePresence>
+        </motion.div>
       </div>
 
       <AnimatePresence>
@@ -90,19 +116,20 @@ function Portfolio({ projects }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 px-4 py-8"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 px-4 py-8 backdrop-blur-md"
             onClick={closeProject}
           >
             <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              className="w-full max-w-5xl rounded-[2rem] border border-white/10 bg-zinc-950 p-4 shadow-2xl"
+              initial={{ scale: 0.92, opacity: 0, y: 24 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.94, opacity: 0, y: 12 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 28 }}
+              className="w-full max-w-5xl rounded-panel border border-white/10 bg-zinc-950 p-4 shadow-2xl"
               onClick={(event) => event.stopPropagation()}
             >
               <div className="flex items-center justify-between px-2 py-2">
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#f59e0b]">{activeProject.category}</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand">{activeProject.category}</p>
                   <h3 className="text-2xl font-semibold text-white">{activeProject.title}</h3>
                 </div>
                 <button onClick={closeProject} className="rounded-full border border-white/10 p-2 text-white">

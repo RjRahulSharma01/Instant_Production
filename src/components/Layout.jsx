@@ -1,4 +1,9 @@
 import { Outlet, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import SmoothScroll from './fx/SmoothScroll';
+import ScrollProgress from './fx/ScrollProgress';
+import Cursor from './fx/Cursor';
+import PageTransition from './fx/PageTransition';
 import { useEffect } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -35,12 +40,21 @@ function ScrollToTop() {
 }
 
 function Layout() {
+  const { pathname } = useLocation();
+
   return (
-    <div className="min-h-screen bg-[#050505] text-zinc-100">
+    <div className="min-h-screen bg-ink text-zinc-100">
+      <SmoothScroll />
+      <ScrollProgress />
+      <Cursor />
       <ScrollToTop />
       <Navbar items={navItems} />
       <main>
-        <Outlet />
+        <AnimatePresence mode="wait">
+          <PageTransition key={pathname}>
+            <Outlet />
+          </PageTransition>
+        </AnimatePresence>
       </main>
       <Footer footerData={footerData} />
     </div>

@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react';
+import { useSeo } from '../lib/seo';
 import { services } from '../data/services';
 import { aboutData, contactData, heroData } from '../data/site';
 
@@ -12,6 +13,12 @@ function PageFallback() {
 }
 
 function Home() {
+  useSeo({
+    description:
+      'Instant Production is a creative production and digital marketing agency in Noida — photography, videography, web development, branding and campaigns for ambitious brands.',
+    path: '/',
+  });
+
   return (
     <>
       <Suspense fallback={<PageFallback />}>
