@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getIcon } from '../lib/icons';
 import { cardIn, fadeUp, stagger, viewport } from '../lib/motion';
 import TiltCard from './fx/TiltCard';
 import SplitText from './fx/SplitText';
+import { serviceDetail } from '../data/serviceDetail';
 
 function Services({ services }) {
   return (
@@ -74,10 +76,20 @@ function Services({ services }) {
                     ))}
                   </ul>
 
-                  <span
-                    aria-hidden="true"
-                    className="mt-auto block h-px w-0 bg-gradient-to-r from-brand to-transparent pt-6 transition-all duration-500 ease-expo group-hover:w-full"
-                  />
+                  {serviceDetail[service.id] ? (
+                    <Link
+                      to={`/services/${service.id}`}
+                      className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-brand transition-colors hover:text-brand-300"
+                    >
+                      Learn more
+                      <span aria-hidden="true" className="transition-transform duration-300 ease-expo group-hover:translate-x-1">→</span>
+                    </Link>
+                  ) : (
+                    <span
+                      aria-hidden="true"
+                      className="mt-auto block h-px w-0 bg-gradient-to-r from-brand to-transparent pt-6 transition-all duration-500 ease-expo group-hover:w-full"
+                    />
+                  )}
                 </div>
               </TiltCard>
             );

@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Draft articles are not linked, but belt and braces
+Disallow: /blog/*?draft=
+
 Sitemap: https://instantproduction.in/sitemap.xml

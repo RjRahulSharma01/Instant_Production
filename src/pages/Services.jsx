@@ -1,4 +1,6 @@
 import { lazy, Suspense } from 'react';
+import PageHero from '../components/PageHero';
+import CtaBand from '../components/CtaBand';
 import { useSeo } from '../lib/seo';
 import { services } from '../data/services';
 
@@ -13,9 +15,23 @@ function Services() {
   });
 
   return (
-    <Suspense fallback={<div className="h-96" />}>
-      <ServicesSection services={services} />
-    </Suspense>
+    <>
+      <PageHero
+        eyebrow="Services"
+        title="Strategy, content and campaigns — handled end to end."
+        intro="Ten capabilities run by one team, so the plan, the creative and the media spend point the same way instead of being argued between three agencies."
+        crumbs={[{ label: 'Services' }]}
+        stats={[
+          { value: '10', label: 'Capabilities' },
+          { value: '250+', label: 'Campaigns launched' },
+          { value: '10K+', label: 'Creator network' },
+        ]}
+      />
+      <Suspense fallback={<div className="h-96" />}>
+        <ServicesSection services={services} />
+      </Suspense>
+      <CtaBand />
+    </>
   );
 }
 
