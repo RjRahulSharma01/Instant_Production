@@ -30,38 +30,55 @@ function Services({ services }) {
           {services.map((service, index) => {
             const Icon = getIcon(service.icon);
             // First and last cards run double-width. With ten services that
-            // makes 12 grid cells — flush at both two and three columns,
-            // instead of leaving an orphan card on the last row.
+            // makes 12 grid cells — flush at both two and three columns.
             const wide = index === 0 || index === services.length - 1;
             return (
               <TiltCard
                 key={service.id}
                 variants={cardIn}
                 max={7}
-                className={`group flex h-full flex-col rounded-card border border-white/10 bg-white/[0.04] p-6 text-left transition-colors duration-300 hover:border-brand/40 hover:bg-white/[0.07] ${
+                className={`group flex h-full flex-col overflow-hidden rounded-card border border-white/10 bg-white/[0.04] text-left transition-colors duration-300 hover:border-brand/40 hover:bg-white/[0.07] ${
                   wide ? 'sm:col-span-2' : ''
                 }`}
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-brand/25 bg-gradient-to-br from-brand/25 to-brand/5 text-brand transition-transform duration-300 ease-expo group-hover:scale-110">
-                  <Icon size={20} aria-hidden="true" />
+                <div className="relative overflow-hidden bg-ink-900" style={{ aspectRatio: '16/9' }}>
+                  <img
+                    src={service.thumbnail}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    width="1000"
+                    height="563"
+                    className="h-full w-full object-cover opacity-80 transition-all duration-700 ease-expo group-hover:scale-110 group-hover:opacity-100"
+                  />
+                  {/* Ties every thumbnail back to the brand and keeps the
+                      card border reading cleanly against varied photos. */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-transparent" />
+                  <div className="absolute inset-0 bg-brand/10 mix-blend-overlay" />
+
+                  <div className="absolute bottom-3 left-4 flex h-10 w-10 items-center justify-center rounded-xl border border-brand/30 bg-ink/80 text-brand backdrop-blur transition-transform duration-300 ease-expo group-hover:scale-110">
+                    <Icon size={17} aria-hidden="true" />
+                  </div>
                 </div>
 
-                <h3 className="mt-5 text-xl font-semibold text-white">{service.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-zinc-400">{service.description}</p>
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="text-xl font-semibold text-white">{service.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-zinc-400">{service.description}</p>
 
-                <ul className="mt-5 space-y-2 text-sm text-zinc-300">
-                  {service.bullets.map((bullet) => (
-                    <li key={bullet} className="flex items-start gap-2.5">
-                      <span aria-hidden="true" className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="mt-5 space-y-2 text-sm text-zinc-300">
+                    {service.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-2.5">
+                        <span aria-hidden="true" className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-                <span
-                  aria-hidden="true"
-                  className="mt-6 block h-px w-0 bg-gradient-to-r from-brand to-transparent transition-all duration-500 ease-expo group-hover:w-full"
-                />
+                  <span
+                    aria-hidden="true"
+                    className="mt-auto block h-px w-0 bg-gradient-to-r from-brand to-transparent pt-6 transition-all duration-500 ease-expo group-hover:w-full"
+                  />
+                </div>
               </TiltCard>
             );
           })}
