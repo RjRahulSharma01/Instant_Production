@@ -91,10 +91,12 @@ export const footerData = {
   industries: ['Beauty', 'Fintech', 'Healthcare', 'Real Estate', 'E-commerce', 'Education'],
   address: 'Sector-69, Noida',
   social: {
-    instagram: 'https://instagram.com/instantproduction',
-    linkedin: 'https://linkedin.com/company/instantproduction',
-    youtube: 'https://youtube.com/@instantproduction',
+    instagram: 'https://www.instagram.com/instantproduction.in',
+    youtube: 'https://www.youtube.com/@instantproduction_in',
+    linkedin: 'https://www.linkedin.com/company/instant-production/',
   },
+  tagline: 'An AI-first content and growth partner — strategy, production and performance under one roof.',
+  signoff: 'Built for brands that measure what their content does.',
 };
 
 export const contactData = {
