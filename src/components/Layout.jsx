@@ -22,24 +22,41 @@ function ScrollToTop() {
     if (!hash) {
       if (lenis) lenis.scrollTo(0, { immediate: true });
       else window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
+      return undefined;
     }
 
     const id = hash.replace('#', '');
-    let attempts = 0;
 
-    const tryScroll = () => {
-      const el = document.getElementById(id);
-      if (el) {
-        if (lenis) lenis.scrollTo(el, { offset: -80 });
-        else el.scrollIntoView({ behavior: 'smooth' });
-        return;
-      }
-      attempts += 1;
-      if (attempts < 20) window.setTimeout(tryScroll, 50);
+    // The target section is lazy-loaded, so it may not be in the DOM yet when
+    // the route changes. A fixed 20x50ms retry budget gave up after one second
+    // and dumped the visitor at the top of the homepage. Watch for the node
+    // instead, with a generous ceiling.
+    const scrollToEl = (el) => {
+      if (window.__lenis) window.__lenis.scrollTo(el, { offset: -80 });
+      else el.scrollIntoView({ behavior: 'smooth' });
     };
 
-    tryScroll();
+    const existing = document.getElementById(id);
+    if (existing) {
+      // Give the layout a frame to settle before measuring.
+      requestAnimationFrame(() => scrollToEl(existing));
+      return undefined;
+    }
+
+    const observer = new MutationObserver(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        observer.disconnect();
+        requestAnimationFrame(() => scrollToEl(el));
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    const giveUp = window.setTimeout(() => observer.disconnect(), 8000);
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(giveUp);
+    };
   }, [pathname, hash]);
 
   return null;

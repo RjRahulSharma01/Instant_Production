@@ -17,6 +17,8 @@ function Industries() {
   return (
     <>
       <PageHero
+        video={{ desktop: '/videos/pages/industries-1280.mp4', mobile: '/videos/pages/industries-640.mp4' }}
+        poster="/videos/pages/industries.webp"
         eyebrow="Industries"
         title="Categories where we already know the terrain."
         intro="Every sector has its own rules about what can be claimed, what audiences trust and what content actually converts. These are the ones we have run enough campaigns in to skip the learning curve."

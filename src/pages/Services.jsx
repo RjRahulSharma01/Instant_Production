@@ -17,6 +17,8 @@ function Services() {
   return (
     <>
       <PageHero
+        video={{ desktop: '/videos/pages/services-1280.mp4', mobile: '/videos/pages/services-640.mp4' }}
+        poster="/videos/pages/services.webp"
         eyebrow="Services"
         title="Strategy, content and campaigns — handled end to end."
         intro="Ten capabilities run by one team, so the plan, the creative and the media spend point the same way instead of being argued between three agencies."

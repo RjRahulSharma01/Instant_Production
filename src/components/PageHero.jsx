@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiChevronRight } from 'react-icons/fi';
 import SplitText from './fx/SplitText';
+import { useIsMobile } from '../lib/useMediaQuery';
 import { EASE, fadeUp, stagger, viewport } from '../lib/motion';
 
 /**
@@ -9,9 +10,32 @@ import { EASE, fadeUp, stagger, viewport } from '../lib/motion';
  * optional stat strip. Keeps every page opening the same way, which is what
  * makes a site feel designed rather than assembled.
  */
-export default function PageHero({ eyebrow, title, intro, crumbs = [], stats = [], children }) {
+export default function PageHero({ eyebrow, title, intro, crumbs = [], stats = [], video, poster, children }) {
+  const isMobile = useIsMobile();
+  const src = video && (isMobile ? video.mobile : video.desktop);
+
   return (
     <section className="relative overflow-hidden px-4 pb-14 pt-28 sm:px-6 sm:pb-16 sm:pt-32 lg:px-8">
+      {src && (
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <video
+            key={src}
+            className="h-full w-full object-cover"
+            src={src}
+            poster={poster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
+          {/* Copy has to stay readable over moving footage, so the scrim is
+              heavier on the left where the text sits. */}
+          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/92 to-ink/70" />
+          <div className="absolute inset-0 bg-ink/45" />
+        </div>
+      )}
+
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -top-40 left-1/3 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(245,158,11,0.14),transparent_65%)] blur-2xl"

@@ -1,14 +1,14 @@
 // Starter articles.
 //
-// IMPORTANT: every post below is marked `draft: true`. Drafts are hidden from
-// the live blog index and from the sitemap. They are written to be edited —
-// add your own examples, numbers and client stories, then flip `draft` to
-// false to publish. Nothing here claims a specific result you have not had.
+// Set `draft: true` on any post to pull it from the live index and the
+// sitemap without deleting it. These are written to be edited: add your own
+// examples, numbers and client stories as you get them. Nothing here claims
+// a specific result you have not actually had.
 
 export const blogPosts = [
   {
     slug: 'ai-video-actually-worth-it',
-    draft: true,
+    draft: false,
     title: 'When AI video is actually worth it (and when it is not)',
     excerpt:
       'Generative video is cheap and fast, which makes it easy to use for the wrong brief. A practical test for deciding between AI and a real shoot.',
@@ -40,7 +40,7 @@ export const blogPosts = [
 
   {
     slug: 'creative-testing-loop',
-    draft: true,
+    draft: false,
     title: 'Why your ads stopped working (it is almost always creative fatigue)',
     excerpt:
       'When CPMs climb and CTR falls while nothing about your targeting changed, the creative is worn out. How to build a testing loop that prevents it.',
@@ -71,7 +71,7 @@ export const blogPosts = [
 
   {
     slug: 'content-pillars-that-work',
-    draft: true,
+    draft: false,
     title: 'Content pillars are not categories',
     excerpt:
       'Most content pillar exercises produce a list of topics and change nothing. What makes a pillar actually useful is a claim you can defend.',
@@ -99,7 +99,7 @@ export const blogPosts = [
 
   {
     slug: 'influencer-content-into-paid',
-    draft: true,
+    draft: false,
     title: 'The influencer mistake that wastes the whole budget',
     excerpt:
       'Brands run creator campaigns, get good organic numbers, then discover they cannot legally use the best content in ads. Fix it in the brief.',

@@ -17,6 +17,8 @@ function Portfolio() {
   return (
     <>
       <PageHero
+        video={{ desktop: '/videos/pages/portfolio-1280.mp4', mobile: '/videos/pages/portfolio-640.mp4' }}
+        poster="/videos/pages/portfolio.webp"
         eyebrow="Portfolio"
         title="Work, and what it was for."
         intro="A selection of campaigns across the categories we work in. Filter by industry to see the closest thing to your own brief."

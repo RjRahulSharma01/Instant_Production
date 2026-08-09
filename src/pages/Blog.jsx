@@ -20,6 +20,8 @@ export default function Blog() {
   return (
     <>
       <PageHero
+        video={{ desktop: '/videos/pages/blog-1280.mp4', mobile: '/videos/pages/blog-640.mp4' }}
+        poster="/videos/pages/blog.webp"
         eyebrow="Insights"
         title="Notes on making content that performs."
         intro="What we have learned running AI video, paid campaigns and creator programmes — written for people who have to make these decisions, not for search engines."

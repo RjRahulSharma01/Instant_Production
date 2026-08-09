@@ -1,3 +1,6 @@
+// Header navigation. 'Contact' is deliberately absent: the header already
+// ends with a Contact Us call-to-action button, and listing both produced two
+// contact links side by side. The footer keeps a text Contact link.
 export const navItems = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/#about' },
@@ -5,7 +8,6 @@ export const navItems = [
   { label: 'Industries', to: '/industries' },
   { label: 'Portfolio', to: '/portfolio' },
   { label: 'Blog', to: '/blog' },
-  { label: 'Contact', to: '/#contact' },
 ];
 
 export const heroData = {
