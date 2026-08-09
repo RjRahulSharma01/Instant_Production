@@ -28,10 +28,16 @@ export default function SmoothScroll() {
     raf = requestAnimationFrame(loop);
 
     // Let anchor links keep working
+    // Covers both "#about" and router-style "/#about" on the current page.
     const onAnchor = (e) => {
-      const a = e.target.closest('a[href^="#"]');
+      const a = e.target.closest('a[href*="#"]');
       if (!a) return;
-      const el = document.querySelector(a.getAttribute('href'));
+      const href = a.getAttribute('href') || '';
+      const [path, id] = href.split('#');
+      if (!id) return;
+      const samePage = path === '' || path === '/' ? window.location.pathname === '/' : false;
+      if (!samePage) return;
+      const el = document.getElementById(id);
       if (el) {
         e.preventDefault();
         lenis.scrollTo(el, { offset: -80 });

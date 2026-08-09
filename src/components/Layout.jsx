@@ -13,8 +13,15 @@ function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    // Lenis takes over the scroll container, so window.scrollTo and
+    // scrollIntoView become no-ops while it is active. Route it through
+    // the Lenis instance when present, and fall back to the native calls
+    // when smooth scrolling is disabled (reduced motion).
+    const lenis = window.__lenis;
+
     if (!hash) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (lenis) lenis.scrollTo(0, { immediate: true });
+      else window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 
@@ -24,13 +31,12 @@ function ScrollToTop() {
     const tryScroll = () => {
       const el = document.getElementById(id);
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
+        if (lenis) lenis.scrollTo(el, { offset: -80 });
+        else el.scrollIntoView({ behavior: 'smooth' });
         return;
       }
       attempts += 1;
-      if (attempts < 20) {
-        window.setTimeout(tryScroll, 50);
-      }
+      if (attempts < 20) window.setTimeout(tryScroll, 50);
     };
 
     tryScroll();
