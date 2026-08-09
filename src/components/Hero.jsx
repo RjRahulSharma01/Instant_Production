@@ -39,7 +39,8 @@ function Hero({ heroData }) {
           playsInline
           preload="metadata"
         />
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/60" />
+        <div className="absolute inset-0 bg-ink/40" />
         <div className="absolute left-0 top-0 h-full w-full bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.18),transparent_28%)]" />
       </motion.div>
 
@@ -61,8 +62,17 @@ function Hero({ heroData }) {
             stagger={0.05}
           />
           <p className="mt-6 max-w-xl text-lg leading-8 text-zinc-300">
-            Photography • Videography • Website Development • Digital Marketing • Creative Branding
+            {heroData.description}
           </p>
+
+          <ul className="mt-6 flex max-w-2xl flex-wrap gap-x-3 gap-y-2 text-sm text-zinc-400">
+            {heroData.services.map((s, i) => (
+              <li key={s} className="flex items-center gap-3">
+                {i > 0 && <span aria-hidden="true" className="h-1 w-1 rounded-full bg-brand/70" />}
+                {s}
+              </li>
+            ))}
+          </ul>
 
           <div className="mt-8 flex flex-wrap gap-4">
             <Magnetic strength={0.4}>

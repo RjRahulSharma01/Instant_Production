@@ -8,7 +8,7 @@ function Services() {
   useSeo({
     title: 'Services',
     description:
-      'Photography, videography, AI-generated video, social media content, corporate films, web development and performance marketing — delivered end to end.',
+      'AI video strategy and production, content strategy, social media growth, performance marketing, website development and influencer marketing — delivered end to end.',
     path: '/services',
   });
 

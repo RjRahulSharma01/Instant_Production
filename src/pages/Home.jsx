@@ -15,7 +15,7 @@ function PageFallback() {
 function Home() {
   useSeo({
     description:
-      'Instant Production is a creative production and digital marketing agency in Noida — photography, videography, web development, branding and campaigns for ambitious brands.',
+      'AI-first content and growth agency. AI video strategy, video production, content strategy, social media growth, performance marketing, website development and influencer marketing.',
     path: '/',
   });
 

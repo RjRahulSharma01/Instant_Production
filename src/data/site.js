@@ -9,24 +9,34 @@ export const navItems = [
 ];
 
 export const heroData = {
-  eyebrow: 'Creative Production & Digital Marketing Agency',
-  title: 'Premium production for brands that demand cinematic storytelling.',
-  description: 'Photography • Videography • Website Development • Digital Marketing • Creative Branding',
+  eyebrow: 'AI-First Content & Growth Agency',
+  title: 'AI-first content, from first idea to measured growth.',
+  description:
+    'Twelve years of production craft, now running on AI. We plan, produce and scale video, content and campaigns — one team from strategy to measured result.',
+  services: [
+    'AI Video Strategy',
+    'Video Production',
+    'Content Strategy',
+    'Social Media Growth',
+    'Performance Marketing',
+    'Website Development',
+    'Influencer Marketing',
+  ],
   backgroundVideo: 'https://wcvhc1swgp4jnn9a.public.blob.vercel-storage.com/Montage%20-%20Instant%20production%20%281%29.mp4',
-  primaryCta: 'View Portfolio',
-  secondaryCta: 'Contact Us',
+  primaryCta: 'See Our Work',
+  secondaryCta: 'Book a Strategy Call',
   stats: [
     { value: '250+', label: 'Campaigns launched' },
-    { value: '12+', label: 'Years of expertise' },
+    { value: '10K+', label: 'Creators in network' },
     { value: '98%', label: 'Client retention' },
   ],
   // Panels that auto-rotate in the hero card, one every few seconds.
   featured: [
     {
-      eyebrow: 'Featured service',
-      title: 'Visual branding that feels elevated',
+      eyebrow: 'AI video strategy',
+      title: 'Strategy first, then the shoot',
       description:
-        'Every launch, reel, website, and campaign is shaped with cinematic polish and measurable impact.',
+        'Every campaign starts with audience, angle and hook. AI gets us there faster — and the work performs because of it.',
     },
     {
       eyebrow: 'AI cinematic experience',
@@ -42,8 +52,8 @@ export const heroData = {
     },
   ],
   highlights: [
-    { title: 'Cinematic content', description: 'Story-led visuals designed for premium growth.' },
-    { title: 'Campaign-ready media', description: 'Ads, films, reels and brand stories built to perform.' },
+    { title: 'Performance marketing', description: 'Campaigns measured on pipeline, not impressions.' },
+    { title: 'Social media growth', description: 'Content built for reach, retention and conversion.' },
   ],
 };
 
@@ -51,7 +61,7 @@ export const aboutData = {
   eyebrow: 'About Instant Production',
   title: 'We create memorable brand experiences backed by strategy, craft, and momentum.',
   description:
-    'Instant Production blends photography, videography, web development, and digital marketing into a premium creative partner for fast-moving brands.',
+    'Instant Production is an AI-first content and growth partner — AI video, content strategy, social growth, performance marketing, web and influencer campaigns, handled by one team.',
   points: [
     'Visionary creative direction tailored to your goals',
     'A full-service production and marketing experience',
