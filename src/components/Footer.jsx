@@ -43,7 +43,7 @@ function Social({ href, label, children }) {
   );
 }
 
-function Footer({ footerData }) {
+function Footer({ footerData, light = false }) {
   const reduce = useReducedMotion();
   const year = new Date().getFullYear();
 
@@ -53,7 +53,7 @@ function Footer({ footerData }) {
   };
 
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 px-4 pb-10 pt-16 sm:px-6 lg:px-8">
+    <footer className={`relative overflow-hidden border-t px-4 pb-10 pt-16 sm:px-6 lg:px-8 ${light ? "border-slate-200 bg-slate-50" : "border-white/10"}`}>
       {/* Ambient brand glow behind the whole footer */}
       <div
         aria-hidden="true"
@@ -74,18 +74,18 @@ function Footer({ footerData }) {
         whileInView="show"
         viewport={viewport}
         variants={stagger(0.08)}
-        className="relative mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-8 rounded-panel border border-white/10 bg-white/[0.04] p-6 sm:gap-10 sm:p-8 lg:grid-cols-[1.3fr_0.7fr_0.9fr_1fr] lg:p-10"
+        className={`relative mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-8 rounded-panel border p-6 sm:gap-10 sm:p-8 lg:grid-cols-[1.3fr_0.7fr_0.9fr_1fr] lg:p-10 ${light ? "border-slate-200 bg-white" : "border-white/10 bg-white/[0.04]"}`}
       >
         <motion.div variants={cardIn} className="col-span-2 lg:col-span-1">
           <img
-            src="/brand/logo-light.svg"
+            src={light ? "/brand/logo-full.svg" : "/brand/logo-light.svg"}
             alt="Instant Production"
             width="200"
             height="145"
             loading="lazy"
             className="h-20 w-auto"
           />
-          <p className="mt-5 max-w-sm text-sm leading-7 text-zinc-400">{footerData.tagline}</p>
+          <p className={`mt-5 max-w-sm text-sm leading-7 ${light ? "text-slate-600" : "text-zinc-400"}`}>{footerData.tagline}</p>
 
           <Magnetic strength={0.3}>
             <a

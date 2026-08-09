@@ -21,6 +21,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://instantproduction.in/industries/healthcare</loc>
+    <lastmod>2026-08-10</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://instantproduction.in/blog</loc>
     <lastmod>2026-08-10</lastmod>
     <priority>0.8</priority>

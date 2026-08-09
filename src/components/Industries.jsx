@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getIcon } from '../lib/icons';
 import { cardIn, fadeUp, stagger, viewport } from '../lib/motion';
@@ -40,9 +41,18 @@ function Industries({ industries }) {
                     </div>
                   </div>
                 )}
-                <div className="p-6">
+                <div className="flex flex-1 flex-col p-6">
                   <h3 className="mt-1 text-xl font-semibold text-white">{industry.title}</h3>
                   <p className="mt-3 text-sm leading-7 text-zinc-400">{industry.description}</p>
+                  {industry.id === 'healthcare' && (
+                    <Link
+                      to="/industries/healthcare"
+                      className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-brand transition-colors hover:text-brand-300"
+                    >
+                      Healthcare marketing
+                      <span aria-hidden="true" className="transition-transform duration-300 ease-expo group-hover:translate-x-1">→</span>
+                    </Link>
+                  )}
                 </div>
               </TiltCard>
             );

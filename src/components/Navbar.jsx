@@ -6,7 +6,7 @@ import Magnetic from './fx/Magnetic';
 import { EASE } from '../lib/motion';
 import { useIsMobile } from '../lib/useMediaQuery';
 
-function Navbar({ items }) {
+function Navbar({ items, light = false }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hovered, setHovered] = useState(null);
@@ -40,8 +40,12 @@ function Navbar({ items }) {
       <motion.header
         initial={false}
         animate={{
-          backgroundColor: scrolled ? 'rgba(5,5,5,0.82)' : 'rgba(5,5,5,0.35)',
-          borderColor: scrolled ? 'rgba(255,255,255,0.10)' : 'rgba(255,255,255,0.04)',
+          backgroundColor: light
+            ? (scrolled ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.70)')
+            : (scrolled ? 'rgba(5,5,5,0.82)' : 'rgba(5,5,5,0.35)'),
+          borderColor: light
+            ? (scrolled ? 'rgba(15,23,42,0.10)' : 'rgba(15,23,42,0.04)')
+            : (scrolled ? 'rgba(255,255,255,0.10)' : 'rgba(255,255,255,0.04)'),
           paddingTop: scrolled ? 8 : 16,
           paddingBottom: scrolled ? 8 : 16,
         }}
@@ -69,7 +73,7 @@ function Navbar({ items }) {
                   />
                 )}
                 <motion.img
-                  src="/brand/logo-mark-light.svg"
+                  src={light ? "/brand/logo-mark-full.svg" : "/brand/logo-mark-light.svg"}
                   alt=""
                   aria-hidden="true"
                   width="40"
@@ -93,7 +97,7 @@ function Navbar({ items }) {
                   className="w-auto shrink-0"
                 />
               </motion.span>
-              <span className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-200 group-hover:text-brand xs:text-sm sm:tracking-[0.28em] sm:text-base">
+              <span className={`text-[0.72rem] font-semibold uppercase tracking-[0.18em] transition-colors duration-200 xs:text-sm sm:tracking-[0.28em] sm:text-base ${light ? "text-slate-900 group-hover:text-sky-700" : "text-white group-hover:text-brand"}`}>
                 Instant Production
               </span>
             </Link>
@@ -113,13 +117,15 @@ function Navbar({ items }) {
                   to={item.to}
                   onMouseEnter={() => setHovered(item.label)}
                   className={`relative rounded-full px-4 py-2 transition-colors duration-200 ${
-                    active ? 'text-brand' : 'text-zinc-300 hover:text-white'
+                    active
+                      ? (light ? 'text-sky-700' : 'text-brand')
+                      : (light ? 'text-slate-600 hover:text-slate-900' : 'text-zinc-300 hover:text-white')
                   }`}
                 >
                   {hovered === item.label && !reduce && (
                     <motion.span
                       layoutId="nav-hover"
-                      className="absolute inset-0 -z-10 rounded-full bg-white/[0.07]"
+                      className={`absolute inset-0 -z-10 rounded-full ${light ? "bg-slate-900/[0.05]" : "bg-white/[0.07]"}`}
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -127,12 +133,12 @@ function Navbar({ items }) {
                   {active && !reduce && (
                     <motion.span
                       layoutId="nav-active"
-                      className="absolute inset-x-3 -bottom-0.5 h-[2px] rounded-full bg-brand shadow-[0_0_12px_rgba(245,158,11,0.8)]"
+                      className={`absolute inset-x-3 -bottom-0.5 h-[2px] rounded-full ${light ? "bg-sky-600" : "bg-brand shadow-[0_0_12px_rgba(245,158,11,0.8)]"}`}
                       transition={{ type: 'spring', stiffness: 380, damping: 32 }}
                     />
                   )}
                   {active && reduce && (
-                    <span className="absolute inset-x-3 -bottom-0.5 h-[2px] rounded-full bg-brand" />
+                    <span className={`absolute inset-x-3 -bottom-0.5 h-[2px] rounded-full ${light ? "bg-sky-600" : "bg-brand"}`} />
                   )}
                 </Cmp>
               );
@@ -143,9 +149,9 @@ function Navbar({ items }) {
             <Magnetic strength={0.4}>
               <Link
                 to="/#contact"
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-brand/40 bg-brand/10 px-5 py-2.5 text-sm font-semibold text-brand transition-colors duration-200 hover:text-black"
+                className={`group relative inline-flex items-center gap-2 overflow-hidden rounded-full px-5 py-2.5 text-sm font-semibold transition-colors duration-200 ${light ? "border border-sky-600 bg-sky-600 text-white hover:bg-sky-700" : "border border-brand/40 bg-brand/10 text-brand hover:text-black"}`}
               >
-                <span className="absolute inset-0 -z-10 translate-y-full bg-brand transition-transform duration-300 ease-expo group-hover:translate-y-0" />
+                {!light && <span className="absolute inset-0 -z-10 translate-y-full bg-brand transition-transform duration-300 ease-expo group-hover:translate-y-0" />}
                 Contact Us
                 <FiArrowUpRight className="transition-transform duration-300 ease-expo group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
@@ -153,7 +159,7 @@ function Navbar({ items }) {
           </div>
 
           <button
-            className="relative z-[60] rounded-full border border-white/10 p-2 text-white lg:hidden"
+            className={`relative z-[60] rounded-full p-2 lg:hidden ${light ? "border border-slate-200 text-slate-900" : "border border-white/10 text-white"}`}
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? 'Close navigation' : 'Open navigation'}
             aria-expanded={open}
@@ -173,7 +179,7 @@ function Navbar({ items }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.28 }}
-            className="fixed inset-0 z-40 bg-ink/95 backdrop-blur-2xl lg:hidden"
+            className={`fixed inset-0 z-40 backdrop-blur-2xl lg:hidden ${light ? "bg-white/97" : "bg-ink/95"}`}
           >
             <motion.nav
               initial="hidden"
@@ -194,7 +200,9 @@ function Navbar({ items }) {
                     to={item.to}
                     onClick={() => setOpen(false)}
                     className={`block py-2 text-3xl font-semibold tracking-tight transition-colors ${
-                      isActive(item.to) ? 'text-brand' : 'text-zinc-200 hover:text-brand'
+                      isActive(item.to)
+                        ? (light ? 'text-sky-700' : 'text-brand')
+                        : (light ? 'text-slate-700 hover:text-sky-700' : 'text-zinc-200 hover:text-brand')
                     }`}
                   >
                     {item.label}

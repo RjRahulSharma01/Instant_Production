@@ -64,14 +64,17 @@ function ScrollToTop() {
 
 function Layout() {
   const { pathname } = useLocation();
+  // The healthcare landing page is a light-theme microsite, so the shared
+  // header and footer have to invert with it.
+  const light = pathname.startsWith('/industries/healthcare');
 
   return (
-    <div className="min-h-screen bg-ink text-zinc-100">
+    <div className={`min-h-screen ${light ? 'bg-white text-slate-900' : 'bg-ink text-zinc-100'}`}>
       <SmoothScroll />
       <ScrollProgress />
       <Cursor />
       <ScrollToTop />
-      <Navbar items={navItems} />
+      <Navbar items={navItems} light={light} />
       <main>
         <AnimatePresence mode="wait">
           <PageTransition key={pathname}>
@@ -79,7 +82,7 @@ function Layout() {
           </PageTransition>
         </AnimatePresence>
       </main>
-      <Footer footerData={footerData} />
+      <Footer footerData={footerData} light={light} />
     </div>
   );
 }
