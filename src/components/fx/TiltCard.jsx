@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from 'framer-motion';
+import { useIsTouch } from '../../lib/useMediaQuery';
 
 /**
  * 3D tilt that follows the pointer, with a specular sheen that tracks the
@@ -7,6 +8,7 @@ import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } fro
  */
 export default function TiltCard({ children, className = '', max = 10, variants, ...rest }) {
   const reduce = useReducedMotion();
+  const touch = useIsTouch();
   const ref = useRef(null);
 
   const px = useMotionValue(0.5);
@@ -19,7 +21,8 @@ export default function TiltCard({ children, className = '', max = 10, variants,
   const sheenX = useTransform(sx, [0, 1], ['0%', '100%']);
   const sheenY = useTransform(sy, [0, 1], ['0%', '100%']);
 
-  if (reduce) {
+  // Tilt is pointer-driven; on touch it only leaves cards stuck mid-rotation.
+  if (reduce || touch) {
     return (
       <motion.div className={className} variants={variants} {...rest}>
         {children}

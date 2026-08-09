@@ -21,7 +21,7 @@ function Services({ services }) {
         </motion.div>
 
         <motion.div
-          className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3"
           initial="hidden"
           whileInView="show"
           viewport={viewport}
@@ -61,7 +61,7 @@ function Services({ services }) {
                   </div>
                 </div>
 
-                <div className="flex flex-1 flex-col p-6">
+                <div className="flex flex-1 flex-col p-5 sm:p-6">
                   <h3 className="text-xl font-semibold text-white">{service.title}</h3>
                   <p className="mt-3 text-sm leading-7 text-zinc-400">{service.description}</p>
 

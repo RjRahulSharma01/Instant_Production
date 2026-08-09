@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useReducedMotion } from 'framer-motion';
+import { useIsTouch } from '../../lib/useMediaQuery';
 
 /**
  * Pulls the element gently toward the cursor while hovered.
@@ -7,13 +8,14 @@ import { motion, useMotionValue, useSpring, useReducedMotion } from 'framer-moti
  */
 export default function Magnetic({ children, className = '', strength = 0.35 }) {
   const reduce = useReducedMotion();
+  const touch = useIsTouch();
   const ref = useRef(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const sx = useSpring(x, { stiffness: 260, damping: 18, mass: 0.4 });
   const sy = useSpring(y, { stiffness: 260, damping: 18, mass: 0.4 });
 
-  if (reduce) return <span className={className}>{children}</span>;
+  if (reduce || touch) return <span className={className}>{children}</span>;
 
   const onMove = (e) => {
     const r = ref.current?.getBoundingClientRect();

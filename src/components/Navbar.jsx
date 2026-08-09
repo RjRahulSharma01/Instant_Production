@@ -59,7 +59,7 @@ function Navbar({ items }) {
                 transition={{ duration: 0.35, ease: EASE }}
                 className="w-auto shrink-0"
               />
-              <span className="text-sm font-semibold uppercase tracking-[0.28em] text-white transition-colors duration-200 group-hover:text-brand sm:text-base">
+              <span className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-200 group-hover:text-brand xs:text-sm sm:tracking-[0.28em] sm:text-base">
                 Instant Production
               </span>
             </Link>

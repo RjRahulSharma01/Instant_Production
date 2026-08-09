@@ -68,6 +68,70 @@ html.lenis, html.lenis body { height: auto; }
 /* Hint the compositor for transform-heavy cards */
 .tilt-layer { will-change: transform; }
 
+
+/* ---------------------------------------------------------------
+   Mobile
+   --------------------------------------------------------------- */
+
+/* Notch and home-indicator safe areas */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+@media (max-width: 1023px) {
+  /* One section per scroll.
+     `proximity`, not `mandatory`: sections taller than the screen (the
+     services grid is ten cards) must stay freely scrollable, or their
+     lower half becomes unreachable. Proximity snaps to a section start
+     when you land near one and otherwise gets out of the way. */
+  html {
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 4.5rem; /* clears the sticky header */
+  }
+
+  main section,
+  footer {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+
+  /* Stop rubber-banding past the ends inside scrollers */
+  body { overscroll-behavior-y: none; }
+}
+
+@media (hover: none), (pointer: coarse) {
+  /* Grey flash on tap looks broken on a dark UI */
+  * { -webkit-tap-highlight-color: transparent; }
+
+  /* Fingers need a real target. WCAG asks for 44px. */
+  a, button, [role='button'], input[type='submit'] {
+    min-height: 44px;
+  }
+  nav a, footer a { min-height: 40px; display: inline-flex; align-items: center; }
+
+  /* Hover styles latch on after a tap on touch devices, so never let a
+     hover-only effect be the thing that reveals content. */
+  .group:hover .group-hover\:opacity-100 { opacity: 1; }
+
+  /* Momentum scrolling for any horizontal strip */
+  .snap-x-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+  }
+  .snap-x-scroll > * { scroll-snap-align: start; }
+}
+
+/* Never let anything push the page sideways on a phone.
+   `clip`, not `hidden`: hidden turns these into scroll containers, which
+   silently breaks position:sticky on the navbar. */
+html, body { max-width: 100%; overflow-x: clip; }
+
+/* Media should always behave inside its box */
+img, video, canvas, svg, iframe { max-width: 100%; }
+
 /* Honour the OS "reduce motion" setting. Framer Motion is handled in JS via
    useReducedMotion(); this covers CSS transitions and smooth scrolling. */
 @media (prefers-reduced-motion: reduce) {

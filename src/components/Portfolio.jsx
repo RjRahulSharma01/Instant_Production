@@ -44,7 +44,7 @@ function Portfolio({ projects }) {
           />
         </motion.div>
 
-        <div role="tablist" aria-label="Filter projects by category" className="mt-8 flex flex-wrap gap-3">
+        <div role="tablist" aria-label="Filter projects by category" className="snap-x-scroll -mx-4 mt-8 flex gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
           {categories.map((category) => {
             const selected = activeFilter === category;
             return (
@@ -52,8 +52,9 @@ function Portfolio({ projects }) {
                 key={category}
                 role="tab"
                 aria-selected={selected}
+                type="button"
                 onClick={() => setActiveFilter(category)}
-                className={`relative rounded-full border px-4 py-2 text-sm font-semibold transition-colors duration-200 ${
+                className={`relative shrink-0 whitespace-nowrap rounded-full border px-4 py-2 text-sm font-semibold transition-colors duration-200 ${
                   selected
                     ? 'border-brand text-black'
                     : 'border-white/10 bg-white/5 text-zinc-300 hover:border-brand/40 hover:text-brand'

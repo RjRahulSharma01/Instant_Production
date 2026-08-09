@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { EASE } from '../lib/motion';
+import { useIsMobile } from '../lib/useMediaQuery';
 import SplitText from './fx/SplitText';
 import CountUp from './fx/CountUp';
 import Magnetic from './fx/Magnetic';
@@ -10,6 +11,7 @@ import { FiArrowRight, FiPlay } from 'react-icons/fi';
 
 function Hero({ heroData }) {
   const reduce = useReducedMotion();
+  const isMobile = useIsMobile();
   const ref = useRef(null);
 
   // Scroll-linked parallax: the video drifts slower than the page, the
@@ -25,20 +27,25 @@ function Hero({ heroData }) {
   const copyOpacity = useTransform(scrollYProgress, [0, 0.75], [1, reduce ? 1 : 0.15]);
 
   return (
-    <section ref={ref} id="home" className="relative overflow-hidden bg-ink py-24 sm:py-28 lg:py-32">
+    <section ref={ref} id="home" className="relative flex min-h-[100svh] items-center overflow-hidden bg-ink py-20 sm:py-28 lg:min-h-0 lg:py-32">
       <motion.div className="absolute inset-0" style={{ y: videoY, scale: videoScale }}>
         {/* Branded backdrop sits under the video so there is never a flat
             black frame while it buffers. */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(245,158,11,0.20),transparent_55%),radial-gradient(ellipse_at_75%_80%,rgba(245,158,11,0.10),transparent_50%),linear-gradient(135deg,#050505,#141416)]" />
-        <video
-          className="relative h-full w-full object-cover"
-          src={heroData.backgroundVideo}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        />
+        {/* The montage is ~16 MB. Downloading that over cellular for a
+            decorative backdrop is indefensible, so phones get the gradient
+            only — which is what shows during buffering on desktop anyway. */}
+        {!isMobile && (
+          <video
+            className="relative h-full w-full object-cover"
+            src={heroData.backgroundVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/60" />
         <div className="absolute inset-0 bg-ink/40" />
         <div className="absolute left-0 top-0 h-full w-full bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.18),transparent_28%)]" />
@@ -58,10 +65,10 @@ function Hero({ heroData }) {
           <SplitText
             as="h1"
             text={heroData.title}
-            className="block text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl"
+            className="block text-[2rem] font-semibold leading-[1.12] text-white sm:text-5xl lg:text-6xl"
             stagger={0.05}
           />
-          <p className="mt-6 max-w-xl text-lg leading-8 text-zinc-300">
+          <p className="mt-5 max-w-xl text-base leading-7 text-zinc-300 sm:mt-6 sm:text-lg sm:leading-8">
             {heroData.description}
           </p>
 
@@ -89,7 +96,7 @@ function Hero({ heroData }) {
             </Link>
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+          <div className="mt-8 grid grid-cols-3 gap-3 sm:mt-10 sm:gap-4">
             {heroData.stats.map((stat) => (
               <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-card">
                 <CountUp value={stat.value} className="block text-2xl font-semibold text-white" />
@@ -103,7 +110,7 @@ function Hero({ heroData }) {
           initial={reduce ? false : { opacity: 0, x: 24 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
-          className="relative"
+          className="relative hidden md:block"
         >
           <div className="rounded-panel border border-white/10 bg-gradient-to-br from-zinc-900 via-zinc-950 to-black p-6 shadow-panel">
             <div className="rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-brand/25 via-transparent to-brand/10 p-6">

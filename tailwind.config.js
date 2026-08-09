@@ -3,6 +3,10 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      screens: {
+        // Small phones (iPhone SE is 375px)
+        xs: '400px',
+      },
       colors: {
         brand: {
           DEFAULT: '#f59e0b',

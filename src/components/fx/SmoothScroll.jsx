@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useReducedMotion } from 'framer-motion';
 import Lenis from 'lenis';
+import { useIsTouch } from '../../lib/useMediaQuery';
 
 /**
  * Inertial smooth scrolling. Mounted once in Layout.
@@ -9,9 +10,12 @@ import Lenis from 'lenis';
  */
 export default function SmoothScroll() {
   const reduce = useReducedMotion();
+  const touch = useIsTouch();
 
   useEffect(() => {
-    if (reduce) return undefined;
+    // Native momentum scrolling on phones is already excellent, and hijacking
+    // it breaks CSS scroll-snap. Desktop keeps the weighted Lenis feel.
+    if (reduce || touch) return undefined;
 
     const lenis = new Lenis({
       duration: 1.05,
@@ -52,7 +56,7 @@ export default function SmoothScroll() {
       lenis.destroy();
       delete window.__lenis;
     };
-  }, [reduce]);
+  }, [reduce, touch]);
 
   return null;
 }
