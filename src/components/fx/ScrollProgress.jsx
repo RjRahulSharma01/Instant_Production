@@ -1,4 +1,5 @@
 import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion';
+import { useIsTouch } from '../../lib/useMediaQuery';
 
 /**
  * Amber progress bar pinned to the top of the viewport.
@@ -8,9 +9,10 @@ import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion';
  */
 export default function ScrollProgress() {
   const reduce = useReducedMotion();
+  const touch = useIsTouch();
   const { scrollYProgress } = useScroll();
   const smooth = useSpring(scrollYProgress, { stiffness: 140, damping: 26, restDelta: 0.001 });
-  const scaleX = reduce ? scrollYProgress : smooth;
+  const scaleX = reduce || touch ? scrollYProgress : smooth;
 
   return (
     <motion.div

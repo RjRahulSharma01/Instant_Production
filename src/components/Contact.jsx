@@ -71,25 +71,45 @@ function Contact({ contactData }) {
   };
 
   return (
-    <section id="contact" className="px-4 py-24 sm:px-6 lg:px-8">
+    <section id="contact" className="snap-point px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
       <motion.div
         initial="hidden"
         whileInView="show"
         viewport={viewport}
         variants={fadeUp}
-        className="mx-auto grid max-w-7xl gap-8 rounded-panel border border-white/10 bg-white/5 p-8 shadow-panel lg:grid-cols-[0.9fr_1.1fr] lg:p-12"
+        className="mx-auto grid max-w-7xl gap-8 rounded-panel border border-white/10 bg-white/5 p-6 shadow-panel sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-12"
       >
         <div>
           <p className="text-sm font-semibold uppercase tracking-eyebrow text-brand">Contact</p>
           <SplitText as="h2" text={contactData.title} className="mt-4 block text-3xl font-semibold text-white sm:text-4xl" />
           <p className="mt-5 text-lg leading-8 text-zinc-300">{contactData.description}</p>
-          <div className="mt-8 space-y-3 text-sm text-zinc-300">
-            <p><span className="font-semibold text-white">Phone:</span> {contactData.phone}</p>
-            <p><span className="font-semibold text-white">Email:</span> {contactData.email}</p>
-            <p><span className="font-semibold text-white">Director:</span> {contactData.directorName}</p>
-            <p><span className="font-semibold text-white">Studio:</span> {contactData.address}</p>
-          </div>
-          <div className="mt-8 h-64 overflow-hidden rounded-[1.5rem] border border-white/10 bg-zinc-900">
+          <dl className="mt-7 grid grid-cols-2 gap-x-4 gap-y-4 text-sm sm:mt-8">
+            <div className="col-span-2 sm:col-span-1">
+              <dt className="text-xs uppercase tracking-[0.2em] text-zinc-500">Email</dt>
+              <dd className="mt-1 break-all">
+                <a href={`mailto:${contactData.email}`} className="text-zinc-200 transition hover:text-brand">
+                  {contactData.email}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="text-xs uppercase tracking-[0.2em] text-zinc-500">Phone</dt>
+              <dd className="mt-1">
+                <a href={`tel:+91${contactData.phone}`} className="text-zinc-200 transition hover:text-brand">
+                  +91 {contactData.phone}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="text-xs uppercase tracking-[0.2em] text-zinc-500">Studio</dt>
+              <dd className="mt-1 text-zinc-200">{contactData.address}</dd>
+            </div>
+            <div>
+              <dt className="text-xs uppercase tracking-[0.2em] text-zinc-500">Director</dt>
+              <dd className="mt-1 text-zinc-200">{contactData.directorName}</dd>
+            </div>
+          </dl>
+          <div className="mt-7 h-44 overflow-hidden rounded-[1.5rem] border border-white/10 bg-zinc-900 sm:mt-8 sm:h-64">
             <iframe
               title="Instant Production — Sector-69, Noida"
               src="https://maps.google.com/maps?q=Sector%2069%2C%20Noida&z=14&output=embed"

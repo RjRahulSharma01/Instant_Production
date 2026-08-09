@@ -21,7 +21,7 @@ function Services({ services }) {
         </motion.div>
 
         <motion.div
-          className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3"
+          className="snap-x-scroll -mx-4 mt-10 flex gap-4 overflow-x-auto px-4 pb-3 sm:mx-0 sm:mt-12 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3"
           initial="hidden"
           whileInView="show"
           viewport={viewport}
@@ -37,7 +37,7 @@ function Services({ services }) {
                 key={service.id}
                 variants={cardIn}
                 max={7}
-                className={`group flex h-full flex-col overflow-hidden rounded-card border border-white/10 bg-white/[0.04] text-left transition-colors duration-300 hover:border-brand/40 hover:bg-white/[0.07] ${
+                className={`group flex h-full w-[82vw] shrink-0 flex-col overflow-hidden rounded-card border border-white/10 bg-white/[0.04] text-left transition-colors duration-300 hover:border-brand/40 hover:bg-white/[0.07] sm:w-auto sm:shrink ${
                   wide ? 'sm:col-span-2' : ''
                 }`}
               >
@@ -83,6 +83,8 @@ function Services({ services }) {
             );
           })}
         </motion.div>
+
+        <p className="mt-3 text-xs text-zinc-500 sm:hidden">Swipe to see all {services.length} services →</p>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useReducedMotion } from 'framer-motion';
+import { useIsTouch } from '../../lib/useMediaQuery';
 
 /**
  * StudioWave — an interactive audio/video timeline visual.
@@ -13,7 +14,12 @@ import { useReducedMotion } from 'framer-motion';
  * renders a single static frame and never starts the loop.
  */
 export default function StudioWave({ className = '', bars = 64, height = 132 }) {
+  // fewer, shorter bars on a narrow screen
   const reduce = useReducedMotion();
+  const touch = useIsTouch();
+  // A 60fps canvas loop is a real battery and jank cost on a phone, and the
+  // pointer interaction it exists for does not apply to touch.
+  const still = reduce || touch;
   const canvasRef = useRef(null);
   const wrapRef = useRef(null);
   const pointer = useRef({ x: -999, active: false });
@@ -42,13 +48,13 @@ export default function StudioWave({ className = '', bars = 64, height = 132 }) 
     const ro = new ResizeObserver(resize);
     ro.observe(wrap);
 
-    const gap = 3;
+    const gap = width < 480 ? 2 : 3;
 
     const draw = (t) => {
       const barW = Math.max(2, width / bars - gap);
       ctx.clearRect(0, 0, width, height);
 
-      const playhead = reduce ? 0.35 : ((t / 4200) % 1);
+      const playhead = still ? 0.35 : ((t / 4200) % 1);
       const px = playhead * width;
 
       for (let i = 0; i < bars; i += 1) {
@@ -56,7 +62,7 @@ export default function StudioWave({ className = '', bars = 64, height = 132 }) 
         const centre = x + barW / 2;
 
         // base shape: two offset sines so it never looks mechanically regular
-        const phase = reduce ? 0 : t / 620;
+        const phase = still ? 0 : t / 620;
         let amp =
           0.42 +
           0.3 * Math.sin(i * 0.32 + phase) +
@@ -93,7 +99,7 @@ export default function StudioWave({ className = '', bars = 64, height = 132 }) 
       }
 
       // playhead
-      if (!reduce) {
+      if (!still) {
         ctx.fillStyle = 'rgba(245, 158, 11, 0.85)';
         ctx.fillRect(px, 0, 1, height);
         ctx.fillStyle = 'rgba(245, 158, 11, 0.14)';
@@ -101,7 +107,7 @@ export default function StudioWave({ className = '', bars = 64, height = 132 }) 
       }
     };
 
-    if (reduce) {
+    if (still) {
       draw(0);
     } else {
       const loop = (t) => {
@@ -115,7 +121,7 @@ export default function StudioWave({ className = '', bars = 64, height = 132 }) 
       ro.disconnect();
       if (raf) cancelAnimationFrame(raf);
     };
-  }, [bars, height, reduce]);
+  }, [bars, height, still]);
 
   const onMove = (e) => {
     const r = wrapRef.current?.getBoundingClientRect();

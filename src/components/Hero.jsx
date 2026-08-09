@@ -27,25 +27,26 @@ function Hero({ heroData }) {
   const copyOpacity = useTransform(scrollYProgress, [0, 0.75], [1, reduce ? 1 : 0.15]);
 
   return (
-    <section ref={ref} id="home" className="relative flex min-h-[100svh] items-center overflow-hidden bg-ink py-20 sm:py-28 lg:min-h-0 lg:py-32">
+    <section ref={ref} id="home" className="snap-point relative flex min-h-[100svh] items-center overflow-hidden bg-ink py-20 sm:py-28 lg:min-h-0 lg:py-32">
       <motion.div className="absolute inset-0" style={{ y: videoY, scale: videoScale }}>
         {/* Branded backdrop sits under the video so there is never a flat
             black frame while it buffers. */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(245,158,11,0.20),transparent_55%),radial-gradient(ellipse_at_75%_80%,rgba(245,158,11,0.10),transparent_50%),linear-gradient(135deg,#050505,#141416)]" />
-        {/* The montage is ~16 MB. Downloading that over cellular for a
-            decorative backdrop is indefensible, so phones get the gradient
-            only — which is what shows during buffering on desktop anyway. */}
-        {!isMobile && (
-          <video
-            className="relative h-full w-full object-cover"
-            src={heroData.backgroundVideo}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-          />
-        )}
+        {/* Re-encoded from the 16 MB original: 1.6 MB desktop, 0.5 MB mobile.
+            Phones get the smaller rendition; the poster paints instantly so
+            there is never an empty frame while it buffers. */}
+        <video
+          key={isMobile ? 'm' : 'd'}
+          className="relative h-full w-full object-cover"
+          src={isMobile ? heroData.backgroundVideoMobile : heroData.backgroundVideo}
+          poster={heroData.backgroundPoster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/60" />
         <div className="absolute inset-0 bg-ink/40" />
         <div className="absolute left-0 top-0 h-full w-full bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.18),transparent_28%)]" />

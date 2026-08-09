@@ -74,9 +74,9 @@ function Footer({ footerData }) {
         whileInView="show"
         viewport={viewport}
         variants={stagger(0.08)}
-        className="relative mx-auto grid max-w-7xl gap-10 rounded-panel border border-white/10 bg-white/[0.04] p-8 lg:grid-cols-[1.3fr_0.7fr_0.9fr_1fr] lg:p-10"
+        className="relative mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-8 rounded-panel border border-white/10 bg-white/[0.04] p-6 sm:gap-10 sm:p-8 lg:grid-cols-[1.3fr_0.7fr_0.9fr_1fr] lg:p-10"
       >
-        <motion.div variants={cardIn}>
+        <motion.div variants={cardIn} className="col-span-2 lg:col-span-1">
           <img
             src="/brand/logo-light.svg"
             alt="Instant Production"
@@ -125,7 +125,7 @@ function Footer({ footerData }) {
           </ul>
         </motion.div>
 
-        <motion.div variants={cardIn}>
+        <motion.div variants={cardIn} className="col-span-2 lg:col-span-1">
           <h3 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-brand">
             Contact
             <span aria-hidden="true" className="h-px flex-1 bg-gradient-to-r from-brand/50 to-transparent" />
@@ -167,7 +167,7 @@ function Footer({ footerData }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.9, ease: EASE }}
-          className="pointer-events-none mt-6 select-none text-center text-[13vw] font-semibold leading-[0.8] tracking-tight text-white/[0.035] sm:text-[11vw]"
+          className="pointer-events-none mt-6 hidden select-none text-center text-[11vw] font-semibold leading-[0.8] tracking-tight text-white/[0.035] sm:block"
         >
           INSTANT PRODUCTION
         </motion.p>

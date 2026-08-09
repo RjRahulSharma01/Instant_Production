@@ -1,11 +1,14 @@
 import { motion, useReducedMotion } from 'framer-motion';
+import { useIsTouch } from '../../lib/useMediaQuery';
 
 /** Infinite horizontal ticker. Static list under reduced motion. */
 export default function Marquee({ items, speed = 28, className = '' }) {
   const reduce = useReducedMotion();
+  const touch = useIsTouch();
+  const still = reduce || touch;
   const row = [...items, ...items];
 
-  if (reduce) {
+  if (still) {
     return (
       <div className={`flex flex-wrap justify-center gap-x-8 gap-y-2 ${className}`}>
         {items.map((t) => <span key={t}>{t}</span>)}

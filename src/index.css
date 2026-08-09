@@ -92,14 +92,22 @@ html.lenis, html.lenis body { height: auto; }
     scroll-padding-top: 4.5rem; /* clears the sticky header */
   }
 
-  main section,
-  footer {
+  /* Snap only at arrival points. Snapping every section made mid-page
+     scrolling feel grabbed and "pausy" — long sections need to be scrolled
+     through freely, not fought. */
+  .snap-point {
     scroll-snap-align: start;
     scroll-snap-stop: normal;
   }
 
   /* Stop rubber-banding past the ends inside scrollers */
   body { overscroll-behavior-y: none; }
+}
+
+/* Sections breathe less on a phone — 96px of padding top and bottom on a
+   844px screen means a third of every scroll is empty space. */
+@media (max-width: 639px) {
+  section.px-4.py-24 { padding-top: 4rem; padding-bottom: 4rem; }
 }
 
 @media (hover: none), (pointer: coarse) {

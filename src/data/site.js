@@ -22,7 +22,11 @@ export const heroData = {
     'Website Development',
     'Influencer Marketing',
   ],
-  backgroundVideo: 'https://wcvhc1swgp4jnn9a.public.blob.vercel-storage.com/Montage%20-%20Instant%20production%20%281%29.mp4',
+  // Re-encoded from the 16 MB Blob original: same 14s clip, 90% smaller.
+  // Served from the site's own CDN rather than Blob storage.
+  backgroundVideo: '/videos/hero-1280.mp4',
+  backgroundVideoMobile: '/videos/hero-720.mp4',
+  backgroundPoster: '/videos/hero-poster.webp',
   primaryCta: 'See Our Work',
   secondaryCta: 'Book a Strategy Call',
   stats: [
