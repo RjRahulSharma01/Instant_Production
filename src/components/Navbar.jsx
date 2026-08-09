@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useReducedMotion, useScroll, useMotionValueEve
 import { FiMenu, FiX, FiArrowUpRight } from 'react-icons/fi';
 import Magnetic from './fx/Magnetic';
 import { EASE } from '../lib/motion';
+import { useIsMobile } from '../lib/useMediaQuery';
 
 function Navbar({ items }) {
   const [open, setOpen] = useState(false);
@@ -12,6 +13,7 @@ function Navbar({ items }) {
   const { pathname, hash } = useLocation();
   const reduce = useReducedMotion();
   const { scrollY } = useScroll();
+  const isMobile = useIsMobile();
 
   useMotionValueEvent(scrollY, 'change', (v) => setScrolled(v > 24));
 
@@ -49,16 +51,48 @@ function Navbar({ items }) {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Magnetic strength={0.25}>
             <Link to="/" className="group flex items-center gap-3" aria-label="Instant Production — home">
-              <motion.img
-                src="/brand/logo-mark-light.svg"
-                alt=""
-                aria-hidden="true"
-                width="40"
-                height="37"
-                animate={{ height: scrolled ? 28 : 36 }}
-                transition={{ duration: 0.35, ease: EASE }}
-                className="w-auto shrink-0"
-              />
+              <motion.span
+                className="relative flex shrink-0 items-center"
+                initial={reduce ? false : { opacity: 0, scale: 0.7, rotate: -12 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ type: 'spring', stiffness: 260, damping: 16, delay: 0.1 }}
+                whileTap={reduce ? undefined : { scale: 0.88, rotate: -6 }}
+              >
+                {/* Slow amber breath behind the mark — reads as a light on a
+                    set. Mobile only; desktop already has plenty of motion. */}
+                {isMobile && !reduce && (
+                  <motion.span
+                    aria-hidden="true"
+                    className="absolute inset-0 -z-10 rounded-full bg-brand/30 blur-lg"
+                    animate={{ opacity: [0.25, 0.6, 0.25], scale: [0.85, 1.15, 0.85] }}
+                    transition={{ duration: 3.6, repeat: Infinity, ease: 'easeInOut' }}
+                  />
+                )}
+                <motion.img
+                  src="/brand/logo-mark-light.svg"
+                  alt=""
+                  aria-hidden="true"
+                  width="40"
+                  height="37"
+                  animate={
+                    reduce
+                      ? { height: scrolled ? 28 : 36 }
+                      : isMobile
+                        ? { height: scrolled ? 26 : 34, y: [0, -2, 0], rotate: [0, -3, 0] }
+                        : { height: scrolled ? 28 : 36 }
+                  }
+                  transition={
+                    isMobile && !reduce
+                      ? {
+                          height: { duration: 0.35, ease: EASE },
+                          y: { duration: 3.6, repeat: Infinity, ease: 'easeInOut' },
+                          rotate: { duration: 3.6, repeat: Infinity, ease: 'easeInOut' },
+                        }
+                      : { duration: 0.35, ease: EASE }
+                  }
+                  className="w-auto shrink-0"
+                />
+              </motion.span>
               <span className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-200 group-hover:text-brand xs:text-sm sm:tracking-[0.28em] sm:text-base">
                 Instant Production
               </span>

@@ -35,6 +35,8 @@ export default function StudioWave({ className = '', bars = 64, height = 132 }) 
     let width = 0;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
+    let draw = () => {};
+
     const resize = () => {
       width = wrap.clientWidth;
       canvas.width = width * dpr;
@@ -42,15 +44,14 @@ export default function StudioWave({ className = '', bars = 64, height = 132 }) 
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      // When static there is no animation loop to pick up the new size, so
+      // repaint here. Without this the canvas stays blank whenever the first
+      // measurement happens before layout (which is the norm on mobile).
+      if (still) draw(0);
     };
-    resize();
 
-    const ro = new ResizeObserver(resize);
-    ro.observe(wrap);
-
-    const gap = width < 480 ? 2 : 3;
-
-    const draw = (t) => {
+    draw = (t) => {
+      const gap = width < 480 ? 2 : 3;
       const barW = Math.max(2, width / bars - gap);
       ctx.clearRect(0, 0, width, height);
 
@@ -106,6 +107,10 @@ export default function StudioWave({ className = '', bars = 64, height = 132 }) 
         ctx.fillRect(px - 14, 0, 14, height);
       }
     };
+
+    resize();
+    const ro = new ResizeObserver(resize);
+    ro.observe(wrap);
 
     if (still) {
       draw(0);
