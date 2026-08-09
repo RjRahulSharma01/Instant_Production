@@ -5,6 +5,7 @@ import { EASE } from '../lib/motion';
 import SplitText from './fx/SplitText';
 import CountUp from './fx/CountUp';
 import Magnetic from './fx/Magnetic';
+import RotatingPanel from './fx/RotatingPanel';
 import { FiArrowRight, FiPlay } from 'react-icons/fi';
 
 function Hero({ heroData }) {
@@ -104,9 +105,7 @@ function Hero({ heroData }) {
               </div>
 
               <div className="mt-8 rounded-panel border border-white/10 bg-white/10 p-6 backdrop-blur">
-                <p className="text-sm uppercase tracking-[0.3em] text-zinc-400">Featured service</p>
-                <h2 className="mt-2 text-2xl font-semibold text-white">Visual branding that feels elevated</h2>
-                <p className="mt-3 text-zinc-300">Every launch, reel, website, and campaign is shaped with cinematic polish and measurable impact.</p>
+                <RotatingPanel items={heroData.featured} interval={3000} />
               </div>
 
               <div className="mt-6 grid gap-3">

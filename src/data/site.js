@@ -20,6 +20,27 @@ export const heroData = {
     { value: '12+', label: 'Years of expertise' },
     { value: '98%', label: 'Client retention' },
   ],
+  // Panels that auto-rotate in the hero card, one every few seconds.
+  featured: [
+    {
+      eyebrow: 'Featured service',
+      title: 'Visual branding that feels elevated',
+      description:
+        'Every launch, reel, website, and campaign is shaped with cinematic polish and measurable impact.',
+    },
+    {
+      eyebrow: 'AI cinematic experience',
+      title: 'Impossible, made possible',
+      description:
+        'Bring your story to life with the latest AI advance skills and make all impossible, possible.',
+    },
+    {
+      eyebrow: 'Influencer marketing',
+      title: '10,000+ creators, one story',
+      description:
+        "Connect with our 10,000+ UGC, Nano, Micro and Macro creators to tell your brand's story and reach the desired audiences.",
+    },
+  ],
   highlights: [
     { title: 'Cinematic content', description: 'Story-led visuals designed for premium growth.' },
     { title: 'Campaign-ready media', description: 'Ads, films, reels and brand stories built to perform.' },
