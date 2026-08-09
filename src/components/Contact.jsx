@@ -1,0 +1,154 @@
+import { motion } from 'framer-motion';
+import { fadeUp, viewport } from '../lib/motion';
+import SplitText from './fx/SplitText';
+import { useState } from 'react';
+
+// Web3Forms access key. Set VITE_WEB3FORMS_KEY in Vercel (and .env.local for dev).
+// Get a free key at https://web3forms.com — it is a public key, safe in client code.
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
+
+function Contact({ contactData }) {
+  const [form, setForm] = useState({ name: '', email: '', company: '', message: '' });
+  // 'idle' | 'sending' | 'success' | 'error'
+  const [status, setStatus] = useState('idle');
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const update = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
+
+  const mailtoHref = () => {
+    const subject = encodeURIComponent(`Website enquiry from ${form.name || 'Website'}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company}\n\nMessage:\n${form.message}`
+    );
+    return `mailto:${contactData.email}?subject=${subject}&body=${body}`;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Honeypot: bots fill hidden fields, humans do not.
+    if (e.target.botcheck?.checked) return;
+
+    if (!WEB3FORMS_KEY) {
+      setStatus('error');
+      setErrorMsg('Form is not configured yet.');
+      return;
+    }
+
+    setStatus('sending');
+    setErrorMsg('');
+
+    try {
+      const resp = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `New enquiry from ${form.name || 'the website'}`,
+          from_name: 'instantproduction.in',
+          name: form.name,
+          email: form.email,
+          company: form.company,
+          message: form.message,
+        }),
+      });
+
+      const data = await resp.json().catch(() => ({}));
+
+      // Only claim success when the API actually confirms it.
+      if (resp.ok && data.success) {
+        setStatus('success');
+        setForm({ name: '', email: '', company: '', message: '' });
+      } else {
+        setStatus('error');
+        setErrorMsg(data.message || 'The server rejected the message.');
+      }
+    } catch (err) {
+      setStatus('error');
+      setErrorMsg('Network error.');
+    }
+  };
+
+  return (
+    <section id="contact" className="px-4 py-24 sm:px-6 lg:px-8">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={viewport}
+        variants={fadeUp}
+        className="mx-auto grid max-w-7xl gap-8 rounded-panel border border-white/10 bg-white/5 p-8 shadow-panel lg:grid-cols-[0.9fr_1.1fr] lg:p-12"
+      >
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-eyebrow text-brand">Contact</p>
+          <SplitText as="h2" text={contactData.title} className="mt-4 block text-3xl font-semibold text-white sm:text-4xl" />
+          <p className="mt-5 text-lg leading-8 text-zinc-300">{contactData.description}</p>
+          <div className="mt-8 space-y-3 text-sm text-zinc-300">
+            <p><span className="font-semibold text-white">Phone:</span> {contactData.phone}</p>
+            <p><span className="font-semibold text-white">Email:</span> {contactData.email}</p>
+            <p><span className="font-semibold text-white">Director:</span> {contactData.directorName}</p>
+            <p><span className="font-semibold text-white">Location:</span> {contactData.address}</p>
+          </div>
+          <div className="mt-8 h-64 overflow-hidden rounded-[1.5rem] border border-white/10 bg-zinc-900">
+            <iframe
+              title="Instant Production - B-25 Sector-69 Noida"
+              src="https://maps.google.com/maps?q=B-25%2C%20Sector-69%2C%20Noida%2C%20Uttar%20Pradesh%2C%20India&z=15&output=embed"
+              className="h-full w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </div>
+        </div>
+
+        <form onSubmit={handleSubmit} noValidate={false} className="relative rounded-card border border-white/10 bg-black/30 p-6">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <input value={form.name} onChange={update('name')} required className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition-all duration-300 ease-expo placeholder:text-zinc-500 focus:border-brand/60 focus:bg-white/[0.08] focus:shadow-[0_0_0_3px_rgba(245,158,11,0.15)]" placeholder="Your Name" />
+            <input value={form.email} onChange={update('email')} type="email" required className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition-all duration-300 ease-expo placeholder:text-zinc-500 focus:border-brand/60 focus:bg-white/[0.08] focus:shadow-[0_0_0_3px_rgba(245,158,11,0.15)]" placeholder="Email Address" />
+          </div>
+          <input value={form.company} onChange={update('company')} className="mt-4 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition-all duration-300 ease-expo placeholder:text-zinc-500 focus:border-brand/60 focus:bg-white/[0.08] focus:shadow-[0_0_0_3px_rgba(245,158,11,0.15)]" placeholder="Company" />
+          <textarea value={form.message} onChange={update('message')} required className="mt-4 min-h-40 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition-all duration-300 ease-expo placeholder:text-zinc-500 focus:border-brand/60 focus:bg-white/[0.08] focus:shadow-[0_0_0_3px_rgba(245,158,11,0.15)]" placeholder="Tell us about your project" />
+
+          {/* Honeypot — hidden from humans, catches bots. */}
+          <input
+            type="checkbox"
+            name="botcheck"
+            tabIndex={-1}
+            autoComplete="off"
+            className="absolute left-[-9999px] h-0 w-0 opacity-0"
+            aria-hidden="true"
+          />
+
+          <div className="mt-5 flex flex-wrap items-center gap-4">
+            <button
+              type="submit"
+              disabled={status === 'sending'}
+              className="rounded-full bg-brand px-6 py-3 font-semibold text-black transition duration-200 ease-expo hover:scale-[1.03] hover:shadow-glow disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100"
+            >
+              {status === 'sending' ? 'Sending…' : 'Send Message'}
+            </button>
+
+            {/* aria-live so screen readers announce the outcome. */}
+            <p role="status" aria-live="polite" className="text-sm">
+              {status === 'success' && (
+                <span className="text-emerald-400">
+                  Thanks — your message reached us. We usually reply within one working day.
+                </span>
+              )}
+              {status === 'error' && (
+                <span className="text-rose-400">
+                  {errorMsg} Please{' '}
+                  <a href={mailtoHref()} className="underline decoration-rose-400/50 underline-offset-2 hover:text-rose-300">
+                    email us directly
+                  </a>{' '}
+                  or call {contactData.phone}.
+                </span>
+              )}
+            </p>
+          </div>
+        </form>
+      </motion.div>
+    </section>
+  );
+}
+
+export default Contact;

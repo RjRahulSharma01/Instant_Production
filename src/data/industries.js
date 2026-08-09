@@ -1,0 +1,58 @@
+export const industries = [
+  {
+    id: 'healthcare',
+    title: 'Healthcare',
+    description: 'Patient-first narratives with clarity, warmth, and authority.',
+    icon: 'FaHeartbeat',
+    thumbnail: encodeURI('/images/healthcare-thumb-industries.webp'),
+  },
+  {
+    id: 'education',
+    title: 'Education',
+    description: 'EduTech visuals that explain, engage, and elevate brands.',
+    icon: 'FaGraduationCap',
+    thumbnail: encodeURI('/images/educational-thumb-industries.webp'),
+  },
+  {
+    id: 'fintech',
+    title: 'Fintech',
+    description: 'Trust-building storytelling for digital finance, banking, and payments.',
+    icon: 'FaChartLine',
+    thumbnail: encodeURI('/images/fintech-thumb.webp'),
+  },
+  {
+    id: 'ecommerce',
+    title: 'E-commerce',
+    description: 'Product and logistics content optimized for online shopping and fast fulfillment.',
+    icon: 'FaShoppingBag',
+    thumbnail: encodeURI('/images/e-commerece-thumb-industries.webp'),
+  },
+  {
+    id: 'automobile',
+    title: 'Automobile',
+    description: 'Automotive storytelling that captures vehicles, engineering, and production.',
+    icon: 'FaCar',
+    thumbnail: encodeURI('/images/auto-thumb.webp'),
+  },
+  {
+    id: 'beauty',
+    title: 'Beauty',
+    description: 'Beauty and wellness visuals focused on skincare, products, and salon experiences.',
+    icon: 'FaPalette',
+    thumbnail: encodeURI('/images/bauty-thumb.webp'),
+  },
+  {
+    id: 'technology',
+    title: 'Technology',
+    description: 'Digital transformation visuals with software, cloud, AI, and modern development teams.',
+    icon: 'FaLaptopCode',
+    thumbnail: encodeURI('/images/tech-thumb.webp'),
+  },
+  {
+    id: 'corporate',
+    title: 'Corporate',
+    description: 'Executive and team-focused visuals for business, meetings, and professional leadership.',
+    icon: 'FaBriefcase',
+    thumbnail: encodeURI('/images/corporate-thumb.webp'),
+  },
+];

@@ -1,0 +1,184 @@
+{
+  "nav": [
+    { "label": "Home", "href": "#home" },
+    { "label": "About", "href": "#about" },
+    { "label": "Services", "href": "#services" },
+    { "label": "Industries", "href": "#industries" },
+    { "label": "Portfolio", "href": "#portfolio" },
+    { "label": "Blog", "href": "#blog" },
+    { "label": "Contact Us", "href": "#contact" }
+  ],
+  "hero": {
+    "eyebrow": "Creative Production & Digital Marketing Agency",
+    "title": "We turn bold ideas into premium visual stories that move brands forward.",
+    "description": "From photography and videography to website development, digital marketing, and creative content, Instant Production helps brands grow with strategy-led execution.",
+    "primaryCta": "Contact Us",
+    "secondaryCta": "View Portfolio",
+    "stats": [
+      { "value": "250+", "label": "Campaigns launched" },
+      { "value": "12+", "label": "Years creating digital stories" },
+      { "value": "24/7", "label": "Creative support" }
+    ],
+    "highlights": [
+      { "title": "Visual strategy", "description": "Production aligned to your audience and growth goals." },
+      { "title": "Performance focus", "description": "Every asset crafted to connect, convert, and scale." }
+    ]
+  },
+  "about": {
+    "eyebrow": "About Instant Production",
+    "title": "A premium creative partner for brands that want to look sharp and perform stronger.",
+    "description": "We blend storytelling, design, campaigns, and execution into one high-impact experience. Our agency helps ambitious businesses stand out with refined visuals, modern websites, and growth-minded marketing.",
+    "points": [
+      "Creative direction tailored to your voice and audience",
+      "Photography, video, and digital marketing under one roof",
+      "Fast collaboration with polished, launch-ready results"
+    ],
+    "numbers": [
+      { "value": "98%", "label": "Client retention" },
+      { "value": "40+", "label": "Brands elevated" },
+      { "value": "5x", "label": "Average growth on campaign reach" }
+    ]
+  },
+  "services": [
+    {
+      "title": "Social Media Strategy",
+      "description": "A clear roadmap for content, community, and conversion across every platform.",
+      "icon": "FaCompass",
+      "bullets": ["Brand-positioning", "Content calendar planning", "Audience insight mapping"]
+    },
+    {
+      "title": "Content Creation",
+      "description": "Scroll-stopping visuals, video, and copy crafted for high engagement and trust.",
+      "icon": "FaPenNib",
+      "bullets": ["Reels and short-form assets", "Campaign storytelling", "On-brand creative systems"]
+    },
+    {
+      "title": "Paid Advertising",
+      "description": "Performance-driven campaigns designed to scale awareness and generate leads.",
+      "icon": "FaBullhorn",
+      "bullets": ["Meta and Google ads", "Pixel and retargeting", "Optimized creative testing"]
+    },
+    {
+      "title": "Website Development",
+      "description": "Modern, responsive websites that feel premium and convert with clarity.",
+      "icon": "FaCode",
+      "bullets": ["Fast loading experience", "Conversion-focused UX", "Mobile-first builds"]
+    },
+    {
+      "title": "Influencer Marketing",
+      "description": "Thoughtfully matched partnerships that bring authenticity and reach to your brand.",
+      "icon": "FaUsers",
+      "bullets": ["Creator sourcing", "Campaign alignment", "Performance tracking"]
+    }
+  ],
+  "industries": [
+    { "title": "Finance / FinTech", "description": "Secure, polished campaigns for trust-led brands.", "icon": "FaChartLine" },
+    { "title": "Hospital", "description": "Human-centered storytelling with community empathy.", "icon": "FaHospital" },
+    { "title": "Doctors", "description": "Professional digital presence built for credibility and care.", "icon": "FaUserMd" },
+    { "title": "Automotive", "description": "Elevated visuals for launches, service stories, and growth.", "icon": "FaCar" },
+    { "title": "Beauty & Wellness", "description": "Aesthetic content that evokes aspiration and connection.", "icon": "FaSparkles" },
+    { "title": "Hospitality", "description": "Immersive experiences that make every stay memorable.", "icon": "FaHotel" }
+  ],
+  "portfolio": [
+    {
+      "title": "Model Shoots",
+      "category": "Model Shoots",
+      "image": "/videos/hero.jpg",
+      "video": "/videos/hero.mp4",
+      "description": "Editorial campaigns with cinematic lighting and premium presentation."
+    },
+    {
+      "title": "Wedding Stories",
+      "category": "Wedding",
+      "image": "/videos/wedding.jpg",
+      "video": "/videos/wedding.mp4",
+      "description": "Emotion-led storytelling with refined motion and timeless detail."
+    },
+    {
+      "title": "Corporate Launches",
+      "category": "Corporate",
+      "image": "/videos/corporate.jpg",
+      "video": "/videos/corporate.mp4",
+      "description": "Launch visuals tailored for executives, investors, and audiences."
+    },
+    {
+      "title": "Commercial Campaigns",
+      "category": "Commercial",
+      "image": "/videos/hero.jpg",
+      "video": "/videos/hero.mp4",
+      "description": "Brand films designed to convert attention into action."
+    },
+    {
+      "title": "Event Highlights",
+      "category": "Events",
+      "image": "/videos/wedding.jpg",
+      "video": "/videos/wedding.mp4",
+      "description": "Dynamic recap edits that preserve the energy and atmosphere."
+    }
+  ],
+  "videos": [
+    {
+      "title": "Brand Story Reel",
+      "category": "Commercial",
+      "thumbnail": "/videos/hero.jpg",
+      "video": "/videos/hero.mp4",
+      "description": "A cinematic walkthrough of a modern brand launch experience."
+    },
+    {
+      "title": "Wedding Love Film",
+      "category": "Wedding",
+      "thumbnail": "/videos/wedding.jpg",
+      "video": "/videos/wedding.mp4",
+      "description": "An emotive film blending romance, detail, and movement."
+    },
+    {
+      "title": "Corporate Spotlight",
+      "category": "Corporate",
+      "thumbnail": "/videos/corporate.jpg",
+      "video": "/videos/corporate.mp4",
+      "description": "A polished production designed for internal and external storytelling."
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Aarav Sharma",
+      "role": "Founder, Northstar Labs",
+      "quote": "The team brought our brand to life with elegance, speed, and strategy. Every deliverable felt premium."
+    },
+    {
+      "name": "Priya Mehta",
+      "role": "Marketing Head, Aurelia Studio",
+      "quote": "Their visuals and campaigns helped us elevate our launch in a way that felt completely fresh."
+    },
+    {
+      "name": "Rohan Desai",
+      "role": "Director, Elite Motors",
+      "quote": "From concept to final rollout, the experience felt seamless and world-class."
+    }
+  ],
+  "blog": [
+    {
+      "title": "How premium storytelling improves brand recall",
+      "description": "A closer look at how polished visuals create lasting impressions online."
+    },
+    {
+      "title": "Why modern websites need both beauty and performance",
+      "description": "Design, storytelling, and conversion goals must work together to scale."
+    },
+    {
+      "title": "The role of social video in modern growth strategy",
+      "description": "Why short-form content remains essential for discovery and engagement."
+    }
+  ],
+  "cta": {
+    "title": "Let’s Create Something Amazing Together",
+    "button": "Contact Us"
+  },
+  "footer": {
+    "phone": "9821810933",
+    "email": "instantproduction.in@gmail.com",
+    "quickLinks": ["Home", "About", "Services", "Portfolio"],
+    "services": ["Social Media Strategy", "Content Creation", "Paid Advertising"],
+    "industries": ["Finance / FinTech", "Hospital", "Doctors"]
+  }
+}

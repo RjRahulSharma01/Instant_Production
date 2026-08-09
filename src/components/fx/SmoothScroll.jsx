@@ -1,0 +1,52 @@
+import { useEffect } from 'react';
+import { useReducedMotion } from 'framer-motion';
+import Lenis from 'lenis';
+
+/**
+ * Inertial smooth scrolling. Mounted once in Layout.
+ * Completely skipped when the OS asks for reduced motion — hijacking scroll
+ * is exactly the kind of thing that triggers motion sickness.
+ */
+export default function SmoothScroll() {
+  const reduce = useReducedMotion();
+
+  useEffect(() => {
+    if (reduce) return undefined;
+
+    const lenis = new Lenis({
+      duration: 1.05,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // expo.out
+      smoothWheel: true,
+      touchMultiplier: 1.6,
+    });
+
+    let raf;
+    const loop = (time) => {
+      lenis.raf(time);
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+
+    // Let anchor links keep working
+    const onAnchor = (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const el = document.querySelector(a.getAttribute('href'));
+      if (el) {
+        e.preventDefault();
+        lenis.scrollTo(el, { offset: -80 });
+      }
+    };
+    document.addEventListener('click', onAnchor);
+
+    window.__lenis = lenis;
+    return () => {
+      document.removeEventListener('click', onAnchor);
+      cancelAnimationFrame(raf);
+      lenis.destroy();
+      delete window.__lenis;
+    };
+  }, [reduce]);
+
+  return null;
+}
