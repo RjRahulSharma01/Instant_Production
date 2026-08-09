@@ -8,50 +8,60 @@ function Services({ services }) {
   return (
     <section id="services" className="px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <motion.div className="max-w-2xl" initial="hidden" whileInView="show" viewport={viewport} variants={fadeUp}>
+        <motion.div className="max-w-3xl" initial="hidden" whileInView="show" viewport={viewport} variants={fadeUp}>
           <p className="text-sm font-semibold uppercase tracking-eyebrow text-brand">Services</p>
-          <SplitText as="h2" text="Premium solutions for modern growth." className="mt-4 block text-3xl font-semibold text-white sm:text-4xl" />
+          <SplitText
+            as="h2"
+            text="Strategy, content and campaigns — handled end to end."
+            className="mt-4 block text-3xl font-semibold text-white sm:text-4xl"
+          />
+          <p className="mt-5 text-lg leading-8 text-zinc-400">
+            One team across the whole funnel, so the plan, the creative and the media spend all point the same way.
+          </p>
         </motion.div>
 
         <motion.div
-          className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-5"
+          className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
           initial="hidden"
           whileInView="show"
           viewport={viewport}
-          variants={stagger(0.06)}
+          variants={stagger(0.05)}
         >
-          {services.map((service) => {
+          {services.map((service, index) => {
             const Icon = getIcon(service.icon);
+            // First and last cards run double-width. With ten services that
+            // makes 12 grid cells — flush at both two and three columns,
+            // instead of leaving an orphan card on the last row.
+            const wide = index === 0 || index === services.length - 1;
             return (
               <TiltCard
-                key={service.title}
+                key={service.id}
                 variants={cardIn}
-                max={9}
-                className="group rounded-card border border-white/10 bg-white p-0 text-left shadow-card overflow-hidden"
+                max={7}
+                className={`group flex h-full flex-col rounded-card border border-white/10 bg-white/[0.04] p-6 text-left transition-colors duration-300 hover:border-brand/40 hover:bg-white/[0.07] ${
+                  wide ? 'sm:col-span-2' : ''
+                }`}
               >
-                {service.thumbnail ? (
-                  <div style={{ aspectRatio: '16/9' }} className="w-full overflow-hidden bg-zinc-900">
-                    <img src={service.thumbnail} alt={service.title} className="h-full w-full object-cover transition-transform duration-700 ease-expo group-hover:scale-110" loading="lazy" />
-                  </div>
-                ) : (
-                  <div className="p-6">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand/10 text-brand">
-                      <Icon size={20} />
-                    </div>
-                  </div>
-                )}
-                <div className="p-6">
-                  <h3 className="mt-1 text-xl font-semibold text-zinc-900">{service.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-zinc-600">{service.description}</p>
-                  <ul className="mt-5 space-y-2 text-sm text-zinc-700">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-brand/25 bg-gradient-to-br from-brand/25 to-brand/5 text-brand transition-transform duration-300 ease-expo group-hover:scale-110">
+                  <Icon size={20} aria-hidden="true" />
+                </div>
+
+                <h3 className="mt-5 text-xl font-semibold text-white">{service.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-zinc-400">{service.description}</p>
+
+                <ul className="mt-5 space-y-2 text-sm text-zinc-300">
                   {service.bullets.map((bullet) => (
-                    <li key={bullet} className="flex items-start gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand" />
+                    <li key={bullet} className="flex items-start gap-2.5">
+                      <span aria-hidden="true" className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
                       <span>{bullet}</span>
                     </li>
                   ))}
                 </ul>
-                </div>
+
+                <span
+                  aria-hidden="true"
+                  className="mt-6 block h-px w-0 bg-gradient-to-r from-brand to-transparent transition-all duration-500 ease-expo group-hover:w-full"
+                />
               </TiltCard>
             );
           })}

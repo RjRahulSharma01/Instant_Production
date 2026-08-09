@@ -87,7 +87,7 @@ export const footerData = {
     { label: 'Blog', to: '/blog' },
     { label: 'Contact', to: '/#contact' },
   ],
-  services: ['Commercial Shoots', 'Corporate Films', 'AI Generated Ads', 'Social Media Content', 'AI Videos'],
+  services: ['AI Content Strategy', 'AI Videos', 'Performance Marketing', 'Influencer Marketing', 'Website Development'],
   industries: ['Beauty', 'Fintech', 'Healthcare', 'Real Estate', 'E-commerce', 'Education'],
   address: 'Sector-69, Noida',
   social: {
