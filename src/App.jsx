@@ -5,6 +5,7 @@ import Home from './pages/Home';
 const Services = lazy(() => import('./pages/Services'));
 const Industries = lazy(() => import('./pages/Industries'));
 const Healthcare = lazy(() => import('./pages/Healthcare'));
+const IndustryDetail = lazy(() => import('./pages/IndustryDetail'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
@@ -20,6 +21,7 @@ function App() {
           <Route path="services/:slug" element={<ServiceDetail />} />
           <Route path="industries" element={<Industries />} />
           <Route path="industries/healthcare" element={<Healthcare />} />
+          <Route path="industries/:slug" element={<IndustryDetail />} />
           <Route path="portfolio" element={<Portfolio />} />
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:slug" element={<BlogPost />} />
