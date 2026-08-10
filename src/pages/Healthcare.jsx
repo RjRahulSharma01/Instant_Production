@@ -25,9 +25,12 @@ import {
 const A = {
   text: 'text-sky-700',
   bg: 'bg-sky-600',
-  soft: 'bg-sky-50',
+  // Alternating bands. Pure white read as glaring against the imagery, so the
+  // base is a soft slate and cards are white — the contrast now comes from the
+  // cards lifting off the page rather than from the page being bright.
+  soft: 'bg-sky-100/70',
+  band: 'bg-slate-100/70',
   border: 'border-sky-100',
-  ring: 'ring-sky-100',
 };
 
 function Section({ children, className = '' }) {
@@ -122,10 +125,10 @@ export default function Healthcare() {
   };
 
   return (
-    <div className="bg-white text-slate-900">
+    <div className="bg-slate-50 text-slate-900">
       {/* ------------------------------------------------------------ hero */}
-      <Section className="relative overflow-hidden pb-16 pt-28 sm:pt-32">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-b from-sky-50 via-sky-50/50 to-white" />
+      <Section className="relative overflow-hidden pb-12 pt-28 sm:pt-32">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-b from-sky-100/80 via-sky-50/60 to-slate-50" />
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -right-24 -top-24 h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle,rgba(2,132,199,0.10),transparent_70%)] blur-2xl"
@@ -190,10 +193,10 @@ export default function Healthcare() {
           <motion.div variants={fadeUp} className="relative">
             <div className="overflow-hidden rounded-[2rem] border border-white shadow-[0_30px_70px_-30px_rgba(15,23,42,0.35)]">
               <img
-                src="/images/healthcare/hero-doctors.webp"
-                alt="Healthcare professionals"
-                width="1400"
-                height="933"
+                src="/images/healthcare/hero-family.webp"
+                alt="A doctor with a patient and her family during a consultation"
+                width="1200"
+                height="790"
                 className="h-full w-full object-cover"
               />
             </div>
@@ -213,7 +216,7 @@ export default function Healthcare() {
       </Section>
 
       {/* -------------------------------------------------- benchmark rings */}
-      <Section className="pb-16">
+      <Section className="bg-white py-12 sm:py-16">
         <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.06)} className="mx-auto max-w-7xl">
           <motion.div variants={fadeUp} className="mx-auto max-w-2xl text-center">
             <h2 className="text-[1.6rem] font-semibold leading-tight text-slate-900 sm:text-3xl">
@@ -237,8 +240,8 @@ export default function Healthcare() {
       </Section>
 
       {/* ------------------------------------------------ discovery channels */}
-      <Section className="pb-16 sm:pb-20">
-        <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.06)} className="mx-auto max-w-7xl rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-10">
+      <Section className={`py-12 sm:py-16 ${A.band}`}>
+        <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.06)} className="mx-auto max-w-7xl rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.35)] sm:p-10">
           <motion.p variants={fadeUp} className={`text-sm font-semibold uppercase tracking-[0.22em] ${A.text}`}>Channel mix</motion.p>
           <motion.h2 variants={fadeUp} className="mt-3 text-[1.6rem] font-semibold leading-tight text-slate-900 sm:text-3xl">
             {discoveryChannels.title}
@@ -249,11 +252,26 @@ export default function Healthcare() {
           <motion.div variants={fadeUp} className="mt-8">
             <ChannelBars data={discoveryChannels} />
           </motion.div>
+
+          <motion.div variants={fadeUp} className="mt-8 grid gap-4 sm:grid-cols-2">
+            <figure className="overflow-hidden rounded-2xl border border-slate-200">
+              <img src="/images/healthcare/dashboard.webp" alt="A healthcare analytics dashboard" loading="lazy" className="h-52 w-full object-cover" />
+              <figcaption className="bg-slate-50 px-5 py-3 text-xs text-slate-500">
+                Reporting built around enquiries and appointments, not impressions
+              </figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-2xl border border-slate-200">
+              <img src="/images/healthcare/data.webp" alt="Connected healthcare data systems" loading="lazy" className="h-52 w-full object-cover" />
+              <figcaption className="bg-slate-50 px-5 py-3 text-xs text-slate-500">
+                Search, profile, site and social treated as one system
+              </figcaption>
+            </figure>
+          </motion.div>
         </motion.div>
       </Section>
 
       {/* -------------------------------------------------- patient journeys */}
-      <Section className={`py-16 sm:py-20 ${A.soft}`}>
+      <Section className={`py-12 sm:py-16 ${A.soft}`}>
         <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.06)} className="mx-auto max-w-7xl">
           <motion.p variants={fadeUp} className={`text-sm font-semibold uppercase tracking-[0.22em] ${A.text}`}>Patient journey</motion.p>
           <motion.h2 variants={fadeUp} className="mt-3 max-w-3xl text-[1.75rem] font-semibold leading-tight text-slate-900 sm:text-4xl">
@@ -268,8 +286,32 @@ export default function Healthcare() {
         </motion.div>
       </Section>
 
+      {/* ------------------------------------------------------- image banner */}
+      <Section className="py-0">
+        <motion.div
+          initial="hidden" whileInView="show" viewport={viewport} variants={fadeUp}
+          className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem]"
+        >
+          <img
+            src="/images/healthcare/diagnostics-wide.webp"
+            alt="A radiologist reviewing scans"
+            width="1920" height="740" loading="lazy"
+            className="h-[240px] w-full object-cover sm:h-[300px]"
+          />
+          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/45 to-transparent" />
+          <div className="absolute inset-0 flex items-center px-7 sm:px-12">
+            <div className="max-w-xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-200">The hard part</p>
+              <p className="mt-3 text-xl font-semibold leading-snug text-white sm:text-2xl">
+                You already know medicine. The gap is being found by the people who need it — without stepping over a line you cannot afford to cross.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </Section>
+
       {/* -------------------------------------------------------- compliance */}
-      <Section className={`py-16 sm:py-20 ${A.soft}`}>
+      <Section className={`py-12 sm:py-16 ${A.soft}`}>
         <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.06)} className="mx-auto max-w-7xl">
           <motion.span variants={fadeUp} className={`inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] ${A.text}`}>
             <FiShield aria-hidden="true" /> Compliance
@@ -294,6 +336,24 @@ export default function Healthcare() {
             ))}
           </div>
 
+          <motion.div variants={fadeUp} className="mt-10 grid gap-4 sm:grid-cols-3">
+            {[
+              { src: '/images/healthcare/ward.webp', alt: 'A busy hospital ward', cap: 'Where your patients actually are' },
+              { src: '/images/healthcare/bedside.webp', alt: 'A nurse with a patient at the bedside', cap: 'Care is the product. Marketing only has to reflect it' },
+              { src: '/images/healthcare/vitals.webp', alt: 'A blood pressure check', cap: 'Credibility beats persuasion in this category' },
+            ].map((im) => (
+              <figure key={im.src} className="group overflow-hidden rounded-3xl bg-white">
+                <div className="overflow-hidden">
+                  <img
+                    src={im.src} alt={im.alt} loading="lazy"
+                    className="h-44 w-full object-cover transition-transform duration-700 ease-expo group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="px-5 py-4 text-xs leading-5 text-slate-500">{im.cap}</figcaption>
+              </figure>
+            ))}
+          </motion.div>
+
           <motion.p variants={fadeUp} className="mt-6 max-w-3xl text-xs leading-6 text-slate-400">
             {compliance.disclaimer}
           </motion.p>
@@ -301,7 +361,7 @@ export default function Healthcare() {
       </Section>
 
       {/* ----------------------------------------------- compliance examples */}
-      <Section className="py-16 sm:py-20">
+      <Section className="bg-white py-12 sm:py-16">
         <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.05)} className="mx-auto max-w-5xl">
           <motion.p variants={fadeUp} className={`text-sm font-semibold uppercase tracking-[0.22em] ${A.text}`}>In practice</motion.p>
           <motion.h2 variants={fadeUp} className="mt-3 text-[1.75rem] font-semibold leading-tight text-slate-900 sm:text-4xl">
@@ -317,7 +377,7 @@ export default function Healthcare() {
       </Section>
 
       {/* ---------------------------------------------------------- services */}
-      <Section className="py-16 sm:py-20">
+      <Section className="bg-white py-12 sm:py-16">
         <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.05)} className="mx-auto max-w-5xl">
           <motion.p variants={fadeUp} className={`text-sm font-semibold uppercase tracking-[0.22em] ${A.text}`}>What we do</motion.p>
           <motion.h2 variants={fadeUp} className="mt-4 text-[1.75rem] font-semibold leading-tight text-slate-900 sm:text-4xl">
@@ -336,7 +396,7 @@ export default function Healthcare() {
       </Section>
 
       {/* -------------------------------------------------- specialty intel */}
-      <Section className={`py-16 sm:py-20 ${A.soft}`}>
+      <Section className={`py-12 sm:py-16 ${A.soft}`}>
         <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.05)} className="mx-auto max-w-7xl">
           <motion.p variants={fadeUp} className={`text-sm font-semibold uppercase tracking-[0.22em] ${A.text}`}>Specialty intelligence</motion.p>
           <motion.h2 variants={fadeUp} className="mt-3 max-w-3xl text-[1.75rem] font-semibold leading-tight text-slate-900 sm:text-4xl">
@@ -358,14 +418,23 @@ export default function Healthcare() {
       </Section>
 
       {/* ------------------------------------------------------------ process */}
-      <Section className="py-16 sm:py-20">
+      <Section className={`py-12 sm:py-16 ${A.band}`}>
         <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.06)} className="mx-auto max-w-7xl">
           <motion.p variants={fadeUp} className={`text-sm font-semibold uppercase tracking-[0.22em] ${A.text}`}>How it works</motion.p>
           <motion.h2 variants={fadeUp} className="mt-4 text-[1.75rem] font-semibold leading-tight text-slate-900 sm:text-4xl">
             From first call to steady enquiries.
           </motion.h2>
 
-          <div className="relative mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <motion.div variants={fadeUp} className="mt-8 grid gap-4 sm:grid-cols-3">
+            <figure className="overflow-hidden rounded-3xl sm:col-span-2">
+              <img src="/images/healthcare/team.webp" alt="A hospital clinical team" loading="lazy" className="h-56 w-full object-cover sm:h-64" />
+            </figure>
+            <figure className="overflow-hidden rounded-3xl">
+              <img src="/images/healthcare/digital.webp" alt="A clinician working with digital health tools" loading="lazy" className="h-56 w-full object-cover sm:h-64" />
+            </figure>
+          </motion.div>
+
+          <div className="relative mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {process.map((p, i) => (
               <motion.div key={p.step} variants={cardIn} className="group relative rounded-3xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:border-sky-200 hover:shadow-[0_18px_45px_-25px_rgba(2,132,199,0.5)]">
                 <span className={`flex h-11 w-11 items-center justify-center rounded-2xl ${A.soft} text-base font-semibold ${A.text} transition-transform duration-300 group-hover:scale-110`}>
@@ -380,7 +449,7 @@ export default function Healthcare() {
       </Section>
 
       {/* ------------------------------------------------------- results curve */}
-      <Section className="py-16 sm:py-20">
+      <Section className="bg-white py-12 sm:py-16">
         <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.06)} className="mx-auto max-w-4xl">
           <motion.p variants={fadeUp} className={`text-sm font-semibold uppercase tracking-[0.22em] ${A.text}`}>Honest timeline</motion.p>
           <motion.h2 variants={fadeUp} className="mt-3 text-[1.75rem] font-semibold leading-tight text-slate-900 sm:text-4xl">
@@ -396,7 +465,7 @@ export default function Healthcare() {
       </Section>
 
       {/* --------------------------------------------------------------- work */}
-      <Section id="work" className={`py-16 sm:py-20 ${A.soft}`}>
+      <Section id="work" className={`py-12 sm:py-16 ${A.soft}`}>
         <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.06)} className="mx-auto max-w-7xl">
           <motion.p variants={fadeUp} className={`text-sm font-semibold uppercase tracking-[0.22em] ${A.text}`}>Recent work</motion.p>
           <motion.h2 variants={fadeUp} className="mt-4 text-[1.75rem] font-semibold leading-tight text-slate-900 sm:text-4xl">
@@ -428,7 +497,7 @@ export default function Healthcare() {
       </Section>
 
       {/* ---------------------------------------------------------------- faq */}
-      <Section className="py-16 sm:py-20">
+      <Section className={`py-12 sm:py-16 ${A.band}`}>
         <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.05)} className="mx-auto max-w-3xl">
           <motion.h2 variants={fadeUp} className="text-[1.75rem] font-semibold leading-tight text-slate-900 sm:text-4xl">
             What doctors ask us first.
@@ -473,7 +542,7 @@ export default function Healthcare() {
       </Section>
 
       {/* ---------------------------------------------------------------- cta */}
-      <Section className="pb-20">
+      <Section className="pb-16">
         <motion.div
           initial="hidden"
           whileInView="show"
