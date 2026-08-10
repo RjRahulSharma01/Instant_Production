@@ -32,6 +32,8 @@ import {
   FaBagShopping,
   FaWandMagicSparkles,
   FaUserDoctor,
+  FaShieldHalved,
+  FaStethoscope,
 } from 'react-icons/fa6';
 
 export const iconMap = {
@@ -59,6 +61,8 @@ export const iconMap = {
   FaBagShopping,
   FaWandMagicSparkles,
   FaUserDoctor,
+  FaShieldHalved,
+  FaStethoscope,
 
   // legacy fa5 aliases kept so existing data files keep working
   FaHeartbeat: FaHeartPulse,

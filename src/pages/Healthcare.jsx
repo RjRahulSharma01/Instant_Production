@@ -11,6 +11,14 @@ import SplitText from '../components/fx/SplitText';
 import {
   hero, stats, compliance, services, specialties, process, clients, faqs, seo,
 } from '../data/healthcare';
+import {
+  benchmarks, discoveryChannels, keyStats, journeys, specialtyIntel,
+  complianceExamples, timeline,
+} from '../data/healthcareData';
+import {
+  StatRing, ChannelBars, JourneySwitch, SpecialtyExplorer,
+  ComplianceComparator, TimelineCurve,
+} from '../components/hc/HcViz';
 
 /* Light-theme accent. Single hue, medical blue, used at varying tints so the
    page reads as calm and clinical rather than busy. */
@@ -204,28 +212,60 @@ export default function Healthcare() {
         </motion.div>
       </Section>
 
-      {/* --------------------------------------------------------- stat bar */}
+      {/* -------------------------------------------------- benchmark rings */}
       <Section className="pb-16">
-        <motion.dl
-          initial="hidden"
-          whileInView="show"
-          viewport={viewport}
-          variants={stagger(0.06)}
-          className="mx-auto grid max-w-7xl grid-cols-2 gap-3 rounded-3xl border border-slate-200 bg-white p-5 sm:gap-5 sm:p-7 lg:grid-cols-4"
-        >
-          {stats.map((s) => (
-            <motion.div key={s.label} variants={cardIn} className="text-center sm:text-left">
-              <dt className="sr-only">{s.label}</dt>
-              <dd>
-                <span className={`block text-2xl font-semibold sm:text-3xl ${A.text}`}>
-                  <CountUp value={s.value} />
-                </span>
-                <span className="mt-1.5 block text-sm font-medium text-slate-700">{s.label}</span>
-                <span className="mt-0.5 block text-xs text-slate-400">{s.note}</span>
-              </dd>
-            </motion.div>
-          ))}
-        </motion.dl>
+        <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.06)} className="mx-auto max-w-7xl">
+          <motion.div variants={fadeUp} className="mx-auto max-w-2xl text-center">
+            <h2 className="text-[1.6rem] font-semibold leading-tight text-slate-900 sm:text-3xl">
+              What the numbers say about how patients find doctors.
+            </h2>
+            <p className="mt-3 text-sm leading-7 text-slate-500">
+              Industry benchmarks, not our results. Sources listed below so you can check them.
+            </p>
+          </motion.div>
+
+          <motion.div variants={fadeUp} className="mt-10 grid grid-cols-2 gap-8 rounded-[2rem] border border-slate-200 bg-white p-7 sm:p-10 lg:grid-cols-4">
+            {keyStats.map((k, i) => (
+              <StatRing key={k.label} value={k.value} suffix={k.suffix} label={k.label} delay={i * 140} />
+            ))}
+          </motion.div>
+
+          <motion.p variants={fadeUp} className="mt-4 text-center text-xs text-slate-400">
+            Sources: {benchmarks.sources.map((x) => x.label).join(' · ')}
+          </motion.p>
+        </motion.div>
+      </Section>
+
+      {/* ------------------------------------------------ discovery channels */}
+      <Section className="pb-16 sm:pb-20">
+        <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.06)} className="mx-auto max-w-7xl rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-10">
+          <motion.p variants={fadeUp} className={`text-sm font-semibold uppercase tracking-[0.22em] ${A.text}`}>Channel mix</motion.p>
+          <motion.h2 variants={fadeUp} className="mt-3 text-[1.6rem] font-semibold leading-tight text-slate-900 sm:text-3xl">
+            {discoveryChannels.title}
+          </motion.h2>
+          <motion.p variants={fadeUp} className="mt-3 max-w-2xl text-sm leading-7 text-slate-500">
+            Hover any channel to see what it actually means for a practice.
+          </motion.p>
+          <motion.div variants={fadeUp} className="mt-8">
+            <ChannelBars data={discoveryChannels} />
+          </motion.div>
+        </motion.div>
+      </Section>
+
+      {/* -------------------------------------------------- patient journeys */}
+      <Section className={`py-16 sm:py-20 ${A.soft}`}>
+        <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.06)} className="mx-auto max-w-7xl">
+          <motion.p variants={fadeUp} className={`text-sm font-semibold uppercase tracking-[0.22em] ${A.text}`}>Patient journey</motion.p>
+          <motion.h2 variants={fadeUp} className="mt-3 max-w-3xl text-[1.75rem] font-semibold leading-tight text-slate-900 sm:text-4xl">
+            An OPD patient and a surgical patient are not the same customer.
+          </motion.h2>
+          <motion.p variants={fadeUp} className="mt-4 max-w-2xl text-base leading-8 text-slate-600">
+            One decides in minutes from a map listing. The other researches for months and involves the whole family. Marketing that treats them identically wastes money on both.
+          </motion.p>
+          <motion.div variants={fadeUp} className="mt-9">
+            <JourneySwitch journeys={journeys} />
+          </motion.div>
+        </motion.div>
       </Section>
 
       {/* -------------------------------------------------------- compliance */}
@@ -260,6 +300,22 @@ export default function Healthcare() {
         </motion.div>
       </Section>
 
+      {/* ----------------------------------------------- compliance examples */}
+      <Section className="py-16 sm:py-20">
+        <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.05)} className="mx-auto max-w-5xl">
+          <motion.p variants={fadeUp} className={`text-sm font-semibold uppercase tracking-[0.22em] ${A.text}`}>In practice</motion.p>
+          <motion.h2 variants={fadeUp} className="mt-3 text-[1.75rem] font-semibold leading-tight text-slate-900 sm:text-4xl">
+            The same message, said two ways.
+          </motion.h2>
+          <motion.p variants={fadeUp} className="mt-4 max-w-2xl text-base leading-8 text-slate-600">
+            Compliance is rarely about what you say. It is about how you say it. Five examples we run into constantly.
+          </motion.p>
+          <div className="mt-9">
+            <ComplianceComparator items={complianceExamples} />
+          </div>
+        </motion.div>
+      </Section>
+
       {/* ---------------------------------------------------------- services */}
       <Section className="py-16 sm:py-20">
         <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.05)} className="mx-auto max-w-5xl">
@@ -279,28 +335,25 @@ export default function Healthcare() {
         </motion.div>
       </Section>
 
-      {/* -------------------------------------------------------- specialties */}
+      {/* -------------------------------------------------- specialty intel */}
       <Section className={`py-16 sm:py-20 ${A.soft}`}>
-        <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.03)} className="mx-auto max-w-5xl text-center">
-          <motion.h2 variants={fadeUp} className="text-[1.75rem] font-semibold leading-tight text-slate-900 sm:text-4xl">
-            Every specialty, its own search behaviour.
+        <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.05)} className="mx-auto max-w-7xl">
+          <motion.p variants={fadeUp} className={`text-sm font-semibold uppercase tracking-[0.22em] ${A.text}`}>Specialty intelligence</motion.p>
+          <motion.h2 variants={fadeUp} className="mt-3 max-w-3xl text-[1.75rem] font-semibold leading-tight text-slate-900 sm:text-4xl">
+            Every specialty is searched differently.
           </motion.h2>
-          <motion.p variants={fadeUp} className="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-600">
-            A patient looking for a dermatologist searches nothing like one looking for a cardiologist. We build content around how each specialty is actually found.
+          <motion.p variants={fadeUp} className="mt-4 max-w-2xl text-base leading-8 text-slate-600">
+            A dermatology patient and a cardiology patient share almost nothing — not the query, not the urgency, not the channel that reaches them. Pick a specialty to see how yours behaves.
           </motion.p>
+          <motion.div variants={fadeUp} className="mt-9">
+            <SpecialtyExplorer items={specialtyIntel} />
+          </motion.div>
 
-          <div className="mt-9 flex flex-wrap justify-center gap-2.5">
+          <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-2">
             {specialties.map((sp) => (
-              <motion.span
-                key={sp}
-                variants={cardIn}
-                whileHover={reduce ? undefined : { y: -3 }}
-                className="cursor-default rounded-full border border-white bg-white px-4 py-2.5 text-sm font-medium text-slate-700 shadow-[0_2px_10px_-6px_rgba(15,23,42,0.3)] transition-colors duration-200 hover:text-sky-700"
-              >
-                {sp}
-              </motion.span>
+              <span key={sp} className="rounded-full border border-white bg-white px-3.5 py-2 text-xs text-slate-500">{sp}</span>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
       </Section>
 
@@ -323,6 +376,22 @@ export default function Healthcare() {
               </motion.div>
             ))}
           </div>
+        </motion.div>
+      </Section>
+
+      {/* ------------------------------------------------------- results curve */}
+      <Section className="py-16 sm:py-20">
+        <motion.div initial="hidden" whileInView="show" viewport={viewport} variants={stagger(0.06)} className="mx-auto max-w-4xl">
+          <motion.p variants={fadeUp} className={`text-sm font-semibold uppercase tracking-[0.22em] ${A.text}`}>Honest timeline</motion.p>
+          <motion.h2 variants={fadeUp} className="mt-3 text-[1.75rem] font-semibold leading-tight text-slate-900 sm:text-4xl">
+            What actually happens, and when.
+          </motion.h2>
+          <motion.p variants={fadeUp} className="mt-4 text-base leading-8 text-slate-600">
+            Health content is held to Google&rsquo;s YMYL standard, so it takes longer to earn trust than most categories. Anyone showing you a hockey stick in month one is not doing SEO.
+          </motion.p>
+          <motion.div variants={fadeUp} className="mt-9">
+            <TimelineCurve items={timeline} />
+          </motion.div>
         </motion.div>
       </Section>
 
