@@ -5,7 +5,7 @@ import PageHero from '../components/PageHero';
 import CtaBand from '../components/CtaBand';
 import { useSeo } from '../lib/seo';
 import { cardIn, fadeUp, stagger, viewport } from '../lib/motion';
-import { publishedPosts } from '../data/blog';
+import { author, publishedPosts } from '../data/blog';
 
 export default function Blog() {
   useSeo({
@@ -81,9 +81,13 @@ export default function Blog() {
                     <div className="flex flex-1 flex-col p-6">
                       <h2 className="text-lg font-semibold leading-snug text-white">{post.title}</h2>
                       <p className="mt-3 text-sm leading-7 text-zinc-400">{post.excerpt}</p>
-                      <span className="mt-auto flex items-center gap-2 pt-5 text-xs text-zinc-500">
-                        <FiClock aria-hidden="true" />
-                        {post.readingMinutes} min read
+                      <span className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-1 pt-5 text-xs text-zinc-500">
+                        <span className="text-zinc-400">{author.name}</span>
+                        <span aria-hidden="true">·</span>
+                        <span className="flex items-center gap-1.5">
+                          <FiClock aria-hidden="true" />
+                          {post.readingMinutes} min read
+                        </span>
                       </span>
                     </div>
                   </Link>

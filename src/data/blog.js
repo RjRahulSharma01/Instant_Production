@@ -5,6 +5,27 @@
 // examples, numbers and client stories as you get them. Nothing here claims
 // a specific result you have not actually had.
 
+// Articles publish under a named human author. Google's E-E-A-T guidance
+// weighs identified, credentialled authorship heavily — particularly on
+// anything health, finance or money adjacent — and a Person byline with
+// verifiable external profiles consistently outperforms an anonymous or
+// Organization one. `sameAs` is what lets Google connect this byline to the
+// same real person it already knows from LinkedIn.
+export const author = {
+  name: 'Rahul Sharma',
+  role: 'Founder, Instant Production',
+  credential: 'IIM Ahmedabad',
+  bio: 'IIM Ahmedabad alumnus with 11+ years in digital content and media. Currently leads growth and retention for Josh at VerSe Innovation, and founded Instant Production to bring the same AI-first content systems to brands. Previously at ByteDance, Trell and TCS.',
+  short: 'IIMA · 11+ years in content and media · AI-first since 2023',
+  url: 'https://www.linkedin.com/in/rahulsharmamat/',
+  sameAs: [
+    'https://www.linkedin.com/in/rahulsharmamat/',
+    'https://sites.google.com/view/rahulsharamamat/home',
+  ],
+  alumniOf: 'Indian Institute of Management Ahmedabad',
+  avatar: '/brand/author-rahul.webp',
+};
+
 export const blogPosts = [
   {
     slug: 'ai-video-actually-worth-it',

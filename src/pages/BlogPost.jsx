@@ -4,7 +4,7 @@ import { FiArrowLeft, FiClock } from 'react-icons/fi';
 import CtaBand from '../components/CtaBand';
 import { useSeo, SITE_URL } from '../lib/seo';
 import { fadeUp, stagger, viewport } from '../lib/motion';
-import { getPost } from '../data/blog';
+import { author, getPost } from '../data/blog';
 
 function Block({ block }) {
   if (block.type === 'h2') {
@@ -50,7 +50,16 @@ export default function BlogPost() {
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
-    author: { '@type': 'Organization', name: 'Instant Production' },
+    author: {
+      '@type': 'Person',
+      name: author.name,
+      jobTitle: author.role,
+      url: author.url,
+      // sameAs is how Google resolves this byline to a known real identity
+      sameAs: author.sameAs,
+      alumniOf: { '@type': 'CollegeOrUniversity', name: author.alumniOf },
+      worksFor: { '@type': 'Organization', name: 'Instant Production' },
+    },
     publisher: {
       '@type': 'Organization',
       name: 'Instant Production',
@@ -89,7 +98,23 @@ export default function BlogPost() {
             {post.excerpt}
           </motion.p>
 
-          <motion.div variants={fadeUp} className="mt-8 overflow-hidden rounded-panel border border-white/10">
+          <motion.div variants={fadeUp} className="mt-7 flex items-center gap-3 border-y border-white/10 py-4">
+            <img
+              src={author.avatar}
+              alt={author.name}
+              width="44"
+              height="44"
+              className="h-11 w-11 rounded-full border border-white/10 object-cover"
+            />
+            <div className="min-w-0">
+              <p className="text-sm font-medium text-white">{author.name}</p>
+              <p className="text-xs text-zinc-500">
+                {author.short} · {new Date(post.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div variants={fadeUp} className="mt-7 overflow-hidden rounded-panel border border-white/10">
             <img src={post.cover} alt="" aria-hidden="true" className="w-full object-cover opacity-85" />
           </motion.div>
 
@@ -98,6 +123,35 @@ export default function BlogPost() {
           </motion.div>
         </motion.div>
       </article>
+
+      <section className="px-4 pb-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial="hidden" whileInView="show" viewport={viewport} variants={fadeUp}
+          className="mx-auto flex max-w-3xl items-start gap-4 rounded-panel border border-white/10 bg-white/[0.04] p-6"
+        >
+          <img
+            src={author.avatar}
+            alt={author.name}
+            width="56"
+            height="56"
+            className="h-14 w-14 shrink-0 rounded-full border border-white/10 object-cover"
+          />
+          <div>
+            <p className="text-sm font-semibold text-white">{author.name}</p>
+            <p className="text-xs text-brand">{author.role} · {author.credential}</p>
+            <p className="mt-2 text-sm leading-7 text-zinc-400">{author.bio}</p>
+            <a
+              href={author.url}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-brand transition-colors hover:text-brand-300"
+            >
+              Connect on LinkedIn
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </motion.div>
+      </section>
 
       <CtaBand title="Want this applied to your brand?" cta="Talk to us" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
