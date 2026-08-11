@@ -38,7 +38,7 @@ export default function RotatingPanel({ items, interval = 3000, className = '' }
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
     >
-      <div className="relative min-h-[188px] overflow-hidden sm:min-h-[172px]" aria-live="off">
+      <div className="relative min-h-[210px] overflow-hidden sm:min-h-[196px]" aria-live="off">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={index}
@@ -47,9 +47,14 @@ export default function RotatingPanel({ items, interval = 3000, className = '' }
             exit={reduce ? { opacity: 0 } : { y: '-100%', opacity: 0 }}
             transition={{ duration: 0.62, ease: EASE }}
           >
-            <p className="text-sm uppercase tracking-[0.3em] text-zinc-400">{item.eyebrow}</p>
-            <h2 className="mt-2 text-2xl font-semibold text-white">{item.title}</h2>
-            <p className="mt-3 text-zinc-300">{item.description}</p>
+            <p className="flex items-center gap-2 text-[0.7rem] font-medium uppercase tracking-[0.24em] text-zinc-400">
+              <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-brand" />
+              {item.eyebrow}
+            </p>
+            <h2 className="mt-3 text-[1.35rem] font-semibold leading-snug text-white sm:text-2xl">
+              &ldquo;{item.title}&rdquo;
+            </h2>
+            <p className="mt-3 text-[0.95rem] leading-7 text-zinc-300">{item.description}</p>
           </motion.div>
         </AnimatePresence>
       </div>

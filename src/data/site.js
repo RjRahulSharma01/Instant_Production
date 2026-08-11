@@ -36,30 +36,40 @@ export const heroData = {
     { value: '10K+', label: 'Creators in network' },
     { value: '98%', label: 'Client retention' },
   ],
-  // Panels that auto-rotate in the hero card, one every few seconds.
+  // Hero panel content.
+  //
+  // Rewritten from service names to the sentences prospects actually say.
+  // B2B buyers in 2026 evaluate agencies on revenue accountability rather
+  // than activity, and research the decision themselves before making
+  // contact — so the panel has to be recognisable and specific, not
+  // aspirational. Each panel names a problem in the client's own words,
+  // then answers it with what we do and how it is measured.
   featured: [
     {
-      eyebrow: 'AI video strategy',
-      title: 'Strategy first, then the shoot',
+      eyebrow: 'What clients arrive with',
+      title: 'We cannot produce content fast enough',
       description:
-        'Every campaign starts with audience, angle and hook. AI gets us there faster — and the work performs because of it.',
+        'AI production plus a 10,000+ creator network means campaign-ready video in days, and ten variants for roughly the cost of one. The bottleneck stops being the shoot.',
     },
     {
-      eyebrow: 'AI cinematic experience',
-      title: 'Impossible, made possible',
+      eyebrow: 'What clients arrive with',
+      title: 'Our ads worked, then they stopped',
       description:
-        'Bring your story to life with the latest AI advance skills and make all impossible, possible.',
+        'Almost always creative fatigue rather than targeting. We run a continuous testing loop so performance does not decay in the gap between campaigns.',
     },
     {
-      eyebrow: 'Influencer marketing',
-      title: '10,000+ creators, one story',
+      eyebrow: 'What clients arrive with',
+      title: 'We cannot tell what is actually working',
       description:
-        "Connect with our 10,000+ UGC, Nano, Micro and Macro creators to tell your brand's story and reach the desired audiences.",
+        'Reporting tied to enquiries, pipeline and revenue instead of impressions. You get a clear view of what to fund and what to cut, every month.',
     },
   ],
+  // Trust signals. Research is consistent that what converts an agency
+  // shortlist is plain-language proof of how you work and what you report —
+  // not adjectives.
   highlights: [
-    { title: 'Performance marketing', description: 'Campaigns measured on pipeline, not impressions.' },
-    { title: 'Social media growth', description: 'Content built for reach, retention and conversion.' },
+    { title: 'Measured on revenue', description: 'ROAS, CAC and pipeline. Impressions are context, not the result.' },
+    { title: 'One team, whole funnel', description: 'Strategy, production and media spend under one roof, pointing the same way.' },
   ],
 };
 
