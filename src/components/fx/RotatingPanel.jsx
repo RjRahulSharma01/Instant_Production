@@ -14,7 +14,18 @@ import { EASE } from '../../lib/motion';
  *  - dots are real buttons, so it can be driven by keyboard
  *  - aria-live="off" because rotation is decorative, not an alert
  */
-export default function RotatingPanel({ items, interval = 3000, className = '' }) {
+/**
+ * Dwell time is derived from the panel's own word count rather than a fixed
+ * interval, so editing the copy never leaves a panel cut off mid-sentence.
+ * ~300 wpm (skim-reading, not careful reading) plus a two-second buffer to
+ * take in the heading and settle, clamped to a sane range.
+ */
+function dwellFor(item) {
+  const words = `${item.title} ${item.description}`.trim().split(/\s+/).length;
+  return Math.min(13000, Math.max(6500, Math.round((words / 300) * 60000) + 2200));
+}
+
+export default function RotatingPanel({ items, className = '' }) {
   const reduce = useReducedMotion();
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -22,11 +33,13 @@ export default function RotatingPanel({ items, interval = 3000, className = '' }
 
   const go = useCallback((next) => setIndex(((next % items.length) + items.length) % items.length), [items.length]);
 
+  const dwell = dwellFor(items[index]);
+
   useEffect(() => {
     if (reduce || paused || items.length < 2) return undefined;
-    timer.current = window.setInterval(() => setIndex((v) => (v + 1) % items.length), interval);
-    return () => window.clearInterval(timer.current);
-  }, [reduce, paused, items.length, interval]);
+    timer.current = window.setTimeout(() => setIndex((v) => (v + 1) % items.length), dwell);
+    return () => window.clearTimeout(timer.current);
+  }, [reduce, paused, items.length, dwell, index]);
 
   const item = items[index];
 
@@ -68,8 +81,8 @@ export default function RotatingPanel({ items, interval = 3000, className = '' }
               onClick={() => go(i)}
               aria-label={`Show: ${it.title}`}
               aria-current={i === index}
-              className={`h-1.5 rounded-full transition-all duration-500 ease-expo ${
-                i === index ? 'w-7 bg-brand' : 'w-1.5 bg-white/25 hover:bg-white/50'
+              className={`relative h-1.5 overflow-hidden rounded-full transition-all duration-500 ease-expo ${
+                i === index ? 'w-10 bg-white/20' : 'w-1.5 bg-white/25 hover:bg-white/50'
               }`}
             />
           ))}

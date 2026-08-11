@@ -123,7 +123,7 @@ function Hero({ heroData }) {
               </div>
 
               <div className="mt-8 rounded-panel border border-white/10 bg-white/10 p-6 backdrop-blur">
-                <RotatingPanel items={heroData.featured} interval={3000} />
+                <RotatingPanel items={heroData.featured} />
               </div>
 
               <div className="mt-6 grid gap-3">
