@@ -45,6 +45,7 @@ if (files.length === 0) {
 
 const slugs = new Map();
 const posts = [];
+const blogLinks = [];   // [file, slug] pairs, verified once every slug is known
 
 for (const file of files) {
   const raw = fs.readFileSync(path.join(CONTENT, file), 'utf8');
@@ -103,12 +104,14 @@ for (const file of files) {
   if (!data.tags || data.tags.length === 0) warn('no tags — the post will not appear under any filter');
 
   // links
-  const links = [...body.matchAll(/\[([^\]]+)\]\(([^)\s]+)\)/g)];
+  // (?<!!) so that ![alt](src) images are not also read as links.
+  const links = [...body.matchAll(/(?<!!)\[([^\]]+)\]\(([^)\s]+)\)/g)];
   const internal = links.filter(([, , href]) => href.startsWith('/'));
   for (const [, label, href] of internal) {
     const clean = href.split('#')[0].replace(/\/$/, '') || '/';
     const known = VALID_PREFIXES.includes(clean) || clean.startsWith('/blog/');
     if (!known) err(`internal link "${href}" does not match any route on the site`);
+    else if (clean.startsWith('/blog/')) blogLinks.push([file, clean.slice(6)]);
     if (/^(here|this|click here|read more|link)$/i.test(label.trim())) {
       warn(`link text "${label}" says nothing — use words that describe the destination`);
     }
@@ -128,6 +131,11 @@ for (const file of files) {
   if (words < 400) warn(`only ~${words} words — thin pages tend not to rank and are not worth publishing`);
 
   posts.push({ file, data, words });
+}
+
+/* article-to-article links, now that every slug is known */
+for (const [file, slug] of blogLinks) {
+  if (!slugs.has(slug)) errors.push(`${file}: links to /blog/${slug}, which does not exist`);
 }
 
 /* related must point at a real post */

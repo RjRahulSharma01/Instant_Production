@@ -96,7 +96,8 @@ function inline(text) {
   // `code`
   s = s.replace(/`([^`]+)`/g, '<code class="rounded bg-white/10 px-1.5 py-0.5 text-[0.85em]">$1</code>');
   // [text](url) — internal links get a marker the renderer uses for client-side nav
-  s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, label, href) => {
+  // (?<!!) leaves ![alt](src) alone — images are handled as their own block.
+  s = s.replace(/(?<!!)\[([^\]]+)\]\(([^)\s]+)\)/g, (m, label, href) => {
     const internal = href.startsWith('/');
     const attrs = internal
       ? 'data-internal="1"'
