@@ -15,7 +15,12 @@
     font-weight: 400;
     color: #f5f5f5;
     background-color: var(--ink);
-    font-synthesis: none;
+    /* `none` blocked BOTH faux-bold and faux-italic. Every Inter weight we use
+       is loaded as a real file, so faux-bold was never needed — but no italic
+       face is loaded, which meant <em> and every `italic` class rendered
+       silently upright. `style` permits oblique synthesis only, and costs
+       nothing: no extra font file, no extra request. */
+    font-synthesis: style;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

@@ -4,9 +4,12 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "npm run blog:build && vite",
+    "prebuild": "node scripts/build-blog.mjs",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "blog:build": "node scripts/build-blog.mjs",
+    "blog:check": "node scripts/check-blog.mjs"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
