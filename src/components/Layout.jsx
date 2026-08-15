@@ -1,5 +1,7 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import SmoothScroll from './fx/SmoothScroll';
 import ScrollProgress from './fx/ScrollProgress';
 import Cursor from './fx/Cursor';
@@ -83,6 +85,18 @@ function Layout() {
         </AnimatePresence>
       </main>
       <Footer footerData={footerData} light={light} />
+
+      {/* Traffic and Core Web Vitals.
+          Both are cookieless and store no personal data, which keeps the
+          contact form the only place on the site that touches anything covered
+          by the DPDP Act — no consent banner needed.
+          The React builds hook into the router, so client-side route changes
+          register as pageviews. Without them only the first load would count,
+          which on a single-page app is almost nothing.
+          Neither runs in development, and together they add roughly 2 kB
+          gzipped to first load. */}
+      <Analytics />
+      <SpeedInsights />
     </div>
   );
 }
