@@ -19,7 +19,10 @@
  * unpublished article does not travel anywhere.
  */
 
-import { htmlToMarkdown, inferFromBody, slugify, isoDate, CATEGORIES } from './import.js';
+/* Absolute, not './import.js'. See the note in index.html: this file is loaded
+   from a page served at both /admin and /admin/, and a relative specifier
+   resolves differently between the two. */
+import { htmlToMarkdown, inferFromBody, slugify, isoDate, CATEGORIES } from '/admin/import.js';
 
 const ROUTE = '#/collections/blog/new';
 const MAMMOTH_SRC = 'https://unpkg.com/mammoth@1.8.0/mammoth.browser.min.js';

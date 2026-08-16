@@ -72,10 +72,31 @@
     Our additions: "Start from a document" and a link to the bulk importer.
     Separate module, loaded after the editor. If it fails to load for any
     reason the editor itself is unaffected — the buttons simply do not appear.
+
+    The path is absolute, and must stay absolute. Vercel serves this file at
+    both /admin and /admin/ without redirecting between them, and a relative
+    './from-doc.js' resolves against the directory of the current URL: correct
+    at /admin/, but /from-doc.js at /admin. That path hits the SPA catch-all,
+    comes back as text/html, and the browser refuses to run it as a module —
+    so the buttons silently never appear, depending on whether the person
+    typed a trailing slash.
   -->
   <script type="module">
-    import { mount } from './from-doc.js';
+    import { mount } from '/admin/from-doc.js';
     mount();
+  </script>
+
+  <!--
+    If the module above cannot load at all, the loading screen would otherwise
+    stay in the DOM forever. Sveltia paints over it so the editor still works,
+    but a dead overlay sitting underneath is not something to leave lying
+    around.
+  -->
+  <script>
+    setTimeout(function () {
+      var b = document.getElementById('boot');
+      if (b) b.remove();
+    }, 15000);
   </script>
 </body>
 </html>
