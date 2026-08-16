@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Bulk import — Instant Production</title>
+<link rel="icon" href="/favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* Brand tokens, same values as the site — see the brand guidelines. */
+  :root {
+    --ink:#050505; --ink-900:#0b0b0c; --brand:#f59e0b; --brand-600:#d97706;
+    --line:rgba(255,255,255,.10); --muted:#a1a1aa; --dim:#71717a;
+    color-scheme: dark;
+  }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--ink); color:#f5f5f5;
+         font-family:Inter,system-ui,-apple-system,sans-serif; line-height:1.6; }
+  .wrap { max-width:64rem; margin:0 auto; padding:2.5rem 1.25rem 6rem }
+  a { color:var(--brand) }
+
+  header { display:flex; flex-wrap:wrap; align-items:center; gap:1rem; justify-content:space-between;
+           padding-bottom:1.5rem; border-bottom:1px solid var(--line); margin-bottom:2.5rem }
+  .eyebrow { font-size:.7rem; letter-spacing:.22em; text-transform:uppercase; color:var(--brand);
+             font-weight:600; margin:0 0 .4rem }
+  h1 { font-size:1.6rem; font-weight:600; letter-spacing:-.02em; margin:0 }
+  h2 { font-size:1.05rem; font-weight:600; margin:0 0 .5rem }
+  p  { margin:0 0 .75rem; font-size:.9rem }
+  .muted { color:var(--muted) } .dim { color:var(--dim); font-size:.8rem }
+
+  .btn { display:inline-flex; align-items:center; gap:.5rem; min-height:44px; padding:.6rem 1.15rem;
+         border-radius:999px; border:1px solid var(--line); background:transparent; color:#f5f5f5;
+         font:inherit; font-size:.875rem; cursor:pointer; transition:.2s }
+  .btn:hover:not(:disabled) { border-color:rgba(255,255,255,.3) }
+  .btn.primary { background:var(--brand); border-color:var(--brand); color:#000; font-weight:600 }
+  .btn.primary:hover:not(:disabled) { background:#fbbf24 }
+  .btn:disabled { opacity:.4; cursor:not-allowed }
+
+  section { border:1px solid var(--line); background:rgba(255,255,255,.04);
+            border-radius:1rem; padding:1.5rem; margin-bottom:1.25rem }
+  .step { display:inline-flex; align-items:center; justify-content:center; width:1.6rem; height:1.6rem;
+          border-radius:999px; background:var(--brand); color:#000; font-size:.75rem; font-weight:700;
+          margin-right:.6rem }
+  section[aria-disabled="true"] { opacity:.45; pointer-events:none }
+
+  .drop { border:2px dashed var(--line); border-radius:.75rem; padding:2.5rem 1.25rem; text-align:center;
+          transition:.2s; cursor:pointer }
+  .drop:hover, .drop.over { border-color:var(--brand); background:rgba(245,158,11,.05) }
+  .drop input { display:none }
+
+  table { width:100%; border-collapse:collapse; font-size:.82rem; margin-top:1rem }
+  th { text-align:left; font-size:.65rem; text-transform:uppercase; letter-spacing:.1em;
+       color:var(--dim); padding:0 .6rem .5rem 0; border-bottom:1px solid var(--line) }
+  td { padding:.7rem .6rem .7rem 0; border-bottom:1px solid rgba(255,255,255,.05); vertical-align:top }
+  td input { background:rgba(255,255,255,.06); border:1px solid var(--line); color:#f5f5f5;
+             border-radius:.4rem; padding:.35rem .5rem; font:inherit; font-size:.8rem; width:100% }
+
+  .pill { display:inline-block; padding:.15rem .5rem; border-radius:999px; font-size:.68rem; font-weight:600;
+          border:1px solid }
+  .ok   { color:#6ee7b7; border-color:rgba(110,231,183,.3); background:rgba(110,231,183,.08) }
+  .warn { color:var(--brand); border-color:rgba(245,158,11,.3); background:rgba(245,158,11,.08) }
+  .bad  { color:#fda4af; border-color:rgba(253,164,175,.3); background:rgba(253,164,175,.08) }
+  .issues { margin:.4rem 0 0; padding-left:1rem; font-size:.75rem; color:var(--muted) }
+  .issues li { margin-bottom:.15rem }
+
+  .row { display:flex; flex-wrap:wrap; gap:.75rem; align-items:center }
+  label.f { font-size:.75rem; color:var(--muted); display:block; margin-bottom:.3rem }
+  select, input[type=date], input[type=number] {
+    background:rgba(255,255,255,.06); border:1px solid var(--line); color:#f5f5f5;
+    border-radius:.5rem; padding:.5rem .65rem; font:inherit; font-size:.85rem; min-height:44px }
+
+  .note { border-left:2px solid var(--brand); background:rgba(245,158,11,.07);
+          padding:.9rem 1rem; border-radius:0 .5rem .5rem 0; font-size:.83rem; margin:1rem 0 0 }
+  .danger { border-left-color:#fb7185; background:rgba(251,113,133,.07) }
+  #log { font-size:.82rem; color:var(--muted); margin-top:.75rem; min-height:1.4rem }
+  code { background:rgba(255,255,255,.08); padding:.1rem .35rem; border-radius:.25rem; font-size:.85em }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <p class="eyebrow">Admin</p>
+      <h1>Bulk import articles</h1>
+    </div>
+    <div class="row">
+      <span id="who" class="dim"></span>
+      <a class="btn" href="/admin/">← Back to the editor</a>
+    </div>
+  </header>
+
+  <!-- 1. sign in -->
+  <section id="s-auth">
+    <h2><span class="step">1</span>Sign in</h2>
+    <p class="muted">Same GitHub sign-in as the editor. Access comes from being a collaborator on the repository.</p>
+    <button class="btn primary" id="signin">Sign in with GitHub</button>
+    <div id="authNote"></div>
+  </section>
+
+  <!-- 2. files -->
+  <section id="s-files" aria-disabled="true">
+    <h2><span class="step">2</span>Add your files</h2>
+    <p class="muted">
+      A <strong>CSV</strong> with one article per row, one or more <strong>Word documents</strong>,
+      or existing <strong>markdown</strong> files. You can mix them.
+    </p>
+
+    <div class="drop" id="drop">
+      <input type="file" id="files" multiple accept=".csv,.docx,.md,.markdown,.txt" />
+      <p style="margin:0;font-weight:500">Drop files here, or click to choose</p>
+      <p class="dim" style="margin:.4rem 0 0">CSV · DOCX · MD</p>
+    </div>
+
+    <details style="margin-top:1rem">
+      <summary style="cursor:pointer;font-size:.85rem;color:var(--muted)">What should the CSV look like?</summary>
+      <p class="dim" style="margin-top:.75rem">
+        First row is headers. Recognised columns —
+        <code>title</code>, <code>slug</code>, <code>excerpt</code>, <code>category</code>,
+        <code>banner</code>, <code>bannerAlt</code>, <code>publishAt</code>, <code>tags</code>,
+        <code>keywords</code>, <code>related</code>, <code>draft</code>, <code>body</code>.
+      </p>
+      <p class="dim">
+        Only <code>title</code>, <code>excerpt</code>, <code>category</code>, <code>banner</code> and
+        <code>body</code> are required — the slug is generated from the title and dates can be set below.
+        Separate tags with semicolons: <code>D2C; Creative Testing</code>.
+      </p>
+      <p style="margin-top:.75rem"><button class="btn" id="template">Download a template CSV</button></p>
+    </details>
+  </section>
+
+  <!-- 3. schedule -->
+  <section id="s-sched" aria-disabled="true">
+    <h2><span class="step">3</span>Set the schedule</h2>
+    <p class="muted">Dates already in the file are kept. This fills in anything missing, or overrides everything.</p>
+    <div class="row">
+      <div>
+        <label class="f" for="mode">Approach</label>
+        <select id="mode">
+          <option value="keep">Keep dates from the file</option>
+          <option value="fill">Fill in only the missing ones</option>
+          <option value="all">Re-space every article</option>
+        </select>
+      </div>
+      <div>
+        <label class="f" for="start">Starting</label>
+        <input type="date" id="start" />
+      </div>
+      <div>
+        <label class="f" for="every">One every</label>
+        <select id="every">
+          <option value="1">day</option>
+          <option value="2">2 days</option>
+          <option value="3" selected>3 days</option>
+          <option value="7">week</option>
+          <option value="0">all on the same day</option>
+        </select>
+      </div>
+      <div style="align-self:flex-end">
+        <button class="btn" id="apply">Apply</button>
+      </div>
+    </div>
+    <p class="dim" style="margin-top:.75rem">
+      Anything dated in the future stays invisible until that morning — it is stripped out of the build
+      entirely, not just hidden.
+    </p>
+  </section>
+
+  <!-- 4. review -->
+  <section id="s-review" aria-disabled="true">
+    <h2><span class="step">4</span>Review</h2>
+    <p class="muted" id="summary">Nothing loaded yet.</p>
+    <div style="overflow-x:auto"><table id="tbl"><tbody></tbody></table></div>
+  </section>
+
+  <!-- 5. publish -->
+  <section id="s-publish" aria-disabled="true">
+    <h2><span class="step">5</span>Publish</h2>
+    <p class="muted">
+      Everything lands as a single commit, so it either all works or nothing changes.
+      The site rebuilds automatically — roughly 90 seconds.
+    </p>
+    <button class="btn primary" id="publish" disabled>Import articles</button>
+    <div id="log"></div>
+    <div id="result"></div>
+  </section>
+
+  <p class="dim" style="margin-top:2rem">
+    Everything here is re-checked when the site builds. If something invalid slipped through,
+    the build fails and the live site is left exactly as it was.
+  </p>
+</div>
+
+<script src="https://unpkg.com/mammoth@1.8.0/mammoth.browser.min.js"></script>
+<script type="module">
+import {
+  signIn, getToken, setToken, whoAmI, canWrite, parseCsv, toArticle, validate,
+  fetchExistingSlugs, commitAll, htmlToMarkdown, inferFromBody, slugify, isoDate, fileNameFor,
+} from './import.js';
+
+const $ = (id) => document.getElementById(id);
+let articles = [];
+let existing = new Set();
+let token = getToken();
+
+const enable = (id, on) => $(id).setAttribute('aria-disabled', String(!on));
+
+/* ---------------------------------------------------------------- auth */
+async function afterAuth() {
+  const me = await whoAmI(token);
+  const write = await canWrite(token);
+  $('who').textContent = `Signed in as ${me.login}`;
+  $('signin').textContent = 'Signed in';
+  $('signin').disabled = true;
+
+  if (!write) {
+    $('authNote').innerHTML =
+      '<div class="note danger"><strong>No write access.</strong> You are signed in, but you are not a ' +
+      'collaborator on the repository, so nothing can be published. Ask Rahul to add you.</div>';
+    return;
+  }
+  existing = await fetchExistingSlugs(token);
+  enable('s-files', true);
+  enable('s-sched', true);
+  enable('s-review', true);
+  enable('s-publish', true);
+}
+
+$('signin').onclick = async () => {
+  try { token = await signIn(); await afterAuth(); }
+  catch (e) { $('authNote').innerHTML = `<div class="note danger">${e.message}</div>`; }
+};
+if (token) afterAuth().catch(() => { setToken(''); token = ''; });
+
+/* --------------------------------------------------------------- files */
+const drop = $('drop'), input = $('files');
+drop.onclick = () => input.click();
+['dragenter', 'dragover'].forEach((e) => drop.addEventListener(e, (ev) => {
+  ev.preventDefault(); drop.classList.add('over');
+}));
+['dragleave', 'drop'].forEach((e) => drop.addEventListener(e, () => drop.classList.remove('over')));
+drop.addEventListener('drop', (ev) => { ev.preventDefault(); handle([...ev.dataTransfer.files]); });
+input.onchange = () => handle([...input.files]);
+
+async function handle(files) {
+  for (const f of files) {
+    const name = f.name.toLowerCase();
+    try {
+      if (name.endsWith('.csv')) {
+        parseCsv(await f.text()).forEach((row) => articles.push(toArticle(row)));
+      } else if (name.endsWith('.docx')) {
+        const buf = await f.arrayBuffer();
+        const { value } = await window.mammoth.convertToHtml({ arrayBuffer: buf });
+        const md = htmlToMarkdown(value);
+        const fallback = f.name.replace(/\.docx$/i, '').replace(/[-_]+/g, ' ');
+        const { title, excerpt, body } = inferFromBody(md, fallback);
+        articles.push(toArticle({ title, excerpt, body, category: 'Content Strategy' }));
+      } else {
+        const text = await f.text();
+        if (text.startsWith('---')) {
+          const end = text.indexOf('\n---', 3);
+          const head = text.slice(3, end);
+          const body = text.slice(end + 4).trim();
+          const raw = { body };
+          head.split('\n').forEach((l) => {
+            const i = l.indexOf(':');
+            if (i > 0) raw[l.slice(0, i).trim()] = l.slice(i + 1).trim().replace(/^\[|\]$/g, '');
+          });
+          articles.push(toArticle(raw));
+        } else {
+          const fallback = f.name.replace(/\.(md|markdown|txt)$/i, '').replace(/[-_]+/g, ' ');
+          const { title, excerpt, body } = inferFromBody(text, fallback);
+          articles.push(toArticle({ title, excerpt, body, category: 'Content Strategy' }));
+        }
+      }
+    } catch (e) {
+      alert(`Could not read ${f.name}: ${e.message}`);
+    }
+  }
+  render();
+}
+
+/* ------------------------------------------------------------ schedule */
+$('start').valueAsDate = new Date();
+$('apply').onclick = () => {
+  const mode = $('mode').value;
+  if (mode === 'keep') return render();
+  const step = Number($('every').value);
+  const start = $('start').valueAsDate || new Date();
+  let n = 0;
+  articles.forEach((a) => {
+    if (mode === 'fill' && a.publishAt) return;
+    const d = new Date(start);
+    d.setDate(d.getDate() + n * step);
+    a.publishAt = isoDate(d);
+    n += 1;
+  });
+  render();
+};
+
+/* -------------------------------------------------------------- render */
+function render() {
+  const slugs = articles.map((a) => a.slug);
+  const body = $('tbl').querySelector('tbody');
+  body.innerHTML = '';
+
+  if (!articles.length) {
+    $('summary').textContent = 'Nothing loaded yet.';
+    $('publish').disabled = true;
+    return;
+  }
+
+  body.insertAdjacentHTML('beforeend',
+    '<tr><th>Article</th><th>Publish date</th><th>Status</th></tr>');
+
+  let bad = 0, warned = 0;
+  articles.forEach((a, i) => {
+    const { errors, warnings } = validate(a, slugs, existing);
+    if (errors.length) bad += 1; else if (warnings.length) warned += 1;
+
+    const pill = errors.length
+      ? '<span class="pill bad">Will not import</span>'
+      : warnings.length ? '<span class="pill warn">Check</span>' : '<span class="pill ok">Ready</span>';
+
+    const issues = [...errors.map((e) => `<li>${esc(e)}</li>`),
+                    ...warnings.map((w) => `<li>${esc(w)}</li>`)].join('');
+
+    body.insertAdjacentHTML('beforeend', `
+      <tr>
+        <td>
+          <div style="font-weight:500">${esc(a.title || '(no title)')}</div>
+          <div class="dim">${esc(fileNameFor(a))}</div>
+        </td>
+        <td style="width:11rem"><input type="date" value="${a.publishAt}" data-i="${i}" /></td>
+        <td style="width:22rem">${pill}${issues ? `<ul class="issues">${issues}</ul>` : ''}</td>
+      </tr>`);
+  });
+
+  body.querySelectorAll('input[type=date]').forEach((el) => {
+    el.onchange = () => { articles[Number(el.dataset.i)].publishAt = el.value; render(); };
+  });
+
+  const ready = articles.length - bad;
+  $('summary').innerHTML =
+    `<strong>${articles.length}</strong> loaded · <strong>${ready}</strong> ready to import` +
+    (warned ? ` · ${warned} with warnings (these still import)` : '') +
+    (bad ? ` · <span style="color:#fda4af">${bad} blocked</span>` : '');
+  $('publish').disabled = ready === 0;
+  $('publish').textContent = bad
+    ? `Import the ${ready} that are ready`
+    : `Import ${articles.length} article${articles.length === 1 ? '' : 's'}`;
+}
+
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+/* ------------------------------------------------------------- publish */
+$('publish').onclick = async () => {
+  const slugs = articles.map((a) => a.slug);
+  const good = articles.filter((a) => validate(a, slugs, existing).errors.length === 0);
+  if (!good.length) return;
+
+  $('publish').disabled = true;
+  $('result').innerHTML = '';
+  try {
+    const { count } = await commitAll(token, good, (m) => { $('log').textContent = m; });
+    $('log').textContent = '';
+    $('result').innerHTML =
+      `<div class="note"><strong>${count} article${count === 1 ? '' : 's'} imported.</strong> ` +
+      'The site is rebuilding — allow about 90 seconds. Anything dated in the future will appear on its date.' +
+      '<br /><a href="/blog" target="_blank" rel="noopener">Open the blog</a></div>';
+    articles = [];
+    existing = await fetchExistingSlugs(token);
+    render();
+  } catch (e) {
+    $('log').textContent = '';
+    $('result').innerHTML = `<div class="note danger"><strong>Nothing was imported.</strong> ${esc(e.message)}</div>`;
+    $('publish').disabled = false;
+  }
+};
+
+/* ------------------------------------------------------ template csv */
+$('template').onclick = (e) => {
+  e.preventDefault();
+  const csv = [
+    'title,slug,excerpt,category,banner,bannerAlt,publishAt,tags,keywords,related,draft,body',
+    '"Why your ads stopped working","","One or two sentences that make someone want to read it.","Performance Marketing","/images/blog/creative-testing.webp","A marketing team reviewing creative","2026-09-01","D2C; Creative Testing","creative fatigue; meta ads india","","false","Open with the answer in the first 60 words.\n\n## A section heading\n\nBody text, and a link to [our performance marketing work](/services/performance-marketing)."',
+  ].join('\n');
+  const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+  const a = document.createElement('a');
+  a.href = url; a.download = 'instant-production-articles-template.csv'; a.click();
+  URL.revokeObjectURL(url);
+};
+</script>
+</body>
+</html>

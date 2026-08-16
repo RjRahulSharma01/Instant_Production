@@ -132,12 +132,43 @@ for (const file of files) {
       warn(`link text "${label}" says nothing — use words that describe the destination`);
     }
   }
-  if (internal.length === 0) warn('no internal links — every article should point at least one place deeper into the site');
+  if (internal.length === 0 && !/^:::cta\s*$/m.test(body)) {
+    warn('no internal links — every article should point at least one place deeper into the site');
+  }
 
-  // images referenced in the body
-  for (const [, , src] of body.matchAll(/!\[([^\]]*)\]\(([^)\s]+)\)/g)) {
+  // images referenced in the body (the optional "caption" is ignored here)
+  for (const [, , src] of body.matchAll(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g)) {
     if (src.startsWith('/') && !fs.existsSync(path.join(PUBLIC, src.replace(/^\//, '')))) {
       err(`body image not found: public${src}`);
+    }
+  }
+
+  /* Fenced blocks. An unclosed fence swallows the rest of the article silently —
+     the page still builds, it just quietly ends early. Worth catching here. */
+  const fences = (body.match(/^```/gm) || []).length;
+  if (fences % 2 !== 0) err('a ``` code block is opened but never closed');
+
+  const opens = (body.match(/^:::(stat|cta|images)\s*$/gm) || []).length;
+  const closes = (body.match(/^:::\s*$/gm) || []).length;
+  if (opens !== closes) err(`${opens} ::: block${opens === 1 ? '' : 's'} opened but ${closes} closed`);
+  for (const [, kind] of body.matchAll(/^:::(\w+)/gm)) {
+    if (kind && !['stat', 'cta', 'images'].includes(kind)) {
+      err(`":::${kind}" is not a block type — use :::stat, :::cta or :::images`);
+    }
+  }
+
+  /* CTA destinations are not markdown links, so the link check above never sees
+     them. They break just as badly. */
+  for (const [, block] of body.matchAll(/^:::cta\s*$([\s\S]*?)^:::\s*$/gm)) {
+    const rows = block.split('\n').map((r) => r.trim()).filter(Boolean);
+    if (rows.length < 2) { err('a :::cta block needs a sentence, then "/path | Button label" underneath'); continue; }
+    const [href, label] = rows[1].split('|').map((s) => s.trim());
+    if (!href || !label) { err(`cannot read the CTA action line "${rows[1]}" — it should be "/path | Button label"`); continue; }
+    if (href.startsWith('/')) {
+      const clean = (href.startsWith('/#') ? href : href.split('#')[0]).replace(/(.)\/$/, '$1') || '/';
+      if (!VALID_PREFIXES.includes(clean) && !clean.startsWith('/blog/')) {
+        err(`CTA button points at "${href}", which is not a route on the site`);
+      } else if (clean.startsWith('/blog/')) blogLinks.push([file, clean.slice(6)]);
     }
   }
 

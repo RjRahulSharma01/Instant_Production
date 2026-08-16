@@ -24,7 +24,8 @@ Everything between the two `---` lines. This is the metadata.
 | `excerpt` | yes | The summary on the card and in search results. Under 160 characters |
 | `category` | yes | The chip on the card. One category per post |
 | `banner` | yes | The header image, e.g. `/images/blog/thing.webp`. File goes in `public/images/blog/` |
-| `bannerAlt` | no | What the image shows. Add it — screen readers and Google both use it |
+| `bannerAlt` | no | What the image shows. Add it — screen readers and Google both use it. Not printed on the page |
+| `bannerCaption` | no | A visible line under the banner — a credit, a source, a note |
 | `publishAt` | yes | `YYYY-MM-DD`. The article appears on this date and not before |
 | `tags` | no | `[D2C, Creative Testing]`. Readers can filter the blog by these |
 | `keywords` | no | Search terms you are targeting. Used in the page metadata |
@@ -66,6 +67,9 @@ A paragraph. Blank line between paragraphs.
 | cell | cell |
 
 ![alt text](/images/blog/diagram.webp)
+![alt text](/images/blog/diagram.webp "A caption printed under it")
+
+~~struck through~~
 
 ---     a horizontal rule
 ```
@@ -74,6 +78,51 @@ Do not use a single `#` for headings. That is reserved for the title, which
 comes from the block at the top. The check will tell you if you slip.
 
 Reading time is calculated from the word count. You do not set it.
+
+## The four blocks
+
+Four layouts plain markdown has no syntax for. Each closes with `:::` alone on
+its own line.
+
+**A key figure.** First line is the number, the rest explains it.
+
+```
+:::stat
+97.3%
+of beauty ads submitted for review needed a claim changed before they ran.
+:::
+```
+
+**A call to action.** First line is the sentence, second is `path | button label`.
+
+```
+:::cta
+This is the loop we run for D2C brands every month.
+/services/performance-marketing | See how performance marketing works
+:::
+```
+
+**Two or three images side by side.** Good for before-and-after.
+
+```
+:::images
+![The original creative](/images/blog/before.webp "Before")
+![The rebuilt version](/images/blog/after.webp "After")
+:::
+```
+
+**Code.** Three backticks, as usual. This used to render as literal backticks;
+it works now.
+
+Two more things that need no block syntax:
+
+- A **YouTube or Vimeo URL on its own line** becomes an embedded player.
+  Nothing loads from YouTube until the reader scrolls to it, and the no-cookie
+  domain means no tracking cookie is set unless they press play.
+- **Alt text and captions are now separate.** `![alt](src)` gives a screen
+  reader the alt and shows no caption. `![alt](src "caption")` shows the
+  caption too. Before this update the alt text was printed as the caption,
+  which meant writing one string that had to do both jobs badly.
 
 ## Images
 
@@ -98,9 +147,13 @@ Valid destinations:
 /services/performance-marketing    /industries/fintech
 /services/influencer-marketing     /industries/education
 /services/website-development      /industries/beauty
-/portfolio  /about  /contact       /industries/real-estate
+/portfolio  /#about  /#contact      /industries/real-estate
 /blog/some-other-post
 ```
+
+`/#about` and `/#contact` carry the hash. They are sections of the homepage,
+not routes — `/contact` on its own hits the catch-all and drops the reader at
+the top of the homepage.
 
 The check verifies each one against that list. A typo'd internal link is worse
 than no link, so this fails the build rather than warning.
@@ -139,3 +192,19 @@ it breaks every existing link to that article.
 
 Delete the file. If it had been live and indexed, tell me first so we can add a
 redirect rather than leaving a dead URL.
+
+## Publishing a batch
+
+For more than two or three at a time, use the importer at
+**instantproduction.in/admin/import.html** rather than writing files by hand.
+
+It takes a CSV (one article per row), Word documents, or markdown files — mixed
+in one go. It shows every article with its errors and warnings before anything
+is written, lets you space the publish dates out one per day or one per week,
+and then lands the whole batch as a single commit. Either all of it imports or
+none of it does; there is no half-finished state.
+
+The rules it checks are the same rules in `check-blog.mjs`, so nothing that
+passes there fails the build here.
+
+There is a template CSV to download inside the importer.

@@ -135,7 +135,30 @@ function inline(text) {
   // **bold** then *italic*
   s = s.replace(/\*\*([^*]+)\*\*/g, '<strong class="font-semibold text-white">$1</strong>');
   s = s.replace(/(^|[^*])\*([^*]+)\*/g, '$1<em>$2</em>');
+  // ~~struck through~~ — useful for "we used to say X, now we say Y"
+  s = s.replace(/~~([^~]+)~~/g, '<s class="text-zinc-500">$1</s>');
   return s;
+}
+
+/* Matches an image with an optional caption in quotes:
+     ![alt text](/path.webp)
+     ![alt text](/path.webp "Caption shown under the image")
+   alt and caption are deliberately separate. The alt is what a screen reader
+   announces; the caption is what a sighted reader sees. Writing one and
+   showing it as the other short-changes both. */
+const IMAGE_RE = /^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)$/;
+
+/* A YouTube or Vimeo URL sitting on its own line becomes a player. Accepts a
+   bare URL because that is what anyone actually pastes. */
+function videoBlock(t) {
+  const yt = t.match(/^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([\w-]{6,})/);
+  if (yt) {
+    // nocookie: no tracking cookie is set unless the visitor presses play.
+    return { type: 'video', src: `https://www.youtube-nocookie.com/embed/${yt[1]}`, title: 'YouTube video' };
+  }
+  const vm = t.match(/^(?:https?:\/\/)?(?:www\.)?vimeo\.com\/(\d+)/);
+  if (vm) return { type: 'video', src: `https://player.vimeo.com/video/${vm[1]}`, title: 'Vimeo video' };
+  return null;
 }
 
 /* ---------------------------------------------------------- block markdown */
@@ -161,6 +184,59 @@ function parseBody(md, file) {
     // horizontal rule
     if (/^(\*\*\*|---|___)$/.test(t)) { blocks.push({ type: 'hr' }); i += 1; continue; }
 
+    /* fenced code block.
+       This used to fall through to the paragraph case, so a code block written
+       in the admin (which offers a code-block button) rendered as one long run
+       of literal backticks. */
+    if (t.startsWith('```')) {
+      const lang = t.slice(3).trim();
+      const buf = [];
+      i += 1;
+      while (i < lines.length && !lines[i].trim().startsWith('```')) { buf.push(lines[i]); i += 1; }
+      i += 1;                                   // step past the closing fence
+      blocks.push({ type: 'code', lang, text: buf.join('\n') });
+      continue;
+    }
+
+    /* ::: blocks — the three layouts worth having that plain markdown has no
+       syntax for. Each closes with a bare ::: on its own line. */
+    const dir = t.match(/^:::(stat|cta|images)\s*$/);
+    if (dir) {
+      const kind = dir[1];
+      const buf = [];
+      i += 1;
+      while (i < lines.length && lines[i].trim() !== ':::') { buf.push(lines[i].trim()); i += 1; }
+      i += 1;
+      const rows = buf.filter(Boolean);
+
+      if (kind === 'stat') {
+        // First line is the number. Everything after it explains what it means.
+        if (!rows.length) throw new Error(`${file}: a :::stat block needs a figure on the first line`);
+        blocks.push({ type: 'stat', figure: rows[0], html: inline(rows.slice(1).join(' ')) });
+      } else if (kind === 'cta') {
+        // First line is the sentence. Second is  /path | Button label
+        const [text, action = ''] = rows;
+        const [href = '', label = ''] = action.split('|').map((s) => s.trim());
+        if (!text || !href || !label) {
+          throw new Error(`${file}: a :::cta block needs a sentence, then "/path | Button label" underneath`);
+        }
+        blocks.push({ type: 'cta', html: inline(text), href, label });
+      } else {
+        const imgs = rows.map((r) => {
+          const m = r.match(IMAGE_RE);
+          if (!m) throw new Error(`${file}: a :::images block takes image lines only — got "${r}"`);
+          return { src: m[2], alt: m[1], caption: m[3] || '' };
+        });
+        if (imgs.length < 2) throw new Error(`${file}: a :::images block needs at least two images — use a plain image otherwise`);
+        blocks.push({ type: 'images', items: imgs });
+      }
+      continue;
+    }
+
+    // a video URL on its own line
+    const vid = videoBlock(t);
+    if (vid) { blocks.push(vid); i += 1; continue; }
+
     // callout — a blockquote
     if (t.startsWith('> ')) {
       const buf = [];
@@ -171,10 +247,10 @@ function parseBody(md, file) {
       continue;
     }
 
-    // image on its own line
-    const img = t.match(/^!\[([^\]]*)\]\(([^)\s]+)\)$/);
+    // image on its own line, with an optional caption
+    const img = t.match(IMAGE_RE);
     if (img) {
-      blocks.push({ type: 'image', src: img[2], alt: img[1] });
+      blocks.push({ type: 'image', src: img[2], alt: img[1], caption: img[3] || '' });
       i += 1; continue;
     }
 
@@ -250,6 +326,7 @@ function readPosts() {
       category: data.category,
       cover: data.banner,
       bannerAlt: data.bannerAlt || '',
+      bannerCaption: data.bannerCaption || '',
       publishAt: data.publishAt,
       date: data.publishAt,
       updated: data.updated || null,

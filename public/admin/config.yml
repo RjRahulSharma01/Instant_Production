@@ -94,7 +94,13 @@ collections:
         name: bannerAlt
         widget: string
         required: false
-        hint: What the image shows. Used by screen readers and by search.
+        hint: What the image shows. Read aloud by screen readers, and used by search. Not shown on the page.
+
+      - label: Banner caption
+        name: bannerCaption
+        widget: string
+        required: false
+        hint: 'Optional line printed under the banner — a credit, a source, or a note. Leave empty for no caption.'
 
       - label: Publish date
         name: publishAt
@@ -138,8 +144,17 @@ collections:
       - label: Article
         name: body
         widget: markdown
-        hint: 'Open with the answer in the first 60 words. Use ## for section headings — never a single #.'
-        buttons: [bold, italic, link, heading-two, heading-three, quote, bulleted-list, numbered-list, code]
+        hint: >
+          Open with the answer in the first 60 words. Use ## for section headings — never a single #.
+          Beyond the buttons you can type: ![alt](/images/blog/x.webp "caption shown under the image") ·
+          a YouTube or Vimeo URL on its own line becomes a player ·
+          a table written with | pipes | · ~~struck through~~ · and three block layouts —
+          :::stat (a big number and what it means), :::cta (a sentence and a button),
+          :::images (two or three side by side). Each ::: block closes with ::: on its own line.
+          The full syntax with examples is in content/blog/README.md.
+        buttons:
+          [bold, italic, code, link, heading-two, heading-three, heading-four,
+           quote, bulleted-list, numbered-list]
         editor_components: [image, code-block]
 
       # Optional search overrides. Deliberately flat rather than nested under an

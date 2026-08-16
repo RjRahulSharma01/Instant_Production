@@ -5,6 +5,7 @@ excerpt: One or two sentences that make someone want to read it. This is what sh
 category: Performance Marketing
 banner: /images/blog/your-image.webp
 bannerAlt: Describe what the image shows, for screen readers and search
+bannerCaption: Optional visible caption or credit. Delete this line if you do not want one.
 publishAt: 2026-09-01
 tags: [D2C, Creative Testing]
 keywords: [creative fatigue, meta ads india, d2c creative volume]
@@ -54,9 +55,36 @@ Tables work for anything comparative:
 | Refresh window | 45–60 days | 21–35 days |
 | Assets needed | 4 a month | 15–30 a month |
 
-You can drop an image into the body:
+You can drop an image into the body. The text in brackets is what a screen
+reader announces; the quoted part is the caption a reader sees. Leave the
+quoted part off and there is no caption.
 
-![Describe the image here](/images/blog/some-diagram.webp)
+![Describe the image here](/images/blog/some-diagram.webp "Caption under the image")
+
+Two or three images side by side, for before-and-after:
+
+:::images
+![The original creative](/images/blog/before.webp "Before")
+![The rebuilt version](/images/blog/after.webp "After")
+:::
+
+A single number you want people to remember:
+
+:::stat
+21–35 days
+is how long a creative now lasts before it fatigues. It used to be 45–60.
+:::
+
+A YouTube or Vimeo link on its own line becomes a player:
+
+https://www.youtube.com/watch?v=xxxxxxxxxxx
+
+And a call to action, which is a sentence and a button:
+
+:::cta
+This is the loop we run for D2C brands every month.
+/services/performance-marketing | See how performance marketing works
+:::
 
 ---
 

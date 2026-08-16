@@ -56,13 +56,79 @@ function Block({ block }) {
           dangerouslySetInnerHTML={{ __html: block.html }} />
       );
 
+    /* alt is for screen readers, caption is for everyone. They used to be the
+       same string, which meant either the caption read like alt text or the alt
+       text read like a caption. Now: ![alt](src "caption"). */
     case 'image':
       return (
         <figure className="mt-8">
           <img src={block.src} alt={block.alt} loading="lazy"
             className="w-full rounded-card border border-white/10" />
-          {block.alt && <figcaption className="mt-2.5 text-xs text-zinc-500">{block.alt}</figcaption>}
+          {block.caption && <figcaption className="mt-2.5 text-xs text-zinc-500">{block.caption}</figcaption>}
         </figure>
+      );
+
+    case 'images':
+      return (
+        <div className={`mt-8 grid gap-4 ${block.items.length > 2 ? 'sm:grid-cols-3' : 'sm:grid-cols-2'}`}>
+          {block.items.map((im, i) => (
+            <figure key={i}>
+              <img src={im.src} alt={im.alt} loading="lazy"
+                className="w-full rounded-card border border-white/10 object-cover"
+                style={{ aspectRatio: '4/3' }} />
+              {im.caption && <figcaption className="mt-2 text-xs text-zinc-500">{im.caption}</figcaption>}
+            </figure>
+          ))}
+        </div>
+      );
+
+    /* Nothing loads from YouTube until the reader scrolls to it, and the
+       nocookie domain means no tracking cookie is set unless they press play. */
+    case 'video':
+      return (
+        <div className="mt-8 overflow-hidden rounded-card border border-white/10"
+          style={{ aspectRatio: '16/9' }}>
+          <iframe src={block.src} title={block.title} loading="lazy" className="h-full w-full"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen />
+        </div>
+      );
+
+    case 'stat':
+      return (
+        <div className="mt-8 flex flex-col gap-3 rounded-card border border-brand/25 bg-brand/[0.06] p-6 sm:flex-row sm:items-center sm:gap-6">
+          <p className="shrink-0 text-3xl font-semibold leading-none tracking-tight text-brand sm:text-4xl">
+            {block.figure}
+          </p>
+          <p className="text-[0.95rem] leading-7 text-zinc-200"
+            dangerouslySetInnerHTML={{ __html: block.html }} />
+        </div>
+      );
+
+    case 'cta':
+      return (
+        <div className="mt-10 rounded-card border border-white/10 bg-white/[0.04] p-6">
+          <p className="text-[0.95rem] leading-7 text-zinc-200"
+            dangerouslySetInnerHTML={{ __html: block.html }} />
+          {block.href.startsWith('/') ? (
+            <Link to={block.href}
+              className="mt-4 inline-flex min-h-[44px] items-center gap-2 rounded-full bg-brand px-5 text-sm font-semibold text-black transition hover:bg-brand/90">
+              {block.label} <FiArrowRight aria-hidden="true" />
+            </Link>
+          ) : (
+            <a href={block.href} target="_blank" rel="noopener noreferrer"
+              className="mt-4 inline-flex min-h-[44px] items-center gap-2 rounded-full bg-brand px-5 text-sm font-semibold text-black transition hover:bg-brand/90">
+              {block.label} <FiArrowRight aria-hidden="true" />
+            </a>
+          )}
+        </div>
+      );
+
+    case 'code':
+      return (
+        <pre className="mt-8 overflow-x-auto rounded-card border border-white/10 bg-black/50 p-5 text-[0.8rem] leading-6">
+          <code className="text-zinc-300">{block.text}</code>
+        </pre>
       );
 
     case 'table':
@@ -218,9 +284,14 @@ export default function BlogPost() {
 
           {/* banner */}
           {post.cover && (
-            <motion.img variants={fadeUp} src={post.cover} alt={post.bannerAlt || ''}
-              className="mt-8 w-full rounded-panel border border-white/10 object-cover"
-              style={{ aspectRatio: '16/9' }} />
+            <motion.figure variants={fadeUp} className="mt-8">
+              <img src={post.cover} alt={post.bannerAlt || ''}
+                className="w-full rounded-panel border border-white/10 object-cover"
+                style={{ aspectRatio: '16/9' }} />
+              {post.bannerCaption && (
+                <figcaption className="mt-2.5 text-xs text-zinc-500">{post.bannerCaption}</figcaption>
+              )}
+            </motion.figure>
           )}
 
           {/* body */}
