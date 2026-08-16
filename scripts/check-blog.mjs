@@ -23,9 +23,10 @@ const warnings = [];
    almost always a typo, and a typo'd internal link is worse than no link. */
 const VALID_PREFIXES = [
   '/', '/services', '/portfolio', '/industries', '/blog', '/about', '/contact',
-  '/services/ai-content-strategy', '/services/video-production',
-  '/services/performance-marketing', '/services/influencer-marketing',
-  '/services/website-development',
+  '/services/ai-content-strategy', '/services/ai-videos', '/services/ai-generated-ads',
+  '/services/video-production', '/services/social-media-growth', '/services/influencer-marketing',
+  '/services/performance-marketing', '/services/website-development', '/services/blog-writing',
+  '/services/graphic-design',
   '/industries/healthcare', '/industries/ecommerce', '/industries/fintech',
   '/industries/education', '/industries/beauty', '/industries/real-estate',
 ];
