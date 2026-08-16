@@ -3,12 +3,24 @@ title: 92% of beauty influencer ads needed changing
 slug: beauty-influencer-disclosure
 excerpt: ASCI processed personal care ads where influencers made up 68% of the volume. Nine in ten breached the code. The fix costs nothing and almost nobody does it.
 category: Influencer Marketing
-banner: /images/blog/beauty-influencer-disclosure.webp
+banner: pexels-mart-production-7290691.jpg
 bannerAlt: A grid of one hundred squares with almost all of them flagged
+bannerCaption: ''
 publishAt: 2026-08-16
-tags: [Beauty, Influencer Marketing]
-keywords: [asci influencer disclosure india, beauty brand advertising compliance, micro influencer marketing india]
-related: [influencer-content-into-paid, creative-testing-loop]
+tags:
+  - Beauty
+  - Influencer Marketing
+keywords:
+  - asci influencer disclosure india
+  - beauty brand advertising compliance
+  - micro influencer marketing india
+related:
+  - influencer-content-into-paid
+  - creative-testing-loop
+draft: false
+metaTitle: ''
+metaDescription: ''
+updated: ''
 ---
 
 Social media influencers accounted for 68% of the personal care advertisements ASCI processed, and 92% of those required modification. More than 500 brands were flagged for advertising breaches between 2025 and January 2026. The most common failure is not an exaggerated claim about the product. It is that the post never clearly said it was paid for.
@@ -30,7 +42,7 @@ ASCI requires paid collaborations to be labelled with an unmissable identifier â
 Which rules out most of what brands currently do.
 
 | Common practice | Why it fails |
-|---|---|
+| --- | --- |
 | `#ad` as the fourteenth hashtag | Not prominent. Nobody reads past the third |
 | Disclosure in the caption on a Reel | Most viewers never expand the caption |
 | "Thanks to @brand for sending this" | Gifting is still a material connection and still needs disclosing |
