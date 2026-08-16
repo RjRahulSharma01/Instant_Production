@@ -3,12 +3,24 @@ title: What is left of a D2C rupee in 2026
 slug: d2c-unit-economics-2026
 excerpt: Meta CAC is up 32% year on year and quick commerce takes 30-40% of the order. The brands still growing changed what they measure, not how hard they push.
 category: Performance Marketing
-banner: /images/blog/d2c-margin-after-everyone.webp
+banner: pexels-adventure-studio-6207714.jpg
 bannerAlt: Stacked bars showing a rupee reducing as each cost is taken out of it
+bannerCaption: ''
 publishAt: 2026-08-18
-tags: [D2C, Performance Marketing]
-keywords: [d2c unit economics india, quick commerce commission d2c, meta cac india 2026]
-related: [creative-testing-loop, content-pillars-that-work]
+tags:
+  - D2C
+  - Performance Marketing
+keywords:
+  - d2c unit economics india
+  - quick commerce commission d2c
+  - meta cac india 2026
+related:
+  - creative-testing-loop
+  - content-pillars-that-work
+draft: false
+metaTitle: ''
+metaDescription: ''
+updated: ''
 ---
 
 Indian D2C is growing quickly and getting harder to make money in at the same time. Meta acquisition cost has risen from roughly ₹380 to ₹502 in a year, a 32% jump. Quick commerce takes 30-40% of the order value but hands you zero acquisition cost. Cash on delivery is still 45% of orders and still a working capital drag. None of these is fatal on its own. Stacked, they decide whether a brand compounds or quietly stalls at ₹5 crore.
