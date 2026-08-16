@@ -54,6 +54,12 @@ collections:
     label_singular: Article
     folder: content/blog
     create: true
+    # Absolute, from the repository root. Without this the editor offers
+    # "Entry Assets" and drops an upload beside the markdown file in
+    # content/blog/ — which is not published, so the image 404s on a live
+    # article. Pinning it here removes that choice entirely.
+    media_folder: /public/images/blog
+    public_folder: /images/blog
     slug: '{{year}}-{{month}}-{{day}}-{{fields.slug}}'
     path: '{{year}}-{{month}}-{{day}}-{{fields.slug}}'
     extension: md

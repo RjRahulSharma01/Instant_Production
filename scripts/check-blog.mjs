@@ -127,6 +127,15 @@ for (const file of files) {
       err(`banner image not found: public${data.banner}`);
     }
     if (!data.bannerAlt) warn('no bannerAlt — add one so the image is described to screen readers and to search');
+    /* Pasting a photo credit into the alt field is easy to do — the stock
+       services hand you the credit as a block of HTML. It ends up read aloud,
+       tags and all, to anyone using a screen reader. */
+    else if (/<[a-z]/i.test(data.bannerAlt)) {
+      err('bannerAlt contains HTML — it must be plain words describing the image. Move the photo credit to bannerCaption.');
+    }
+    if (data.bannerCaption && /<[a-z]/i.test(data.bannerCaption)) {
+      err('bannerCaption contains HTML — write it as plain text, e.g. "Photo by Hanna Pad on Pexels".');
+    }
   }
 
   if (data.excerpt && data.excerpt.length > 165) {
