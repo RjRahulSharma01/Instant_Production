@@ -21,6 +21,20 @@ backend:
     uploadMedia: 'Admin: upload {{path}}'
     deleteMedia: 'Admin: delete {{path}}'
 
+# Stock photo search, offered inside the image picker alongside "Your Site".
+#
+# Each service needs its own free API key. The editor asks for it the first
+# time you open that tab and keeps it in your browser — the keys are never
+# written to this file, never committed, and never leave your machine. Anyone
+# else who signs in enters their own.
+#
+# Lorem Picsum is deliberately left out. It serves random placeholder
+# photography, which has no business on a published article and is very easy
+# to leave behind by accident.
+media_libraries:
+  stock_assets:
+    providers: [unsplash, pexels, pixabay]
+
 # Where uploaded images go, and how the site refers to them.
 media_folder: public/images/blog
 public_folder: /images/blog
@@ -88,7 +102,13 @@ collections:
         widget: image
         media_library:
           config: { multiple: false }
-        hint: 1600×900 WebP, under 200 KB. Upload here or pick an existing one.
+        hint: >
+          Upload your own — 1600×900 WebP, under 200 KB — or press Browse and
+          search Unsplash, Pexels or Pixabay under "Stock Photos". A stock
+          photo is linked from the service rather than copied into the site,
+          so it is instant but it lives on their server. Use your own
+          photography for anything that matters, and put the credit in the
+          banner caption below.
 
       - label: Banner description
         name: bannerAlt
@@ -100,7 +120,7 @@ collections:
         name: bannerCaption
         widget: string
         required: false
-        hint: 'Optional line printed under the banner — a credit, a source, or a note. Leave empty for no caption.'
+        hint: 'Optional line printed under the banner — a credit, a source, or a note. Unsplash and Pexels both ask to be credited: "Photo by <name> on Unsplash". Leave empty for no caption.'
 
       - label: Publish date
         name: publishAt

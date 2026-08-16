@@ -195,12 +195,22 @@ export default function BlogPost() {
     .map((s) => publishedPosts.find((p) => p.slug === s))
     .filter(Boolean);
 
+  /* A banner is either a path in this repo or, when it came from the stock
+     photo search in the admin, an absolute URL on the provider's CDN. Blindly
+     prefixing the site URL turned the second kind into
+     "https://instantproduction.inhttps://images.unsplash.com/…" in the
+     structured data — valid-looking JSON with a nonsense value in it, which is
+     exactly the sort of thing nobody notices for months. */
+  const coverUrl = /^https?:\/\//.test(post.cover || '')
+    ? post.cover
+    : `${SITE_URL}${post.cover}`;
+
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: post.title,
     description: post.excerpt,
-    image: `${SITE_URL}${post.cover}`,
+    image: coverUrl,
     datePublished: post.date,
     ...(post.updated ? { dateModified: post.updated } : {}),
     keywords: (post.keywords || []).join(', '),

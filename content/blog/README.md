@@ -134,6 +134,33 @@ first — there is a one-line command in the main README.
 The check will fail if you reference an image that is not there, which is the
 single most common way a post breaks.
 
+### Stock photos
+
+In the admin, press **Browse** on the banner field and there is a **Stock
+Photos** section — Unsplash, Pexels and Pixabay. Each needs a free API key,
+which the editor asks for once and keeps in your browser.
+
+A stock photo is **linked from the service, not copied into the site.** The
+`banner` field ends up as an `https://` URL rather than a `/images/blog/` path.
+That is fine, and worth understanding:
+
+- It is instant, and costs the repository nothing.
+- The build rewrites Unsplash and Pexels URLs to ask for 1600px WebP rather
+  than whatever enormous original they default to.
+- But the photo lives on their server. If it is taken down, or they stop
+  allowing hotlinking, the article loses its image. The check warns you every
+  time so it is never a surprise.
+
+For anything that matters — a case study, a piece you will promote — use your
+own photography and put the file in the repo.
+
+**Credit them.** Unsplash and Pexels both ask for it. Put
+`Photo by <name> on Unsplash` in `bannerCaption` and it prints under the image.
+The check reminds you if you forget.
+
+`http://` banners fail the build: a browser blocks them on an https page, so
+the image would simply not appear.
+
 ## Interlinking
 
 Every article should link at least once into the rest of the site. It helps

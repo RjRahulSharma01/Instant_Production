@@ -104,8 +104,26 @@ for (const file of files) {
   }
 
   if (data.banner) {
-    if (!data.banner.startsWith('/')) err(`banner must start with / — got "${data.banner}"`);
-    else if (!fs.existsSync(path.join(PUBLIC, data.banner.replace(/^\//, '')))) {
+    if (data.banner.startsWith('http://')) {
+      err('banner must be https, not http — an http image is blocked on an https page');
+    } else if (data.banner.startsWith('https://')) {
+      /* A stock photo picked in the admin is a link to the provider's CDN, not
+         a file in this repo. That works, and it is the trade-off worth being
+         explicit about rather than silently accepting. */
+      let host = '';
+      try { host = new URL(data.banner).hostname; } catch { err(`banner is not a valid URL: "${data.banner}"`); }
+
+      if (/picsum\.photos/.test(host)) {
+        err('Lorem Picsum is a placeholder service — pick a real photo before this publishes');
+      } else if (host) {
+        warn(`banner is hotlinked from ${host} rather than stored in the repo — if that photo is removed or the host stops allowing hotlinking, this article loses its image`);
+      }
+      if (/unsplash|pexels/.test(host) && !data.bannerCaption) {
+        warn('Unsplash and Pexels both ask for a credit — put "Photo by <name> on <service>" in bannerCaption');
+      }
+    } else if (!data.banner.startsWith('/')) {
+      err(`banner must start with / for a repo image, or https:// for a stock photo — got "${data.banner}"`);
+    } else if (!fs.existsSync(path.join(PUBLIC, data.banner.replace(/^\//, '')))) {
       err(`banner image not found: public${data.banner}`);
     }
     if (!data.bannerAlt) warn('no bannerAlt — add one so the image is described to screen readers and to search');

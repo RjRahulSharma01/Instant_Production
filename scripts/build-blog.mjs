@@ -294,6 +294,35 @@ function parseBody(md, file) {
   return blocks;
 }
 
+/* --------------------------------------------------------- stock banners */
+/* A banner picked from Unsplash or Pexels in the admin is a link to their CDN,
+   not a file in this repo — the editor hotlinks rather than downloads.
+   Both CDNs resize and re-encode on demand from query parameters, so asking
+   for the size and format we actually want costs nothing and avoids serving a
+   4000px JPEG into a 1600px slot. */
+
+function tuneStockUrl(url) {
+  if (typeof url !== 'string' || !url.startsWith('http')) return url;
+  let u;
+  try { u = new URL(url); } catch { return url; }
+
+  if (u.hostname === 'images.unsplash.com') {
+    u.searchParams.delete('h');            // a leftover height alongside our width would crop oddly
+    u.searchParams.set('w', '1600');
+    u.searchParams.set('q', '75');
+    u.searchParams.set('fm', 'webp');
+    u.searchParams.set('fit', 'crop');
+  } else if (u.hostname === 'images.pexels.com') {
+    u.searchParams.delete('h');
+    u.searchParams.set('auto', 'compress');
+    u.searchParams.set('cs', 'tinysrgb');
+    u.searchParams.set('w', '1600');
+  }
+  /* Pixabay serves fixed-size files with no transform parameters, so its URLs
+     are left exactly as they are. */
+  return u.toString();
+}
+
 /* ------------------------------------------------------------------ build */
 
 function readPosts() {
@@ -314,6 +343,11 @@ function readPosts() {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(String(data.publishAt))) {
       throw new Error(`${file}: publishAt must be YYYY-MM-DD, got "${data.publishAt}"`);
     }
+    /* An http image is blocked by the browser as mixed content on an https
+       page, so the banner would simply not render. */
+    if (String(data.banner).startsWith('http://')) {
+      throw new Error(`${file}: banner must be https, not http — an http image is blocked on an https page`);
+    }
 
     const blocks = parseBody(body, file);
     const words = body.replace(/[#>*\-|`]/g, ' ').split(/\s+/).filter(Boolean).length;
@@ -324,7 +358,7 @@ function readPosts() {
       title: data.title,
       excerpt: data.excerpt,
       category: data.category,
-      cover: data.banner,
+      cover: tuneStockUrl(data.banner),
       bannerAlt: data.bannerAlt || '',
       bannerCaption: data.bannerCaption || '',
       publishAt: data.publishAt,
