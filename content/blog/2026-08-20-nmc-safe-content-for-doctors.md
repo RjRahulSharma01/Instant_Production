@@ -3,12 +3,24 @@ title: What a doctor in India can actually publish
 slug: nmc-safe-content-for-doctors
 excerpt: The NMC does not ban doctors from marketing. It bans soliciting patients and claiming outcomes. The gap between those two things is where all the useful work sits.
 category: Content Strategy
-banner: /images/blog/healthcare-content-nmc.webp
+banner: doctor-650534_1280.jpg
 bannerAlt: A gate separating content that passes compliance review from content that is stopped
+bannerCaption: ''
 publishAt: 2026-08-20
-tags: [Healthcare, Compliance]
-keywords: [nmc guidelines doctors advertising, healthcare content marketing india, medical marketing compliance]
-related: [content-pillars-that-work, creative-testing-loop]
+tags:
+  - Healthcare
+  - Compliance
+keywords:
+  - nmc guidelines doctors advertising
+  - healthcare content marketing india
+  - medical marketing compliance
+related:
+  - content-pillars-that-work
+  - creative-testing-loop
+draft: false
+metaTitle: ''
+metaDescription: ''
+updated: ''
 ---
 
 A registered medical practitioner in India can publish educational content freely. What they cannot do is solicit patients, claim treatment outcomes, assert superiority over another practitioner, use scare tactics, or show before-and-after images without written consent obtained after the fact. That distinction — educate, do not solicit — is the whole regulation in one line, and almost every clinic that gets into trouble has crossed it in a way that was obvious in hindsight.
@@ -36,7 +48,7 @@ The regulation is not really constraining demand generation. It is constraining 
 The abstraction is where people go wrong, so here it is concretely.
 
 | Do not publish | Publish instead |
-|---|---|
+| --- | --- |
 | "Best knee replacement surgeon in Pune" | "How knee replacement decisions are made, and when to wait" |
 | "98% success rate in IVF" | "What IVF success rates mean, and why clinic numbers are not comparable" |
 | "Book now — limited slots this month" | "What to bring to a first consultation" |
