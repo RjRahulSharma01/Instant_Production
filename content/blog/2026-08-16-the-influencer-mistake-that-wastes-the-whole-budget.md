@@ -8,7 +8,7 @@ bannerAlt: <a href="https://www.pexels.com/photo/a-woman-showing-her-sunglasses-
 bannerCaption: ''
 publishAt: 2026-08-16
 tags:
-  - '#instantproduction #infleuncermarketing #influencermistake #influencerbudget'
+  - infleuncermarketing
 keywords: []
 related:
   - ai-video-actually-worth-it
