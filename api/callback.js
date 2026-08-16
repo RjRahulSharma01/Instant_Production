@@ -95,6 +95,13 @@ export default async function handler(req, res) {
           setTimeout(function () { window.close(); }, 400);
         }, false);
         window.opener && window.opener.postMessage('authorizing:github', origin);
+
+        // If nothing answers, hand the token over anyway rather than sitting
+        // here saying "Signed in" while the page that opened us waits. This
+        // costs nothing in safety: send() posts to our own origin and only to
+        // the window that opened this one, handshake or no handshake.
+        setTimeout(function () { send(); }, 1200);
+        setTimeout(function () { window.close(); }, 2000);
       })();
     </script>
   `));

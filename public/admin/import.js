@@ -56,6 +56,20 @@ export function signIn() {
       if (e.origin !== window.location.origin) return;
       const d = e.data;
       if (typeof d !== 'string') return;
+
+      /* The callback page does not volunteer the token. It announces itself
+         with "authorizing:github" and then waits to be spoken to before
+         sending it — the handshake Decap and Sveltia both use, so that the
+         popup knows a listener is actually attached before it hands over a
+         credential.
+         Without this reply the popup sits there saying "Signed in" forever and
+         nothing ever reaches this page. */
+      if (d === 'authorizing:github') {
+        const target = e.source || w;
+        if (target) target.postMessage('authorizing:github', window.location.origin);
+        return;
+      }
+
       if (d.startsWith('authorization:github:success:')) {
         try {
           const { token } = JSON.parse(d.slice('authorization:github:success:'.length));
