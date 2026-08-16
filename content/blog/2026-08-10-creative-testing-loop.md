@@ -35,4 +35,4 @@ Creator content is useful here mostly because it is cheap to produce in volume a
 
 > If you only track account-level ROAS, you cannot see fatigue until it has already cost you a month.
 
-More on [our performance marketing work](/services/performance-marketing), or [tell us what you are working on](/contact).
+More on [our performance marketing work](/services/performance-marketing), or [tell us what you are working on](/#contact).

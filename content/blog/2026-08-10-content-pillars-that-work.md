@@ -30,4 +30,4 @@ Once you have three to five defensible positions, each needs content at differen
 
 > If your pillars would fit any competitor in your category, you have written a taxonomy, not a strategy.
 
-More on [our AI content strategy service](/services/ai-content-strategy), or [tell us what you are working on](/contact).
+More on [our AI content strategy service](/services/ai-content-strategy), or [tell us what you are working on](/#contact).

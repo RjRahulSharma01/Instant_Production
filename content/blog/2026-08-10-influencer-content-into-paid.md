@@ -33,4 +33,4 @@ Once creator assets are running as ads, you get a much better signal than engage
 
 > Decide what happens to the content after the post before you brief the creator, not after.
 
-More on [our influencer marketing programmes](/services/influencer-marketing), or [tell us what you are working on](/contact).
+More on [our influencer marketing programmes](/services/influencer-marketing), or [tell us what you are working on](/#contact).

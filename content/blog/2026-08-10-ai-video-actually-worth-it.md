@@ -37,4 +37,4 @@ In practice the strongest work is usually mixed. Real product footage placed int
 
 > Rule of thumb: use AI for breadth, use a camera for the shot the whole campaign hangs on.
 
-More on [how we run video production](/services/video-production), or [tell us what you are working on](/contact).
+More on [how we run video production](/services/video-production), or [tell us what you are working on](/#contact).

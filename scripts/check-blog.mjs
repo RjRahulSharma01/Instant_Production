@@ -22,7 +22,10 @@ const warnings = [];
 /* Routes the site actually serves. An internal link outside this list is
    almost always a typo, and a typo'd internal link is worse than no link. */
 const VALID_PREFIXES = [
-  '/', '/services', '/portfolio', '/industries', '/blog', '/about', '/contact',
+  // /about and /contact are homepage anchors, not routes — linking to them
+  // without the hash hits the catch-all and lands the reader at the top of
+  // the homepage instead. Use /#about and /#contact.
+  '/', '/services', '/portfolio', '/industries', '/blog', '/#about', '/#contact',
   '/services/ai-content-strategy', '/services/ai-videos', '/services/ai-generated-ads',
   '/services/video-production', '/services/social-media-growth', '/services/influencer-marketing',
   '/services/performance-marketing', '/services/website-development', '/services/blog-writing',
@@ -109,7 +112,7 @@ for (const file of files) {
   const links = [...body.matchAll(/(?<!!)\[([^\]]+)\]\(([^)\s]+)\)/g)];
   const internal = links.filter(([, , href]) => href.startsWith('/'));
   for (const [, label, href] of internal) {
-    const clean = href.split('#')[0].replace(/\/$/, '') || '/';
+    const clean = (href.startsWith('/#') ? href : href.split('#')[0]).replace(/(.)\/$/, '$1') || '/';
     const known = VALID_PREFIXES.includes(clean) || clean.startsWith('/blog/');
     if (!known) err(`internal link "${href}" does not match any route on the site`);
     else if (clean.startsWith('/blog/')) blogLinks.push([file, clean.slice(6)]);
