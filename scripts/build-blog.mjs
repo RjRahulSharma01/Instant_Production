@@ -58,14 +58,40 @@ function parseFrontmatter(raw, file) {
   const body = raw.slice(end + 4).trim();
   const data = {};
 
-  for (const line of head.split('\n')) {
-    const t = line.trim();
-    if (!t || t.startsWith('#')) continue;
-    const i = t.indexOf(':');
-    if (i === -1) throw new Error(`${file}: cannot read frontmatter line "${t}"`);
+  /* Two list forms are accepted, because two different things write these
+     files. A person typing markdown writes `tags: [A, B]`. The admin CMS
+     writes a YAML block sequence:
 
-    const key = t.slice(0, i).trim();
-    let val = t.slice(i + 1).trim();
+       tags:
+         - A
+         - B
+
+     Rejecting the second would mean the admin could save an article the build
+     then refused, which is the worst possible failure — it looks saved. */
+  const lines = head.split('\n');
+  let i = 0;
+  while (i < lines.length) {
+    const raw0 = lines[i];
+    const t = raw0.trim();
+    i += 1;
+    if (!t || t.startsWith('#')) continue;
+
+    const c = t.indexOf(':');
+    if (c === -1) throw new Error(`${file}: cannot read frontmatter line "${t}"`);
+
+    const key = t.slice(0, c).trim();
+    let val = t.slice(c + 1).trim();
+
+    if (val === '') {
+      /* Either a block sequence, or a genuinely empty value. */
+      const items = [];
+      while (i < lines.length && /^\s*-\s+/.test(lines[i])) {
+        items.push(unquote(lines[i].replace(/^\s*-\s+/, '').trim()));
+        i += 1;
+      }
+      data[key] = items.length ? items : '';
+      continue;
+    }
 
     if (val.startsWith('[') && val.endsWith(']')) {
       val = val.slice(1, -1).split(',').map((s) => unquote(s.trim())).filter(Boolean);

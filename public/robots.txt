@@ -1,4 +1,6 @@
 User-agent: *
+Disallow: /admin
+Disallow: /api
 Allow: /
 
 # Draft articles are not linked, but belt and braces

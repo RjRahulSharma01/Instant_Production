@@ -1,0 +1,167 @@
+### Instant Production — admin content schema
+#
+# This file defines what the admin at /admin can edit. It has to agree exactly
+# with scripts/build-blog.mjs, because the build parses the same frontmatter
+# this writes. If you add a field here, add it there too — otherwise the admin
+# will happily save something the site ignores.
+#
+# Editing this file changes the admin. Nothing here is secret.
+
+backend:
+  name: github
+  repo: RjRahulSharma01/Instant_Production
+  branch: main
+  # Our own OAuth handshake, running as serverless functions on Vercel.
+  base_url: https://instantproduction.in
+  auth_endpoint: api/auth
+  commit_messages:
+    create: 'Admin: add article "{{slug}}"'
+    update: 'Admin: update "{{slug}}"'
+    delete: 'Admin: delete "{{slug}}"'
+    uploadMedia: 'Admin: upload {{path}}'
+    deleteMedia: 'Admin: delete {{path}}'
+
+# Where uploaded images go, and how the site refers to them.
+media_folder: public/images/blog
+public_folder: /images/blog
+
+# "Save" creates a draft commit; "Publish" merges it. Turned off deliberately —
+# with one or two admins it adds a step without adding safety, and the real
+# safety net is that a bad article fails `npm run blog:check` at build time.
+publish_mode: simple
+
+site_url: https://instantproduction.in
+logo_url: https://instantproduction.in/brand/logo-mark.svg
+
+collections:
+  # ------------------------------------------------------------- articles
+  - name: blog
+    label: Articles
+    label_singular: Article
+    folder: content/blog
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{fields.slug}}'
+    path: '{{year}}-{{month}}-{{day}}-{{fields.slug}}'
+    extension: md
+    format: yaml-frontmatter
+    identifier_field: title
+    summary: '{{title}}  ·  {{publishAt}}'
+    sortable_fields: [publishAt, title, category]
+    view_filters:
+      - { label: Drafts, field: draft, pattern: true }
+    editor:
+      preview: false
+
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        hint: Under 60 characters — search results cut off around there.
+        pattern: ['^.{1,62}$', 'Keep the title under 62 characters']
+
+      - label: URL slug
+        name: slug
+        widget: string
+        hint: 'Lowercase, hyphens only. Becomes instantproduction.in/blog/your-slug — do not change it after publishing, it breaks every existing link.'
+        pattern: ['^[a-z0-9-]+$', 'Lowercase letters, numbers and hyphens only']
+
+      - label: Excerpt
+        name: excerpt
+        widget: text
+        hint: One or two sentences. Shows on the blog card and in Google. Under 160 characters.
+        pattern: ['^.{1,165}$', 'Keep the excerpt under 165 characters']
+
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - AI Video
+          - Performance Marketing
+          - Content Strategy
+          - Influencer Marketing
+          - Social
+          - Production
+        hint: Reuse an existing category rather than inventing a near-duplicate.
+
+      - label: Banner image
+        name: banner
+        widget: image
+        media_library:
+          config: { multiple: false }
+        hint: 1600×900 WebP, under 200 KB. Upload here or pick an existing one.
+
+      - label: Banner description
+        name: bannerAlt
+        widget: string
+        required: false
+        hint: What the image shows. Used by screen readers and by search.
+
+      - label: Publish date
+        name: publishAt
+        widget: datetime
+        date_format: 'YYYY-MM-DD'
+        time_format: false
+        picker_utc: true
+        hint: 'Set a future date and it publishes itself that morning at 06:00 IST. Nothing scheduled is visible before its date.'
+
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+        allow_add: true
+        hint: 'Readers can filter the blog by these. Reuse existing tags — no commas inside a tag.'
+
+      - label: Search keywords
+        name: keywords
+        widget: list
+        required: false
+        hint: Terms you are targeting. Used in the page metadata, not shown to readers.
+
+      - label: Read next
+        name: related
+        widget: relation
+        collection: blog
+        search_fields: [title]
+        value_field: slug
+        display_fields: [title]
+        multiple: true
+        required: false
+        hint: Renders a "Read next" block. Only articles that are already live will show.
+
+      - label: Hold as draft
+        name: draft
+        widget: boolean
+        default: false
+        required: false
+        hint: 'On = never published, whatever the date. Turn it off when the piece is finished.'
+
+      - label: Article
+        name: body
+        widget: markdown
+        hint: 'Open with the answer in the first 60 words. Use ## for section headings — never a single #.'
+        buttons: [bold, italic, link, heading-two, heading-three, quote, bulleted-list, numbered-list, code]
+        editor_components: [image, code-block]
+
+      # Optional search overrides. Deliberately flat rather than nested under an
+      # object — the build parser reads flat key/value frontmatter, and a nested
+      # block would save cleanly here and be misread there.
+      - label: Meta title override
+        name: metaTitle
+        widget: string
+        required: false
+        hint: Only if the search-result headline should differ from the title.
+
+      - label: Meta description override
+        name: metaDescription
+        widget: text
+        required: false
+        hint: Only if the search-result description should differ from the excerpt.
+
+      - label: Updated on
+        name: updated
+        widget: datetime
+        date_format: 'YYYY-MM-DD'
+        time_format: false
+        picker_utc: true
+        required: false
+        hint: Set when you revise an old post. Shows as "Updated" and refreshes the sitemap.

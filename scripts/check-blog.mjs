@@ -63,18 +63,30 @@ for (const file of files) {
   const head = raw.slice(3, end).trim();
   const body = raw.slice(end + 4).trim();
   const data = {};
-  for (const line of head.split('\n')) {
-    const t = line.trim();
+  // Accepts both `tags: [A, B]` and the YAML block sequence the admin writes.
+  const fmLines = head.split('\n');
+  for (let li = 0; li < fmLines.length; li += 1) {
+    const t = fmLines[li].trim();
     if (!t || t.startsWith('#')) continue;
-    const i = t.indexOf(':');
-    if (i === -1) { err(`cannot read frontmatter line "${t}"`); continue; }
-    let v = t.slice(i + 1).trim();
+    const ci = t.indexOf(':');
+    if (ci === -1) { err(`cannot read frontmatter line "${t}"`); continue; }
+    const k = t.slice(0, ci).trim();
+    let v = t.slice(ci + 1).trim();
+    if (v === '') {
+      const items = [];
+      while (li + 1 < fmLines.length && /^\s*-\s+/.test(fmLines[li + 1])) {
+        li += 1;
+        items.push(fmLines[li].replace(/^\s*-\s+/, '').trim().replace(/^["']|["']$/g, ''));
+      }
+      data[k] = items.length ? items : '';
+      continue;
+    }
     if (v.startsWith('[') && v.endsWith(']')) {
       v = v.slice(1, -1).split(',').map((s) => s.trim().replace(/^["']|["']$/g, '')).filter(Boolean);
     } else {
       v = v.replace(/^["']|["']$/g, '');
     }
-    data[t.slice(0, i).trim()] = v;
+    data[k] = v;
   }
 
   for (const req of ['title', 'slug', 'excerpt', 'publishAt', 'banner', 'category']) {
