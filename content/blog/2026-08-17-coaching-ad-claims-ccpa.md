@@ -3,12 +3,24 @@ title: The coaching ad claims that now carry a penalty
 slug: coaching-ad-claims-ccpa
 excerpt: The CCPA has fined 18 coaching institutes a total of Rs 54.6 lakh and issued 45 notices. Almost all of it comes down to three claims nobody needed to make.
 category: Content Strategy
-banner: /images/blog/coaching-admissions-claims.webp
+banner: https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDMyNDExfDB8MXxzZWFyY2h8Mnx8Y29hY2hpbmd8ZW58MHx8fHwxNzg2OTEyMjE2fDA&ixlib=rb-4.1.0&q=80&w=1080
 bannerAlt: A funnel narrowing from enquiries at the top to a small number of enrolments
+bannerCaption: ''
 publishAt: 2026-08-17
-tags: [Education, Compliance]
-keywords: [ccpa coaching guidelines, coaching centre advertising rules india, edtech admissions marketing]
-related: [content-pillars-that-work, nmc-safe-content-for-doctors]
+tags:
+  - Education
+  - Compliance
+keywords:
+  - ccpa coaching guidelines
+  - coaching centre advertising rules india
+  - edtech admissions marketing
+related:
+  - content-pillars-that-work
+  - nmc-safe-content-for-doctors
+draft: false
+metaTitle: ''
+metaDescription: ''
+updated: ''
 ---
 
 Coaching institutes in India can no longer claim a selection rate they cannot substantiate, use a successful student's name or photograph without consent obtained after their result, or hide fees and faculty details until after enrolment. The Central Consumer Protection Authority has already [issued 45 notices and imposed ₹54.6 lakh in penalties across 18 institutes](https://www.merishiksha.org/articles/ccpa-coaching-centre-penalties-2026-student-rights). The guidelines apply to online and physical centres alike, to anyone teaching more than fifty students.
@@ -21,7 +33,7 @@ What is striking, having looked at a lot of this creative, is how little the off
 
 **Unsubstantiated success numbers.** Claiming 400 selections when 380 of those students took a two-week test series and studied elsewhere for two years is the most common version. If the number cannot be substantiated with the basis of the claim — how many students, over what period, enrolled in which programme — it should not be in an ad.
 
-**Toppers used without consent.** A successful candidate's name, photograph, testimonial or video cannot be used without consent, and critically, that consent must be obtained *after* the selection. A clause buried in an admission form signed two years earlier does not count. This one catches institutes that believe they are compliant.
+**Toppers used without consent.** A successful candidate's name, photograph, testimonial or video cannot be used without consent, and critically, that consent must be obtained _after_ the selection. A clause buried in an admission form signed two years earlier does not count. This one catches institutes that believe they are compliant.
 
 ## Disclosure moved before enrolment
 
@@ -32,7 +44,7 @@ For a lot of institutes this is a genuine business change, because the fee is ne
 It also removes the single biggest source of complaints, which is worth something. Most CCPA cases start with a parent who was told one thing and charged another.
 
 | Claim | Status | The publishable version |
-|---|---|---|
+| --- | --- | --- |
 | "100% selection" | Prohibited | "38 of 212 enrolled students cleared JEE Advanced in 2026" |
 | "Best faculty in Kota" | Unsubstantiable superiority | Named faculty, their qualifications, what they teach |
 | Topper photo, old consent | Non-compliant | The same photo, consent taken after the result, on file |
