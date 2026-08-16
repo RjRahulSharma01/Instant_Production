@@ -1,11 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
-    {
-      "comment": "Everything is a single-page app EXCEPT the serverless auth functions and the admin, which are real files and must be served as themselves. Without the exclusions, /api/auth and /admin would both be handed index.html and silently do nothing.",
-      "source": "/((?!api/|admin).*)",
-      "destination": "/index.html"
-    }
+    { "source": "/((?!api/|admin).*)", "destination": "/index.html" }
   ],
   "headers": [
     {
