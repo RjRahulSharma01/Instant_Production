@@ -7,6 +7,7 @@ const Industries = lazy(() => import('./pages/Industries'));
 const Healthcare = lazy(() => import('./pages/Healthcare'));
 const EcommerceD2C = lazy(() => import('./pages/EcommerceD2C'));
 const Fintech = lazy(() => import('./pages/Fintech'));
+const Education = lazy(() => import('./pages/Education'));
 const IndustryDetail = lazy(() => import('./pages/IndustryDetail'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
 const Blog = lazy(() => import('./pages/Blog'));
@@ -25,6 +26,7 @@ function App() {
           <Route path="industries/healthcare" element={<Healthcare />} />
           <Route path="industries/ecommerce" element={<EcommerceD2C />} />
           <Route path="industries/fintech" element={<Fintech />} />
+          <Route path="industries/education" element={<Education />} />
           <Route path="industries/:slug" element={<IndustryDetail />} />
           <Route path="portfolio" element={<Portfolio />} />
           <Route path="blog" element={<Blog />} />
