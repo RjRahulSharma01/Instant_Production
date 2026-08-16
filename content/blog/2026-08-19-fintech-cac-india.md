@@ -3,12 +3,24 @@ title: Why fintech CAC keeps climbing in India
 slug: fintech-cac-india
 excerpt: Cost per lead for a mid-market lending app crossed Rs 1400 this year. Most of the rise is not competition. It is the compliance layer arriving.
 category: Performance Marketing
-banner: /images/blog/fintech-cac-trust.webp
+banner: https://images.unsplash.com/photo-1737703638422-2cfa152cdcb7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDMyNDExfDB8MXxzZWFyY2h8MTZ8fGZpbnRlY2h8ZW58MHx8fHwxNzg2OTEyMzk4fDA&ixlib=rb-4.1.0&q=80&w=1080
 bannerAlt: A cost curve rising steeply with a widening band of uncertainty around it
+bannerCaption: ''
 publishAt: 2026-08-19
-tags: [Fintech, Performance Marketing]
-keywords: [fintech customer acquisition cost india, rbi advertising rules fintech, sebi ad code investment apps]
-related: [creative-testing-loop, influencer-content-into-paid]
+tags:
+  - Fintech
+  - Performance Marketing
+keywords:
+  - fintech customer acquisition cost india
+  - rbi advertising rules fintech
+  - sebi ad code investment apps
+related:
+  - creative-testing-loop
+  - influencer-content-into-paid
+draft: false
+metaTitle: ''
+metaDescription: ''
+updated: ''
 ---
 
 Fintech acquisition costs in India are rising for a reason most teams are not budgeting for. It is not just auction competition. Lenders have become far more selective about who they will underwrite, so the same ad spend now buys fewer approvable applicants — and from January 2027, the regulated entity is answerable for what its influencers and affiliates say. Cheap volume channels are getting more expensive to use and riskier to keep.
