@@ -340,22 +340,97 @@ export function htmlToMarkdown(html) {
   return blocks.join('\n\n').replace(/\n{3,}/g, '\n\n').trim();
 }
 
+/* Strip inline markdown so a title or excerpt is plain text. A title of
+   "**A pillar is a position**" is what you get from a Word document whose
+   title is a bold paragraph rather than a Heading 1 style — which is most of
+   them, because people bold things rather than use the styles menu. */
+const plain = (s) => String(s)
+  .replace(/\*\*([^*]+)\*\*/g, '$1')
+  .replace(/(^|[^*])\*([^*]+)\*/g, '$1$2')
+  .replace(/__([^_]+)__/g, '$1')
+  .replace(/(^|[^_])_([^_]+)_/g, '$1$2')
+  .replace(/`([^`]+)`/g, '$1')
+  .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+  .replace(/\s+/g, ' ')
+  .trim();
+
+/* Cut to a length without cutting through a word. Prefer to land on the end of
+   a sentence: an excerpt ending mid-clause reads worse than a shorter one. */
+function clip(s, max) {
+  if (s.length <= max) return s;
+  const window = s.slice(0, max);
+  const sentence = window.lastIndexOf('. ');
+  if (sentence > max * 0.55) return window.slice(0, sentence + 1);
+  const space = window.lastIndexOf(' ');
+  return (space > 0 ? window.slice(0, space) : window).replace(/[,;:]$/, '');
+}
+
+/* A short line in capitals at the very top is a kicker or a brand line, not
+   the title — "INSTANT PRODUCTION · INSIGHTS" and the like. */
+const isEyebrow = (line) => {
+  const t = plain(line);
+  return t.length > 0 && t.length <= 46 && t === t.toUpperCase() && /[A-Z]/.test(t);
+};
+
 /* Pull a title and excerpt out of a document that has no frontmatter. */
 export function inferFromBody(md, fallbackTitle) {
-  const lines = md.split('\n').filter((l) => l.trim());
-  let title = fallbackTitle;
-  let body = md;
+  let lines = md.split('\n');
 
-  const firstHeading = lines.find((l) => /^#{1,3}\s/.test(l));
-  if (firstHeading) {
-    title = firstHeading.replace(/^#{1,3}\s/, '').trim();
-    body = md.replace(firstHeading, '').trim();
+  // drop a leading kicker line
+  while (lines.length && (!lines[0].trim() || isEyebrow(lines[0]))) {
+    if (lines[0].trim() && !isEyebrow(lines[0])) break;
+    lines.shift();
   }
 
-  const firstPara = body.split('\n').find((l) => l.trim() && !/^[#>\-*|]/.test(l.trim())) || '';
-  const excerpt = firstPara.replace(/[*`[\]]/g, '').trim().slice(0, 158);
+  let title = plain(fallbackTitle);
 
-  return { title, excerpt, body };
+  /* In order of how reliably each signals "this is the title":
+       1. a real H1
+       2. a fully bold paragraph near the top — how most Word documents mark a
+          title, because people bold text rather than open the styles menu
+       3. the first H2 or H3
+     Order matters. A document can easily have a bold title AND ## section
+     headings below it; taking the heading would name the article after its
+     first section. */
+  const nonEmpty = lines.map((l, n) => [l, n]).filter(([l]) => l.trim());
+
+  let idx = lines.findIndex((l) => /^#\s/.test(l.trim()));
+  if (idx === -1) {
+    const early = nonEmpty.slice(0, 3).find(([l]) => /^(\*\*|__).+(\*\*|__)$/.test(l.trim()));
+    if (early) idx = early[1];
+  }
+  if (idx === -1) idx = lines.findIndex((l) => /^#{2,3}\s/.test(l.trim()));
+
+  if (idx !== -1) {
+    title = plain(lines[idx].trim().replace(/^#{1,3}\s/, ''));
+    lines = [...lines.slice(0, idx), ...lines.slice(idx + 1)];
+  }
+
+  /* Drop a metadata block — a run of "**LABEL** value" lines, which is the
+     shape our own .docx exports use for author, date, category and so on.
+     That belongs in the fields, not in the article.
+
+     Three consecutive lines are required and only within the opening of the
+     document, so a single bolded lead-in further down is never mistaken for
+     one. */
+  const isMetaLine = (l) => /^\*\*[A-Z][A-Z0-9 ]{1,20}\*\*/.test(l.trim());
+  const head = 24;
+  for (let s = 0; s < Math.min(lines.length, head); s += 1) {
+    if (!isMetaLine(lines[s])) continue;
+    let e = s;
+    while (e + 1 < lines.length && (!lines[e + 1].trim() || isMetaLine(lines[e + 1]))) {
+      if (!lines[e + 1].trim() && !isMetaLine(lines[e + 2] || '')) break;
+      e += 1;
+    }
+    const count = lines.slice(s, e + 1).filter(isMetaLine).length;
+    if (count >= 3) { lines = [...lines.slice(0, s), ...lines.slice(e + 1)]; }
+    break;
+  }
+
+  const body = lines.join('\n').replace(/\n{3,}/g, '\n\n').trim();
+
+  const firstPara = body.split('\n').find((l) => l.trim() && !/^[#>\-*|]/.test(l.trim())) || '';
+  return { title, excerpt: clip(plain(firstPara), 158), body };
 }
 
 /* ------------------------------------------------ existing repo slugs */

@@ -29,19 +29,6 @@
     @keyframes pulse { 0%,100% { opacity: .3 } 50% { opacity: 1 } }
     @media (prefers-reduced-motion: reduce) { .dot { animation: none; opacity: .8 } }
     .hint { margin-top: 1.5rem; font-size: .75rem; color: #71717a; }
-
-    /* The editor owns the whole viewport and has no extension point for a link,
-       so the way through to the bulk importer floats above it. Bottom-left is
-       the one corner Sveltia leaves alone at every breakpoint. */
-    #bulk {
-      position: fixed; left: 1rem; bottom: 1rem; z-index: 9999;
-      display: none; align-items: center; gap: .5rem;
-      min-height: 44px; padding: .55rem 1rem; border-radius: 999px;
-      background: #f59e0b; color: #000; text-decoration: none;
-      font: 600 .8rem/1 Inter, system-ui, -apple-system, sans-serif;
-      box-shadow: 0 6px 24px rgba(0,0,0,.45);
-    }
-    #bulk:hover { background: #fbbf24 }
   </style>
 </head>
 <body>
@@ -74,24 +61,21 @@
     database and no server holding your content — the repo remains the single
     source of truth, which is what keeps scheduled publishing and the build-time
     checks working.
+
+    No type="module" on this tag. Sveltia warns against it in the console:
+    with it set, the JavaScript API is not reliably available, and our own
+    module below depends on the editor having booted normally.
   -->
-  <script src="https://unpkg.com/@sveltia/cms@0/dist/sveltia-cms.js" type="module"></script>
+  <script src="https://unpkg.com/@sveltia/cms@0/dist/sveltia-cms.js"></script>
 
-  <a id="bulk" href="/admin/import.html">Bulk import articles</a>
-
-  <script>
-    // Hide the boot screen once the editor has actually rendered, and only then
-    // show the bulk-import link — before that it would sit on the sign-in screen
-    // and lead somewhere that immediately asks you to sign in again.
-    var check = setInterval(function () {
-      if (document.querySelector('#nc-root, .sveltia-cms, [class*="sveltia"]')) {
-        clearInterval(check);
-        var b = document.getElementById('boot');
-        if (b) b.remove();
-        document.getElementById('bulk').style.display = 'inline-flex';
-      }
-    }, 300);
-    setTimeout(function () { clearInterval(check); }, 30000);
+  <!--
+    Our additions: "Start from a document" and a link to the bulk importer.
+    Separate module, loaded after the editor. If it fails to load for any
+    reason the editor itself is unaffected — the buttons simply do not appear.
+  -->
+  <script type="module">
+    import { mount } from './from-doc.js';
+    mount();
   </script>
 </body>
 </html>
