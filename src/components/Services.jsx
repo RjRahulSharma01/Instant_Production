@@ -39,7 +39,9 @@ function Services({ services }) {
                 key={service.id}
                 variants={cardIn}
                 max={7}
-                className={`group flex h-full w-[82vw] shrink-0 flex-col overflow-hidden rounded-card border border-white/10 bg-white/[0.04] text-left transition-colors duration-300 hover:border-brand/40 hover:bg-white/[0.07] sm:w-auto sm:shrink ${
+                /* `relative` so the Learn more link below can stretch its hit area
+                   across the whole card. */
+                className={`group relative flex h-full w-[82vw] shrink-0 flex-col overflow-hidden rounded-card border border-white/10 bg-white/[0.04] text-left transition-colors duration-300 hover:border-brand/40 hover:bg-white/[0.07] sm:w-auto sm:shrink ${
                   wide ? 'sm:col-span-2' : ''
                 }`}
               >
@@ -77,12 +79,26 @@ function Services({ services }) {
                   </ul>
 
                   {serviceDetail[service.id] ? (
+                    /* The whole tile is the click target, not just these two
+                       words. `after:absolute after:inset-0` stretches this one
+                       link over the entire card.
+
+                       Done this way rather than by wrapping the card in a Link,
+                       because the card also holds a heading and a list, and
+                       burying those inside an anchor makes a screen reader
+                       announce the whole thing as one long link name. Here the
+                       link is still called "Learn more about AI Videos", and
+                       the tile is merely where you can click it.
+
+                       `relative z-10` on the text keeps it selectable above the
+                       stretched layer. */
                     <Link
                       to={`/services/${service.id}`}
-                      className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-brand transition-colors hover:text-brand-300"
+                      aria-label={`Learn more about ${service.title}`}
+                      className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-brand transition-colors after:absolute after:inset-0 after:content-[''] hover:text-brand-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
                     >
-                      Learn more
-                      <span aria-hidden="true" className="transition-transform duration-300 ease-expo group-hover:translate-x-1">→</span>
+                      <span className="relative z-10">Learn more</span>
+                      <span aria-hidden="true" className="relative z-10 transition-transform duration-300 ease-expo group-hover:translate-x-1">→</span>
                     </Link>
                   ) : (
                     <span
