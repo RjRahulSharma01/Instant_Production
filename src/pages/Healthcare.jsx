@@ -158,7 +158,7 @@ export default function Healthcare() {
             <SplitText
               as="h1"
               text={hero.title}
-              className="mt-4 block text-[2rem] font-semibold leading-[1.12] text-slate-900 sm:text-[2.75rem] lg:text-5xl"
+              className="mt-4 block text-[2rem] font-semibold leading-[1.12] text-slate-900 sm:text-[2.75rem] lg:text-5xl lg:leading-[1.12]"
               stagger={0.035}
             />
 

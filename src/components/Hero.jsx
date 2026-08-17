@@ -66,7 +66,7 @@ function Hero({ heroData }) {
           <SplitText
             as="h1"
             text={heroData.title}
-            className="block text-[2rem] font-semibold leading-[1.12] text-white sm:text-5xl lg:text-6xl"
+            className="block text-[2rem] font-semibold leading-[1.12] text-white sm:text-5xl sm:leading-[1.12] lg:text-6xl lg:leading-[1.12]"
             stagger={0.05}
           />
           <p className="mt-5 max-w-xl text-base leading-7 text-zinc-300 sm:mt-6 sm:text-lg sm:leading-8">

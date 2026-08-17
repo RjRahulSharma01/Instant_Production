@@ -74,7 +74,7 @@ export default function PageHero({ eyebrow, title, intro, crumbs = [], stats = [
         <SplitText
           as="h1"
           text={title}
-          className="mt-4 block max-w-4xl text-[2rem] font-semibold leading-[1.12] text-white sm:text-5xl lg:text-6xl"
+          className="mt-4 block max-w-4xl text-[2rem] font-semibold leading-[1.12] text-white sm:text-5xl sm:leading-[1.12] lg:text-6xl lg:leading-[1.12]"
           stagger={0.04}
         />
 
