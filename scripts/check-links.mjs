@@ -25,6 +25,22 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.join(ROOT, 'src');
 const CONTENT = path.join(ROOT, 'content', 'blog');
 
+/* slug -> publishAt, for every article dated later than today. Used only to
+   explain a dead /blog/ link properly: "scheduled for the 20th" is actionable,
+   "not a live article" sends you hunting for a typo that is not there. */
+const scheduledDates = new Map();
+{
+  const today = new Date().toISOString().slice(0, 10);
+  if (fs.existsSync(CONTENT)) {
+    for (const f of fs.readdirSync(CONTENT).filter((x) => x.endsWith('.md') && !x.startsWith('_'))) {
+      const raw = fs.readFileSync(path.join(CONTENT, f), 'utf8');
+      const slug = raw.match(/^slug:\s*"?([a-z0-9-]+)"?\s*$/m)?.[1];
+      const when = raw.match(/^publishAt:\s*"?(\d{4}-\d{2}-\d{2})"?\s*$/m)?.[1];
+      if (slug && when && when > today) scheduledDates.set(slug, when);
+    }
+  }
+}
+
 /* --------------------------------------------------------------- helpers */
 
 function walk(dir, out = []) {
@@ -142,7 +158,15 @@ for (const { href, file, ctx } of links) {
       why = `"${slug}" is not a service id`;
     }
   } else if (clean.startsWith('/blog/')) {
-    why = `"${slug}" is not a live article — it may be scheduled, drafted, or misspelt`;
+    /* Overwhelmingly the cause is a link forward in time: two articles that
+       cross-reference each other, published on different days. The link is not
+       misspelt, it is early — and it stays dead until the target's date, which
+       is exactly the silent redirect this check exists to prevent. Saying so
+       saves working it out from first principles. */
+    const sched = scheduledDates.get(slug);
+    why = sched
+      ? `"${slug}" is scheduled for ${sched} and is not live yet. This link is dead until then — either remove it, or move the two articles to the same date`
+      : `"${slug}" is not a live article — check the spelling, or whether it is held as a draft`;
   }
   errors.push(`${rel(file)}\n      ${ctx} "${href}"\n      ${why}`);
 }

@@ -16,7 +16,7 @@ keywords:
   - edtech admissions marketing
 related:
   - content-pillars-that-work
-  - nmc-safe-content-for-doctors
+  - creative-testing-loop
 draft: false
 metaTitle: ''
 metaDescription: ''
@@ -97,7 +97,7 @@ Publish the fee. Fully. It will feel like a loss of negotiating room for a month
 
 Then instrument the funnel to enrolment so the next spending decision is made on evidence.
 
-For how we structure content around the questions people actually ask rather than the things a business wants to say, [content pillars are not categories](/blog/content-pillars-that-work) is the closest companion piece. The parallel with regulated healthcare marketing is close enough to be useful too — [what a doctor in India can actually publish](/blog/nmc-safe-content-for-doctors) works the same problem in a stricter category.
+For how we structure content around the questions people actually ask rather than the things a business wants to say, [content pillars are not categories](/blog/content-pillars-that-work) is the closest companion piece. The parallel with regulated healthcare marketing is close enough to be useful too, and we work that same problem in a stricter category over in [healthcare](/industries/healthcare).
 
 Our education work sits under [education and EdTech](/industries/education).
 
