@@ -2,7 +2,7 @@
 //
 // Every figure below is an industry benchmark with a source, not a claim about
 // results we have produced. Sources are rendered on the page so a doctor can
-// check them — which is the point: this page has to survive scrutiny from
+// check them, which is the point: this page has to survive scrutiny from
 // people trained to check citations.
 
 export const benchmarks = {
@@ -113,7 +113,7 @@ export const specialtyIntel = [
     name: 'Oncology', icon: 'FaShieldHalved',
     pattern: 'Longest journey in medicine', urgency: 'Critical',
     queries: ['best cancer hospital in India', 'second opinion oncology', 'immunotherapy cost'],
-    insight: 'Months of research, multiple decision makers, frequently cross-city or international. Content has to be genuinely informative and unusually careful — this is the highest-stakes YMYL category there is.',
+    insight: 'Months of research, multiple decision makers, frequently cross-city or international. Content has to be genuinely informative and unusually careful. This is the highest-stakes YMYL category there is.',
     channel: 'Authority content + second-opinion pathways',
   },
   {
@@ -135,7 +135,7 @@ export const complianceExamples = [
   },
   {
     topic: 'Talking about results',
-    bad: '99% success rate — guaranteed results',
+    bad: '99% success rate, guaranteed results',
     good: 'What the procedure involves, typical recovery, and the risks',
     why: 'Outcome and success-rate claims are explicitly restricted, and they are the most common trigger for complaints.',
   },
@@ -147,7 +147,7 @@ export const complianceExamples = [
   },
   {
     topic: 'Calls to action',
-    bad: 'Book now — limited slots, special discount this month',
+    bad: 'Book now, limited slots and a special discount this month',
     good: 'Consultation timings, location and how to reach the clinic',
     why: 'Urgency and discounting read as soliciting patients. Practical information does not.',
   },

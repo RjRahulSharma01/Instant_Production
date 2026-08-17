@@ -28,7 +28,7 @@ function setCanonical(href) {
  * Per-route title, description and canonical URL.
  *
  * Note: this runs client-side. Google executes JS and will pick these up.
- * Social crawlers (WhatsApp, LinkedIn, X) do NOT run JS — they read the
+ * Social crawlers (WhatsApp, LinkedIn, X) do NOT run JS. They read the
  * static og: tags in index.html, so every shared link shows the homepage
  * card. Fixing that properly needs prerendering or SSR; see APPLY notes.
  */

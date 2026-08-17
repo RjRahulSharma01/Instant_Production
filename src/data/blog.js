@@ -4,24 +4,33 @@
 // content/blog/, and scripts/build-blog.mjs turns them into
 // blogPosts.generated.js before every build. See content/blog/README.md.
 //
-// This file keeps the author record — which is hand-maintained, not per-post —
+// This file keeps the author record, which is hand-maintained rather than per-post,
 // and re-exports the generated posts under the names the pages already use.
 
 export const author = {
   name: 'Rahul Sharma',
   role: 'Founder, Instant Production',
   credential: 'IIM Ahmedabad',
-  bio: 'IIM Ahmedabad alumnus with 11+ years in digital content and media. Currently leads growth and retention for Josh at VerSe Innovation, and founded Instant Production to bring the same AI-first content systems to brands. Previously at ByteDance, Trell and TCS.',
-  short: 'IIMA · 11+ years in content and media · AI-first since 2023',
+  bio: 'Rahul Sharma has spent 15 years in content, with a long history at industry pioneers including Alibaba, ByteDance, HCL and TCS.',
+  short: '15 years in content · Alibaba, ByteDance, HCL, TCS',
   url: 'https://www.linkedin.com/in/rahulsharmamat/',
   // sameAs is how Google resolves this byline to a real, known identity rather
-  // than treating it as an unverified name on a page.
+  // than treating it as an unverified name on a page. Every profile listed here
+  // should be one Rahul actually controls.
   sameAs: [
     'https://www.linkedin.com/in/rahulsharmamat/',
+    'https://www.instagram.com/aurbtaorahul',
     'https://sites.google.com/view/rahulsharamamat/home',
   ],
   alumniOf: 'Indian Institute of Management Ahmedabad',
   avatar: '/brand/author-rahul.webp',
+  /* Rendered as buttons under every article, and reused in the structured data
+     above. Adding one here puts it on all past and future articles at once,
+     because the block is shared rather than written per post. */
+  links: [
+    { label: 'Instagram', href: 'https://www.instagram.com/aurbtaorahul' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/rahulsharmamat/' },
+  ],
 };
 
 import { generatedPosts } from './blogPosts.generated';
@@ -35,7 +44,7 @@ export const allPosts = generatedPosts;
 
 export const getPost = (slug) => generatedPosts.find((p) => p.slug === slug);
 
-/* Every tag in use, most-used first — drives the filter row on the blog index. */
+/* Every tag in use, most-used first. Drives the filter row on the blog index. */
 export const allTags = (() => {
   const counts = new Map();
   for (const p of generatedPosts) {

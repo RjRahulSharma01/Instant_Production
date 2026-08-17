@@ -8,7 +8,7 @@ export const EASE = [0.16, 1, 0.3, 1];
 // Do NOT use `amount: <number>` here. IntersectionObserver caps
 // intersectionRatio at viewportHeight / elementHeight, so for any element
 // taller than the screen a threshold like 0.2 can never be met and the
-// animation never fires — the element stays at opacity 0 forever. That is
+// animation never fires and the element stays at opacity 0 forever. That is
 // exactly what happened to the ten-card services grid on mobile.
 // `margin` triggers on position instead, which is height-independent.
 export const viewport = { once: true, margin: '0px 0px -12% 0px' };

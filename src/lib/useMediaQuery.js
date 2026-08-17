@@ -19,7 +19,7 @@ export function useMediaQuery(query) {
 
 /**
  * True on finger-driven devices. Hover, tilt and magnetic effects are
- * meaningless here — worse, pointer events still fire on touch and leave
+ * meaningless here, and worse, pointer events still fire on touch and leave
  * elements stuck in a hovered state after a tap.
  */
 export const useIsTouch = () => useMediaQuery('(hover: none), (pointer: coarse)');

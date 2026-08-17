@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiArrowLeft, FiArrowRight, FiClock, FiRefreshCw } from 'react-icons/fi';
+import { FiArrowLeft, FiArrowRight, FiArrowUpRight, FiClock, FiRefreshCw } from 'react-icons/fi';
 import CtaBand from '../components/CtaBand';
 import { useSeo, SITE_URL } from '../lib/seo';
 import { cardIn, fadeUp, stagger, viewport } from '../lib/motion';
@@ -321,11 +321,52 @@ export default function BlogPost() {
             </motion.div>
           )}
 
-          {/* author note */}
-          <motion.div variants={fadeUp} className="mt-8 rounded-card border border-white/10 bg-white/[0.04] p-6">
-            <p className="text-sm font-medium text-white">{author.name}</p>
-            <p className="mt-2 text-sm leading-7 text-zinc-400">{author.bio}</p>
-          </motion.div>
+          {/* About Author. One block, shared by every article past and future,
+              so the bio and the links are edited in src/data/blog.js once. */}
+          <motion.aside
+            variants={fadeUp}
+            aria-labelledby="about-author"
+            className="mt-10 rounded-card border border-white/10 bg-white/[0.04] p-6 sm:p-7"
+          >
+            <h2 id="about-author" className="text-xs font-semibold uppercase tracking-eyebrow text-brand">
+              About Author
+            </h2>
+
+            <div className="mt-4 flex flex-wrap items-start gap-x-5 gap-y-4">
+              <img
+                src={author.avatar}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                className="h-14 w-14 shrink-0 rounded-full object-cover"
+              />
+              <div className="min-w-[16rem] flex-1">
+                <p className="text-base font-semibold text-white">{author.name}</p>
+                <p className="mt-2 text-sm leading-7 text-zinc-400">{author.bio}</p>
+              </div>
+            </div>
+
+            {author.links?.length > 0 && (
+              <div className="mt-5 flex flex-wrap gap-3">
+                {author.links.map(({ label, href }) => (
+                  <a
+                    key={href}
+                    href={href}
+                    target="_blank"
+                    /* noreferrer as well as noopener: these are Rahul's own
+                       profiles, but there is no reason to leak the referring
+                       article URL to them. */
+                    rel="noopener noreferrer"
+                    aria-label={`${author.name} on ${label}`}
+                    className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-white/15 px-5 text-sm font-medium text-zinc-200 transition-colors duration-200 hover:border-brand/50 hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+                  >
+                    {label}
+                    <FiArrowUpRight aria-hidden="true" size={15} />
+                  </a>
+                ))}
+              </div>
+            )}
+          </motion.aside>
         </motion.div>
       </article>
 

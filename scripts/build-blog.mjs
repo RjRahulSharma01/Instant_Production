@@ -406,7 +406,7 @@ function main() {
     });
   }
 
-  const banner = `// GENERATED FILE — do not edit.\n// Written by scripts/build-blog.mjs from content/blog/*.md\n// Built ${new Date().toISOString()}\n\n`;
+  const banner = `// GENERATED FILE. Do not edit.\n// Written by scripts/build-blog.mjs from content/blog/*.md\n// Built ${new Date().toISOString()}\n\n`;
   fs.writeFileSync(
     OUT_DATA,
     `${banner}export const generatedPosts = ${JSON.stringify(live.map(({ file, ...p }) => p), null, 2)};\n`,
