@@ -3,7 +3,7 @@ title: 92% of beauty influencer ads needed changing
 slug: beauty-influencer-disclosure
 excerpt: ASCI processed personal care ads where influencers made up 68% of the volume. Nine in ten breached the code. The fix costs nothing and almost nobody does it.
 category: Influencer Marketing
-banner: pexels-mart-production-7290691.jpg
+banner: /images/blog/beauty-influencer-disclosure.webp
 bannerAlt: A grid of one hundred squares with almost all of them flagged
 bannerCaption: ''
 publishAt: 2026-08-16

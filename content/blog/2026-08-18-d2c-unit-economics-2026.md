@@ -3,7 +3,7 @@ title: What is left of a D2C rupee in 2026
 slug: d2c-unit-economics-2026
 excerpt: Meta CAC is up 32% year on year and quick commerce takes 30-40% of the order. The brands still growing changed what they measure, not how hard they push.
 category: Performance Marketing
-banner: pexels-adventure-studio-6207714.jpg
+banner: /images/blog/d2c-margin-after-everyone.webp
 bannerAlt: Stacked bars showing a rupee reducing as each cost is taken out of it
 bannerCaption: ''
 publishAt: 2026-08-18

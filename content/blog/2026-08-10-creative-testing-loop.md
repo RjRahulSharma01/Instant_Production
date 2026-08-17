@@ -1,5 +1,5 @@
 ---
-title: Why your ads stopped working: creative fatigue
+title: "Why your ads stopped working: creative fatigue"
 slug: creative-testing-loop
 excerpt: When CPMs climb and CTR falls while nothing about your targeting changed, the creative is worn out. How to build a testing loop that prevents it.
 category: Performance Marketing

@@ -89,6 +89,44 @@ for (const file of files) {
     data[k] = v;
   }
 
+  /* Frontmatter that this parser accepts but a real YAML parser does not.
+     Worth checking separately, because the two disagree in a way that hides
+     the problem: the parser below splits on the first colon and is happy, the
+     site builds, the article publishes — and then the admin, which uses a
+     proper YAML parser, refuses to open the whole collection with "there was
+     an error while parsing an entry file".
+
+     That is exactly what happened with an unquoted title containing a colon.
+     Nothing was visibly wrong for weeks. */
+  for (let li = 0; li < fmLines.length; li += 1) {
+    const line = fmLines[li];
+    const t = line.trim();
+    if (!t || t.startsWith('#') || t.startsWith('-')) continue;
+    const ci = t.indexOf(':');
+    if (ci === -1) continue;
+    const key = t.slice(0, ci).trim();
+    const val = t.slice(ci + 1).trim();
+    if (!val) continue;
+
+    const quoted = (val.startsWith('"') && val.endsWith('"') && val.length > 1)
+      || (val.startsWith("'") && val.endsWith("'") && val.length > 1);
+    const inlineArray = val.startsWith('[') && val.endsWith(']');
+    if (quoted || inlineArray) continue;
+
+    if (/:\s/.test(val)) {
+      err(`"${key}" contains a colon followed by a space, which is not valid YAML — wrap the value in double quotes: ${key}: "${val}"`);
+    }
+    if (/\s#/.test(val)) {
+      err(`"${key}" contains " #", which a YAML parser reads as the start of a comment and silently discards — wrap the value in double quotes`);
+    }
+    if (/^[@`%!&*|>{]/.test(val)) {
+      err(`"${key}" starts with "${val[0]}", which is reserved in YAML — wrap the value in double quotes`);
+    }
+    if ((val.match(/"/g) || []).length === 1) {
+      err(`"${key}" has a single unmatched double quote in it`);
+    }
+  }
+
   for (const req of ['title', 'slug', 'excerpt', 'publishAt', 'banner', 'category']) {
     if (!data[req]) err(`missing required field "${req}"`);
   }
