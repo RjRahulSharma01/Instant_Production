@@ -1,8 +1,12 @@
-# Publishes scheduled blog posts.
+# Publishes scheduled blog posts, and takes the daily analytics snapshot.
 #
 # Articles in content/blog/ with a future publishAt date are stripped out at
 # build time, so they never reach the browser. This workflow rebuilds the site
 # every morning; when a post's date arrives, that morning's build includes it.
+#
+# It also writes one analytics file per day into public/analytics/ and commits
+# it, so the history outlives Vercel's month of retention and Search Console's
+# sixteen. The snapshot runs first, so the rebuild it triggers includes it.
 #
 # SETUP (once):
 #   1. Vercel → your project → Settings → Git → Deploy Hooks
@@ -11,6 +15,15 @@
 #      Name: VERCEL_DEPLOY_HOOK       Value: the URL you copied
 #
 # The URL is a secret because anyone holding it can trigger deploys.
+#
+# OPTIONAL, for the analytics snapshot — add as Actions secrets too:
+#   GSC_SERVICE_ACCOUNT   the whole service account JSON file, pasted in
+#   GSC_SITE_URL          sc-domain:instantproduction.in
+#   VERCEL_API_TOKEN      a read-only token from vercel.com/account/tokens
+#   VERCEL_PROJECT_ID     prj_… from Project Settings → General
+#   VERCEL_TEAM_ID        team_… from Team Settings → General
+# With none of these set the snapshot still runs, records that each source is
+# unconfigured, and never fails the job.
 
 name: Publish scheduled posts
 
@@ -20,10 +33,43 @@ on:
     - cron: '30 0 * * *'
   workflow_dispatch:        # lets you publish on demand from the Actions tab
 
+# Needed so the snapshot step can commit its file back to the repository.
+permissions:
+  contents: write
+
 jobs:
   rebuild:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Take the analytics snapshot
+        env:
+          GSC_SERVICE_ACCOUNT: ${{ secrets.GSC_SERVICE_ACCOUNT }}
+          GSC_SITE_URL: ${{ secrets.GSC_SITE_URL }}
+          VERCEL_API_TOKEN: ${{ secrets.VERCEL_API_TOKEN }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_TEAM_ID: ${{ secrets.VERCEL_TEAM_ID }}
+        # The script exits 0 whatever happens. A missing analytics number is
+        # never a reason to stop the day's articles from publishing.
+        run: node scripts/snapshot-analytics.mjs
+
+      - name: Commit it, if anything changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/analytics
+          if git diff --staged --quiet; then
+            echo "No analytics change today."
+          else
+            git commit -m "Analytics snapshot $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
       - name: Trigger a Vercel rebuild
         env:
           HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}

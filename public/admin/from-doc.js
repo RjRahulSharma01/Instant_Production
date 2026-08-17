@@ -199,6 +199,7 @@ export function mount() {
     <div style="display:flex;gap:.5rem;flex-wrap:wrap">
       <button class="ip-btn primary" id="ip-doc-btn">Start from a document</button>
       <a class="ip-btn ghost" href="/admin/import.html">Bulk import</a>
+      <a class="ip-btn ghost" href="/admin/analytics.html">Analytics</a>
     </div>
     <input type="file" id="ip-doc-file" accept=".docx,.md,.markdown,.txt" hidden />`;
   document.body.appendChild(wrap);

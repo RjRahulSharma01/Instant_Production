@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Analytics — Instant Production</title>
+<link rel="icon" href="/favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root { --ink:#050505; --brand:#f59e0b; --line:rgba(255,255,255,.10);
+          --muted:#a1a1aa; --dim:#71717a; color-scheme: dark; }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--ink); color:#f5f5f5;
+         font:400 15px/1.6 Inter,system-ui,-apple-system,sans-serif }
+  .wrap { max-width:72rem; margin:0 auto; padding:2.5rem 1.25rem 6rem }
+  a { color:var(--brand) }
+
+  header { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; justify-content:space-between;
+           padding-bottom:1.5rem; border-bottom:1px solid var(--line); margin-bottom:2rem }
+  .eyebrow { font-size:.7rem; letter-spacing:.22em; text-transform:uppercase; color:var(--brand);
+             font-weight:600; margin:0 0 .4rem }
+  h1 { font-size:1.6rem; font-weight:600; letter-spacing:-.02em; margin:0 }
+  h2 { font-size:1rem; font-weight:600; margin:0 0 .3rem }
+  p { margin:0 0 .75rem; font-size:.9rem }
+  .muted { color:var(--muted) } .dim { color:var(--dim); font-size:.8rem }
+
+  .btn { display:inline-flex; align-items:center; gap:.5rem; min-height:44px; padding:.6rem 1.15rem;
+         border-radius:999px; border:1px solid var(--line); background:transparent; color:#f5f5f5;
+         font:inherit; font-size:.85rem; cursor:pointer; text-decoration:none; transition:.2s }
+  .btn:hover { border-color:rgba(255,255,255,.3) }
+
+  section { border:1px solid var(--line); background:rgba(255,255,255,.04);
+            border-radius:1rem; padding:1.5rem; margin-bottom:1.25rem }
+
+  .cards { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(11rem,1fr)); margin:1.1rem 0 0 }
+  .card { border:1px solid var(--line); border-radius:.8rem; padding:1rem 1.1rem; background:rgba(255,255,255,.03) }
+  .card .k { font-size:.68rem; text-transform:uppercase; letter-spacing:.12em; color:var(--dim) }
+  .card .v { font-size:1.75rem; font-weight:600; letter-spacing:-.02em; margin-top:.3rem; color:#fff }
+  .card .s { font-size:.75rem; color:var(--muted); margin-top:.15rem }
+
+  table { width:100%; border-collapse:collapse; font-size:.85rem; margin-top:1rem }
+  th { text-align:left; font-size:.65rem; text-transform:uppercase; letter-spacing:.1em;
+       color:var(--dim); padding:0 .7rem .5rem 0; border-bottom:1px solid var(--line); font-weight:600 }
+  td { padding:.6rem .7rem .6rem 0; border-bottom:1px solid rgba(255,255,255,.05); vertical-align:top }
+  td.n, th.n { text-align:right; font-variant-numeric:tabular-nums; padding-right:0 }
+  tbody tr:hover { background:rgba(255,255,255,.02) }
+
+  .note { border-left:2px solid var(--brand); background:rgba(245,158,11,.07);
+          padding:.9rem 1.1rem; border-radius:0 .5rem .5rem 0; font-size:.85rem; margin-top:1rem }
+  .note.bad { border-left-color:#fb7185; background:rgba(251,113,133,.07) }
+  .note code { background:rgba(255,255,255,.1); padding:.1rem .35rem; border-radius:.25rem; font-size:.85em }
+  .note ol { margin:.5rem 0 0; padding-left:1.2rem } .note li { margin-bottom:.35rem }
+
+  .skel { height:1.4rem; border-radius:.3rem; background:rgba(255,255,255,.07);
+          animation:pulse 1.3s ease-in-out infinite }
+  @keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.8} }
+  @media (prefers-reduced-motion: reduce) { .skel { animation:none } }
+  svg .grid { stroke:rgba(255,255,255,.08) }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <p class="eyebrow">Admin</p>
+      <h1>Analytics</h1>
+    </div>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+      <a class="btn" href="/admin/">← Editor</a>
+      <a class="btn" href="https://vercel.com/dashboard" target="_blank" rel="noopener">Vercel ↗</a>
+      <a class="btn" href="https://search.google.com/search-console" target="_blank" rel="noopener">Search Console ↗</a>
+    </div>
+  </header>
+
+  <section id="search">
+    <h2>Search</h2>
+    <p class="muted">What people typed, and whether they clicked. Search Console reports with a two to three day delay, so the window ends three days ago.</p>
+    <div class="cards" id="searchCards">
+      <div class="card"><div class="k">Clicks</div><div class="v"><span class="skel" style="display:block;width:4rem"></span></div></div>
+      <div class="card"><div class="k">Impressions</div><div class="v"><span class="skel" style="display:block;width:5rem"></span></div></div>
+      <div class="card"><div class="k">CTR</div><div class="v"><span class="skel" style="display:block;width:3.5rem"></span></div></div>
+      <div class="card"><div class="k">Avg position</div><div class="v"><span class="skel" style="display:block;width:3rem"></span></div></div>
+    </div>
+    <div id="searchChart"></div>
+    <div id="searchNote"></div>
+  </section>
+
+  <section id="queriesSec" hidden>
+    <h2>Top queries</h2>
+    <p class="muted">The searches you actually appear for. Anything at position 5–15 with real impressions is where a small improvement pays.</p>
+    <div style="overflow-x:auto"><table id="queries"></table></div>
+  </section>
+
+  <section id="pagesSec" hidden>
+    <h2>Top pages</h2>
+    <div style="overflow-x:auto"><table id="pages"></table></div>
+  </section>
+
+  <section id="traffic">
+    <h2>Visitors</h2>
+    <p class="muted">From Vercel Analytics. Cookieless, unsampled.</p>
+    <div id="vercelBody"><span class="skel" style="display:block;width:14rem"></span></div>
+  </section>
+
+  <section>
+    <h2>History</h2>
+    <p class="muted">One snapshot committed to the repository each morning at 06:00 IST. Vercel keeps about a month and Search Console sixteen; these files keep everything, permanently.</p>
+    <div id="history"></div>
+  </section>
+
+  <p class="dim" style="margin-top:2rem">
+    Read only. Nothing on this page can change the site.
+    Figures come from <code>/api/analytics</code>, which reads the daily snapshots in
+    <code>public/analytics/</code>.
+  </p>
+</div>
+
+<script type="module">
+const $ = (id) => document.getElementById(id);
+const nf = new Intl.NumberFormat('en-IN');
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+
+/* A line chart small enough to write by hand. Adding a charting library to
+   this page would be 60 kB to draw one line. */
+function sparkline(rows, key, { height = 130, label = '' } = {}) {
+  if (rows.length < 2) return '';
+  const w = 900, h = height, pad = 26;
+  const vals = rows.map((r) => r[key] ?? 0);
+  const max = Math.max(...vals, 1);
+  const x = (i) => pad + (i / (rows.length - 1)) * (w - pad * 2);
+  const y = (v) => h - pad - (v / max) * (h - pad * 2);
+  const pts = rows.map((r, i) => `${x(i).toFixed(1)},${y(r[key] ?? 0).toFixed(1)}`).join(' ');
+  const area = `${pad},${h - pad} ${pts} ${w - pad},${h - pad}`;
+  return `
+    <svg viewBox="0 0 ${w} ${h}" style="width:100%;height:auto;margin-top:1rem" role="img"
+         aria-label="${esc(label)}">
+      <line class="grid" x1="${pad}" y1="${h - pad}" x2="${w - pad}" y2="${h - pad}" />
+      <polygon points="${area}" fill="rgba(245,158,11,.14)" />
+      <polyline points="${pts}" fill="none" stroke="#f59e0b" stroke-width="2.5"
+                stroke-linejoin="round" stroke-linecap="round" />
+      <text x="${pad}" y="14" fill="#71717a" font-size="11">${esc(rows[0].key || '')}</text>
+      <text x="${w - pad}" y="14" fill="#71717a" font-size="11" text-anchor="end">${esc(rows[rows.length - 1].key || '')}</text>
+      <text x="${w - pad}" y="${h - 6}" fill="#71717a" font-size="11" text-anchor="end">peak ${nf.format(max)}</text>
+    </svg>`;
+}
+
+function table(el, rows, firstHeading) {
+  el.innerHTML =
+    `<thead><tr><th>${firstHeading}</th><th class="n">Clicks</th><th class="n">Impr.</th>` +
+    `<th class="n">CTR</th><th class="n">Position</th></tr></thead><tbody>` +
+    rows.map((r) => `<tr><td>${esc(r.key)}</td><td class="n">${nf.format(r.clicks)}</td>` +
+      `<td class="n">${nf.format(r.impressions)}</td><td class="n">${r.ctr}%</td>` +
+      `<td class="n">${r.position}</td></tr>`).join('') +
+    '</tbody>';
+}
+
+const SETUP = `
+  <div class="note">
+    <strong>Search Console is not connected yet.</strong> Ten minutes, once:
+    <ol>
+      <li>Verify <code>instantproduction.in</code> at
+        <a href="https://search.google.com/search-console" target="_blank" rel="noopener">Search Console</a>
+        and submit <code>/sitemap.xml</code>.</li>
+      <li>In Google Cloud, create a service account and download its JSON key.</li>
+      <li>In Search Console → Settings → Users, add the service account's email as a <em>Full</em> user.</li>
+      <li>In GitHub → Settings → Secrets → Actions, add <code>GSC_SERVICE_ACCOUNT</code>
+          (the whole JSON file) and <code>GSC_SITE_URL</code>
+          (<code>sc-domain:instantproduction.in</code>).</li>
+    </ol>
+    The full walkthrough is in <code>redesign/update-38/APPLY.md</code>.
+  </div>`;
+
+function renderSearch(gsc) {
+  if (!gsc || !gsc.ok) {
+    $('searchCards').hidden = true;
+    $('searchNote').innerHTML = gsc && gsc.reason === 'error'
+      ? `<div class="note bad"><strong>Search Console returned an error.</strong><br />${esc(gsc.message)}</div>`
+      : SETUP;
+    return;
+  }
+  const t = gsc.totals;
+  $('searchCards').innerHTML = [
+    ['Clicks', nf.format(t.clicks), 'visits from search'],
+    ['Impressions', nf.format(t.impressions), 'times you appeared'],
+    ['CTR', `${t.ctr}%`, 'clicked when shown'],
+    ['Avg position', t.position, 'lower is better'],
+  ].map(([k, v, s]) => `<div class="card"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
+
+  $('searchChart').innerHTML = sparkline(gsc.byDay || [], 'clicks', { label: 'Clicks from search, by day' });
+  $('searchNote').innerHTML =
+    `<p class="dim" style="margin-top:.8rem">${esc(gsc.range.startDate)} to ${esc(gsc.range.endDate)}</p>`;
+
+  if (gsc.queries?.length) { $('queriesSec').hidden = false; table($('queries'), gsc.queries, 'Query'); }
+  if (gsc.pages?.length) {
+    $('pagesSec').hidden = false;
+    table($('pages'), gsc.pages.map((r) => ({ ...r, key: r.key.replace(/^https?:\/\/[^/]+/, '') || '/' })), 'Page');
+  }
+}
+
+/* Vercel's response shape is not something I could verify without a working
+   token, and it has changed between versions. So: pull out anything that looks
+   like a headline number, show those as cards, and keep the raw response
+   underneath rather than hiding a field I failed to anticipate. */
+const VERCEL_KEYS = [
+  [['visitors', 'uniqueVisitors', 'devices'], 'Visitors'],
+  [['pageviews', 'pageViews', 'views', 'total'], 'Page views'],
+  [['bounceRate', 'bounce_rate'], 'Bounce rate'],
+];
+
+function findNumber(obj, names, depth = 0) {
+  if (!obj || typeof obj !== 'object' || depth > 4) return null;
+  for (const n of names) {
+    if (typeof obj[n] === 'number') return obj[n];
+    if (obj[n] && typeof obj[n].total === 'number') return obj[n].total;
+  }
+  for (const val of Object.values(obj)) {
+    const hit = findNumber(val, names, depth + 1);
+    if (hit !== null) return hit;
+  }
+  return null;
+}
+
+function renderVercel(v) {
+  if (v && v.ok) {
+    const cards = VERCEL_KEYS
+      .map(([names, label]) => [label, findNumber(v.data, names)])
+      .filter(([, n]) => n !== null)
+      .map(([label, n]) => `<div class="card"><div class="k">${label}</div><div class="v">${nf.format(n)}</div><div class="s">last 30 days</div></div>`)
+      .join('');
+
+    $('vercelBody').innerHTML =
+      (cards ? `<div class="cards">${cards}</div>` : '') +
+      `<p class="dim" style="margin-top:1rem">Live from Vercel via ${esc(v.endpoint)}.</p>` +
+      `<details><summary class="dim" style="cursor:pointer">The full response</summary>` +
+      `<pre style="overflow:auto;font-size:.75rem;color:#a1a1aa;background:rgba(0,0,0,.35);padding:1rem;border-radius:.5rem;margin-top:.6rem">${
+        esc(JSON.stringify(v.data, null, 2)).slice(0, 4000)}</pre></details>` +
+      (cards ? '' : '<div class="note">Vercel returned data but not in a shape I recognised, so it is shown raw above. Send me that block and I will map it into proper cards.</div>');
+    return;
+  }
+  const why = v?.reason === 'not-configured'
+    ? `<div class="note"><strong>Not connected.</strong> ${esc(v.message)}
+        Add <code>VERCEL_API_TOKEN</code>, <code>VERCEL_PROJECT_ID</code> and
+        <code>VERCEL_TEAM_ID</code> in Vercel → Settings → Environment Variables,
+        then redeploy.</div>`
+    : `<div class="note"><strong>Vercel did not return data.</strong> ${esc(v?.message || '')}
+        ${v?.tried?.length ? `<br /><span class="dim">Tried: ${v.tried.map((t) => `${esc(t.endpoint)} → ${esc(String(t.status))}`).join(' · ')}</span>` : ''}
+        <br /><br />The dashboards at
+        <a href="https://vercel.com/dashboard" target="_blank" rel="noopener">vercel.com</a>
+        are unaffected and still show everything.</div>`;
+  $('vercelBody').innerHTML = why;
+}
+
+function renderHistory(s) {
+  const days = (s?.days || []).filter((d) => d.clicks !== null);
+  if (days.length < 2) {
+    $('history').innerHTML =
+      `<p class="dim">${esc(s?.message || `${s?.days?.length || 0} snapshot so far. A line appears here once there are two.`)}</p>`;
+    return;
+  }
+  $('history').innerHTML =
+    sparkline(days.map((d) => ({ key: d.date, clicks: d.clicks })), 'clicks', { label: 'Clicks by day, from snapshots' }) +
+    `<p class="dim">${days.length} days recorded · ${esc(days[0].date)} to ${esc(days[days.length - 1].date)}</p>`;
+}
+
+fetch('/api/analytics', { cache: 'no-store' })
+  .then((r) => r.json())
+  .then((d) => {
+    renderSearch(d.snapshots?.latest?.searchConsole);
+    renderVercel(d.vercel);
+    renderHistory(d.snapshots);
+  })
+  .catch((e) => {
+    document.querySelector('.wrap').insertAdjacentHTML('afterbegin',
+      `<div class="note bad"><strong>Could not load /api/analytics.</strong> ${esc(e.message)}</div>`);
+  });
+</script>
+</body>
+</html>
