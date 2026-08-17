@@ -44,7 +44,7 @@ export function VisitCascade({ steps }) {
                 transition={{ duration: reduce ? 0 : 0.85, ease: EASE, delay: reduce ? 0 : i * 0.11 }}
               />
               {/* Keep the caption clear of a short fill, same reason as the
-                  fintech funnel — the amber bar would otherwise sit on the text. */}
+                  fintech funnel. The amber bar would otherwise sit on the text. */}
               <span
                 className="absolute inset-y-0 flex items-center whitespace-nowrap text-[0.72rem] text-zinc-500"
                 style={s.value >= 40 ? { left: '0.75rem' } : { left: `calc(${s.value}% + 0.75rem)` }}

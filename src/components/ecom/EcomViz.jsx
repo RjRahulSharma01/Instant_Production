@@ -3,7 +3,7 @@ import { AnimatePresence, motion, useInView, useReducedMotion } from 'framer-mot
 import { EASE } from '../../lib/motion';
 
 /* Every visual on this page is hand-rolled SVG and CSS.
-   No chart library, no stock photography, no generated imagery — which means
+   No chart library, no stock photography, no generated imagery, which means
    no licence exposure, nothing to attribute, and about 40 kB of charting code
    that never enters the bundle. Each component below degrades to a static,
    readable state under prefers-reduced-motion. */
@@ -23,7 +23,7 @@ export function AssetFanOut({ tiles = 40 }) {
       i,
       x: 236 + (i % cols) * 25,
       y: 34 + Math.floor(i / cols) * 33,
-      // A few tiles read as video, a few as vertical — visual variety only.
+      // A few tiles read as video, a few as vertical. Visual variety only.
       kind: i % 7 === 0 ? 'video' : i % 5 === 0 ? 'vertical' : 'still',
     }));
   }, [tiles]);
@@ -165,7 +165,7 @@ export function CreativeMaths() {
   const reduce = useReducedMotion();
 
   // An ad set runs roughly three concurrent creatives. A refresh means replacing
-  // that set, not swapping a single asset — so the number of live slots is what
+  // that set, not swapping a single asset, so the number of live slots is what
   // the monthly output has to cover.
   const CONCURRENT = 3;
   const slots = adSets * CONCURRENT;
@@ -178,7 +178,7 @@ export function CreativeMaths() {
   const state = clears
     ? { tone: 'text-emerald-400', ring: 'border-emerald-400/40 bg-emerald-400/[0.07]', verdict: 'Clears the window' }
     : marginal
-      ? { tone: 'text-brand', ring: 'border-brand/40 bg-brand/[0.07]', verdict: 'Marginal — fatigues late in the flight' }
+      ? { tone: 'text-brand', ring: 'border-brand/40 bg-brand/[0.07]', verdict: 'Marginal. Fatigues late in the flight' }
       : { tone: 'text-rose-400', ring: 'border-rose-400/40 bg-rose-400/[0.07]', verdict: 'Runs fatigued creative for most of the month' };
 
   const Slider = ({ label, value, set, min, max, suffix }) => (
@@ -215,7 +215,7 @@ export function CreativeMaths() {
         <Slider label="Active ad sets running" value={adSets} set={setAdSets} min={1} max={8} suffix="" />
         <p className="text-xs leading-6 text-zinc-500">
           Assumes each ad set runs three concurrent creatives, so a full refresh means replacing
-          {' '}{slots} live slots — and that roughly three quarters of what you ship is a distinct
+          {' '}{slots} live slots, and that roughly three quarters of what you ship is a distinct
           concept rather than a variant of something already running.
         </p>
       </div>
@@ -551,8 +551,8 @@ export function GeoSplit({ outsideMetro }) {
       </div>
       <p className="sr-only">{outsideMetro} in every 100 next-wave D2C customers live outside a metro.</p>
       <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-xs text-zinc-500">
-        <span className="flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-[3px] bg-brand" /> Outside a metro — {outsideMetro}%</span>
-        <span className="flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-[3px] bg-white/[0.13]" /> Metro — {100 - outsideMetro}%</span>
+        <span className="flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-[3px] bg-brand" /> Outside a metro: {outsideMetro}%</span>
+        <span className="flex items-center gap-2"><span className="h-2.5 w-2.5 rounded-[3px] bg-white/[0.13]" /> Metro: {100 - outsideMetro}%</span>
       </div>
     </div>
   );

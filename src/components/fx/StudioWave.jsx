@@ -3,7 +3,7 @@ import { useReducedMotion } from 'framer-motion';
 import { useIsTouch } from '../../lib/useMediaQuery';
 
 /**
- * StudioWave — an interactive audio/video timeline visual.
+ * StudioWave: an interactive audio and video timeline visual.
  *
  * A bank of bars breathes on a slow sine wave with a playhead sweeping across,
  * the way a waveform looks in an edit timeline. Bars near the pointer swell,

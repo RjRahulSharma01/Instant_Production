@@ -1,15 +1,15 @@
-// E-commerce & D2C industry page — data layer.
+// E-commerce & D2C industry page. Data layer.
 //
 // SOURCING RULE (see the brand guidelines, p.17): every number that appears in
 // public copy has a source someone can point to. Each figure below carries a
 // `src` key that maps to an entry in `SOURCES`, and the page renders a visible
-// citation list. Nothing here is a claimed Instant Production client result —
+// citation list. Nothing here is a claimed Instant Production client result,
 // where a scenario is modelled, it is labelled as modelled.
 
 export const SOURCES = {
   unicommerce: {
     label: 'Unicommerce, India D2C Report 2026',
-    detail: 'Platform transaction data — 6,000+ D2C brands, 410M+ shipments, FY2026',
+    detail: 'Platform transaction data: 6,000+ D2C brands, 410M+ shipments, FY2026',
     url: 'https://unicommerce.com/india-d2c-report-2026-april/',
   },
   ficci: {
@@ -33,7 +33,7 @@ export const SOURCES = {
     url: 'https://monaqo.in/meta-ads-roas-benchmarks-india/',
   },
   benchmarks: {
-    label: 'Meta ROAS benchmarks, India D2C — H1 2026 compilation',
+    label: 'Meta ROAS benchmarks, India D2C, H1 2026 compilation',
     detail: 'Quartile distributions by category and AOV band, festival-normalised',
     url: 'https://monaqo.in/meta-ads-roas-benchmarks-india/',
   },
@@ -58,7 +58,7 @@ export const SOURCES = {
 
 export const scale = [
   { value: '₹1.8', unit: 'lakh cr', label: 'India D2C GMV, FY2025', note: '≈ $21.5B, up 38% on FY2024', src: 'ficci' },
-  { value: '33', unit: '%', label: 'GMV growth in FY2026', note: 'Shipped items grew 34% — volume, not price', src: 'unicommerce' },
+  { value: '33', unit: '%', label: 'GMV growth in FY2026', note: 'Shipped items grew 34%. Volume, not price', src: 'unicommerce' },
   { value: '11,000', unit: '', label: 'D2C brands competing', note: 'For the same audiences, on the same platforms', src: 'unicommerce' },
   { value: '52–68', unit: '%', label: 'of paid spend goes to Meta', note: 'For brands at ₹5–100 cr ARR', src: 'bcg' },
 ];
@@ -74,7 +74,7 @@ export const fatigue = {
   drivers: [
     { stat: '+34%', label: 'more D2C brands running Meta campaigns, H1 2024 → H1 2026', src: 'iamai' },
     { stat: '+28%', label: 'Meta India CPM, Q1 2024 → Q1 2026, fashion and beauty', src: 'kantar' },
-    { stat: '362M', label: 'Instagram monthly actives in India — a large pool, but not an infinite one', src: 'meta' },
+    { stat: '362M', label: 'Instagram monthly actives in India. A large pool, but not an infinite one', src: 'meta' },
     { stat: '20–35%', label: 'of measured ROAS lost to iOS attribution decay, with revenue unchanged', src: 'benchmarks' },
   ],
 };
@@ -84,7 +84,7 @@ export const fatigue = {
 
 export const roas = {
   note:
-    'Blended ROAS on a 7-day click, 1-day view window, festival-normalised. On 1-day click attribution the same brand reads 30–45% lower — the campaign has not changed, the measurement has.',
+    'Blended ROAS on a 7-day click, 1-day view window, festival-normalised. On 1-day click attribution the same brand reads 30–45% lower. The campaign has not changed, the measurement has.',
   categories: [
     {
       key: 'skincare', name: 'Skincare', aov: '₹400–1,500', q1: 2.8, med: 4.1, q3: 6.2,
@@ -99,7 +99,7 @@ export const roas = {
     {
       key: 'haircare', name: 'Haircare', aov: '₹300–1,200', q1: 2.4, med: 3.6, q3: 5.4,
       driver: 'Transformation video, ingredient education',
-      note: 'Oils and serums outperform shampoo and conditioner — the visible-result formats favour the former.',
+      note: 'Oils and serums outperform shampoo and conditioner. The visible-result formats favour the former.',
     },
     {
       key: 'ethnic', name: "Women's ethnic wear", aov: '₹600–4,000', q1: 2.1, med: 3.4, q3: 5.0,
@@ -139,17 +139,17 @@ export const formats = [
 ];
 
 export const formatNote =
-  'The first two ranges are observed fashion-category ROAS. The third applies the measured 2.3× median uplift to the skincare quartile range — it is arithmetic on a published finding, not a separately observed band.';
+  'The first two ranges are observed fashion-category ROAS. The third applies the measured 2.3× median uplift to the skincare quartile range. It is arithmetic on a published finding, not a separately observed band.';
 
 /* --------------------------------------------------------- category growth */
 
 export const growth = {
   window: 'Apr 2025 – Feb 2026',
   items: [
-    { label: 'Health & pharma', value: 48, note: 'Fastest growing. Also the tightest advertising rules — ASCI reads every claim.' },
+    { label: 'Health & pharma', value: 48, note: 'Fastest growing. Also the tightest advertising rules. ASCI reads every claim.' },
     { label: 'Beauty & personal care', value: 41, note: 'Highest volume and the highest ROAS ceiling. Also the most crowded.' },
     { label: 'FMCG', value: 32, note: 'Quick commerce is doing much of this work. Different shelf, different creative.' },
-    { label: 'Fashion & accessories', value: 21, note: 'Lowest growth in the dataset. Nobody runs out of a dress — the reorder has to be manufactured.' },
+    { label: 'Fashion & accessories', value: 21, note: 'Lowest growth in the dataset. Nobody runs out of a dress. The reorder has to be manufactured.' },
     { label: 'Home furnishings', value: 19, note: 'Long consideration, high AOV, low frequency. A content problem more than a media problem.' },
   ],
   src: 'unicommerce',
@@ -160,7 +160,7 @@ export const growth = {
 export const rto = {
   question: 'What actually erodes D2C margin in India?',
   answer:
-    'Returns, not media cost. Across 6,000+ Indian D2C brands, cash-on-delivery orders returned at 58% during the FY2026 festive quarter, and overall RTO peaked at 39.2% in November 2025. By March 2026 the brands that acted were at 21.0%. Every returned order is paid for twice — outbound and inbound — with no revenue against it. A brand at 39% RTO is losing more margin to logistics than most brands spend on creative.',
+    'Returns, not media cost. Across 6,000+ Indian D2C brands, cash-on-delivery orders returned at 58% during the FY2026 festive quarter, and overall RTO peaked at 39.2% in November 2025. By March 2026 the brands that acted were at 21.0%. Every returned order is paid for twice, outbound and inbound, with no revenue against it. A brand at 39% RTO is losing more margin to logistics than most brands spend on creative.',
   cod: 58,
   points: [
     { label: 'Nov 2025', sub: 'Festive peak', value: 39.2 },
@@ -181,7 +181,7 @@ export const geography = {
   outsideMetro: 66,
   cpmSaving: [30, 50],
   body:
-    'Two thirds of the next wave of Indian D2C customers live outside a metro, and CPM increases have concentrated in tier-1. Geo-expanding a campaign into tier-2 and tier-3 cities typically cuts CPM 30–50%. The constraint is not the media — it is whether the creative was made for that viewer. Hindi-first cuts, regional-language captions and price framing that assumes a different basket are production problems, and production is exactly what most brands cannot scale.',
+    'Two thirds of the next wave of Indian D2C customers live outside a metro, and CPM increases have concentrated in tier-1. Geo-expanding a campaign into tier-2 and tier-3 cities typically cuts CPM 30–50%. The constraint is not the media. It is whether the creative was made for that viewer. Hindi-first cuts, regional-language captions and price framing that assumes a different basket are production problems, and production is exactly what most brands cannot scale.',
   src: 'unicommerce',
 };
 
@@ -190,7 +190,7 @@ export const geography = {
 export const qcommerce = {
   question: 'Does quick commerce change what a D2C brand should make?',
   answer:
-    'Yes, structurally. Quick commerce reached roughly ₹11,000 crore of GMV in January 2026 alone on about 7.8 million orders a day, and the shelf is three apps — Blinkit at roughly 46% share, Swiggy Instamart at 24% and Zepto at 22%. On that shelf there is no scroll, no video and no story. The decision is made from a thumbnail, a name and a price. Brands that treat it as one more marketplace listing lose to brands that redesign the pack shot for a 120-pixel tile.',
+    'Yes, structurally. Quick commerce reached roughly ₹11,000 crore of GMV in January 2026 alone on about 7.8 million orders a day, and the shelf is three apps: Blinkit at roughly 46% share, Swiggy Instamart at 24% and Zepto at 22%. On that shelf there is no scroll, no video and no story. The decision is made from a thumbnail, a name and a price. Brands that treat it as one more marketplace listing lose to brands that redesign the pack shot for a 120-pixel tile.',
   share: [
     { label: 'Blinkit', value: 46 },
     { label: 'Swiggy Instamart', value: 24 },
@@ -211,7 +211,7 @@ export const qcommerce = {
 export const model = {
   title: 'A worked example, using the benchmarks on this page',
   caveat:
-    'A model built from the published benchmarks above — not an Instant Production client result. It assumes three active ad sets running three concurrent creatives each, the same assumption the calculator above uses. Your numbers will differ.',
+    'A model built from the published benchmarks above, not an Instant Production client result. It assumes three active ad sets running three concurrent creatives each, the same assumption the calculator above uses. Your numbers will differ.',
   brand: 'A skincare brand at ₹850 AOV, spending ₹8 lakh a month on Meta',
   cols: ['Four assets a month', 'Twelve assets a month'],
   rows: [
@@ -220,10 +220,10 @@ export const model = {
     { k: 'Category fatigue window', a: '21–35 days', b: '21–35 days' },
     { k: 'Result', a: 'Two thirds of the flight runs on fatigued creative', b: 'Refresh lands inside the window' },
     { k: 'Distinct concepts tested per quarter', a: '~9', b: '~27' },
-    { k: 'Category ROAS band reachable', a: 'Bottom quartile — 2.8', b: 'Median to top quartile — 4.1 to 6.2' },
+    { k: 'Category ROAS band reachable', a: 'Bottom quartile, 2.8', b: 'Median to top quartile, 4.1 to 6.2' },
   ],
   closing:
-    'The second column is not a better media buyer. It is the same budget with enough creative behind it to keep testing. That is the whole argument for AI-first production in this category — not that it is cheaper, but that it makes the top quartile reachable at all.',
+    'The second column is not a better media buyer. It is the same budget with enough creative behind it to keep testing. That is the whole argument for AI-first production in this category. Not that it is cheaper, but that it makes the top quartile reachable at all.',
 };
 
 /* ---------------------------------------------------------------------- faq */
@@ -231,11 +231,11 @@ export const model = {
 export const faqs = [
   {
     q: 'How many creatives does a D2C brand actually need per month?',
-    a: 'Enough to refresh inside your category fatigue window and still have variants left to test. In competitive Indian D2C categories that window is 21–35 days, so a brand running three or four active ad sets needs somewhere between 15 and 30 assets a month — a mix of new concepts and variants of what is already working. Four a month means refreshing on a 60-day cycle in a market whose creative fatigues in 30.',
+    a: 'Enough to refresh inside your category fatigue window and still have variants left to test. In competitive Indian D2C categories that window is 21–35 days, so a brand running three or four active ad sets needs somewhere between 15 and 30 assets a month: a mix of new concepts and variants of what is already working. Four a month means refreshing on a 60-day cycle in a market whose creative fatigues in 30.',
   },
   {
     q: 'Our ROAS dropped and nothing changed. What happened?',
-    a: 'Usually one of three things. Frequency climbed and the creative fatigued, which shows up as falling CTR before it shows up in ROAS. Or the attribution window shifted — moving from 7-day click to 1-day click reads 30–45% lower on identical performance. Or the iOS share of your audience grew and measured ROAS fell 20–35% while actual revenue held. Diagnose in that order, because only the first is a creative problem.',
+    a: 'Usually one of three things. Frequency climbed and the creative fatigued, which shows up as falling CTR before it shows up in ROAS. Or the attribution window shifted. Moving from 7-day click to 1-day click reads 30–45% lower on identical performance. Or the iOS share of your audience grew and measured ROAS fell 20–35% while actual revenue held. Diagnose in that order, because only the first is a creative problem.',
   },
   {
     q: 'Is CTR a useful signal on its own?',
@@ -243,11 +243,11 @@ export const faqs = [
   },
   {
     q: 'Should we be making UGC or polished brand films?',
-    a: 'Both, for different jobs. Across 47 Indian beauty D2C brands, UGC featuring a real user with a named concern and a visible result outperformed professional product photography by a median of 2.3× on purchase ROAS. That is the acquisition workhorse. Polished brand film does a different job — it is what makes a first-time buyer believe you will still exist in six months. Do not fund one by cutting the other.',
+    a: 'Both, for different jobs. Across 47 Indian beauty D2C brands, UGC featuring a real user with a named concern and a visible result outperformed professional product photography by a median of 2.3× on purchase ROAS. That is the acquisition workhorse. Polished brand film does a different job. It is what makes a first-time buyer believe you will still exist in six months. Do not fund one by cutting the other.',
   },
   {
     q: 'Can content fix a returns problem?',
-    a: 'Partly, and it is worth doing, because RTO destroys more margin than media inefficiency. Size guides, honest fabric and finish detail, real-scale product video and explicit return-policy language inside the creative all reduce returns caused by mismatched expectation. What content cannot fix is address quality, courier routing or the structural return rate of cash on delivery — those are operational, and they are where the 39% to 21% move actually came from.',
+    a: 'Partly, and it is worth doing, because RTO destroys more margin than media inefficiency. Size guides, honest fabric and finish detail, real-scale product video and explicit return-policy language inside the creative all reduce returns caused by mismatched expectation. What content cannot fix is address quality, courier routing or the structural return rate of cash on delivery. Those are operational, and they are where the 39% to 21% move actually came from.',
   },
   {
     q: 'How do we get cited when someone asks an AI assistant for a recommendation?',
@@ -263,5 +263,5 @@ export const services = [
   'Landing page and PDP conversion work',
   'Regional-language and tier-2 creative variants',
   'Creative testing frameworks and fatigue monitoring',
-  'Answer-engine content — comparison, ingredient and buying-guide pages',
+  'Answer-engine content: comparison, ingredient and buying-guide pages',
 ];

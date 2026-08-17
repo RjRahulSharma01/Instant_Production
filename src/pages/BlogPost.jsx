@@ -9,8 +9,8 @@ import { author, getPost, publishedPosts } from '../data/blog';
 
 /* Blocks arrive pre-rendered as HTML strings from scripts/build-blog.mjs, which
    escapes the author's text before adding its own tags. The content is
-   first-party and version-controlled — it comes from markdown files in our own
-   repo, never from a user or an API — so this is a closed loop, not an
+   first-party and version-controlled. It comes from markdown files in our own
+   repo, never from a user or an API, so this is a closed loop rather than an
    injection surface. */
 
 function Block({ block }) {
@@ -199,7 +199,7 @@ export default function BlogPost() {
      photo search in the admin, an absolute URL on the provider's CDN. Blindly
      prefixing the site URL turned the second kind into
      "https://instantproduction.inhttps://images.unsplash.com/…" in the
-     structured data — valid-looking JSON with a nonsense value in it, which is
+     structured data: valid-looking JSON with a nonsense value in it, which is
      exactly the sort of thing nobody notices for months. */
   const coverUrl = /^https?:\/\//.test(post.cover || '')
     ? post.cover

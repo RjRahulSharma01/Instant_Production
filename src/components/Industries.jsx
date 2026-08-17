@@ -29,7 +29,7 @@ function Industries({ industries }) {
             const Icon = getIcon(industry.icon);
             return (
               <TiltCard key={industry.id} variants={cardIn} max={7} className="h-full">
-                {/* The entire card is the link — no separate text CTA. */}
+                {/* The entire card is the link. No separate text CTA. */}
                 <Link
                   to={`/industries/${industry.id}`}
                   aria-label={`${industry.title} marketing`}

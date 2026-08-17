@@ -10,7 +10,7 @@ export const hero = {
   eyebrow: 'Healthcare Marketing',
   title: 'Marketing that grows your practice without risking your registration.',
   intro:
-    '77% of patients search online before they book. We help doctors, clinics and hospitals be found there — with content built around what NMC rules actually permit, not around what a generic agency thinks looks good.',
+    '77% of patients search online before they book. We help doctors, clinics and hospitals be found there, with content built around what NMC rules actually permit, not around what a generic agency thinks looks good.',
   primaryCta: 'Book a free practice audit',
   secondaryCta: 'See our healthcare work',
   trustLine: 'Trusted by clinics, hospitals and independent practitioners',
@@ -27,7 +27,7 @@ export const stats = [
 export const compliance = {
   title: 'We write for the regulator as well as the patient.',
   intro:
-    'The National Medical Commission permits educational content. It prohibits soliciting patients and claiming treatment outcomes. Most marketing agencies do not know the difference — which is how doctors end up with a well-performing post and a notice from their State Medical Council.',
+    'The National Medical Commission permits educational content. It prohibits soliciting patients and claiming treatment outcomes. Most marketing agencies do not know the difference, which is how doctors end up with a well-performing post and a notice from their State Medical Council.',
   points: [
     {
       title: 'Education, not solicitation',
@@ -66,7 +66,7 @@ export const services = [
     title: 'Social media management',
     tagline: 'A steady presence that educates instead of advertising.',
     body:
-      'Instagram, Facebook and YouTube handled end to end — planning, design, captions, scheduling and community management. Patient-education first, so the account builds trust without stepping over the advertising line.',
+      'Instagram, Facebook and YouTube handled end to end: planning, design, captions, scheduling and community management. Patient-education first, so the account builds trust without stepping over the advertising line.',
     bullets: ['Monthly content calendar', 'Reels, carousels and stories', 'Comment and DM handling', 'Compliance read on every post'],
   },
   {
@@ -75,7 +75,7 @@ export const services = [
     title: 'Content strategy & video',
     tagline: 'What to say, to whom, and in what order.',
     body:
-      'Condition-led content mapped to how patients actually research — symptom, then treatment, then practitioner. Plus the video to deliver it: explainers, procedure walkthroughs, patient-education series and OPD shorts.',
+      'Condition-led content mapped to how patients actually research: symptom, then treatment, then practitioner. Plus the video to deliver it: explainers, procedure walkthroughs, patient-education series and OPD shorts.',
     bullets: ['Condition and treatment content maps', 'Explainer and education video', 'Doctor-led short form', 'Scripts written for camera-shy clinicians'],
   },
   {
@@ -84,7 +84,7 @@ export const services = [
     title: 'Medical blog writing',
     tagline: 'The content Google trusts on health topics.',
     body:
-      'Health content is held to a higher bar by Google — YMYL and E-E-A-T standards mean anonymous, generic articles do not rank. We write under your name, with your credentials attached and your review before publication.',
+      'Health content is held to a higher bar by Google. YMYL and E-E-A-T standards mean anonymous, generic articles do not rank. We write under your name, with your credentials attached and your review before publication.',
     bullets: ['Keyword and symptom-intent research', 'Written for doctor review and byline', 'Author credentials and schema', 'Internal linking to treatment pages'],
   },
   {
@@ -93,7 +93,7 @@ export const services = [
     title: 'LinkedIn for clinicians',
     tagline: 'Where referrals, speaking slots and hires come from.',
     body:
-      'Most doctors treat LinkedIn as a dormant CV. It is the one platform where peers, referrers, medical device partners and prospective associates are actually looking — and it is far less regulated than patient-facing channels.',
+      'Most doctors treat LinkedIn as a dormant CV. It is the one platform where peers, referrers, medical device partners and prospective associates are actually looking, and it is far less regulated than patient-facing channels.',
     bullets: ['Profile rebuild and positioning', 'Thought-leadership posting cadence', 'Peer and referrer network growth', 'Hospital and department pages'],
   },
   {
@@ -102,7 +102,7 @@ export const services = [
     title: 'Professional photoshoots',
     tagline: 'Stop using the photo from your 2015 conference badge.',
     body:
-      'Clinical portraits, team photography, facility and OT walkthroughs, and equipment coverage — shot to work across your website, Google Business Profile, LinkedIn and press.',
+      'Clinical portraits, team photography, facility and OT walkthroughs, and equipment coverage, shot to work across your website, Google Business Profile, LinkedIn and press.',
     bullets: ['Doctor and team portraits', 'Facility and interior coverage', 'Google Business Profile assets', 'Consistent across every channel'],
   },
   {
@@ -111,7 +111,7 @@ export const services = [
     title: 'Corporate & branding films',
     tagline: 'For the decisions that are not made on Instagram.',
     body:
-      'Hospital brand films, department launches, founder and legacy stories, recruitment films and investor material — the work that has to hold up in a boardroom, not just a feed.',
+      'Hospital brand films, department launches, founder and legacy stories, recruitment films and investor material. The work that has to hold up in a boardroom, not just a feed.',
     bullets: ['Hospital and department films', 'Founder and legacy stories', 'Recruitment and culture video', 'Investor and CSR material'],
   },
 ];
@@ -145,7 +145,7 @@ export const testimonials = [
 export const faqs = [
   {
     q: 'Can doctors legally advertise in India?',
-    a: 'Not in the way most businesses can. NMC regulations prohibit soliciting patients and making treatment-outcome claims, and self-promotional publicity about your skills or achievements is restricted. What is permitted is educational content — explaining conditions, procedures and what a patient should expect. Nearly everything we build sits in that educational space, which is both compliant and, in practice, what actually earns patient trust.',
+    a: 'Not in the way most businesses can. NMC regulations prohibit soliciting patients and making treatment-outcome claims, and self-promotional publicity about your skills or achievements is restricted. What is permitted is educational content: explaining conditions, procedures and what a patient should expect. Nearly everything we build sits in that educational space, which is both compliant and, in practice, what actually earns patient trust.',
   },
   {
     q: 'What happens if content breaches NMC guidance?',
@@ -153,7 +153,7 @@ export const faqs = [
   },
   {
     q: 'Can we use patient testimonials or before-and-after photos?',
-    a: 'This is the most common request and the riskiest area. Testimonials that amount to outcome claims are a problem, and identifiable patients require documented consent under the DPDP Act. There are compliant ways to demonstrate credibility — case explanations without outcome promises, credentials, peer recognition — and we will steer you toward those.',
+    a: 'This is the most common request and the riskiest area. Testimonials that amount to outcome claims are a problem, and identifiable patients require documented consent under the DPDP Act. There are compliant ways to demonstrate credibility: case explanations without outcome promises, credentials, peer recognition. We will steer you toward those.',
   },
   {
     q: 'How long before we see more patient enquiries?',
@@ -164,12 +164,12 @@ export const faqs = [
     a: 'Both, but the work looks different. A solo practitioner usually needs a strong personal brand, LinkedIn presence and local search visibility. A hospital needs department-level content, multi-doctor profiles and coordinated campaigns. We will tell you honestly which package fits and what it should cost.',
   },
   {
-    q: 'Who writes the medical content — do we have to review it?',
+    q: 'Who writes the medical content, and do we have to review it?',
     a: 'We write it, you review it, and it publishes under your name. That is not us offloading work: Google’s E-E-A-T standards for health content mean articles with a named, credentialled author perform substantially better than anonymous ones. Your review is also the last compliance check.',
   },
   {
     q: 'Do you handle Google Business Profile and reviews?',
-    a: 'Yes. For most clinics the Map Pack drives more enquiries than the website does, because patients search "near me" with intent to book. We optimise the profile, keep it current, and set up a review process that is compliant — meaning we never incentivise or script reviews.',
+    a: 'Yes. For most clinics the Map Pack drives more enquiries than the website does, because patients search "near me" with intent to book. We optimise the profile, keep it current, and set up a review process that is compliant, meaning we never incentivise or script reviews.',
   },
 ];
 

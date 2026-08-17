@@ -4,7 +4,7 @@ export const services = [
     thumbnail: '/images/services/ai-content-strategy.webp',
     title: 'AI Content Strategy',
     description:
-      'Audience research, content pillars and hook testing. An AI-assisted plan that says what to make, who it is for, and why it will perform — before a rupee goes into production.',
+      'Audience research, content pillars and hook testing. An AI-assisted plan that says what to make, who it is for, and why it will perform, before a rupee goes into production.',
     icon: 'FaCompass',
     bullets: ['Audience & competitor research', 'Content pillar planning', 'Hook and angle testing'],
   },
@@ -31,7 +31,7 @@ export const services = [
     thumbnail: '/images/corporate-thumb-services.webp',
     title: 'Video Production',
     description:
-      'Brand films, launch videos and documentaries produced end to end — script, shoot, edit and delivery in every format you need.',
+      'Brand films, launch videos and documentaries produced end to end: script, shoot, edit and delivery in every format you need.',
     icon: 'FaBuilding',
     bullets: ['Launch and brand films', 'Founder and culture stories', 'Investor reels'],
   },
@@ -58,7 +58,7 @@ export const services = [
     thumbnail: '/images/services/performance-marketing.webp',
     title: 'Performance Marketing',
     description:
-      'Paid campaigns on Meta, Google and YouTube managed to ROAS and CAC — creative, targeting and budget tuned every week against revenue, not impressions.',
+      'Paid campaigns on Meta, Google and YouTube managed to ROAS and CAC. Creative, targeting and budget tuned every week against revenue, not impressions.',
     icon: 'FaChartLine',
     bullets: ['Meta and Google Ads', 'Creative testing loops', 'ROAS and CAC reporting'],
   },
@@ -76,7 +76,7 @@ export const services = [
     thumbnail: '/images/services/blog-writing.webp',
     title: 'Blog Writing',
     description:
-      'Search-led articles that answer what your buyers actually type into Google — researched, structured and written to rank and convert.',
+      'Search-led articles that answer what your buyers actually type into Google, researched and structured to rank and convert.',
     icon: 'FaPenNib',
     bullets: ['Keyword and search-intent research', 'Long-form SEO articles', 'Content refreshes and updates'],
   },
@@ -85,7 +85,7 @@ export const services = [
     thumbnail: '/images/services/graphic-design.webp',
     title: 'Graphic Design',
     description:
-      'Carousels, thumbnails, infographics and PDFs — the everyday assets that carry your brand across every feed, deck and inbox.',
+      'Carousels, thumbnails, infographics and PDFs: the everyday assets that carry your brand across every feed, deck and inbox.',
     icon: 'FaPalette',
     bullets: ['Carousels and YouTube thumbnails', 'Infographics and data visuals', 'Pitch decks and PDF design'],
   },

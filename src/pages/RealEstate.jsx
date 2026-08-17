@@ -12,7 +12,7 @@ import {
   SOURCES, scale, unit, segments, channels, compliance, journey, model, faqs, services,
 } from '../data/realEstateData';
 
-/* Deep-build industry page for Real Estate. The last of the six — with this
+/* Deep-build industry page for Real Estate. The last of the six. With this
    applied, every industry has its own page and the generic industries/:slug
    route is a fallback only. */
 
@@ -104,7 +104,7 @@ export default function RealEstate() {
       <PageHero
         eyebrow="Real Estate"
         title="A lead is not the product. A site visit is."
-        intro="One lead in ten becomes a site visit, and that ratio is considered good. Which makes a site visit six to ten times more expensive than a lead — and the only one of the two that predicts a booking."
+        intro="One lead in ten becomes a site visit, and that ratio is considered good. Which makes a site visit six to ten times more expensive than a lead, and the only one of the two that predicts a booking."
         crumbs={[{ label: 'Industries', to: '/industries' }, { label: 'Real Estate' }]}
       />
 
@@ -165,7 +165,7 @@ export default function RealEstate() {
           <Heading
             eyebrow="Where the budget goes"
             title="Google carries intent. Meta carries the walkthrough."
-            lede="Somebody searching a locality and a configuration has already made most of the decision. Somebody scrolling has not — which is why the split is not a preference, it is a reflection of where in the journey each channel reaches people."
+            lede="Somebody searching a locality and a configuration has already made most of the decision. Somebody scrolling has not, which is why the split is not a preference. It reflects where in the journey each channel reaches people."
           />
           <motion.div variants={fadeUp} className="rounded-panel border border-white/10 bg-white/[0.04] p-6 sm:p-8">
             <ChannelSplit items={channels.items} budget={channels.budget} />
@@ -308,7 +308,7 @@ export default function RealEstate() {
       {/* ---------------------------------------------------------- sources */}
       <Section tint className="py-14">
         <Heading eyebrow="Sources" title="Where every number on this page came from."
-          lede="Regulation is summarised as published and linked so you can read the original. RERA requirements differ by state — Maharashtra is the most prescriptive." />
+          lede="Regulation is summarised as published and linked so you can read the original. RERA requirements differ by state. Maharashtra is the most prescriptive." />
         <motion.ul variants={fadeUp} className="mt-8 grid gap-x-8 gap-y-4 sm:grid-cols-2">
           {Object.entries(SOURCES).map(([k, s]) => (
             <li key={k} className="border-t border-white/[0.07] pt-3">

@@ -54,7 +54,7 @@ function Navbar({ items, light = false }) {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Magnetic strength={0.25}>
-            <Link to="/" className="group flex items-center gap-3" aria-label="Instant Production — home">
+            <Link to="/" className="group flex items-center gap-3" aria-label="Instant Production, home">
               <motion.span
                 className="relative flex shrink-0 items-center"
                 initial={reduce ? false : { opacity: 0, scale: 0.7, rotate: -12 }}
@@ -62,7 +62,7 @@ function Navbar({ items, light = false }) {
                 transition={{ type: 'spring', stiffness: 260, damping: 16, delay: 0.1 }}
                 whileTap={reduce ? undefined : { scale: 0.88, rotate: -6 }}
               >
-                {/* Slow amber breath behind the mark — reads as a light on a
+                {/* Slow amber breath behind the mark. Reads as a light on a
                     set. Mobile only; desktop already has plenty of motion. */}
                 {isMobile && !reduce && (
                   <motion.span
@@ -103,7 +103,7 @@ function Navbar({ items, light = false }) {
             </Link>
           </Magnetic>
 
-          {/* Desktop nav — the indicator physically slides between items */}
+          {/* Desktop nav. The indicator physically slides between items */}
           <nav
             className="hidden items-center gap-1 text-sm font-medium lg:flex"
             onMouseLeave={() => setHovered(null)}

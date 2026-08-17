@@ -15,7 +15,7 @@ import { serviceDetail } from '../data/serviceDetail';
  * Rebuilt to match the depth of the industry pages. The additions that matter:
  * an answer-first block, the metric the service is measured on, the
  * misconception we most often correct, and an honest "when this is not for
- * you" section — which is the cheapest trust the site can buy and the rarest
+ * you" section, which is the cheapest trust the site can buy and the rarest
  * thing in agency marketing.
  *
  * Everything is driven by data, so the ten pages stay consistent with each

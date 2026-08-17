@@ -5,7 +5,7 @@ import { EASE } from '../../lib/motion';
 /**
  * Vertically auto-rotating panel.
  *
- * Advances downward — the outgoing panel slides up and out while the next one
+ * Advances downward. The outgoing panel slides up and out while the next one
  * rises from below, the way scrolling down a list behaves. Loops forever.
  *
  * Accessibility:

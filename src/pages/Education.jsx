@@ -73,7 +73,7 @@ export default function Education() {
   useSeo({
     title: 'Education & EdTech Marketing',
     description:
-      'The person searching is not the person paying. Enrolment funnel benchmarks, the CCPA coaching-ad rules, and what rebuilds trust in Indian education marketing — with sources.',
+      'The person searching is not the person paying. Enrolment funnel benchmarks, the CCPA coaching-ad rules, and what rebuilds trust in Indian education marketing, with sources.',
     path: '/industries/education',
   });
 
@@ -103,7 +103,7 @@ export default function Education() {
       <PageHero
         eyebrow="Education & EdTech"
         title="The person searching is rarely the person paying."
-        intro="A student shortlists. A parent decides. A counsellor closes. Most education campaigns are written for one of the three and quietly fail with the other two — while the category's own advertising has made all three harder to convince."
+        intro="A student shortlists. A parent decides. A counsellor closes. Most education campaigns are written for one of the three and quietly fail with the other two, while the category's own advertising has made all three harder to convince."
         crumbs={[{ label: 'Industries', to: '/industries' }, { label: 'Education & EdTech' }]}
       />
 

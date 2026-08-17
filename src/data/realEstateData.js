@@ -1,4 +1,4 @@
-// Real Estate industry page — data layer.
+// Real Estate industry page. Data layer.
 //
 // Same sourcing rule as the other deep-build industry pages. The compliance
 // section summarises RERA advertising requirements as published; it is written
@@ -26,7 +26,7 @@ export const SOURCES = {
     url: 'https://constrofacilitator.com/maharera-enforces-disclosure-rules-in-property-advertisements/',
   },
   penalty: {
-    label: 'MahaRERA order — blurred registration number and QR code',
+    label: 'MahaRERA order on a blurred registration number and QR code',
     detail: 'Penalty imposed for disclosures that appeared unclear in a newspaper advertisement',
     url: 'https://www.livelaw.in/consumer-cases/maharera-fines-promoter-for-publishing-newspaper-ad-without-clear-rera-registration-and-qr-code-518299',
   },
@@ -56,7 +56,7 @@ export const scale = [
 export const unit = {
   question: 'What should a developer actually measure in digital marketing?',
   answer:
-    'Cost per site visit, not cost per lead. In Indian residential real estate roughly one lead in ten converts to a physical site visit, and that ratio is considered good — so a site visit costs six to ten times what a lead costs. A campaign can halve its cost per lead and raise its cost per site visit at the same time, simply by buying cheaper and less serious enquiries. Healthy cost per site visit for a residential project runs about ₹3,000 to ₹8,000, against ₹500 to ₹2,000 for a qualified lead.',
+    'Cost per site visit, not cost per lead. In Indian residential real estate roughly one lead in ten converts to a physical site visit, and that ratio is considered good, so a site visit costs six to ten times what a lead costs. A campaign can halve its cost per lead and raise its cost per site visit at the same time, simply by buying cheaper and less serious enquiries. Healthy cost per site visit for a residential project runs about ₹3,000 to ₹8,000, against ₹500 to ₹2,000 for a qualified lead.',
   cascade: [
     { label: 'Qualified lead', value: 100, cost: '₹500–2,000', note: 'What the media report optimises for' },
     { label: 'Contact made', value: 62, cost: '', note: 'Reached, and still interested' },
@@ -72,7 +72,7 @@ export const unit = {
 export const segments = {
   question: 'Why does luxury cost so much more per lead?',
   answer:
-    'Because the audience is small, the consideration period is long, and the same handful of buyers are being targeted by every developer in the city at once. For mid-premium residential in the top eight Indian cities, a qualified lead at ₹500 to ₹2,000 is achievable with disciplined execution. Above a ₹3 crore ticket, the same qualified lead typically costs ₹3,500 to ₹6,000. The economics still work — the ticket size absorbs it — but the tolerance for a leaky follow-up process disappears entirely.',
+    'Because the audience is small, the consideration period is long, and the same handful of buyers are being targeted by every developer in the city at once. For mid-premium residential in the top eight Indian cities, a qualified lead at ₹500 to ₹2,000 is achievable with disciplined execution. Above a ₹3 crore ticket, the same qualified lead typically costs ₹3,500 to ₹6,000. The economics still work, because the ticket size absorbs it, but the tolerance for a leaky follow-up process disappears entirely.',
   rows: [
     { label: 'Mid-premium residential, top-8 cities', lo: 500, hi: 2000, note: 'Achievable with disciplined execution and real qualification' },
     { label: 'Well-optimised campaigns, most cities', lo: 300, hi: 650, note: 'Intent keywords, qualifying landing pages, correct conversion tracking' },
@@ -85,8 +85,8 @@ export const segments = {
 
 export const channels = {
   items: [
-    { label: 'Google — search and PMax', lo: 40, hi: 55, detail: 'Intent is already formed. Somebody searching “3 BHK in Whitefield” is further down the decision than any social audience.' },
-    { label: 'Meta — Facebook and Instagram', lo: 30, hi: 45, detail: 'Where the project gets discovered and where the walkthrough gets watched. Cheap reach, softer intent.' },
+    { label: 'Google, search and PMax', lo: 40, hi: 55, detail: 'Intent is already formed. Somebody searching “3 BHK in Whitefield” is further down the decision than any social audience.' },
+    { label: 'Meta, Facebook and Instagram', lo: 30, hi: 45, detail: 'Where the project gets discovered and where the walkthrough gets watched. Cheap reach, softer intent.' },
     { label: 'Portals, YouTube and creators', lo: 10, hi: 25, detail: 'Portals bring volume with weak qualification. YouTube is where a long walkthrough actually gets watched to the end.' },
   ],
   budget: 'Most mid-size Indian developers run 2–5% of project revenue through digital. For a ₹50–200 crore project that is roughly ₹3–10 lakh a month.',
@@ -98,7 +98,7 @@ export const channels = {
 export const compliance = {
   question: 'What does RERA require in a property advertisement?',
   answer:
-    'Registration first, then disclosure on everything. A promoter cannot advertise, market, book or offer a project for sale before it is registered with the state authority — which rules out pre-registration teaser campaigns entirely. Once registered, every advertisement must carry the RERA registration number, the authority’s website address and the project QR code, prominently and legibly. That applies to a newspaper page, a hoarding, a flyer, a social post and a reel cover equally. MahaRERA has penalised a developer for disclosures that appeared blurred and beyond recognition, and false promises in advertising carry penalties up to ₹10 lakh.',
+    'Registration first, then disclosure on everything. A promoter cannot advertise, market, book or offer a project for sale before it is registered with the state authority, which rules out pre-registration teaser campaigns entirely. Once registered, every advertisement must carry the RERA registration number, the authority’s website address and the project QR code, prominently and legibly. That applies to a newspaper page, a hoarding, a flyer, a social post and a reel cover equally. MahaRERA has penalised a developer for disclosures that appeared blurred and beyond recognition, and false promises in advertising carry penalties up to ₹10 lakh.',
   items: [
     {
       tactic: 'Project walkthrough and construction-progress video',
@@ -113,7 +113,7 @@ export const compliance = {
     {
       tactic: 'RERA number and QR code on every asset',
       verdict: 'clear',
-      body: 'Required — and worth treating as a design constraint rather than an afterthought. It has to be legible at the size the asset is actually viewed, which is where most reel covers fail.',
+      body: 'Required, and worth treating as a design constraint rather than an afterthought. It has to be legible at the size the asset is actually viewed, which is where most reel covers fail.',
     },
     {
       tactic: 'Marketing before project registration',
@@ -123,7 +123,7 @@ export const compliance = {
     {
       tactic: 'Renders shown without labelling them',
       verdict: 'restricted',
-      body: 'Artist impressions are permitted and normal. Presenting one as the built product is where it becomes a misleading claim — label it, and show real progress alongside it.',
+      body: 'Artist impressions are permitted and normal. Presenting one as the built product is where it becomes a misleading claim. Label it, and show real progress alongside it.',
     },
     {
       tactic: 'Assured returns or guaranteed appreciation',
@@ -142,7 +142,7 @@ export const compliance = {
     },
   ],
   disclaimer:
-    'A working summary of published RERA requirements, written for marketers. It is not legal advice, and requirements differ between states — Maharashtra is the most prescriptive and is not identical to Karnataka or Haryana. We work with your legal and RERA compliance teams rather than around them.',
+    'A working summary of published RERA requirements, written for marketers. It is not legal advice, and requirements differ between states. Maharashtra is the most prescriptive and is not identical to Karnataka or Haryana. We work with your legal and RERA compliance teams rather than around them.',
   src: 'rera',
 };
 
@@ -151,7 +151,7 @@ export const compliance = {
 export const journey = {
   question: 'How long does a property decision actually take?',
   answer:
-    'Months, and it starts long before anyone fills in a form. A buyer researches the locality, watches walkthroughs, compares three or four projects, discusses it at home, and only then submits an enquiry — by which point most of the decision has already been made. That is why the content a developer publishes before the enquiry matters more than the follow-up after it, and why cutting content budget to fund media almost always raises cost per site visit.',
+    'Months, and it starts long before anyone fills in a form. A buyer researches the locality, watches walkthroughs, compares three or four projects, discusses it at home, and only then submits an enquiry, by which point most of the decision has already been made. That is why the content a developer publishes before the enquiry matters more than the follow-up after it, and why cutting content budget to fund media almost always raises cost per site visit.',
   steps: [
     { title: 'Locality research', body: 'Schools, commute, water, what the area will look like in five years. Nothing project-specific yet.', signal: 'Locality content reaches them first' },
     { title: 'Project shortlist', body: 'Three or four projects held side by side on price, layout, possession date and builder reputation.', signal: 'Walkthroughs and honest progress footage win here' },
@@ -166,12 +166,12 @@ export const journey = {
 export const model = {
   title: 'What optimising cost per lead actually does',
   caveat:
-    'A model built from the published benchmarks on this page — not an Instant Production client result. It assumes a mid-premium residential project and a ₹6 lakh monthly digital budget. Your numbers will differ.',
+    'A model built from the published benchmarks on this page, not an Instant Production client result. It assumes a mid-premium residential project and a ₹6 lakh monthly digital budget. Your numbers will differ.',
   cols: ['Optimised to cost per lead', 'Optimised to cost per site visit'],
   rows: [
     { k: 'Cost per lead achieved', a: '₹600', b: '₹1,400' },
     { k: 'Leads bought', a: '1,000', b: '429' },
-    { k: 'Lead-to-visit rate', a: '4% — cheaper leads, weaker intent', b: '14% — qualified, and expecting the call' },
+    { k: 'Lead-to-visit rate', a: '4%, cheaper leads and weaker intent', b: '14%, qualified and expecting the call' },
     { k: 'Site visits', a: '40', b: '60' },
     { k: 'Cost per site visit', a: '₹15,000', b: '₹10,000' },
     { k: 'What the report shows', a: 'Cost per lead down 57%', b: 'Cost per lead up 133%' },
@@ -185,27 +185,27 @@ export const model = {
 export const faqs = [
   {
     q: 'Our cost per lead dropped. Why did bookings not move?',
-    a: 'Because cost per lead is the easiest metric in this category to improve and the least connected to revenue. Roughly one lead in ten becomes a site visit, and that ratio collapses when leads get cheaper — broader targeting and softer offers buy enquiries from people who were never going to visit. Track cost per site visit instead. Healthy is about ₹3,000 to ₹8,000 for a residential project, and it is the number that moves with bookings.',
+    a: 'Because cost per lead is the easiest metric in this category to improve and the least connected to revenue. Roughly one lead in ten becomes a site visit, and that ratio collapses when leads get cheaper. Broader targeting and softer offers buy enquiries from people who were never going to visit. Track cost per site visit instead. Healthy is about ₹3,000 to ₹8,000 for a residential project, and it is the number that moves with bookings.',
   },
   {
     q: 'Can we run a teaser campaign before RERA registration?',
-    a: 'No. A promoter may not advertise, market, book or offer a project for sale before it is registered with the state authority, and this is the most serious advertising violation available in the category. Pre-registration you can build the brand, the locality content and the audience — none of which names or prices the unregistered project. The moment a specific project is advertised, registration has to already exist.',
+    a: 'No. A promoter may not advertise, market, book or offer a project for sale before it is registered with the state authority, and this is the most serious advertising violation available in the category. Pre-registration you can build the brand, the locality content and the audience, none of which names or prices the unregistered project. The moment a specific project is advertised, registration has to already exist.',
   },
   {
     q: 'Does the RERA number really need to be on a reel cover?',
-    a: 'Yes, and legibly. The requirement covers advertisements in every medium — newspaper, hoarding, flyer, social post, reel cover — and MahaRERA has penalised a developer specifically because the registration number and QR code appeared blurred and beyond recognition. Present but unreadable is treated as absent. Practically, this means designing the disclosure into the template at the size the asset is actually viewed, rather than adding it afterwards at whatever size fits.',
+    a: 'Yes, and legibly. The requirement covers advertisements in every medium (newspaper, hoarding, flyer, social post, reel cover) and MahaRERA has penalised a developer specifically because the registration number and QR code appeared blurred and beyond recognition. Present but unreadable is treated as absent. Practically, this means designing the disclosure into the template at the size the asset is actually viewed, rather than adding it afterwards at whatever size fits.',
   },
   {
     q: 'What should the channel split look like?',
-    a: 'Roughly 40 to 55 percent Google, 30 to 45 percent Meta, and the remainder across portals, YouTube and creators. Google carries formed intent — somebody searching a locality and configuration is further down the decision than any social audience. Meta creates discovery and carries the walkthrough. Portals bring volume with weak qualification, which is fine as long as you are pricing them on site visits rather than leads.',
+    a: 'Roughly 40 to 55 percent Google, 30 to 45 percent Meta, and the remainder across portals, YouTube and creators. Google carries formed intent. Somebody searching a locality and configuration is further down the decision than any social audience. Meta creates discovery and carries the walkthrough. Portals bring volume with weak qualification, which is fine as long as you are pricing them on site visits rather than leads.',
   },
   {
     q: 'Is video worth the production cost for a single project?',
-    a: 'For a project running eighteen to thirty-six months, yes — and the useful version is not the rendered flythrough. Construction-progress footage published monthly does something no render can: it proves the project is real and moving, to a buyer whose main fear is that it will not be delivered. It is also the cheapest content a developer can make, because the site is already there.',
+    a: 'For a project running eighteen to thirty-six months, yes, and the useful version is not the rendered flythrough. Construction-progress footage published monthly does something no render can: it proves the project is real and moving, to a buyer whose main fear is that it will not be delivered. It is also the cheapest content a developer can make, because the site is already there.',
   },
   {
     q: 'How much should we be spending?',
-    a: 'Most mid-size Indian developers run 2 to 5 percent of project revenue through digital, which for a ₹50 to ₹200 crore project is roughly ₹3 to ₹10 lakh a month. The more useful question is the split between media and content. Acquisition costs are climbing 20 to 30 percent a year, so a budget that is entirely media buys less every year by construction — whereas locality and progress content keeps working across the whole sales cycle and into the next project in the same micro-market.',
+    a: 'Most mid-size Indian developers run 2 to 5 percent of project revenue through digital, which for a ₹50 to ₹200 crore project is roughly ₹3 to ₹10 lakh a month. The more useful question is the split between media and content. Acquisition costs are climbing 20 to 30 percent a year, so a budget that is entirely media buys less every year by construction, whereas locality and progress content keeps working across the whole sales cycle and into the next project in the same micro-market.',
   },
 ];
 

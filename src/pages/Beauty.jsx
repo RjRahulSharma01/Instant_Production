@@ -73,7 +73,7 @@ export default function Beauty() {
   useSeo({
     title: 'Beauty & Wellness Marketing',
     description:
-      '97.3% of influencer ads required modification in FY26. The claims that get flagged, the creative that actually performs, and how to run creators compliantly — with sources.',
+      '97.3% of influencer ads required modification in FY26. The claims that get flagged, the creative that actually performs, and how to run creators compliantly, with sources.',
     path: '/industries/beauty',
   });
 
@@ -103,7 +103,7 @@ export default function Beauty() {
       <PageHero
         eyebrow="Beauty & Wellness"
         title="The creative that converts best is the creative most likely to break a rule."
-        intro="Beauty runs on creators and on visible transformation. Both are exactly what the regulator spent last year flagging — 97.3% of influencer advertisements processed required modification. The way out is not fewer creators. It is claims that survive being checked."
+        intro="Beauty runs on creators and on visible transformation. Both are exactly what the regulator spent last year flagging. 97.3% of influencer advertisements processed required modification. The way out is not fewer creators. It is claims that survive being checked."
         crumbs={[{ label: 'Industries', to: '/industries' }, { label: 'Beauty & Wellness' }]}
       />
 

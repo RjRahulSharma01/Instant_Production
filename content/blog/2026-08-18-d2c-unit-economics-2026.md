@@ -33,7 +33,7 @@ Most D2C P&Ls stop at gross margin, which is why so many founders are surprised 
 
 Take a ₹1,000 order at 60% gross margin. That is ₹600 before anything else happens.
 
-Subtract acquisition. If blended CAC is ₹502 on Meta and you are acquiring a first-time customer, ₹600 becomes ₹98. Subtract shipping and packaging, call it ₹80 to ₹120 across most categories, and you are at or below zero on the first order. That is not a failing brand — that is a normal Indian D2C brand, and the whole model rests on the second and third purchase.
+Subtract acquisition. If blended CAC is ₹502 on Meta and you are acquiring a first-time customer, ₹600 becomes ₹98. Subtract shipping and packaging, call it ₹80 to ₹120 across most categories, and you are at or below zero on the first order. That is not a failing brand. It is a normal Indian D2C brand, and the whole model rests on the second and third purchase.
 
 Now add returns. RTO on prepaid orders is manageable. RTO on cash on delivery is not, and COD is still nearly half of orders. A returned COD order costs you both legs of shipping and returns inventory you have already paid to pack.
 
@@ -54,7 +54,7 @@ The price is 30-40% commission and the loss of the customer relationship. You do
 | Repeat purchase | You can earn it | You can hope for it |
 | Working capital | COD drag | Settlement cycle |
 
-Neither column is the right answer on its own. The brands doing well run both and know which SKUs belong where — high-frequency, low-consideration, impulse-adjacent products on quick commerce; higher-ticket, considered, bundle-friendly products on their own site where the margin justifies the acquisition cost.
+Neither column is the right answer on its own. The brands doing well run both and know which SKUs belong where: high-frequency, low-consideration, impulse-adjacent products on quick commerce; higher-ticket, considered, bundle-friendly products on their own site where the margin justifies the acquisition cost.
 
 The mistake is treating quick commerce as a growth channel while still measuring the business on blended revenue. Blended revenue goes up. Contribution margin goes down. The dashboard says the quarter was good.
 
@@ -74,7 +74,7 @@ Top performers achieve [40-50% lower CAC than the category average](https://cms.
 
 Down from 55% to 45% of orders, which is progress, and still enormous. Every COD order is inventory that ships before it is paid for, at a meaningful risk of coming back.
 
-The levers that work: partial prepaid incentives sized to actual RTO cost rather than a round-number discount, address verification before dispatch on high-risk pincodes, and simply not offering COD on first orders above a threshold. Each of these costs some conversion. Each of them costs less than the RTO it prevents. Run the numbers on your own pincode data rather than a benchmark — RTO is intensely local and a Tier-2 average tells you nothing about your Tier-2.
+The levers that work: partial prepaid incentives sized to actual RTO cost rather than a round-number discount, address verification before dispatch on high-risk pincodes, and simply not offering COD on first orders above a threshold. Each of these costs some conversion. Each of them costs less than the RTO it prevents. Run the numbers on your own pincode data rather than a benchmark. RTO is intensely local and a Tier-2 average tells you nothing about your Tier-2.
 
 ## Retention is the only lever with compounding returns
 
@@ -95,7 +95,7 @@ The honest test: pull your ninety-day repeat rate by acquisition cohort, by chan
 
 Rebuild your reporting around contribution margin after delivery, per SKU and per channel. Not blended. Blended is how brands discover a problem two quarters late.
 
-Then decide, explicitly, which SKUs are on quick commerce to make money and which are there to buy shelf presence — and put a budget on the second group so it is a decision rather than a leak.
+Then decide, explicitly, which SKUs are on quick commerce to make money and which are there to buy shelf presence, and put a budget on the second group so it is a decision rather than a leak.
 
 Raise creative output before raising spend. Spending more into fatigued creative raises CPM and teaches you nothing.
 
@@ -103,4 +103,4 @@ And look at your prepaid share honestly. Ten points of COD converted to prepaid 
 
 The longer view on building the content side of this is in [content pillars are not categories](/blog/content-pillars-that-work). Our own work on the category sits under [e-commerce and D2C](/industries/ecommerce), and the paid side under [performance marketing](/services/performance-marketing).
 
-Sources: [Mordor Intelligence on the India D2C market](https://www.mordorintelligence.com/industry-reports/india-d2c-ecommerce-market) · [State of Indian D2C 2026 — RTO, CAC and retention](https://cms.growwwtech.com/state-of-indian-d2c-2026-industry-report/) · [Contribution margin as the profitability metric for Indian D2C](https://aimnlaunch.com/cm2-for-ecommerce-the-only-profitability-metric-d2c-founders-in-india-should-track/)
+Sources: [Mordor Intelligence on the India D2C market](https://www.mordorintelligence.com/industry-reports/india-d2c-ecommerce-market) · [State of Indian D2C 2026: RTO, CAC and retention](https://cms.growwwtech.com/state-of-indian-d2c-2026-industry-report/) · [Contribution margin as the profitability metric for Indian D2C](https://aimnlaunch.com/cm2-for-ecommerce-the-only-profitability-metric-d2c-founders-in-india-should-track/)

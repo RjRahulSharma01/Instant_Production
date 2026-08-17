@@ -10,7 +10,7 @@ import { allTags, author, publishedPosts } from '../data/blog';
 
 export default function Blog() {
   /* Tag lives in the URL rather than component state, so a filtered view can be
-     linked to and shared — and so the tag chips at the foot of an article can
+     linked to and shared, and so the tag chips at the foot of an article can
      navigate straight into the right filter. */
   const [params, setParams] = useSearchParams();
   const active = params.get('tag');
@@ -39,7 +39,7 @@ export default function Blog() {
         poster="/videos/pages/blog.webp"
         eyebrow="Insights"
         title="Notes on making content that performs."
-        intro="What we have learned running AI video, paid campaigns and creator programmes — written for people who have to make these decisions, not for search engines."
+        intro="What we have learned running AI video, paid campaigns and creator programmes, written for people who have to make these decisions rather than for search engines."
         crumbs={[{ label: 'Insights' }]}
       />
 

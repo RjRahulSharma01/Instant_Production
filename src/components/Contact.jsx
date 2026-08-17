@@ -5,7 +5,7 @@ import StudioWave from './fx/StudioWave';
 import { useState } from 'react';
 
 // Web3Forms access key. Set VITE_WEB3FORMS_KEY in Vercel (and .env.local for dev).
-// Get a free key at https://web3forms.com — it is a public key, safe in client code.
+// Get a free key at https://web3forms.com. It is a public key, safe in client code.
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
 
 function Contact({ contactData }) {
@@ -111,7 +111,7 @@ function Contact({ contactData }) {
           </dl>
           <div className="mt-7 h-44 overflow-hidden rounded-[1.5rem] border border-white/10 bg-zinc-900 sm:mt-8 sm:h-64">
             <iframe
-              title="Instant Production — Sector-69, Noida"
+              title="Instant Production, Sector-69, Noida"
               src="https://maps.google.com/maps?q=Sector%2069%2C%20Noida&z=14&output=embed"
               className="h-full w-full border-0"
               loading="lazy"
@@ -130,7 +130,7 @@ function Contact({ contactData }) {
           <input value={form.company} onChange={update('company')} className="mt-4 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition-all duration-300 ease-expo placeholder:text-zinc-500 focus:border-brand/60 focus:bg-white/[0.08] focus:shadow-[0_0_0_3px_rgba(245,158,11,0.15)]" placeholder="Company" />
           <textarea value={form.message} onChange={update('message')} required className="mt-4 min-h-40 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition-all duration-300 ease-expo placeholder:text-zinc-500 focus:border-brand/60 focus:bg-white/[0.08] focus:shadow-[0_0_0_3px_rgba(245,158,11,0.15)]" placeholder="Tell us about your project" />
 
-          {/* Honeypot — hidden from humans, catches bots. */}
+          {/* Honeypot. Hidden from humans, catches bots. */}
           <input
             type="checkbox"
             name="botcheck"
@@ -161,7 +161,7 @@ function Contact({ contactData }) {
             <p role="status" aria-live="polite" className="text-sm">
               {status === 'success' && (
                 <span className="text-emerald-400">
-                  Thanks — your message reached us. We usually reply within one working day.
+                  Thanks, your message reached us. We usually reply within one working day.
                 </span>
               )}
               {status === 'error' && (

@@ -54,7 +54,7 @@ function Heading({ eyebrow, title, lede, className = '' }) {
   );
 }
 
-/* Answer-first block. Written so an answer engine can lift it verbatim —
+/* Answer-first block. Written so an answer engine can lift it verbatim,
    which, per the research behind the brand guidelines, is what actually
    earns a citation. */
 function Answer({ q, a, tag = 'The short answer' }) {
@@ -86,7 +86,7 @@ export default function EcommerceD2C() {
   useSeo({
     title: 'E-commerce & D2C Marketing',
     description:
-      'Creative volume is the growth constraint for Indian D2C brands, not budget. Meta fatigue windows, category ROAS benchmarks, RTO economics and quick commerce — with sources.',
+      'Creative volume is the growth constraint for Indian D2C brands, not budget. Meta fatigue windows, category ROAS benchmarks, RTO economics and quick commerce, with sources.',
     path: '/industries/ecommerce',
   });
 
@@ -115,7 +115,7 @@ export default function EcommerceD2C() {
       <PageHero
         eyebrow="E-commerce & D2C"
         title="Creative volume is the growth constraint. Not budget."
-        intro="Indian D2C grew 33% last year on volume, not price — while the window a Meta ad stays effective halved. Most brands do not have a media problem. They have a production problem that shows up in the media report."
+        intro="Indian D2C grew 33% last year on volume, not price, while the window a Meta ad stays effective halved. Most brands do not have a media problem. They have a production problem that shows up in the media report."
         crumbs={[{ label: 'Industries', to: '/industries' }, { label: 'E-commerce & D2C' }]}
       >
         <AssetFanOut tiles={40} />
@@ -179,7 +179,7 @@ export default function EcommerceD2C() {
         <Heading
           eyebrow="Benchmarks that are actually yours"
           title="A 3× ROAS is excellent in womenswear and mediocre in skincare."
-          lede="Platform-wide averages are the least useful number in performance marketing. What matters is the quartile distribution inside your own category and AOV band — because that tells you whether you have a market problem or a creative problem."
+          lede="Platform-wide averages are the least useful number in performance marketing. What matters is the quartile distribution inside your own category and AOV band, because that tells you whether you have a market problem or a creative problem."
         />
         <motion.div variants={fadeUp} className="mt-10 rounded-panel border border-white/10 bg-white/[0.04] p-6 sm:p-8">
           <RoasExplorer categories={roas.categories} />
@@ -269,7 +269,7 @@ export default function EcommerceD2C() {
           </ul>
           <p className="mt-5 border-t border-white/[0.07] pt-3 text-xs leading-6 text-zinc-500">
             We do not run your logistics. We do make the creative that sets an accurate expectation before the order is
-            placed — size, scale, finish, and what the return policy actually says. That is the part of RTO content can move.
+            placed: size, scale, finish, and what the return policy actually says. That is the part of RTO content can move.
             <span className="ml-2 inline-block"><Cite id={rto.src} /></span>
           </p>
         </motion.div>
@@ -292,7 +292,7 @@ export default function EcommerceD2C() {
           className="mt-8 max-w-3xl border-l-2 border-brand pl-5 text-lg font-medium leading-9 text-zinc-200">
           If your repeat rate at 90 days is below 20%, you do not have a D2C brand. You have a paid traffic machine with
           a leaky bucket.
-          <footer className="mt-2 text-sm font-normal text-zinc-500">— Unicommerce, India D2C Report 2026</footer>
+          <footer className="mt-2 text-sm font-normal text-zinc-500">Unicommerce, India D2C Report 2026</footer>
         </motion.blockquote>
       </Section>
 

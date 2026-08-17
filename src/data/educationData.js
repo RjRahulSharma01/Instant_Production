@@ -1,4 +1,4 @@
-// Education & EdTech industry page — data layer.
+// Education & EdTech industry page. Data layer.
 //
 // Same sourcing rule as the other deep-build industry pages: every figure
 // carries a `src` key resolving to SOURCES, and the page renders a visible
@@ -21,7 +21,7 @@ export const SOURCES = {
   },
   ccpa: {
     label: 'CCPA, Guidelines for Prevention of Misleading Advertisement in Coaching Sector, 2024',
-    detail: 'Issued 13 November 2024 — consent, urgency, guarantee and disclosure rules',
+    detail: 'Issued 13 November 2024. Consent, urgency, guarantee and disclosure rules',
     url: 'https://corporate.cyrilamarchandblogs.com/2024/11/ccpa-schools-coaching-centres-on-misleading-advertisements/',
   },
   enforcement: {
@@ -31,7 +31,7 @@ export const SOURCES = {
   },
   asci: {
     label: 'ASCI, Guidelines for Advertising of Educational Institutions, Programmes and Platforms',
-    detail: 'Published May 2023 — substantiation, fear-based appeals, stereotyping',
+    detail: 'Published May 2023. Substantiation, fear-based appeals, stereotyping',
     url: 'https://www.medianama.com/2023/05/223-key-points-revised-guidelines-education-advertisements-asci/',
   },
   funnel: {
@@ -65,7 +65,7 @@ export const scale = [
 export const audience = {
   question: 'Who are you actually marketing to in Indian education?',
   answer:
-    'Usually two people at once, and they want opposite things. The student searches, watches and shortlists; the parent pays, and in most Indian households holds the veto. A campaign written for one of them tends to fail with the other — student-facing creative reads as unserious to a parent, and parent-facing creative reads as pressure to a student. The categories that convert well run both, deliberately, on different channels, and make the handover between them easy.',
+    'Usually two people at once, and they want opposite things. The student searches, watches and shortlists; the parent pays, and in most Indian households holds the veto. A campaign written for one of them tends to fail with the other. Student-facing creative reads as unserious to a parent, and parent-facing creative reads as pressure to a student. The categories that convert well run both, deliberately, on different channels, and make the handover between them easy.',
   roles: [
     {
       who: 'The student',
@@ -97,7 +97,7 @@ export const audience = {
 export const costGap = {
   question: 'Why is cost per lead a misleading number in education?',
   answer:
-    'Because the gap between a lead and an enrolment is wider here than in almost any other category. Higher-education benchmarks put cost per inquiry at roughly $128 for undergraduate and $157 for graduate programmes, while cost per enrolled student reaches about $1,505 and $3,804 respectively — a multiple of roughly twelve and twenty-four. Optimising the first number without watching the second is how a campaign gets cheaper and less profitable at the same time.',
+    'Because the gap between a lead and an enrolment is wider here than in almost any other category. Higher-education benchmarks put cost per inquiry at roughly $128 for undergraduate and $157 for graduate programmes, while cost per enrolled student reaches about $1,505 and $3,804 respectively, a multiple of roughly twelve and twenty-four. Optimising the first number without watching the second is how a campaign gets cheaper and less profitable at the same time.',
   rows: [
     { label: 'Undergraduate', inquiry: 128, enrolled: 1505 },
     { label: 'Graduate', inquiry: 157, enrolled: 3804 },
@@ -123,7 +123,7 @@ export const conversion = {
 export const trust = {
   question: 'Why do parents no longer believe education advertising?',
   answer:
-    'Because the category earned it. Education has topped India’s misleading-advertisement violation charts two years running. In one year the Central Consumer Protection Authority issued 45 notices to coaching centres and fined 19 of them a combined ₹61.6 lakh, and in December 2025 handed down its first repeat-offence penalty of ₹11 lakh — against an institute whose advertising showcased 119 top-ranking candidates when only three had actually taken its foundation course. Every brand in the category now pays a trust tax it did not individually create.',
+    'Because the category earned it. Education has topped India’s misleading-advertisement violation charts two years running. In one year the Central Consumer Protection Authority issued 45 notices to coaching centres and fined 19 of them a combined ₹61.6 lakh, and in December 2025 handed down its first repeat-offence penalty of ₹11 lakh, against an institute whose advertising showcased 119 top-ranking candidates when only three had actually taken its foundation course. Every brand in the category now pays a trust tax it did not individually create.',
   stats: [
     { value: '45', label: 'notices issued to coaching centres in a single year' },
     { value: '19', label: 'institutes fined, ₹61.6 lakh in total' },
@@ -132,7 +132,7 @@ export const trust = {
   ],
   correction: {
     headline: 'The market corrected around the same behaviour',
-    body: 'Indian K-12 edtech went from roughly $22 billion of peak valuation to a sustainable direct-to-consumer market estimated near $3 billion, and the model that emerged is phygital — online reach with physical centres attached. The brands that survived did not out-advertise anyone. They gave parents something checkable.',
+    body: 'Indian K-12 edtech went from roughly $22 billion of peak valuation to a sustainable direct-to-consumer market estimated near $3 billion, and the model that emerged is phygital: online reach with physical centres attached. The brands that survived did not out-advertise anyone. They gave parents something checkable.',
   },
   src: 'enforcement',
 };
@@ -147,12 +147,12 @@ export const compliance = {
     {
       tactic: 'Publishing a topper’s photo and rank',
       verdict: 'restricted',
-      body: 'Permitted only with written consent obtained after the result is declared — and the advertisement must make clear which course that candidate actually took. This is the exact point the December 2025 repeat-offence penalty turned on.',
+      body: 'Permitted only with written consent obtained after the result is declared, and the advertisement must make clear which course that candidate actually took. This is the exact point the December 2025 repeat-offence penalty turned on.',
     },
     {
       tactic: 'Stating your recognition or accreditation',
       verdict: 'clear',
-      body: 'Permitted, and worth doing prominently — but the claim has to be substantiable with evidence. ASCI asks for it; a parent checking you will ask for it too.',
+      body: 'Permitted, and worth doing prominently, but the claim has to be substantiable with evidence. ASCI asks for it; a parent checking you will ask for it too.',
     },
     {
       tactic: 'Publishing fee structure and what is included',
@@ -172,7 +172,7 @@ export const compliance = {
     {
       tactic: '“Guaranteed selection” or “assured admission”',
       verdict: 'blocked',
-      body: 'Prohibited outright. So is any phrasing that implies it — “100% success”, “selection assured”, “admission confirmed”.',
+      body: 'Prohibited outright. So is any phrasing that implies it: “100% success”, “selection assured”, “admission confirmed”.',
     },
     {
       tactic: 'Success-rate percentages',
@@ -182,7 +182,7 @@ export const compliance = {
     {
       tactic: 'Fear-based creative aimed at parents',
       verdict: 'restricted',
-      body: 'ASCI guidance discourages advertising that works by inducing fear of missing out, reinforces stereotypes, or promotes unhealthy study habits. It also performs worse than it used to — parents have seen it too many times.',
+      body: 'ASCI guidance discourages advertising that works by inducing fear of missing out, reinforces stereotypes, or promotes unhealthy study habits. It also performs worse than it used to. Parents have seen it too many times.',
     },
   ],
   disclaimer:
@@ -195,15 +195,15 @@ export const compliance = {
 export const model = {
   title: 'What the trust tax costs, and what removing it is worth',
   caveat:
-    'A model built from the published benchmarks on this page — not an Instant Production client result. It assumes a coaching or higher-education product and a ₹12 lakh monthly acquisition budget. Your numbers will differ.',
+    'A model built from the published benchmarks on this page, not an Instant Production client result. It assumes a coaching or higher-education product and a ₹12 lakh monthly acquisition budget. Your numbers will differ.',
   cols: ['Claims-led advertising', 'Evidence-led content'],
   rows: [
     { k: 'What the creative says', a: 'Toppers, ranks, urgency', b: 'Syllabus, method, fees, named faculty' },
-    { k: 'Cost per lead', a: 'Lower — it is a stronger promise', b: 'Higher — it asks for more thought' },
+    { k: 'Cost per lead', a: 'Lower, it is a stronger promise', b: 'Higher, it asks for more thought' },
     { k: 'Lead-to-enrolment', a: 'Bottom of the 3–5% band', b: 'Top of the band, sometimes past it' },
     { k: 'What the counsellor does', a: 'Walks back what the ad implied', b: 'Answers questions the content raised' },
     { k: 'Regulatory exposure', a: 'Notice, penalty, repeat-offence multiplier', b: 'None from the advertising itself' },
-    { k: 'What compounds', a: 'Nothing — the spend stops, the leads stop', b: 'The content keeps producing leads next admission cycle' },
+    { k: 'What compounds', a: 'Nothing. The spend stops, the leads stop', b: 'The content keeps producing leads next admission cycle' },
   ],
   closing:
     'The first column is cheaper per lead and more expensive per student, and it carries a liability the second one does not. That is the whole trade, and it is why the surviving brands in this category stopped advertising outcomes and started publishing method.',
@@ -214,15 +214,15 @@ export const model = {
 export const faqs = [
   {
     q: 'Can we still advertise our toppers?',
-    a: 'Yes, with conditions that most institutes are currently getting wrong. Under the CCPA coaching-sector guidelines you need written consent obtained after the result is declared, and the advertisement must make clear which course the candidate actually took. The December 2025 repeat-offence penalty of ₹11 lakh turned on exactly this — the institute showcased 119 top-ranking candidates when only three had taken the foundation course being advertised. If you cannot say honestly what each named student bought from you, do not name them.',
+    a: 'Yes, with conditions that most institutes are currently getting wrong. Under the CCPA coaching-sector guidelines you need written consent obtained after the result is declared, and the advertisement must make clear which course the candidate actually took. The December 2025 repeat-offence penalty of ₹11 lakh turned on exactly this. The institute showcased 119 top-ranking candidates when only three had taken the foundation course being advertised. If you cannot say honestly what each named student bought from you, do not name them.',
   },
   {
     q: 'Should we market to the student or the parent?',
-    a: 'Both, on different channels, with different content. The student searches, watches and shortlists; the parent pays and usually holds the veto. Student-facing content lives on YouTube and Instagram and works by teaching something. Parent-facing content lives on search and referral and works by being checkable — fees, faculty, method, outcomes with honest denominators. The common failure is one campaign trying to do both jobs, which produces creative that persuades neither.',
+    a: 'Both, on different channels, with different content. The student searches, watches and shortlists; the parent pays and usually holds the veto. Student-facing content lives on YouTube and Instagram and works by teaching something. Parent-facing content lives on search and referral and works by being checkable: fees, faculty, method, outcomes with honest denominators. The common failure is one campaign trying to do both jobs, which produces creative that persuades neither.',
   },
   {
     q: 'Our cost per lead is good but enrolments are flat. What is wrong?',
-    a: 'Almost always the gap between what the ad promises and what the counselling call can support. In higher education, cost per inquiry runs around $128 while cost per enrolled student reaches roughly $1,505 — a twelvefold gap, and it widens when the lead arrives with expectations the counsellor has to correct. Track lead-to-enrolment by creative, not just cost per lead by campaign, and the offending ad usually identifies itself within a fortnight.',
+    a: 'Almost always the gap between what the ad promises and what the counselling call can support. In higher education, cost per inquiry runs around $128 while cost per enrolled student reaches roughly $1,505, a twelvefold gap, and it widens when the lead arrives with expectations the counsellor has to correct. Track lead-to-enrolment by creative, not just cost per lead by campaign, and the offending ad usually identifies itself within a fortnight.',
   },
   {
     q: 'Does free content cannibalise paid enrolments?',
@@ -230,16 +230,16 @@ export const faqs = [
   },
   {
     q: 'How far ahead of admission season should we start?',
-    a: 'Further than most institutes do. Paid campaigns can be switched on in weeks, but the content that makes them convert — method explainers, faculty introductions, fee transparency, past-paper walkthroughs — takes a quarter to build and a further quarter to start ranking. Brands that start in the season compete only on bid price, against everyone else who also started in the season.',
+    a: 'Further than most institutes do. Paid campaigns can be switched on in weeks, but the content that makes them convert (method explainers, faculty introductions, fee transparency, past-paper walkthroughs) takes a quarter to build and a further quarter to start ranking. Brands that start in the season compete only on bid price, against everyone else who also started in the season.',
   },
   {
     q: 'What actually rebuilds trust in this category?',
-    a: 'Specificity that a sceptic can check. Named faculty with real credentials rather than stock photographs. Fee structure published rather than gated behind a form. Outcomes with the denominator stated. A refund policy written in plain language. None of it is clever, and all of it is rare, which is precisely why it works — the category has trained parents to expect the opposite.',
+    a: 'Specificity that a sceptic can check. Named faculty with real credentials rather than stock photographs. Fee structure published rather than gated behind a form. Outcomes with the denominator stated. A refund policy written in plain language. None of it is clever, and all of it is rare, which is precisely why it works. The category has trained parents to expect the opposite.',
   },
 ];
 
 export const services = [
-  'Free-content engines — syllabus, method and past-paper explainers',
+  'Free-content engines: syllabus, method and past-paper explainers',
   'Faculty and campus video that a parent can judge quality from',
   'Admission-season campaign planning, built a quarter ahead',
   'Parent-facing and student-facing creative, run separately',

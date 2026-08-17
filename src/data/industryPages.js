@@ -6,8 +6,8 @@
 // most buyers now use. What does: an answer-first block a model can lift
 // verbatim, visible sourcing, and schema that matches what engines extract.
 //
-// So every page opens with `answer` — a short, self-contained, plain-language
-// response to the question the page targets — before any marketing copy.
+// So every page opens with `answer`: a short, self-contained, plain-language
+// response to the question the page targets, before any marketing copy.
 
 export const industryPages = {
   fintech: {
@@ -20,7 +20,7 @@ export const industryPages = {
     // Answer-first: written to be quotable by an answer engine.
     question: 'How do fintech companies in India market themselves?',
     answer:
-      'Fintech marketing works differently from ordinary consumer marketing because the product asks for trust before it delivers value. The effective pattern is education first — explaining how the product works, what it costs and what happens to your money — followed by proof of legitimacy such as RBI or SEBI registration, and only then acquisition campaigns. Paid acquisition without the trust layer produces installs that never transact.',
+      'Fintech marketing works differently from ordinary consumer marketing because the product asks for trust before it delivers value. The effective pattern is education first. Explain how the product works, what it costs and what happens to your money, then show proof of legitimacy such as RBI or SEBI registration, and only then run acquisition campaigns. Paid acquisition without the trust layer produces installs that never transact.',
     intro:
       'A user hands you their money or their data before they get anything back. Every piece of content has to close that gap, and every campaign runs inside advertising rules most agencies have never read.',
     stats: [
@@ -28,7 +28,7 @@ export const industryPages = {
       { value: 3, suffix: 'x', label: 'longer consideration window than typical consumer apps' },
       { value: 45, suffix: '%', label: 'of users check regulatory status before depositing funds' },
     ],
-    statNote: 'Directional benchmarks from category norms. Your numbers will differ — we measure yours before we plan.',
+    statNote: 'Directional benchmarks from category norms. Your numbers will differ. We measure yours before we plan.',
     challenges: [
       { title: 'Trust precedes everything', body: 'Nobody deposits money because your ad was clever. They deposit because they found nothing worrying when they checked. Content has to survive that check.' },
       { title: 'Advertising is regulated', body: 'Return claims, guaranteed outcomes and risk-free language attract regulator attention. There is a compliant way to talk about performance and we stay inside it.' },
@@ -36,7 +36,7 @@ export const industryPages = {
       { title: 'Install is not the metric', body: 'Cost per install flatters everyone and predicts nothing. Cost per funded account is the number that matters.' },
     ],
     journey: [
-      { title: 'Problem awareness', body: 'A specific financial frustration — fees, delays, access — sends them searching.', signal: 'Educational content wins the first contact' },
+      { title: 'Problem awareness', body: 'A specific financial frustration (fees, delays, access) sends them searching.', signal: 'Educational content wins the first contact' },
       { title: 'Legitimacy check', body: 'Registration status, founders, funding, press, app-store reviews. Often within minutes.', signal: 'Credibility assets do the selling' },
       { title: 'Comparison', body: 'Two or three alternatives held side by side on fees, limits and support.', signal: 'Comparison content beats brand advertising' },
       { title: 'Small first commitment', body: 'A small deposit or a trial transaction to test whether it actually works.', signal: 'Onboarding is a marketing surface' },
@@ -68,7 +68,7 @@ export const industryPages = {
     answer:
       'For most D2C brands the constraint is creative supply, not media budget. Platform automation has removed most manual targeting levers, so the main controllable variable is how many genuinely different creative concepts you can test each month. Brands that ship creative continuously keep acquisition costs stable; brands that refresh quarterly watch costs climb as ads fatigue.',
     intro:
-      'Meta and Google now automate most of what media buyers used to do by hand. What is left is creative — and the brands winning are simply producing more of it, faster, and killing losers sooner.',
+      'Meta and Google now automate most of what media buyers used to do by hand. What is left is creative, and the brands winning are simply producing more of it, faster, and killing losers sooner.',
     stats: [
       { value: 4, suffix: 'x', label: 'lower cost per click typical for UGC-style creative vs polished brand ads' },
       { value: 40, suffix: '%', label: 'better CPM commonly seen from creator-made assets' },
@@ -96,10 +96,10 @@ export const industryPages = {
     ],
     services: ['High-volume ad creative', 'Creator and UGC pipelines', 'Product and catalogue video', 'Performance marketing', 'Landing page and CRO', 'Retention and lifecycle content'],
     faqs: [
-      { q: 'How many ad creatives do we actually need each month?', a: 'More than most brands produce. For a meaningfully scaled account, ten to twenty genuinely different concepts a month is a reasonable floor — not fifteen colour variants of the same idea. The number matters less than the cadence: continuous beats occasional.' },
+      { q: 'How many ad creatives do we actually need each month?', a: 'More than most brands produce. For a meaningfully scaled account, ten to twenty genuinely different concepts a month is a reasonable floor. Not fifteen colour variants of the same idea. The number matters less than the cadence: continuous beats occasional.' },
       { q: 'Is UGC better than professionally produced content?', a: 'For in-feed paid social, usually yes, because it looks native rather than like advertising. For brand films, product pages and anywhere the viewer is already paying attention, production quality still matters. Most brands need both and over-invest in the second.' },
       { q: 'Why did our ROAS drop when nothing changed?', a: 'Almost always creative fatigue. Frequency climbs, click-through falls, and CPMs rise as the platform works harder to find someone who has not already ignored the ad. Check performance broken down by creative and by frequency before touching targeting.' },
-      { q: 'How fast can you produce product content at catalogue scale?', a: 'AI-assisted production changes the maths here — variants of an established concept take days rather than weeks. Hero product photography still benefits from a real shoot; the long tail generally does not need one.' },
+      { q: 'How fast can you produce product content at catalogue scale?', a: 'AI-assisted production changes the maths here: variants of an established concept take days rather than weeks. Hero product photography still benefits from a real shoot; the long tail generally does not need one.' },
     ],
   },
 
@@ -158,7 +158,7 @@ export const industryPages = {
     title: 'The only category where you can build demand from nothing.',
     question: 'How do beauty and wellness brands grow through content?',
     answer:
-      'Beauty is one of the few categories where content creates demand rather than just capturing it — most purchases begin with seeing something, not searching for it. Growth comes from continuous creator-led content in volume, with the strongest-performing assets pushed into paid media. Because visual claims are easy to overstate, brands also need discipline about what before-and-after content can imply.',
+      'Beauty is one of the few categories where content creates demand rather than just capturing it. Most purchases begin with seeing something, not searching for it. Growth comes from continuous creator-led content in volume, with the strongest-performing assets pushed into paid media. Because visual claims are easy to overstate, brands also need discipline about what before-and-after content can imply.',
     intro:
       'Nobody wakes up searching for a serum they have never heard of. They see it, then they want it. That makes content the demand engine rather than the demand capture.',
     stats: [
@@ -188,7 +188,7 @@ export const industryPages = {
     ],
     services: ['Creator programmes at scale', 'UGC production pipelines', 'Product and texture video', 'Social-first campaign creative', 'Performance marketing', 'Claims and compliance review'],
     faqs: [
-      { q: 'How much content does a beauty brand actually need?', a: 'Far more than most brands plan for. Weekly is a floor rather than a target, and the volume has to come from a repeatable pipeline — usually creators — because an in-house team cannot sustain it alone.' },
+      { q: 'How much content does a beauty brand actually need?', a: 'Far more than most brands plan for. Weekly is a floor rather than a target, and the volume has to come from a repeatable pipeline, usually creators, because an in-house team cannot sustain it alone.' },
       { q: 'Can we use before-and-after photos?', a: 'With care, and it depends entirely on the claim implied. Anything that reads as a guaranteed treatment outcome is risky, and if a clinical service or practitioner is involved, medical advertising rules apply on top of consumer ones. We will tell you where the line is for your specific product.' },
       { q: 'Nano, micro or macro creators?', a: 'Nano and micro creators typically deliver better cost per acquisition and more usable content volume. Macro creators buy reach and credibility. Most programmes we run are weighted heavily toward the smaller end, with a few larger names for visibility.' },
       { q: 'Does SEO matter in beauty?', a: 'Less for discovery, more than expected for conversion. People search a product by name after seeing it, and for ingredient and concern-led queries. It rarely creates demand but it frequently closes it.' },
@@ -204,7 +204,7 @@ export const industryPages = {
     title: 'A six-month decision that begins with a two-minute video.',
     question: 'How should real estate developers market projects online?',
     answer:
-      'Property buying is a long, high-value, multi-person decision, so marketing has to sustain attention across months rather than convert in a session. What works is a combination of location and locality content that captures early research, walkthrough video that does the qualifying work before a site visit, and fast, well-organised follow-up — because in this category most leads are lost to slow response rather than to a competitor.',
+      'Property buying is a long, high-value, multi-person decision, so marketing has to sustain attention across months rather than convert in a session. What works is a combination of location and locality content that captures early research, walkthrough video that does the qualifying work before a site visit, and fast, well-organised follow-up, because in this category most leads are lost to slow response rather than to a competitor.',
     intro:
       'The largest purchase most families make, researched for months, decided by several people, and usually lost by whoever replied slowest.',
     stats: [

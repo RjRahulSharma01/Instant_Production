@@ -37,7 +37,7 @@ The [breaches span three types](https://www.storyboard18.com/brand-marketing/ind
 
 ## What disclosure actually requires
 
-ASCI requires paid collaborations to be labelled with an unmissable identifier — "Ad", "Sponsored", "Paid partnership", "Collaboration". The requirement is not just that the word appears. It is that a viewer sees it while consuming the content.
+ASCI requires paid collaborations to be labelled with an unmissable identifier: "Ad", "Sponsored", "Paid partnership", "Collaboration". The requirement is not just that the word appears. It is that a viewer sees it while consuming the content.
 
 Which rules out most of what brands currently do.
 
@@ -73,23 +73,23 @@ If you are running at that volume, you need process rather than vigilance: the d
 
 ## Turning it into media, properly
 
-The other half of this is what happens after the post performs. Amplifying creator content through your own ad account, or whitelisting so it runs from theirs, is where influencer budgets start earning their keep — and it is where rights get messy.
+The other half of this is what happens after the post performs. Amplifying creator content through your own ad account, or whitelisting so it runs from theirs, is where influencer budgets start earning their keep, and it is where rights get messy.
 
 Usage rights, duration, whitelisting permission and paid amplification are separate things and each needs to be in the agreement before the shoot, not negotiated after a post takes off. [Turning influencer content into paid](/blog/influencer-content-into-paid) covers what that agreement needs to contain.
 
-Once it is running as paid media, it fatigues like any other creative, and the same refresh arithmetic applies — [the creative testing loop](/blog/creative-testing-loop) is the relevant read there.
+Once it is running as paid media, it fatigues like any other creative, and the same refresh arithmetic applies, and [the creative testing loop](/blog/creative-testing-loop) is the relevant read there.
 
 ## When a notice actually arrives
 
 Worth knowing the shape of this before it happens, because the instinct is usually wrong.
 
-An ASCI complaint is not a court proceeding. The usual outcome is a request to modify or withdraw the advertisement, and most cases resolve there. Which is exactly why the numbers look the way they do — 92% requiring modification sounds catastrophic and mostly means a lot of posts got a label added or a claim softened.
+An ASCI complaint is not a court proceeding. The usual outcome is a request to modify or withdraw the advertisement, and most cases resolve there. Which is exactly why the numbers look the way they do. 92% requiring modification sounds catastrophic and mostly means a lot of posts got a label added or a claim softened.
 
 The instinct is to quietly delete the post and hope. That is the wrong move for two reasons. Deleting destroys your own record of what was published, and it does not stop the case. Screenshot it, keep it, then respond.
 
 What actually helps is being able to show process: the brief that contained the do-not-say list, the approval trail, the contract term requiring disclosure. A brand that can demonstrate it briefed correctly and had a creator go off-script is in a different position from one that cannot produce a brief at all.
 
-The reputational cost is real but smaller than founders fear. The compounding cost is different — repeat appearances on a violation list, in a category where the regulator has started publishing names, is what turns a marketing problem into a board conversation. Honasa's 24 cases are not 24 disasters. They are one process failure, twenty-four times.
+The reputational cost is real but smaller than founders fear. The compounding cost is different. Repeat appearances on a violation list, in a category where the regulator has started publishing names, is what turns a marketing problem into a board conversation. Honasa's 24 cases are not 24 disasters. They are one process failure, twenty-four times.
 
 ## What to do this month
 
@@ -99,7 +99,7 @@ Rewrite the brief template to put disclosure and the do-not-say list above the c
 
 Add copy approval for anyone you intend to amplify with paid spend.
 
-And decide who owns this. In most beauty brands the answer today is nobody — the agency assumes the brand checks, the brand assumes the agency does, and 92% of the output needs modification.
+And decide who owns this. In most beauty brands the answer today is nobody. The agency assumes the brand checks, the brand assumes the agency does, and 92% of the output needs modification.
 
 Our work in the category sits under [beauty and wellness](/industries/beauty), and the creator side under [influencer marketing](/services/influencer-marketing).
 

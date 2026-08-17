@@ -3,14 +3,14 @@
 // Rewritten to match the depth of the industry pages. Every service now carries:
 //
 //   question / answer   an answer-first block written to be quoted verbatim by
-//                       an answer engine — the single highest-value addition
+//                       an answer engine. The single highest-value addition
 //   metric              the one number the service is measured on, which ties
 //                       each service back to the argument its industry pages make
 //   misconception       the belief we most often have to correct on a first call
 //   notFor              when this is genuinely the wrong thing to buy. Nothing
 //                       else on the site earns trust as cheaply as this does
 //   engagement          how the work is actually bought and what a month looks
-//                       like. No prices — those depend on scope and inventing
+//                       like. No prices, since those depend on scope and inventing
 //                       them would breach the claims rule in the guidelines
 //   pairs               related services and industries, for real internal links
 //
@@ -27,12 +27,12 @@ export const serviceDetail = {
 
     question: 'What does an AI content strategy actually produce?',
     answer:
-      'A decision about what to make, for whom, and why it should work — before production money is committed. The AI part is breadth: clustering audience research, generating dozens of angle variations, and screening them against past performance patterns in hours rather than weeks. The judgement about what fits the brand and what to fund stays human. What you receive is a pillar map, a tested hook bank, a publishing plan and an agreed measurement frame.',
+      'A decision about what to make, for whom, and why it should work, before production money is committed. The AI part is breadth: clustering audience research, generating dozens of angle variations, and screening them against past performance patterns in hours rather than weeks. The judgement about what fits the brand and what to fund stays human. What you receive is a pillar map, a tested hook bank, a publishing plan and an agreed measurement frame.',
 
     metric: {
       label: 'Measured on',
       value: 'Cost per tested concept',
-      body: 'Not posts published. If strategy is working, the cost of learning whether an angle performs falls sharply — which is the only thing that makes a testing cadence affordable.',
+      body: 'Not posts published. If strategy is working, the cost of learning whether an angle performs falls sharply, which is the only thing that makes a testing cadence affordable.',
     },
 
     misconception: {
@@ -61,7 +61,7 @@ export const serviceDetail = {
     },
 
     notFor: [
-      'Brands with no distribution yet. A strategy is worth little until there is somewhere to publish and a budget to test with — build the channel first.',
+      'Brands with no distribution yet. A strategy is worth little until there is somewhere to publish and a budget to test with. Build the channel first.',
       'Teams looking for a document to satisfy a board. We will write something useful and it will contain uncomfortable conclusions, which is not always what is wanted.',
       'Anyone who needs assets next week. Strategy takes two to three weeks and delays production by exactly that much. Sometimes shipping is the right call.',
     ],
@@ -83,13 +83,13 @@ export const serviceDetail = {
   'ai-videos': {
     metaTitle: 'AI Video Production',
     metaDescription:
-      'Generative video for ads, product and brand work — used where it genuinely outperforms a shoot, and not where it does not.',
+      'Generative video for ads, product and brand work, used where it genuinely outperforms a shoot and not where it does not.',
     lede:
       'Generative video is cheap and fast, which makes it easy to use for the wrong brief. The useful question is not whether it looks good enough. It is which briefs it suits, and the honest answer is narrower than most agencies selling it will admit.',
 
     question: 'When is AI video actually the right choice?',
     answer:
-      'When you need many variants rather than one perfect asset, when the environment matters more than the person, or when the shot is impossible or uneconomic to film. It is the wrong choice when the viewer can verify the subject against reality — recognisable faces, your actual product in someone’s hands, food, fabric — because the small wrongnesses read as cheap rather than stylised. In practice the strongest work is mixed: real product footage in generated environments, or a filmed hero with generated variations for testing.',
+      'When you need many variants rather than one perfect asset, when the environment matters more than the person, or when the shot is impossible or uneconomic to film. It is the wrong choice when the viewer can verify the subject against reality: recognisable faces, your actual product in someone’s hands, food, fabric. The small wrongnesses read as cheap rather than stylised. In practice the strongest work is mixed: real product footage in generated environments, or a filmed hero with generated variations for testing.',
 
     metric: {
       label: 'Measured on',
@@ -100,7 +100,7 @@ export const serviceDetail = {
     misconception: {
       wrong: '“AI video will replace our shoots.”',
       right:
-        'It replaces the shoots you were never going to fund. The realistic effect is that brands make far more content, not that they cancel the camera — and the shot the whole campaign hangs on is still usually filmed.',
+        'It replaces the shoots you were never going to fund. The realistic effect is that brands make far more content, not that they cancel the camera. The shot the whole campaign hangs on is still usually filmed.',
     },
 
     outcomes: [
@@ -125,7 +125,7 @@ export const serviceDetail = {
     notFor: [
       'Anything where the viewer knows exactly what the subject should look like. Your real product in detail, recognisable people, food and fabric all still want a camera.',
       'Briefs needing a specific human performance. Generated performance sits somewhere between serviceable and slightly unsettling, which is a bad range for a brand film.',
-      'Brands not running tests. If one asset goes out and stays out, generation’s cost curve gives you nothing — you are paying for breadth you will not use.',
+      'Brands not running tests. If one asset goes out and stays out, generation’s cost curve gives you nothing. You are paying for breadth you will not use.',
     ],
 
     pairs: {
@@ -136,7 +136,7 @@ export const serviceDetail = {
     faqs: [
       { q: 'Will it look obviously AI-generated?', a: 'Sometimes, and that is the honest answer. Environments, abstract sequences and stylised work hold up well. Close product detail and human performance are where it still shows. We will tell you which side of that line your brief sits on before you commit budget, because discovering it afterwards is expensive.' },
       { q: 'Can you match our existing brand film?', a: 'Usually close enough to sit alongside it in a feed, not close enough to intercut with it in a single edit. If continuity matters, the practical route is filming the hero and generating the variations around it.' },
-      { q: 'Who owns the output?', a: 'You do. We hand over masters, versioned exports and the prompt documentation, so the work can be extended by anyone later — including a different agency.' },
+      { q: 'Who owns the output?', a: 'You do. We hand over masters, versioned exports and the prompt documentation, so the work can be extended by anyone later, including a different agency.' },
       { q: 'Do you disclose that it is AI-generated?', a: 'Where an asset is materially generated and the context is factual, yes. That is our own brand rule and in some categories it is also a regulatory one. It is rarely a commercial problem; presenting generated footage as documentary is.' },
     ],
   },
@@ -147,11 +147,11 @@ export const serviceDetail = {
     metaDescription:
       'Paid acquisition run to contribution margin, not to a dashboard metric. Creative volume, honest measurement, and the number that predicts revenue.',
     lede:
-      'Most accounts are not badly managed. They are optimised for a number that sits several steps above revenue — installs instead of funded accounts, leads instead of site visits, ROAS instead of contribution margin.',
+      'Most accounts are not badly managed. They are optimised for a number that sits several steps above revenue: installs instead of funded accounts, leads instead of site visits, ROAS instead of contribution margin.',
 
     question: 'What actually improves paid performance in 2026?',
     answer:
-      'Creative volume and honest measurement, in that order. Broad targeting and automated placement removed most of the manual levers, so the creative is now the main controllable variable — and in competitive Indian categories a creative fatigues in 21 to 35 days, against 45 to 60 four years ago. The second lever is measuring the step that predicts revenue rather than the one that is cheapest to improve. A campaign can halve its reported cost per acquisition while making the business worse.',
+      'Creative volume and honest measurement, in that order. Broad targeting and automated placement removed most of the manual levers, so the creative is now the main controllable variable, and in competitive Indian categories a creative fatigues in 21 to 35 days, against 45 to 60 four years ago. The second lever is measuring the step that predicts revenue rather than the one that is cheapest to improve. A campaign can halve its reported cost per acquisition while making the business worse.',
 
     metric: {
       label: 'Measured on',
@@ -207,7 +207,7 @@ export const serviceDetail = {
   'influencer-marketing': {
     metaTitle: 'Influencer Marketing',
     metaDescription:
-      'Creator programmes with usage rights, whitelisting and disclosure agreed in the brief — and measured on cost per acquisition, not reach.',
+      'Creator programmes with usage rights, whitelisting and disclosure agreed in the brief, and measured on cost per acquisition rather than reach.',
     lede:
       'Brands run creator campaigns, get good organic numbers, and then discover they cannot legally use the best content in ads. The fix costs nothing and happens at the briefing stage, which is exactly when nobody is thinking about it.',
 
@@ -218,13 +218,13 @@ export const serviceDetail = {
     metric: {
       label: 'Measured on',
       value: 'Cost per acquisition by creator',
-      body: 'Once creator assets are running as paid ads, you get a far better signal than engagement — which creator actually produced customers. Follower count almost never predicts it.',
+      body: 'Once creator assets are running as paid ads, you get a far better signal than engagement: which creator actually produced customers. Follower count almost never predicts it.',
     },
 
     misconception: {
       wrong: '“Bigger creators are safer.”',
       right:
-        'Reach is the least useful selection criterion available. The measured advantage of creator content comes from specificity — a real person with a named problem — which does not scale by hiring someone larger. More creators, briefed harder, beats fewer and bigger in nearly every account we have seen.',
+        'Reach is the least useful selection criterion available. The measured advantage of creator content comes from specificity, a real person with a named problem, and that does not scale by hiring someone larger. More creators, briefed harder, beats fewer and bigger in nearly every account we have seen.',
     },
 
     outcomes: [
@@ -258,7 +258,7 @@ export const serviceDetail = {
     },
 
     faqs: [
-      { q: 'What should we agree before briefing a creator?', a: 'Paid usage rights with a defined duration — six to twelve months is normal. Whitelisting permission, so ads can run from their handle. Editing rights, so content can be cut to other lengths and ratios. And renewal terms, priced now rather than negotiated later from a weak position. Every one of these is cheaper before the content exists.' },
+      { q: 'What should we agree before briefing a creator?', a: 'Paid usage rights with a defined duration. Six to twelve months is normal. Whitelisting permission, so ads can run from their handle. Editing rights, so content can be cut to other lengths and ratios. And renewal terms, priced now rather than negotiated later from a weak position. Every one of these is cheaper before the content exists.' },
       { q: 'Why does whitelisting matter so much?', a: 'An ad served from a creator’s own handle carries their social proof and does not read as brand advertising in the same way. It is usually the highest-leverage part of a creator programme, and it is the part most often missing from the contract.' },
       { q: 'How do you pick creators?', a: 'Audience overlap, and whether they can credibly say something specific about the product. Follower count is a tiebreaker at best. In regulated categories we also verify registration status before a brief is written, because in finance the restriction on unregistered creators extends to the agency.' },
       { q: 'Who is liable if a creator says something non-compliant?', a: 'In practice, you are. The exposure sits with the brand, not the creator, which is why disclosure and claim limits belong in the brief and the contract rather than in a hopeful conversation.' },
@@ -269,18 +269,18 @@ export const serviceDetail = {
   'website-development': {
     metaTitle: 'Website Development',
     metaDescription:
-      'Fast, accessible, measurable websites — built so the content team can publish without a developer and the performance budget holds in the field.',
+      'Fast, accessible, measurable websites, built so the content team can publish without a developer and the performance budget holds in the field.',
     lede:
       'Most brand sites are slow, unmeasured, and impossible to update without a developer. All three are fixable, and all three cost more the longer they are left.',
 
     question: 'What makes a marketing website actually perform?',
     answer:
-      'Speed, structure, and whether the people who own the content can change it. Performance is not a technical nicety — it is the first thing a visitor on a mid-range Android over 4G experiences, and it decides whether they see anything at all. Structure is what makes the site legible to search and to answer engines. And a site the content team cannot update without raising a ticket stops being updated, which is how good sites quietly go stale.',
+      'Speed, structure, and whether the people who own the content can change it. Performance is not a technical nicety. It is the first thing a visitor on a mid-range Android over 4G experiences, and it decides whether they see anything at all. Structure is what makes the site legible to search and to answer engines. And a site the content team cannot update without raising a ticket stops being updated, which is how good sites quietly go stale.',
 
     metric: {
       label: 'Measured on',
       value: 'Field Core Web Vitals, not lab scores',
-      body: 'A lab score on a developer’s machine tells you very little. Real vitals from real visitors — on the devices and connections your buyers actually have — is the number that correlates with what people experience.',
+      body: 'A lab score on a developer’s machine tells you very little. Real vitals from real visitors, on the devices and connections your buyers actually have, is the number that correlates with what people experience.',
     },
 
     misconception: {
@@ -295,7 +295,7 @@ export const serviceDetail = {
       'Structure and schema that search and answer engines can actually read',
     ],
     process: [
-      { step: 'Audit and budget', body: 'Current field performance, page weight and structure — with an agreed performance budget the build has to hold to.' },
+      { step: 'Audit and budget', body: 'Current field performance, page weight and structure, with an agreed performance budget the build has to hold to.' },
       { step: 'Structure and content model', body: 'How pages are composed and who can change what, decided before design rather than retrofitted.' },
       { step: 'Build', body: 'Accessible by default: contrast, keyboard reachability, reduced-motion paths, 44px touch targets. Not a later pass.' },
       { step: 'Measurement and handover', body: 'Analytics, field vitals and a written guide to publishing, so the site outlives the engagement.' },
@@ -322,8 +322,8 @@ export const serviceDetail = {
     faqs: [
       { q: 'What performance budget do you build to?', a: 'Under 250 kB of JavaScript on first load, images under 200 KB, and largest contentful paint under 2.5 seconds on a mid-range Android over 4G. Those are the numbers we hold ourselves to and they are in our own brand guidelines, which means you can check whether our site meets them.' },
       { q: 'Can our team update the site afterwards?', a: 'That is a build requirement, not a nice-to-have. Content lives in a form your team can edit, and handover includes a written publishing guide. A site that needs a developer for a copy change stops getting updated within about two months.' },
-      { q: 'Do you handle accessibility?', a: 'By default rather than as a later pass — contrast ratios, keyboard reachability, reduced-motion paths and 44px touch targets are build requirements. Retrofitting accessibility costs several times more than building it in.' },
-      { q: 'What about SEO and answer engines?', a: 'Structure, schema and answer-first content patterns are part of the build. Ranking well still wins most AI answers — Google’s AI Overviews overlap heavily with organic results — but assistants like ChatGPT correlate far less with rankings, and what they reward is a page that answers a real question in its first 60 words.' },
+      { q: 'Do you handle accessibility?', a: 'By default rather than as a later pass. Contrast ratios, keyboard reachability, reduced-motion paths and 44px touch targets are build requirements. Retrofitting accessibility costs several times more than building it in.' },
+      { q: 'What about SEO and answer engines?', a: 'Structure, schema and answer-first content patterns are part of the build. Ranking well still wins most AI answers, because Google’s AI Overviews overlap heavily with organic results, but assistants like ChatGPT correlate far less with rankings, and what they reward is a page that answers a real question in its first 60 words.' },
     ],
   },
 
@@ -331,13 +331,13 @@ export const serviceDetail = {
   'video-production': {
     metaTitle: 'Video Production',
     metaDescription:
-      'Filmed production built for volume — one shoot day engineered to produce a month of assets, not four.',
+      'Filmed production built for volume. One shoot day engineered to produce a month of assets, not four.',
     lede:
-      'A traditional shoot produces a handful of finished assets. The same day, planned differently, produces dozens. That difference is not a filming technique — it is a decision made before anyone arrives on set.',
+      'A traditional shoot produces a handful of finished assets. The same day, planned differently, produces dozens. That difference is not a filming technique. It is a decision made before anyone arrives on set.',
 
     question: 'How do you get a month of content from one shoot day?',
     answer:
-      'By planning the edit before the shoot rather than after it. A day designed for volume captures modular pieces — multiple hooks for the same body, several endings, vertical and horizontal framing, B-roll shot to cut against anything — so the assembly afterwards is combinatorial rather than linear. The same crew, the same location and the same budget produce forty usable edits instead of four, because the constraint was never the camera. It was the plan.',
+      'By planning the edit before the shoot rather than after it. A day designed for volume captures modular pieces: multiple hooks for the same body, several endings, vertical and horizontal framing, B-roll shot to cut against anything, so the assembly afterwards is combinatorial rather than linear. The same crew, the same location and the same budget produce forty usable edits instead of four, because the constraint was never the camera. It was the plan.',
 
     metric: {
       label: 'Measured on',
@@ -348,7 +348,7 @@ export const serviceDetail = {
     misconception: {
       wrong: '“More output means lower quality.”',
       right:
-        'It means different planning. The hero film is still shot as a hero film. What changes is that the same setup also yields the variants, the verticals and the cutdowns — which otherwise get made badly, later, by someone else, from footage that was never framed for it.',
+        'It means different planning. The hero film is still shot as a hero film. What changes is that the same setup also yields the variants, the verticals and the cutdowns, which otherwise get made badly, later, by someone else, from footage that was never framed for it.',
     },
 
     outcomes: [
@@ -357,7 +357,7 @@ export const serviceDetail = {
       'A shot list built backwards from the edit, not forwards from the location',
     ],
     process: [
-      { step: 'Edit-first planning', body: 'We write the asset list before the shot list. How many hooks, how many endings, which formats — decided while it is still free to change.' },
+      { step: 'Edit-first planning', body: 'We write the asset list before the shot list. How many hooks, how many endings, which formats, decided while it is still free to change.' },
       { step: 'Modular shoot design', body: 'Framing and coverage that allow pieces to be recombined. Vertical and horizontal captured together rather than one cropped from the other.' },
       { step: 'Production', body: 'One day, one crew, one location, running to a list that already knows what the edit needs.' },
       { step: 'Assembly and versioning', body: 'Hero cut first, then the variant set, then every ratio and length. Captions burnt in, because most viewing is silent.' },
@@ -382,9 +382,9 @@ export const serviceDetail = {
     },
 
     faqs: [
-      { q: 'How many assets can one day realistically produce?', a: 'For a straightforward product or talking-head setup, forty usable edits from one day is achievable and we plan to it. The number falls with complexity — multiple locations, wardrobe changes and cast availability all reduce it. What matters is that the figure is agreed before the shoot, because it determines the shot list.' },
+      { q: 'How many assets can one day realistically produce?', a: 'For a straightforward product or talking-head setup, forty usable edits from one day is achievable and we plan to it. The number falls with complexity. Multiple locations, wardrobe changes and cast availability all reduce it. What matters is that the figure is agreed before the shoot, because it determines the shot list.' },
       { q: 'Do you shoot vertical and horizontal separately?', a: 'We frame for both in the same take wherever possible, rather than cropping one from the other afterwards. Cropping a horizontal to 9:16 is where most brands lose their composition and their headroom.' },
-      { q: 'Can we use our own footage?', a: 'Yes, and it is often the cheapest way to start. We will tell you honestly what your existing library can and cannot be cut into — usually the answer is more than expected for B-roll and less than hoped for hooks.' },
+      { q: 'Can we use our own footage?', a: 'Yes, and it is often the cheapest way to start. We will tell you honestly what your existing library can and cannot be cut into. Usually the answer is more than expected for B-roll and less than hoped for hooks.' },
       { q: 'Is this the same as your AI video service?', a: 'No, and they solve different problems. This is filmed. AI video is generation, which is stronger for impossible shots and extreme variant counts and weaker anywhere the viewer can check the subject against reality. Most strong accounts use both.' },
     ],
   },
@@ -393,13 +393,13 @@ export const serviceDetail = {
   'ai-generated-ads': {
     metaTitle: 'AI Generated Ads',
     metaDescription:
-      'Performance creative at volume — dozens of variants produced and tested, then iterated on whatever actually converts.',
+      'Performance creative at volume. Dozens of variants produced and tested, then iterated on whatever actually converts.',
     lede:
       'Performance creative is a volume problem wearing a creativity costume. The account that ships thirty concepts a month beats the account with better taste and four.',
 
     question: 'How many ad variants does a brand actually need?',
     answer:
-      'Enough to refresh inside your category’s fatigue window and still have variants left to test. In competitive Indian categories a creative now fatigues in 21 to 35 days, against 45 to 60 four years ago, because far more brands are reaching the same people. A brand running three or four active ad sets typically needs 15 to 30 assets a month — a mix of genuinely new concepts and variants of what is already working. Four a month is a 60-day refresh cycle in a market that fatigues in 30.',
+      'Enough to refresh inside your category’s fatigue window and still have variants left to test. In competitive Indian categories a creative now fatigues in 21 to 35 days, against 45 to 60 four years ago, because far more brands are reaching the same people. A brand running three or four active ad sets typically needs 15 to 30 assets a month: a mix of genuinely new concepts and variants of what is already working. Four a month is a 60-day refresh cycle in a market that fatigues in 30.',
 
     metric: {
       label: 'Measured on',
@@ -410,7 +410,7 @@ export const serviceDetail = {
     misconception: {
       wrong: '“We need better creative.”',
       right:
-        'Usually you need more of it. The gap between a bottom-quartile and a top-quartile account in most categories is not taste — it is how many ideas got a fair test before the budget was committed to one.',
+        'Usually you need more of it. The gap between a bottom-quartile and a top-quartile account in most categories is not taste. It is how many ideas got a fair test before the budget was committed to one.',
     },
 
     outcomes: [
@@ -422,14 +422,14 @@ export const serviceDetail = {
       { step: 'Concept generation', body: 'Angles generated and screened at volume, so what goes into production starts from evidence rather than instinct.' },
       { step: 'Rapid production', body: 'Static, motion and generated formats, produced to a weekly rhythm rather than a campaign one.' },
       { step: 'Structured testing', body: 'Concepts run against each other rather than sequentially, with enough spend behind each to read.' },
-      { step: 'Iterate the winner', body: 'Variants built from what actually worked — different hooks on the same body, different endings, different framings.' },
+      { step: 'Iterate the winner', body: 'Variants built from what actually worked: different hooks on the same body, different endings, different framings.' },
     ],
     deliverables: ['Monthly concept batch', 'Variant sets for winners', 'All required ratios and lengths', 'Creative performance reporting', 'A living hook bank'],
 
     engagement: {
       shape: 'Monthly volume commitment',
       cadence: 'Weekly delivery, monthly concept review against performance',
-      commitment: 'Three months minimum — one full fatigue cycle is the shortest honest test',
+      commitment: 'Three months minimum. One full fatigue cycle is the shortest honest test',
     },
 
     notFor: [
@@ -444,7 +444,7 @@ export const serviceDetail = {
     },
 
     faqs: [
-      { q: 'Does volume mean low quality?', a: 'It means fit-for-purpose. A performance asset has one job — earn a click from a stranger in two seconds — and the version that does it best is rarely the most polished. Brand film is a separate budget with a separate standard, and we would not fund one by cutting the other.' },
+      { q: 'Does volume mean low quality?', a: 'It means fit-for-purpose. A performance asset has one job, earning a click from a stranger in two seconds, and the version that does it best is rarely the most polished. Brand film is a separate budget with a separate standard, and we would not fund one by cutting the other.' },
       { q: 'How do you know a concept actually won?', a: 'By running concepts against each other with enough spend behind each to read, rather than sequentially where seasonality and audience changes contaminate the comparison. Sequential testing is why so many accounts have a winner nobody can reproduce.' },
       { q: 'What is a hook bank?', a: 'A running record of every opening we have tested and how it performed, so the next batch starts from evidence rather than a blank page. It is the most valuable thing an account accumulates and the thing most often lost when an agency changes.' },
     ],
@@ -465,7 +465,7 @@ export const serviceDetail = {
     metric: {
       label: 'Measured on',
       value: 'Qualified reach and what follows it',
-      body: 'Reach among people who could buy, and whether they then do something — visit, save, enquire. Followers are reported, never managed to.',
+      body: 'Reach among people who could buy, and whether they then do something: visit, save, enquire. Followers are reported, never managed to.',
     },
 
     misconception: {
@@ -481,7 +481,7 @@ export const serviceDetail = {
     ],
     process: [
       { step: 'Audit and baseline', body: 'What currently performs, who is actually watching, and which pillars are earning attention versus filling a calendar.' },
-      { step: 'Pillar and format design', body: 'Three to five themes with formats matched to each — not every idea deserves a reel.' },
+      { step: 'Pillar and format design', body: 'Three to five themes with formats matched to each. Not every idea deserves a reel.' },
       { step: 'Production rhythm', body: 'A cadence sized to what can be sustained without the quality collapsing in month two.' },
       { step: 'Measure and prune', body: 'Monthly review against qualified reach and conversion, with the underperforming pillar retired rather than defended.' },
     ],
@@ -505,7 +505,7 @@ export const serviceDetail = {
     },
 
     faqs: [
-      { q: 'Will our follower count grow?', a: 'Usually, as a by-product. It is not what we optimise for, and if you need follower growth as the headline outcome we are probably the wrong choice — a giveaway campaign will beat us on that number and lose on every other one.' },
+      { q: 'Will our follower count grow?', a: 'Usually, as a by-product. It is not what we optimise for, and if you need follower growth as the headline outcome we are probably the wrong choice. A giveaway campaign will beat us on that number and lose on every other one.' },
       { q: 'How often should we post?', a: 'Less than most agencies recommend and more consistently than most brands manage. Three considered posts a week beats seven filler ones, because the algorithm and the audience are both judging whether individual pieces are worth finishing.' },
       { q: 'Do we need to be on every platform?', a: 'No, and spreading thin is the most common way owned channels fail. Two channels done properly outperform five maintained. Which two depends on where your buyers actually are, which is the first thing the audit answers.' },
     ],
@@ -515,13 +515,13 @@ export const serviceDetail = {
   'blog-writing': {
     metaTitle: 'Blog Writing',
     metaDescription:
-      'Editorial written to be found by search and quoted by AI assistants — answer-first, sourced, and published under a real name.',
+      'Editorial written to be found by search and quoted by AI assistants. Answer-first, sourced, and published under a real name.',
     lede:
       'Most brand blogs are written for a crawler and read by nobody. The format that works now is the opposite: written for a person who has a specific question, structured so a machine can lift the answer.',
 
     question: 'What kind of article actually gets found in 2026?',
     answer:
-      'One that answers a real question in its first 60 words, with a named author and sources you can check. Google’s AI Overviews still overlap heavily with organic rankings, so classic SEO is not obsolete — but ChatGPT correlates far less with rankings and rewards something different: short, self-contained, attributable passages a model can quote without hedging. An article that opens with brand poetry gets neither. One that opens with the answer gets both.',
+      'One that answers a real question in its first 60 words, with a named author and sources you can check. Google’s AI Overviews still overlap heavily with organic rankings, so classic SEO is not obsolete, but ChatGPT correlates far less with rankings and rewards something different: short, self-contained, attributable passages a model can quote without hedging. An article that opens with brand poetry gets neither. One that opens with the answer gets both.',
 
     metric: {
       label: 'Measured on',
@@ -532,7 +532,7 @@ export const serviceDetail = {
     misconception: {
       wrong: '“We need to publish more to rank.”',
       right:
-        'Volume without substance now actively hurts — thin pages published to fill a calendar are exactly what recent core updates demote. Four articles worth reading beat forty written for a crawler, and cost less.',
+        'Volume without substance now actively hurts. Thin pages published to fill a calendar are exactly what recent core updates demote. Four articles worth reading beat forty written for a crawler, and cost less.',
     },
 
     outcomes: [
@@ -551,7 +551,7 @@ export const serviceDetail = {
     engagement: {
       shape: 'Per article, or a monthly editorial retainer',
       cadence: 'Weekly or fortnightly publication, agreed against a rotating topic plan',
-      commitment: 'Three months minimum — organic does not report back faster than that',
+      commitment: 'Three months minimum. Organic does not report back faster than that',
     },
 
     notFor: [
@@ -566,7 +566,7 @@ export const serviceDetail = {
     },
 
     faqs: [
-      { q: 'Do you use AI to write the articles?', a: 'For research breadth and structuring, not for the prose. An article that reads as machine-written fails the only test that matters — whether someone who does this work would recognise it as true. Every piece is published under a named author with real credentials, which means it has to survive being attributed.' },
+      { q: 'Do you use AI to write the articles?', a: 'For research breadth and structuring, not for the prose. An article that reads as machine-written fails the only test that matters: whether someone who does this work would recognise it as true. Every piece is published under a named author with real credentials, which means it has to survive being attributed.' },
       { q: 'How long should an article be?', a: 'Long enough to answer the question and no longer. In practice 1,200 to 1,600 words covers most topics properly. Padding to hit a word count is visible to a reader and increasingly to a ranking system.' },
       { q: 'What is an answer-first block?', a: 'The first 50 to 80 words, written to answer the article’s core question completely and to stand alone if lifted out of the page. It is what an AI assistant quotes, and it is what a busy reader uses to decide whether to continue.' },
     ],
@@ -576,13 +576,13 @@ export const serviceDetail = {
   'graphic-design': {
     metaTitle: 'Graphic Design',
     metaDescription:
-      'Brand and performance design built as a system — templates your team can use without breaking the brand.',
+      'Brand and performance design built as a system. Templates your team can use without breaking the brand.',
     lede:
       'Most design engagements produce beautiful files that decay within a quarter, because nothing was built for the people who have to make the next hundred assets.',
 
     question: 'What should a design engagement actually leave behind?',
     answer:
-      'A system, not a folder. Individual assets solve this week; a system — tokens, templates, rules and the reasoning behind them — solves the next two years. The practical test is whether someone who was not in the original conversation can produce an on-brand asset without asking permission. Most design handovers fail that test, which is why brands drift within a quarter and end up commissioning another identity project.',
+      'A system, not a folder. Individual assets solve this week; a system of tokens, templates, rules and the reasoning behind them solves the next two years. The practical test is whether someone who was not in the original conversation can produce an on-brand asset without asking permission. Most design handovers fail that test, which is why brands drift within a quarter and end up commissioning another identity project.',
 
     metric: {
       label: 'Measured on',
@@ -627,8 +627,8 @@ export const serviceDetail = {
     },
 
     faqs: [
-      { q: 'What is a design token?', a: 'A named, reusable value — a colour, a spacing step, a type size — defined once and referenced everywhere, rather than picked per asset. It is what makes consistency automatic instead of a matter of vigilance, and it is what lets a site, a deck and a social template genuinely match.' },
-      { q: 'Do you check accessibility?', a: 'Contrast ratios are checked and documented as part of the token set. It matters commercially as well as ethically — we have measured brand colours that fail contrast on a dark background badly enough to be effectively invisible, which is worth knowing before it ships.' },
+      { q: 'What is a design token?', a: 'A named, reusable value (a colour, a spacing step, a type size) defined once and referenced everywhere, rather than picked per asset. It is what makes consistency automatic instead of a matter of vigilance, and it is what lets a site, a deck and a social template genuinely match.' },
+      { q: 'Do you check accessibility?', a: 'Contrast ratios are checked and documented as part of the token set. It matters commercially as well as ethically. We have measured brand colours that fail contrast on a dark background badly enough to be effectively invisible, which is worth knowing before it ships.' },
       { q: 'Which tools do you build templates in?', a: 'Whatever your team already uses and can hire for. A beautiful system in a tool nobody on your side owns is a liability the day the engagement ends.' },
     ],
   },

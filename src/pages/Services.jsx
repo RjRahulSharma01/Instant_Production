@@ -10,7 +10,7 @@ function Services() {
   useSeo({
     title: 'Services',
     description:
-      'AI content strategy, AI video, performance marketing, influencer marketing, website development, blog writing and graphic design — one team across the full funnel.',
+      'AI content strategy, AI video, performance marketing, influencer marketing, website development, blog writing and graphic design. One team across the full funnel.',
     path: '/services',
   });
 
@@ -20,7 +20,7 @@ function Services() {
         video={{ desktop: '/videos/pages/services-1280.mp4', mobile: '/videos/pages/services-640.mp4' }}
         poster="/videos/pages/services.webp"
         eyebrow="Services"
-        title="Strategy, content and campaigns — handled end to end."
+        title="Strategy, content and campaigns, handled end to end."
         intro="Ten capabilities run by one team, so the plan, the creative and the media spend point the same way instead of being argued between three agencies."
         crumbs={[{ label: 'Services' }]}
         stats={[

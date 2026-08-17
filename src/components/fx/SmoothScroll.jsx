@@ -5,7 +5,7 @@ import { useIsTouch } from '../../lib/useMediaQuery';
 
 /**
  * Inertial smooth scrolling. Mounted once in Layout.
- * Completely skipped when the OS asks for reduced motion — hijacking scroll
+ * Completely skipped when the OS asks for reduced motion. Hijacking scroll
  * is exactly the kind of thing that triggers motion sickness.
  */
 export default function SmoothScroll() {

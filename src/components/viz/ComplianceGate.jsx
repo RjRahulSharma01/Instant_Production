@@ -15,7 +15,7 @@ import { EASE } from '../../lib/motion';
  *
  * The colour coding is the one place on the site where green and red carry
  * meaning rather than decoration, which is why they are permitted here and
- * nowhere else — see the brand guidelines, page 03.
+ * nowhere else. See the brand guidelines, page 03.
  */
 
 const STYLE = {

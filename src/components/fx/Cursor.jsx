@@ -5,7 +5,7 @@ import { motion, useMotionValue, useSpring, useReducedMotion } from 'framer-moti
  * Custom cursor: a small solid dot that tracks exactly, plus a lagging ring
  * that swells over interactive elements.
  *
- * Only mounts on devices with a fine pointer (real mouse) — never on touch,
+ * Only mounts on devices with a fine pointer (real mouse). Never on touch,
  * and never under reduced motion. The native cursor is hidden via a body
  * class only while this is active, so it can never strand a user without one.
  */

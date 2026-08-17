@@ -9,7 +9,7 @@ import { EASE } from '../../lib/motion';
 
 /* ============================================== 1. the 97.3% dial */
 /* One number does most of the work on this page, so it gets a dial rather than
-   another bar. The arc is drawn to scale — 97.3% of a half circle — so the
+   another bar. The arc is drawn to scale (97.3% of a half circle) so the
    near-complete sweep is the honest picture, not a dramatised one. */
 
 export function ModificationDial({ value = 97.3, caption }) {
@@ -46,7 +46,7 @@ export function ModificationDial({ value = 97.3, caption }) {
 
 /* ============================================ 2. the flagged-claims wall */
 /* Each one is a real claim ASCI flagged. Struck through, because the point is
-   that these are not hypothetical bad practice — they ran. */
+   that these are not hypothetical bad practice. They ran. */
 
 export function FlaggedClaims({ items }) {
   const ref = useRef(null);
@@ -143,7 +143,7 @@ export function Shelves({ items }) {
       ))}
       <p className="text-[0.7rem] leading-5 text-zinc-600">
         Bar length is relative importance for a growing D2C brand, not market share. The four are
-        parallel, not sequential — a product has to work on all of them.
+        parallel, not sequential. A product has to work on all of them.
       </p>
     </div>
   );

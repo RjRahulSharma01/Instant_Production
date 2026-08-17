@@ -23,7 +23,7 @@ metaDescription: ''
 updated: ''
 ---
 
-Fintech acquisition costs in India are rising for a reason most teams are not budgeting for. It is not just auction competition. Lenders have become far more selective about who they will underwrite, so the same ad spend now buys fewer approvable applicants — and from January 2027, the regulated entity is answerable for what its influencers and affiliates say. Cheap volume channels are getting more expensive to use and riskier to keep.
+Fintech acquisition costs in India are rising for a reason most teams are not budgeting for. It is not just auction competition. Lenders have become far more selective about who they will underwrite, so the same ad spend now buys fewer approvable applicants, and from January 2027 the regulated entity is answerable for what its influencers and affiliates say. Cheap volume channels are getting more expensive to use and riskier to keep.
 
 The number that made this concrete: in Q1 2026, average cost per lead for a mid-market Indian lending app on Google Search [crossed ₹1,400, up 34% from eighteen months earlier](https://maliktimes.in/cac-rising-indian-fintech-apps-2026-2/). Nothing about the creative got worse over that period. The definition of a good lead got narrower.
 
@@ -31,7 +31,7 @@ The number that made this concrete: in Q1 2026, average cost per lead for a mid-
 
 Worth separating these, because the fixes are different.
 
-CAC rising while lifetime value rises with it is a growth problem — annoying, manageable, mostly a question of payback period. CAC rising while LTV stays flat or falls is a business model problem, and in consumer lending the CAC-to-LTV ratio has deteriorated meaningfully for most players.
+CAC rising while lifetime value rises with it is a growth problem: annoying, manageable, mostly a question of payback period. CAC rising while LTV stays flat or falls is a business model problem, and in consumer lending the CAC-to-LTV ratio has deteriorated meaningfully for most players.
 
 The cause is upstream of marketing. After the RBI's interventions on digital lending, lenders tightened underwriting. The pool of applicants who both want the product and will be approved for it got smaller. Marketing is paying full price for traffic and converting a smaller share of it into anything that generates revenue.
 
@@ -39,11 +39,11 @@ If your CPL is up 34% and your approval rate is down, your real CAC has moved co
 
 ## The 2027 rules change who carries the risk
 
-On 11 February 2026 the RBI floated amendments to its advertising framework and invited industry feedback. [The framework comes into effect on 1 January 2027](https://www.storyboard18.com/influencer-marketing/explained-rbis-new-rules-for-financial-advertising-and-influencer-marketing-ws-l-101236.htm), and the substantive change is one sentence: if a financial product is being marketed — by a bank employee, an influencer, an affiliate or a fintech partner — the regulated entity is ultimately responsible for the message that reaches the consumer.
+On 11 February 2026 the RBI floated amendments to its advertising framework and invited industry feedback. [The framework comes into effect on 1 January 2027](https://www.storyboard18.com/influencer-marketing/explained-rbis-new-rules-for-financial-advertising-and-influencer-marketing-ws-l-101236.htm), and the substantive change is one sentence: if a financial product is being marketed by a bank employee, an influencer, an affiliate or a fintech partner, the regulated entity is ultimately responsible for the message that reaches the consumer.
 
 Read that again with an affiliate network in mind. Every publisher running your offer, every finfluencer paid on a CPA basis, every lead aggregator reselling the same form to four lenders, becomes your compliance surface.
 
-Separately, SEBI has proposed an advertising code for investment products that would prohibit guaranteed-return claims, exaggerated claims, testimonials, and unfair comparison with competing products. [Rewards-based acquisition](https://www.businesstoday.in/personal-finance/investment/story/investment-apps-may-have-to-abandon-rewards-based-customer-acquisition-under-sebis-proposed-ad-code-539240-2026-06-26) — refer a friend, get free stocks — sits awkwardly under that draft.
+Separately, SEBI has proposed an advertising code for investment products that would prohibit guaranteed-return claims, exaggerated claims, testimonials, and unfair comparison with competing products. [Rewards-based acquisition](https://www.businesstoday.in/personal-finance/investment/story/investment-apps-may-have-to-abandon-rewards-based-customer-acquisition-under-sebis-proposed-ad-code-539240-2026-06-26), where you refer a friend and get free stocks, sits awkwardly under that draft.
 
 If a meaningful share of your acquisition comes from testimonial-led creator content or reward mechanics, you have about four months to find out whether that survives.
 

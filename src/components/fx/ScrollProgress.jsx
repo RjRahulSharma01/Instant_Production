@@ -4,7 +4,7 @@ import { useIsTouch } from '../../lib/useMediaQuery';
 /**
  * Amber progress bar pinned to the top of the viewport.
  * The bar itself is scroll-linked (not autonomous), but the spring smoothing
- * adds motion of its own — so under reduced motion we bind straight to the
+ * adds motion of its own, so under reduced motion we bind straight to the
  * raw scroll value, which tracks exactly with no easing.
  */
 export default function ScrollProgress() {

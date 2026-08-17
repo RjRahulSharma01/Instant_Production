@@ -6,7 +6,7 @@ import { fadeUp, viewport } from '../lib/motion';
 
 export default function CtaBand({
   title = 'Tell us what you are building',
-  copy = 'Share the goal, the audience and the timeline. You will get a plan, a scope and a number back — usually within one working day.',
+  copy = 'Share the goal, the audience and the timeline. You will get a plan, a scope and a number back, usually within one working day.',
   cta = 'Start a project',
 }) {
   return (

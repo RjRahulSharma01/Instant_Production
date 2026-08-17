@@ -23,7 +23,7 @@ metaDescription: ''
 updated: ''
 ---
 
-A registered medical practitioner in India can publish educational content freely. What they cannot do is solicit patients, claim treatment outcomes, assert superiority over another practitioner, use scare tactics, or show before-and-after images without written consent obtained after the fact. That distinction — educate, do not solicit — is the whole regulation in one line, and almost every clinic that gets into trouble has crossed it in a way that was obvious in hindsight.
+A registered medical practitioner in India can publish educational content freely. What they cannot do is solicit patients, claim treatment outcomes, assert superiority over another practitioner, use scare tactics, or show before-and-after images without written consent obtained after the fact. That distinction, educate rather than solicit, is the whole regulation in one line, and almost every clinic that gets into trouble has crossed it in a way that was obvious in hindsight.
 
 The confusion is worth clearing up because it costs practices real money. Most doctors we speak to believe one of two wrong things: either that marketing is banned outright, or that everyone else is doing it so it must be fine. Both lead to bad decisions. The first leaves a good practice invisible. The second leaves a good practice exposed to a complaint at the state medical council.
 
@@ -37,7 +37,7 @@ The Advertising Standards Council of India sits on top of this for the advertisi
 
 ## What is explicitly allowed
 
-Educational content. That carve-out is not a loophole, it is the stated position — content explaining a condition, a procedure, what recovery looks like, what a patient should ask before consenting to something, is permitted.
+Educational content. That carve-out is not a loophole, it is the stated position. Content explaining a condition, a procedure, what recovery looks like, what a patient should ask before consenting to something, is permitted.
 
 In practice that is most of what a patient actually searches for. Nobody types "best cardiologist who guarantees results". They type "is angioplasty or bypass better for my father", "how long does knee replacement recovery take", "what does a high creatinine reading mean". Those are educational questions and a doctor is the most credible possible answer to them.
 
@@ -51,11 +51,11 @@ The abstraction is where people go wrong, so here it is concretely.
 | --- | --- |
 | "Best knee replacement surgeon in Pune" | "How knee replacement decisions are made, and when to wait" |
 | "98% success rate in IVF" | "What IVF success rates mean, and why clinic numbers are not comparable" |
-| "Book now — limited slots this month" | "What to bring to a first consultation" |
+| "Book now, limited slots this month" | "What to bring to a first consultation" |
 | Patient before-and-after, no consent on file | The same images, with written consent obtained after selection, and stated |
 | "Do not ignore these symptoms or it may be fatal" | "These symptoms are worth a consultation, and here is why" |
 
-The right-hand column is not weaker content. It is better content. The left-hand column reads like every other clinic and converts badly, because a patient choosing a surgeon is not responding to urgency copy — they are trying to establish whether this person knows what they are doing.
+The right-hand column is not weaker content. It is better content. The left-hand column reads like every other clinic and converts badly, because a patient choosing a surgeon is not responding to urgency copy. They are trying to establish whether this person knows what they are doing.
 
 > The compliant version of a healthcare ad is usually the one that would have performed better anyway. Restrictions on claims mostly remove things that were not working.
 
@@ -69,7 +69,7 @@ This has a knock-on effect on landing pages. If the ad is for the department, th
 
 ## Meta's own layer, which is separate
 
-Healthcare advertising is fully permitted on Meta in India. What changed over the last two years is how. Health-categorised advertisers face content restrictions on claims and imagery, and — the part that actually hurts — limits on conversion tracking and optimisation.
+Healthcare advertising is fully permitted on Meta in India. What changed over the last two years is how. Health-categorised advertisers face content restrictions on claims and imagery, and (the part that actually hurts) limits on conversion tracking and optimisation.
 
 That last one is worth sitting with. If you cannot optimise for a booking event the way a D2C brand optimises for a purchase, your paid campaigns are working with a duller instrument. The practical answer is to feed the algorithm something it can still see: a longer, more educational content journey, retargeting from content readers rather than cold prospecting, and a higher tolerance for lead quality variance in the first month. The clinics that fight this by trying to force direct-response tactics through a restricted account tend to burn budget for a quarter and then blame the platform.
 
@@ -97,6 +97,6 @@ And be honest with your agency about which side of the line they are asked to wo
 
 If you want the longer view on building content around real questions rather than campaign calendars, [content pillars are not categories](/blog/content-pillars-that-work) covers the structure we use. And if the constraint you are feeling is creative volume rather than compliance, [the creative fatigue piece](/blog/creative-testing-loop) is the more relevant read.
 
-We work on this specifically — [healthcare content and growth](/industries/healthcare) is where most of our compliance work lives.
+We work on this specifically, and [healthcare content and growth](/industries/healthcare) is where most of our compliance work lives.
 
 Sources: [Branding Pioneers on the NMC and MCI guidelines](https://brandingpioneers.com/blog/mci-nmc-advertising-marketing-guidelines-for-doctors-india-complete-guide) · [Healthcare social media under the 2026 ethics code](https://ichelonconsulting.com/insights/healthcare-social-media-marketing-india-2026)

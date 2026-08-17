@@ -14,7 +14,7 @@ export const heroData = {
   eyebrow: 'AI-First Content & Growth Agency',
   title: 'AI-first content, from first idea to measured growth.',
   description:
-    'Twelve years of production craft, now running on AI. We plan, produce and scale video, content and campaigns — one team from strategy to measured result.',
+    'Twelve years of production craft, now running on AI. We plan, produce and scale video, content and campaigns. One team, from strategy to measured result.',
   services: [
     'AI Video Strategy',
     'Video Production',
@@ -41,7 +41,7 @@ export const heroData = {
   // Rewritten from service names to the sentences prospects actually say.
   // B2B buyers in 2026 evaluate agencies on revenue accountability rather
   // than activity, and research the decision themselves before making
-  // contact — so the panel has to be recognisable and specific, not
+  // contact, so the panel has to be recognisable and specific, not
   // aspirational. Each panel names a problem in the client's own words,
   // then answers it with what we do and how it is measured.
   featured: [
@@ -65,7 +65,7 @@ export const heroData = {
     },
   ],
   // Trust signals. Research is consistent that what converts an agency
-  // shortlist is plain-language proof of how you work and what you report —
+  // shortlist is plain-language proof of how you work and what you report.
   // not adjectives.
   highlights: [
     { title: 'Measured on revenue', description: 'ROAS, CAC and pipeline. Impressions are context, not the result.' },
@@ -77,7 +77,7 @@ export const aboutData = {
   eyebrow: 'About Instant Production',
   title: 'We create memorable brand experiences backed by strategy, craft, and momentum.',
   description:
-    'Instant Production is an AI-first content and growth partner — AI video, content strategy, social growth, performance marketing, web and influencer campaigns, handled by one team.',
+    'Instant Production is an AI-first content and growth partner. AI video, content strategy, social growth, performance marketing, web and influencer campaigns, handled by one team.',
   points: [
     'Visionary creative direction tailored to your goals',
     'A full-service production and marketing experience',
@@ -111,7 +111,7 @@ export const footerData = {
     youtube: 'https://www.youtube.com/@instantproduction_in',
     linkedin: 'https://www.linkedin.com/company/instant-production/',
   },
-  tagline: 'An AI-first content and growth partner — strategy, production and performance under one roof.',
+  tagline: 'An AI-first content and growth partner. Strategy, production and performance under one roof.',
   signoff: 'Built for brands that measure what their content does.',
 };
 
@@ -122,7 +122,7 @@ export const contactData = {
   directorName: 'Rahul Sharma',
   title: 'Tell us what you are building',
   description:
-    'Share the goal, the audience and the timeline. You will get a clear plan, a scope and a number back — not a brochure.',
+    'Share the goal, the audience and the timeline. You will get a clear plan, a scope and a number back. Not a brochure.',
   responsePromise: 'We reply within one working day.',
   privacyNote: 'Your details stay with us. No lists, no spam.',
 };

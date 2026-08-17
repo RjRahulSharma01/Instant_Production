@@ -119,7 +119,7 @@ export function CacDumbbell({ items, max = 7500 }) {
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/10 pt-4 text-xs text-zinc-500">
         <span className="flex items-center gap-2"><span className="h-1.5 w-6 rounded-full bg-zinc-600" /> 2023</span>
         <span className="flex items-center gap-2"><span className="h-1.5 w-6 rounded-full bg-brand" /> Q1 2026</span>
-        <span className="ml-auto tabular-nums">₹0 — ₹{max.toLocaleString('en-IN')}</span>
+        <span className="ml-auto tabular-nums">₹0 to ₹{max.toLocaleString('en-IN')}</span>
       </div>
     </div>
   );
@@ -176,7 +176,7 @@ export function CpcClimb({ then, now, label }) {
         <p className="mt-2 text-sm leading-7 text-zinc-400">
           Across paid digital, depending on category and audience. For wealth management and
           business banking it clears <span className="font-semibold text-white">₹5,000</span> per
-          activated user — against a payback period that can run eighteen to thirty-six months.
+          activated user, against a payback period that can run eighteen to thirty-six months.
         </p>
       </div>
     </div>
@@ -185,7 +185,7 @@ export function CpcClimb({ then, now, label }) {
 
 /* ================================================= 5. trust-first sequence */
 /* Most categories build awareness then convert. This one has to establish
-   legitimacy before awareness is worth paying for — so the diagram is drawn as
+   legitimacy before awareness is worth paying for, so the diagram is drawn as
    a reordering rather than a list. */
 
 export function TrustSequence({ steps }) {

@@ -89,7 +89,7 @@ function Layout() {
       {/* Traffic and Core Web Vitals.
           Both are cookieless and store no personal data, which keeps the
           contact form the only place on the site that touches anything covered
-          by the DPDP Act — no consent banner needed.
+          by the DPDP Act, so no consent banner is needed.
           The React builds hook into the router, so client-side route changes
           register as pageviews. Without them only the first load would count,
           which on a single-page app is almost nothing.

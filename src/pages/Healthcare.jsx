@@ -26,7 +26,7 @@ const A = {
   text: 'text-sky-700',
   bg: 'bg-sky-600',
   // Alternating bands. Pure white read as glaring against the imagery, so the
-  // base is a soft slate and cards are white — the contrast now comes from the
+  // base is a soft slate and cards are white. The contrast now comes from the
   // cards lifting off the page rather than from the page being bright.
   soft: 'bg-sky-100/70',
   band: 'bg-slate-100/70',
@@ -158,7 +158,7 @@ export default function Healthcare() {
             <SplitText
               as="h1"
               text={hero.title}
-              className="mt-4 block text-[2rem] font-semibold leading-[1.12] text-slate-900 sm:text-[2.75rem] lg:text-5xl lg:leading-[1.12]"
+              className="mt-4 block text-[2rem] font-semibold leading-[1.12] text-slate-900 sm:text-[2.75rem] lg:text-5xl"
               stagger={0.035}
             />
 
@@ -303,7 +303,7 @@ export default function Healthcare() {
             <div className="max-w-xl">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-200">The hard part</p>
               <p className="mt-3 text-xl font-semibold leading-snug text-white sm:text-2xl">
-                You already know medicine. The gap is being found by the people who need it — without stepping over a line you cannot afford to cross.
+                You already know medicine. The gap is being found by the people who need it, without stepping over a line you cannot afford to cross.
               </p>
             </div>
           </div>
@@ -403,7 +403,7 @@ export default function Healthcare() {
             Every specialty is searched differently.
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-4 max-w-2xl text-base leading-8 text-slate-600">
-            A dermatology patient and a cardiology patient share almost nothing — not the query, not the urgency, not the channel that reaches them. Pick a specialty to see how yours behaves.
+            A dermatology patient and a cardiology patient share almost nothing: not the query, not the urgency, not the channel that reaches them. Pick a specialty to see how yours behaves.
           </motion.p>
           <motion.div variants={fadeUp} className="mt-9">
             <SpecialtyExplorer items={specialtyIntel} />

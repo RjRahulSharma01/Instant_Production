@@ -14,7 +14,7 @@ function Services({ services }) {
           <p className="text-sm font-semibold uppercase tracking-eyebrow text-brand">Services</p>
           <SplitText
             as="h2"
-            text="Strategy, content and campaigns — handled end to end."
+            text="Strategy, content and campaigns, handled end to end."
             className="mt-4 block text-3xl font-semibold text-white sm:text-4xl"
           />
           <p className="mt-5 text-lg leading-8 text-zinc-400">
@@ -32,7 +32,7 @@ function Services({ services }) {
           {services.map((service, index) => {
             const Icon = getIcon(service.icon);
             // First and last cards run double-width. With ten services that
-            // makes 12 grid cells — flush at both two and three columns.
+            // makes 12 grid cells, flush at both two and three columns.
             const wide = index === 0 || index === services.length - 1;
             return (
               <TiltCard

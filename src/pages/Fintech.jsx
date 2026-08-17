@@ -72,7 +72,7 @@ export default function Fintech() {
   useSeo({
     title: 'Fintech Marketing',
     description:
-      'Only 18% of Indian fintech registrations reach funded status. CAC by category, SEBI and RBI marketing rules, and what to measure instead of installs — with sources.',
+      'Only 18% of Indian fintech registrations reach funded status. CAC by category, SEBI and RBI marketing rules, and what to measure instead of installs, with sources.',
     path: '/industries/fintech',
   });
 
@@ -126,7 +126,7 @@ export default function Fintech() {
         <Heading
           eyebrow="The constraint"
           title="The metric on your dashboard is five steps above the one that matters."
-          lede="Payments infrastructure in India is world-class and essentially free to use. That has made acquisition cheap to start and brutal to finish — the friction moved from the transaction to the onboarding."
+          lede="Payments infrastructure in India is world-class and essentially free to use. That has made acquisition cheap to start and brutal to finish. The friction moved from the transaction to the onboarding."
         />
         <div className="mt-10 grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <Answer q={funnel.question} a={funnel.answer} tag="Why the funnel lies" />
@@ -172,7 +172,7 @@ export default function Fintech() {
         <Heading
           eyebrow="What you are allowed to do"
           title="Since 2025, the rule reaches your agency too."
-          lede="Regulated entities may not associate with unregistered financial influencers — and the restriction explicitly extends to the marketing agencies acting on their behalf. Most agencies pitching fintech have not read this. It is now their problem as well as yours."
+          lede="Regulated entities may not associate with unregistered financial influencers, and the restriction explicitly extends to the marketing agencies acting on their behalf. Most agencies pitching fintech have not read this. It is now their problem as well as yours."
         />
         <div className="mt-10 grid gap-6">
           <Answer q={compliance.question} a={compliance.answer} tag="The compliance question" />
@@ -197,7 +197,7 @@ export default function Fintech() {
         <Heading
           eyebrow="How the buyer moves"
           title="Legitimacy comes before awareness, not after it."
-          lede="Most categories build awareness and then convert. Fintech has to survive a check first — because a user who does not trust you will not convert however many times they see your ad. That reverses the usual order of spend."
+          lede="Most categories build awareness and then convert. Fintech has to survive a check first, because a user who does not trust you will not convert however many times they see your ad. That reverses the usual order of spend."
         />
         <motion.div variants={fadeUp} className="mt-9"><TrustSequence steps={journey} /></motion.div>
       </Section>

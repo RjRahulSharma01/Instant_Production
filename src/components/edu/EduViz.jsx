@@ -56,7 +56,7 @@ export function AudienceSplit({ roles }) {
 
 /* ================================================= 2. the enrolment ladder */
 /* A proportional bar chart would render the final step as roughly one pixel,
-   which is exactly the point — so the bars stay honestly proportional and the
+   which is exactly the point, so the bars stay honestly proportional and the
    counts carry the reading. No log scale, no truncated axis. */
 
 export function EnrolLadder({ steps }) {
@@ -98,7 +98,7 @@ export function EnrolLadder({ steps }) {
       </div>
       <p className="mt-5 border-t border-white/10 pt-4 text-xs leading-6 text-zinc-500">
         Bars are proportional and not truncated. The last one is nearly invisible because it
-        nearly is — that is the shape of an admissions funnel.
+        nearly is. That is the shape of an admissions funnel.
       </p>
     </div>
   );

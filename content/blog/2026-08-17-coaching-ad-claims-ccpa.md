@@ -31,13 +31,13 @@ What is striking, having looked at a lot of this creative, is how little the off
 
 **Guaranteed outcomes.** "100% selection", "100% job security", "guaranteed rank". The [guidelines prohibit these explicitly](https://news.careers360.com/centre-issues-coaching-centres-guidelines-jee-neet-upsc-cuet-2025-crack-down-on-misleading-ads). They are also unfalsifiable in a way that parents have learned to discount.
 
-**Unsubstantiated success numbers.** Claiming 400 selections when 380 of those students took a two-week test series and studied elsewhere for two years is the most common version. If the number cannot be substantiated with the basis of the claim — how many students, over what period, enrolled in which programme — it should not be in an ad.
+**Unsubstantiated success numbers.** Claiming 400 selections when 380 of those students took a two-week test series and studied elsewhere for two years is the most common version. If the number cannot be substantiated with the basis of the claim (how many students, over what period, enrolled in which programme) it should not be in an ad.
 
 **Toppers used without consent.** A successful candidate's name, photograph, testimonial or video cannot be used without consent, and critically, that consent must be obtained _after_ the selection. A clause buried in an admission form signed two years earlier does not count. This one catches institutes that believe they are compliant.
 
 ## Disclosure moved before enrolment
 
-The second half of the guidelines is less discussed and more operationally awkward. Full fee, faculty details, and verified past results must be disclosed before a student enrols — not in a brochure handed over at the counter after the decision is made.
+The second half of the guidelines is less discussed and more operationally awkward. Full fee, faculty details, and verified past results must be disclosed before a student enrols, not in a brochure handed over at the counter after the decision is made.
 
 For a lot of institutes this is a genuine business change, because the fee is negotiated, the faculty roster shifts between batches, and the results page is aspirational. Publishing all three, accurately, in advance, removes some of the flexibility the sales process depended on.
 
@@ -49,7 +49,7 @@ It also removes the single biggest source of complaints, which is worth somethin
 | "Best faculty in Kota" | Unsubstantiable superiority | Named faculty, their qualifications, what they teach |
 | Topper photo, old consent | Non-compliant | The same photo, consent taken after the result, on file |
 | "Fees starting from ₹40,000" | Incomplete disclosure | The full fee for the programme, including materials and tests |
-| "Limited seats — closing today" | Scarcity pressure | Actual batch size and actual start date |
+| "Limited seats, closing today" | Scarcity pressure | Actual batch size and actual start date |
 
 > A verified small number beats an unverifiable large one. Parents comparing three institutes discount every round number they see, and reward the one that shows its working.
 
@@ -69,7 +69,7 @@ Cost per enquiry is the wrong metric for this category and it is what most insti
 
 The distance between an enquiry and an enrolment in coaching is weeks and several human conversations. A channel producing enquiries at ₹120 that converts at 2% is worse than one producing them at ₹400 that converts at 12%, and no dashboard will tell you that unless you connect the counsellor's outcome back to the source.
 
-That means tracking to enrolment, not to form fill. It is unglamorous plumbing — a source field on the CRM record, honestly filled in by the counselling team — and it is the difference between spending intelligently and spending confidently.
+That means tracking to enrolment, not to form fill. It is unglamorous plumbing, a source field on the CRM record honestly filled in by the counselling team, and it is the difference between spending intelligently and spending confidently.
 
 The funnel stages worth measuring separately: enquiry, contacted, centre visit or demo attended, fee discussion, enrolled. Most institutes have one number for the top and one for the bottom and nothing in between, so when enrolments fall they cannot tell whether it is the ad, the callback time, or the counsellor.
 
@@ -79,7 +79,7 @@ The other structural mistake in this category is spreading budget evenly across 
 
 Coaching demand is violently seasonal and the shape differs by exam. Board results, competitive exam results, and the start of the academic session each produce a spike, and the weeks between them produce enquiries that convert at a fraction of the rate. A parent searching in the fortnight after a JEE result is in a different state of mind to one searching in September.
 
-Two consequences follow. First, creative volume needs to peak with the season rather than trickle, which means producing in advance — a batch shot in the quiet weeks, ready to run when the results drop. Institutes that start making creative when the season starts spend the first three weeks of their best window with nothing to say.
+Two consequences follow. First, creative volume needs to peak with the season rather than trickle, which means producing in advance: a batch shot in the quiet weeks, ready to run when the results drop. Institutes that start making creative when the season starts spend the first three weeks of their best window with nothing to say.
 
 Second, the off-season is for content, not for conversion campaigns. That is when the pieces that rank get written and start accumulating authority, so that when the season arrives you are already the answer to "which institute for NEET repeaters in Nagpur" rather than bidding against everyone else for the same click at four times the price.
 
@@ -91,7 +91,7 @@ Pull every live ad, hoarding, landing page and WhatsApp broadcast and check it a
 
 Rebuild the results page with substantiation attached: the cohort, the period, the number enrolled, the number selected. If the honest version looks weak, that is information about the programme rather than the marketing.
 
-Get consent right — after the result, in writing, on file — and stop reusing 2023's toppers.
+Get consent right: after the result, in writing, on file. And stop reusing 2023's toppers.
 
 Publish the fee. Fully. It will feel like a loss of negotiating room for a month and then it will feel like fewer arguments.
 
