@@ -1,6 +1,26 @@
 {
-  "updated": null,
-  "days": [],
-  "latest": null,
-  "note": "No snapshot yet. The first one is written by the GitHub Action at 06:00 IST."
+  "updated": "2026-08-18T01:54:55.252Z",
+  "days": [
+    {
+      "date": "2026-08-18",
+      "clicks": null,
+      "impressions": null,
+      "ctr": null,
+      "position": null
+    }
+  ],
+  "latest": {
+    "date": "2026-08-18",
+    "takenAt": "2026-08-18T01:54:55.252Z",
+    "searchConsole": {
+      "ok": false,
+      "reason": "not-configured",
+      "message": "GSC_SERVICE_ACCOUNT and GSC_SITE_URL are not set."
+    },
+    "vercel": {
+      "ok": false,
+      "reason": "not-configured",
+      "message": "VERCEL_API_TOKEN and VERCEL_PROJECT_ID are not set."
+    }
+  }
 }
