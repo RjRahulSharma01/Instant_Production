@@ -3,6 +3,7 @@ import { fadeUp, viewport } from '../lib/motion';
 import SplitText from './fx/SplitText';
 import StudioWave from './fx/StudioWave';
 import { useState } from 'react';
+import { FiMapPin } from 'react-icons/fi';
 
 // Web3Forms access key. Set VITE_WEB3FORMS_KEY in Vercel (and .env.local for dev).
 // Get a free key at https://web3forms.com. It is a public key, safe in client code.
@@ -13,6 +14,11 @@ function Contact({ contactData }) {
   // 'idle' | 'sending' | 'success' | 'error'
   const [status, setStatus] = useState('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  // The map iframe was loading on every single visit to the homepage, since
+  // Contact lives on the homepage rather than behind its own route, roughly
+  // 400KB of Google Maps JS nobody asked for unless they actually wanted to
+  // see the map. It now loads only once someone clicks to see it.
+  const [mapLoaded, setMapLoaded] = useState(false);
 
   const update = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
@@ -110,14 +116,25 @@ function Contact({ contactData }) {
             </div>
           </dl>
           <div className="mt-7 h-44 overflow-hidden rounded-[1.5rem] border border-white/10 bg-zinc-900 sm:mt-8 sm:h-64">
-            <iframe
-              title="Instant Production, Sector-69, Noida"
-              src="https://maps.google.com/maps?q=Sector%2069%2C%20Noida&z=14&output=embed"
-              className="h-full w-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
+            {mapLoaded ? (
+              <iframe
+                title="Instant Production, Sector-69, Noida"
+                src="https://maps.google.com/maps?q=Sector%2069%2C%20Noida&z=14&output=embed"
+                className="h-full w-full border-0"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            ) : (
+              <button
+                type="button"
+                onClick={() => setMapLoaded(true)}
+                className="group flex h-full w-full flex-col items-center justify-center gap-2 bg-[radial-gradient(ellipse_at_center,rgba(245,158,11,0.08),transparent_65%)] text-zinc-400 transition-colors hover:text-white"
+              >
+                <FiMapPin size={22} className="text-brand" aria-hidden="true" />
+                <span className="text-sm font-medium">View map, {contactData.address}</span>
+                <span className="text-xs text-zinc-500 group-hover:text-zinc-400">Click to load Google Maps</span>
+              </button>
+            )}
           </div>
         </div>
 

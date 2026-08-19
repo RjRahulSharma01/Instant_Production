@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { EASE } from '../lib/motion';
 import { useIsMobile } from '../lib/useMediaQuery';
@@ -13,6 +13,26 @@ function Hero({ heroData }) {
   const reduce = useReducedMotion();
   const isMobile = useIsMobile();
   const ref = useRef(null);
+  const videoRef = useRef(null);
+
+  // The 1.6MB desktop video (0.5MB on mobile) was competing with the site's
+  // own JS and CSS for bandwidth during the first paint, because `autoPlay`
+  // forces the browser to start fetching regardless of the `preload` hint.
+  // It was the single largest thing on the page, more than half of total
+  // payload. The poster image is 50KB and paints instantly either way, so
+  // there is no visible difference on load, the video just starts a beat
+  // later, after the page has already become interactive.
+  useEffect(() => {
+    if (reduce) return;
+    const start = () => videoRef.current?.play().catch(() => {});
+    const idle = window.requestIdleCallback
+      ? window.requestIdleCallback(start, { timeout: 1500 })
+      : setTimeout(start, 300);
+    return () => {
+      if (window.cancelIdleCallback) window.cancelIdleCallback(idle);
+      else clearTimeout(idle);
+    };
+  }, [reduce, isMobile]);
 
   // Scroll-linked parallax: the video drifts slower than the page, the
   // foreground copy lifts and fades as you scroll past. Disabled entirely
@@ -36,15 +56,16 @@ function Hero({ heroData }) {
             Phones get the smaller rendition; the poster paints instantly so
             there is never an empty frame while it buffers. */}
         <video
+          ref={videoRef}
           key={isMobile ? 'm' : 'd'}
           className="relative h-full w-full object-cover"
           src={isMobile ? heroData.backgroundVideoMobile : heroData.backgroundVideo}
           poster={heroData.backgroundPoster}
-          autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
+          fetchPriority="low"
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/60" />
@@ -54,9 +75,16 @@ function Hero({ heroData }) {
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:px-8 lg:grid-cols-[1.1fr_0.9fr]">
         <motion.div
-          initial={reduce ? false : { opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: EASE }}
+          /* Opacity only on the way in, no y offset. This block holds the H1,
+             the Largest Contentful Paint candidate on every page it's on, and
+             it sits above the fold on load — any vertical movement here
+             counts fully toward Cumulative Layout Shift, since it happens
+             with no user input to excuse it. The scroll-linked y below is
+             separate: that only moves once the user has actually scrolled,
+             which CLS does not penalise. */
+          initial={reduce ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: EASE }}
           style={{ y: copyY, opacity: copyOpacity }}
           className="max-w-2xl"
         >
@@ -68,6 +96,7 @@ function Hero({ heroData }) {
             text={heroData.title}
             className="block text-[2rem] font-semibold leading-[1.12] text-white sm:text-5xl sm:leading-[1.12] lg:text-6xl lg:leading-[1.12]"
             stagger={0.05}
+            eager
           />
           <p className="mt-5 max-w-xl text-base leading-7 text-zinc-300 sm:mt-6 sm:text-lg sm:leading-8">
             {heroData.description}

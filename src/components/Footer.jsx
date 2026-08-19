@@ -144,7 +144,7 @@ function Footer({ footerData, light = false }) {
         </motion.div>
       </motion.div>
 
-      <div className="relative mx-auto mt-8 flex max-w-7xl flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-zinc-500 sm:flex-row">
+      <div className="relative mx-auto mt-8 flex max-w-7xl flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-zinc-400 sm:flex-row">
         <p>© {year} Instant Production. All rights reserved.</p>
         <p className="order-3 sm:order-2">{footerData.signoff}</p>
 

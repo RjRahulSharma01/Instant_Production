@@ -56,7 +56,12 @@ function Services({ services }) {
                     className="h-full w-full object-cover opacity-80 transition-all duration-700 ease-expo group-hover:scale-110 group-hover:opacity-100"
                   />
                   {/* Ties every thumbnail back to the brand and keeps the
-                      card border reading cleanly against varied photos. */}
+                      card border reading cleanly against varied photos. The
+                      flat layer underneath is new: several of these
+                      thumbnails have their title baked into the image
+                      itself, and the gradient alone left the top of some
+                      images too bright for that text to read reliably. */}
+                  <div className="absolute inset-0 bg-ink/25" />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-transparent" />
                   <div className="absolute inset-0 bg-brand/10 mix-blend-overlay" />
 
@@ -112,7 +117,7 @@ function Services({ services }) {
           })}
         </motion.div>
 
-        <p className="mt-3 text-xs text-zinc-500 sm:hidden">Swipe to see all {services.length} services →</p>
+        <p className="mt-3 text-xs text-zinc-400 sm:hidden">Swipe to see all {services.length} services →</p>
       </div>
     </section>
   );
