@@ -38,3 +38,4 @@ coverage/
 *.tmp
 *.temp
 *~
+claude-code-grok-mcp/
