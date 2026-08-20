@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Creator Database — Instant Production</title>
+<link rel="icon" href="/favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root { --ink:#050505; --brand:#f59e0b; --line:rgba(255,255,255,.10);
+          --muted:#a1a1aa; --dim:#71717a; color-scheme: dark; }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--ink); color:#f5f5f5;
+         font:400 15px/1.6 Inter,system-ui,-apple-system,sans-serif }
+  .wrap { max-width:80rem; margin:0 auto; padding:2.5rem 1.25rem 6rem }
+  a { color:var(--brand) }
+
+  header { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; justify-content:space-between;
+           padding-bottom:1.5rem; border-bottom:1px solid var(--line); margin-bottom:2rem }
+  .eyebrow { font-size:.7rem; letter-spacing:.22em; text-transform:uppercase; color:var(--brand);
+             font-weight:600; margin:0 0 .4rem }
+  h1 { font-size:1.6rem; font-weight:600; letter-spacing:-.02em; margin:0 }
+  h2 { font-size:1rem; font-weight:600; margin:0 0 .3rem }
+  p { margin:0 0 .75rem; font-size:.9rem }
+  .muted { color:var(--muted) } .dim { color:var(--dim); font-size:.8rem }
+
+  .btn { display:inline-flex; align-items:center; gap:.5rem; min-height:44px; padding:.6rem 1.15rem;
+         border-radius:999px; border:1px solid var(--line); background:transparent; color:#f5f5f5;
+         font:inherit; font-size:.85rem; cursor:pointer; text-decoration:none; transition:.2s }
+  .btn:hover { border-color:rgba(255,255,255,.3) }
+  .btn.primary { background:var(--brand); color:#000; border-color:var(--brand); font-weight:600 }
+  .btn.primary:hover { background:#fbbf24 }
+
+  section { border:1px solid var(--line); background:rgba(255,255,255,.04);
+            border-radius:1rem; padding:1.5rem; margin-bottom:1.25rem }
+
+  .cards { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(11rem,1fr)); margin:0 0 1.25rem }
+  .card { border:1px solid var(--line); border-radius:.8rem; padding:1rem 1.1rem; background:rgba(255,255,255,.03) }
+  .card .k { font-size:.68rem; text-transform:uppercase; letter-spacing:.12em; color:var(--dim) }
+  .card .v { font-size:1.75rem; font-weight:600; letter-spacing:-.02em; margin-top:.3rem; color:#fff }
+  .card .s { font-size:.75rem; color:var(--muted); margin-top:.15rem }
+
+  .toolbar { display:flex; flex-wrap:wrap; gap:.6rem; align-items:center; margin-bottom:1.1rem }
+  .toolbar input[type="search"], .toolbar select {
+    min-height:42px; padding:.5rem .9rem; border-radius:.6rem; border:1px solid var(--line);
+    background:rgba(255,255,255,.04); color:#f5f5f5; font:inherit; font-size:.85rem;
+  }
+  .toolbar input[type="search"] { flex:1 1 14rem; min-width:10rem }
+  .toolbar select { flex:0 0 auto }
+  .toolbar .count { font-size:.8rem; color:var(--dim); margin-left:auto; white-space:nowrap }
+
+  table { width:100%; border-collapse:collapse; font-size:.85rem }
+  th { text-align:left; font-size:.65rem; text-transform:uppercase; letter-spacing:.1em;
+       color:var(--dim); padding:0 .7rem .5rem 0; border-bottom:1px solid var(--line); font-weight:600;
+       white-space:nowrap }
+  td { padding:.7rem .7rem .7rem 0; border-bottom:1px solid rgba(255,255,255,.05); vertical-align:top }
+  tbody tr:hover { background:rgba(255,255,255,.02) }
+  .name { font-weight:600; color:#fff }
+  .sub { display:block; font-size:.75rem; color:var(--dim); margin-top:.1rem }
+  .tag { display:inline-block; padding:.15rem .55rem; border-radius:999px; font-size:.72rem;
+         background:rgba(245,158,11,.12); color:var(--brand); border:1px solid rgba(245,158,11,.25);
+         margin:0 .25rem .25rem 0; white-space:nowrap }
+  .platform-tag { background:rgba(255,255,255,.08); color:#e4e4e7; border-color:var(--line) }
+  td.n, th.n { text-align:right; font-variant-numeric:tabular-nums }
+
+  .note { border-left:2px solid var(--brand); background:rgba(245,158,11,.07);
+          padding:.9rem 1.1rem; border-radius:0 .5rem .5rem 0; font-size:.85rem; margin-top:1rem }
+  .note.bad { border-left-color:#fb7185; background:rgba(251,113,133,.07) }
+  .note code { background:rgba(255,255,255,.1); padding:.1rem .35rem; border-radius:.25rem; font-size:.85em }
+  .note ol { margin:.5rem 0 0; padding-left:1.2rem } .note li { margin-bottom:.35rem }
+
+  .skel { height:1.4rem; border-radius:.3rem; background:rgba(255,255,255,.07);
+          animation:pulse 1.3s ease-in-out infinite; display:block }
+  @keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.8} }
+  @media (prefers-reduced-motion: reduce) { .skel { animation:none } }
+
+  .empty { text-align:center; padding:3rem 1rem; color:var(--dim) }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <p class="eyebrow">Admin</p>
+      <h1>Creator Database</h1>
+    </div>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+      <a class="btn" href="/admin/">← Editor</a>
+      <a class="btn" href="/admin/analytics.html">Analytics</a>
+      <a class="btn" id="sheetLink" href="#" target="_blank" rel="noopener">Sheet ↗</a>
+      <a class="btn primary" href="https://docs.google.com/forms/d/1TpWIb9R_tK-V-61BRPNFEIQBfw-RXfuHawl7r-CgYB0/viewform" target="_blank" rel="noopener">Open form ↗</a>
+    </div>
+  </header>
+
+  <p class="muted">Every submission to the Creator Database form, read live from the linked
+    Google Sheet. Nothing here can edit a response — do that in the Sheet itself, it stays
+    the source of truth.</p>
+
+  <div class="cards" id="cards">
+    <div class="card"><div class="k">Creators</div><div class="v"><span class="skel" style="width:3rem"></span></div></div>
+    <div class="card"><div class="k">Top platform</div><div class="v"><span class="skel" style="width:5rem"></span></div></div>
+    <div class="card"><div class="k">Top niche</div><div class="v"><span class="skel" style="width:5rem"></span></div></div>
+    <div class="card"><div class="k">Last submission</div><div class="v"><span class="skel" style="width:6rem"></span></div></div>
+  </div>
+
+  <section>
+    <div class="toolbar">
+      <input type="search" id="q" placeholder="Search name, city, handle, email…" />
+      <select id="fPlatform"><option value="">All platforms</option></select>
+      <select id="fNiche"><option value="">All niches</option></select>
+      <button class="btn" id="exportBtn" type="button">Export CSV</button>
+      <span class="count" id="resultCount"></span>
+    </div>
+    <div style="overflow-x:auto">
+      <table id="tbl">
+        <thead>
+          <tr>
+            <th>Creator</th>
+            <th>Platform</th>
+            <th>Niche</th>
+            <th class="n">Followers</th>
+            <th>Rate card</th>
+            <th>Submitted</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <tr><td colspan="6"><span class="skel" style="width:100%;height:2.5rem"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="empty" class="empty" hidden>No creators match this filter.</div>
+  </section>
+
+  <div id="errorNote"></div>
+
+  <p class="dim" style="margin-top:2rem">
+    Read only, live from Google Sheets. Figures come from <code>/api/influencers</code>,
+    which reads whatever is currently in the responses sheet — no snapshot, no delay.
+  </p>
+</div>
+
+<script type="module">
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+const nf = new Intl.NumberFormat('en-IN');
+
+const SETUP = `
+  <div class="note">
+    <strong>Not connected yet.</strong> Ten minutes, once — the full walkthrough is in
+    <code>redesign/update-46/APPLY.md</code>:
+    <ol>
+      <li>In Google Cloud, create (or reuse) a service account and enable the
+        <strong>Google Sheets API</strong>.</li>
+      <li>Open the <a id="setupSheetLink" href="#" target="_blank" rel="noopener">responses Sheet</a>,
+        click Share, and add the service account's email — it looks like
+        <code>something@your-project.iam.gserviceaccount.com</code> — as a <strong>Viewer</strong>.</li>
+      <li>In Vercel → Project → Settings → Environment Variables, add
+        <code>SHEETS_SERVICE_ACCOUNT</code> with the entire contents of the downloaded JSON key,
+        then redeploy.</li>
+    </ol>
+  </div>`;
+
+function renderCards(rows) {
+  const platformCounts = countBy(rows, (r) => r.platform);
+  const nicheCounts = countBy(rows.flatMap((r) => r.niche || []), (n) => n);
+  const topPlatform = topOf(platformCounts);
+  const topNiche = topOf(nicheCounts);
+  const last = rows.reduce((max, r) => (r.timestamp && (!max || r.timestamp > max) ? r.timestamp : max), '');
+
+  $('cards').innerHTML = [
+    ['Creators', nf.format(rows.length), rows.length === 1 ? 'response' : 'responses'],
+    ['Top platform', topPlatform ? topPlatform[0] : '—', topPlatform ? `${topPlatform[1]} creators` : ''],
+    ['Top niche', topNiche ? topNiche[0] : '—', topNiche ? `${topNiche[1]} creators` : ''],
+    ['Last submission', last ? fmtDate(last) : '—', ''],
+  ].map(([k, v, s]) => `<div class="card"><div class="k">${esc(k)}</div><div class="v">${esc(v)}</div><div class="s">${esc(s)}</div></div>`).join('');
+}
+
+function countBy(items, keyFn) {
+  const m = new Map();
+  for (const item of items) {
+    const k = keyFn(item);
+    if (!k) continue;
+    m.set(k, (m.get(k) || 0) + 1);
+  }
+  return m;
+}
+
+function topOf(map) {
+  let best = null;
+  for (const [k, v] of map) if (!best || v > best[1]) best = [k, v];
+  return best;
+}
+
+function fmtDate(ts) {
+  const d = new Date(ts);
+  if (Number.isNaN(d.getTime())) return ts;
+  return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+function populateFilters(rows) {
+  const platforms = [...new Set(rows.map((r) => r.platform).filter(Boolean))].sort();
+  const niches = [...new Set(rows.flatMap((r) => r.niche || []).filter(Boolean))].sort();
+  $('fPlatform').innerHTML = '<option value="">All platforms</option>' +
+    platforms.map((p) => `<option value="${esc(p)}">${esc(p)}</option>`).join('');
+  $('fNiche').innerHTML = '<option value="">All niches</option>' +
+    niches.map((n) => `<option value="${esc(n)}">${esc(n)}</option>`).join('');
+}
+
+function rowMatches(r, q, platform, niche) {
+  if (platform && r.platform !== platform) return false;
+  if (niche && !(r.niche || []).includes(niche)) return false;
+  if (!q) return true;
+  const hay = [r.name, r.city, r.handle, r.email, r.phone].join(' ').toLowerCase();
+  return hay.includes(q);
+}
+
+function renderTable(rows) {
+  const q = $('q').value.trim().toLowerCase();
+  const platform = $('fPlatform').value;
+  const niche = $('fNiche').value;
+  const filtered = rows.filter((r) => rowMatches(r, q, platform, niche));
+
+  $('resultCount').textContent = `${filtered.length} of ${rows.length}`;
+  $('empty').hidden = filtered.length !== 0;
+
+  $('tbody').innerHTML = filtered.map((r) => {
+    const handleLink = r.handle && /^https?:\/\//.test(r.handle)
+      ? `<a href="${esc(r.handle)}" target="_blank" rel="noopener">${esc(r.handle.replace(/^https?:\/\//, ''))}</a>`
+      : esc(r.handle || '—');
+    const niches = (r.niche || []).map((n) => `<span class="tag">${esc(n)}</span>`).join('') || '—';
+    return `<tr>
+      <td>
+        <span class="name">${esc(r.name || 'Unnamed')}</span>
+        <span class="sub">${esc(r.city || '')}${r.city && r.email ? ' · ' : ''}${esc(r.email || '')}</span>
+        <span class="sub">${handleLink}</span>
+      </td>
+      <td><span class="tag platform-tag">${esc(r.platform || '—')}</span></td>
+      <td>${niches}</td>
+      <td class="n">${esc(r.followers || '—')}</td>
+      <td>${esc(r.rateCard ? (r.rateCard.length > 60 ? r.rateCard.slice(0, 60) + '…' : r.rateCard) : '—')}</td>
+      <td>${r.timestamp ? esc(fmtDate(r.timestamp)) : '—'}</td>
+    </tr>`;
+  }).join('');
+
+  return filtered;
+}
+
+function toCSV(rows) {
+  const cols = ['timestamp', 'name', 'email', 'phone', 'city', 'platform', 'handle', 'followers', 'niche', 'rateCard', 'portfolio', 'notes'];
+  const cell = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`;
+  const lines = [cols.join(',')];
+  for (const r of rows) {
+    lines.push(cols.map((c) => cell(c === 'niche' ? (r.niche || []).join('; ') : r[c])).join(','));
+  }
+  return lines.join('\n');
+}
+
+let ALL_ROWS = [];
+
+function wireControls() {
+  $('q').addEventListener('input', () => renderTable(ALL_ROWS));
+  $('fPlatform').addEventListener('change', () => renderTable(ALL_ROWS));
+  $('fNiche').addEventListener('change', () => renderTable(ALL_ROWS));
+  $('exportBtn').addEventListener('click', () => {
+    const visible = renderTable(ALL_ROWS);
+    const blob = new Blob([toCSV(visible)], { type: 'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `creator-database-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+}
+
+fetch('/api/influencers', { cache: 'no-store' })
+  .then((r) => r.json())
+  .then((d) => {
+    $('sheetLink').href = d.sheetUrl || '#';
+    const setupLink = d.sheetUrl;
+
+    if (!d.ok) {
+      $('tbody').innerHTML = '';
+      $('cards').innerHTML = '';
+      const html = d.reason === 'not-configured'
+        ? SETUP
+        : `<div class="note bad"><strong>Could not load the responses.</strong> ${esc(d.message)}</div>`;
+      $('errorNote').innerHTML = html;
+      const link = document.getElementById('setupSheetLink');
+      if (link && setupLink) link.href = setupLink;
+      return;
+    }
+
+    ALL_ROWS = d.rows || [];
+    renderCards(ALL_ROWS);
+    populateFilters(ALL_ROWS);
+    wireControls();
+    renderTable(ALL_ROWS);
+  })
+  .catch((e) => {
+    $('errorNote').innerHTML = `<div class="note bad"><strong>Could not load /api/influencers.</strong> ${esc(e.message)}</div>`;
+  });
+</script>
+</body>
+</html>
