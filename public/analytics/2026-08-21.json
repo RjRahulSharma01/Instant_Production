@@ -1,0 +1,14 @@
+{
+  "date": "2026-08-21",
+  "takenAt": "2026-08-21T02:02:31.864Z",
+  "searchConsole": {
+    "ok": false,
+    "reason": "not-configured",
+    "message": "GSC_SERVICE_ACCOUNT and GSC_SITE_URL are not set."
+  },
+  "vercel": {
+    "ok": false,
+    "reason": "not-configured",
+    "message": "VERCEL_API_TOKEN and VERCEL_PROJECT_ID are not set."
+  }
+}
