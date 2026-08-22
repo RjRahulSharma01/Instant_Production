@@ -123,6 +123,10 @@ export default function Blog() {
                       <span className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-1 pt-5 text-xs text-zinc-500">
                         <span className="text-zinc-400">{author.name}</span>
                         <span aria-hidden="true">·</span>
+                        <time dateTime={post.date}>
+                          {new Date(post.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+                        </time>
+                        <span aria-hidden="true">·</span>
                         <span className="flex items-center gap-1.5">
                           <FiClock aria-hidden="true" />
                           {post.readingMinutes} min read
