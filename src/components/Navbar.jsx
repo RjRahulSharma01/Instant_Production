@@ -209,6 +209,31 @@ function Navbar({ items, light = false }) {
                   </Link>
                 </motion.div>
               ))}
+
+              {/* The desktop "Contact Us" pill lives outside `items` (see the
+                  comment in data/site.js) so it doesn't duplicate as a second
+                  entry in the desktop nav list. That pill is `hidden lg:flex`
+                  though, so on mobile it never renders at all and the menu
+                  had no route to Contact except scrolling to the footer.
+                  This is that same CTA, shown only inside the mobile menu. */}
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 28 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
+                }}
+                className="mt-4"
+              >
+                <Link
+                  to="/#contact"
+                  onClick={() => setOpen(false)}
+                  className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-lg font-semibold transition-colors duration-200 ${
+                    light ? 'border border-sky-600 bg-sky-600 text-white hover:bg-sky-700' : 'border border-brand/40 bg-brand/10 text-brand hover:bg-brand hover:text-black'
+                  }`}
+                >
+                  Contact Us
+                  <FiArrowUpRight />
+                </Link>
+              </motion.div>
             </motion.nav>
           </motion.div>
         )}
