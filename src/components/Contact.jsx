@@ -99,14 +99,6 @@ function Contact({ contactData }) {
               </dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-[0.2em] text-zinc-500">Phone</dt>
-              <dd className="mt-1">
-                <a href={`tel:+91${contactData.phone}`} className="text-zinc-200 transition hover:text-brand">
-                  +91 {contactData.phone}
-                </a>
-              </dd>
-            </div>
-            <div>
               <dt className="text-xs uppercase tracking-[0.2em] text-zinc-500">Studio</dt>
               <dd className="mt-1 text-zinc-200">{contactData.address}</dd>
             </div>
@@ -187,7 +179,7 @@ function Contact({ contactData }) {
                   <a href={mailtoHref()} className="underline decoration-rose-400/50 underline-offset-2 hover:text-rose-300">
                     email us directly
                   </a>{' '}
-                  or call {contactData.phone}.
+                  instead.
                 </span>
               )}
             </p>
@@ -199,27 +191,14 @@ function Contact({ contactData }) {
         <div className="flex flex-1 flex-col gap-4">
           <StudioWave className="w-full flex-1" />
 
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid gap-3 sm:grid-cols-1">
             <a
-              href={`https://wa.me/91${contactData.phone}`}
-              target="_blank"
-              rel="noreferrer"
+              href={`mailto:${contactData.email}`}
               className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 transition-all duration-300 ease-expo hover:border-brand/40 hover:bg-white/[0.08]"
             >
               <span>
-                <span className="block text-sm font-semibold text-white">WhatsApp</span>
-                <span className="block text-xs text-zinc-400">Fastest reply</span>
-              </span>
-              <span className="text-brand transition-transform duration-300 ease-expo group-hover:translate-x-1">→</span>
-            </a>
-
-            <a
-              href={`tel:+91${contactData.phone}`}
-              className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 transition-all duration-300 ease-expo hover:border-brand/40 hover:bg-white/[0.08]"
-            >
-              <span>
-                <span className="block text-sm font-semibold text-white">Call us</span>
-                <span className="block text-xs text-zinc-400">+91 {contactData.phone}</span>
+                <span className="block text-sm font-semibold text-white">Email us</span>
+                <span className="block text-xs text-zinc-400">{contactData.email}</span>
               </span>
               <span className="text-brand transition-transform duration-300 ease-expo group-hover:translate-x-1">→</span>
             </a>

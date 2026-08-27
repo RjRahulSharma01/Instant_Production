@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
-import { FiInstagram, FiLinkedin, FiYoutube, FiArrowUpRight, FiArrowUp } from 'react-icons/fi';
-import { FaWhatsapp } from 'react-icons/fa6';
+import { FiInstagram, FiLinkedin, FiYoutube, FiArrowUp } from 'react-icons/fi';
 import { cardIn, stagger, viewport, EASE } from '../lib/motion';
-import Magnetic from './fx/Magnetic';
 import Marquee from './fx/Marquee';
 
 /** Link that slides right and reveals an amber marker on hover. */
@@ -86,19 +84,6 @@ function Footer({ footerData, light = false }) {
             className="h-20 w-auto"
           />
           <p className={`mt-5 max-w-sm text-sm leading-7 ${light ? "text-slate-600" : "text-zinc-400"}`}>{footerData.tagline}</p>
-
-          <Magnetic strength={0.3}>
-            <a
-              href={`https://wa.me/${footerData.whatsapp}`}
-              target="_blank"
-              rel="noreferrer"
-              className="group mt-6 inline-flex items-center gap-3 rounded-full border border-[#25D366]/40 bg-[#25D366]/10 px-5 py-3 text-sm font-semibold text-[#25D366] transition-all duration-300 ease-expo hover:bg-[#25D366] hover:text-black"
-            >
-              <FaWhatsapp size={18} />
-              Chat on WhatsApp
-              <FiArrowUpRight className="transition-transform duration-300 ease-expo group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-          </Magnetic>
         </motion.div>
 
         <motion.div variants={cardIn}>
@@ -131,7 +116,6 @@ function Footer({ footerData, light = false }) {
             <span aria-hidden="true" className="h-px flex-1 bg-gradient-to-r from-brand/50 to-transparent" />
           </h3>
           <ul className="mt-5 space-y-2.5 text-sm">
-            <li><FooterLink href={`tel:+91${footerData.phone}`}>+91 {footerData.phone}</FooterLink></li>
             <li><FooterLink href={`mailto:${footerData.email}`}>{footerData.email}</FooterLink></li>
             <li className="pl-6 text-zinc-500">{footerData.address}</li>
           </ul>

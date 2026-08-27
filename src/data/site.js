@@ -91,9 +91,7 @@ export const aboutData = {
 };
 
 export const footerData = {
-  phone: '9821810933',
   email: 'instantproduction.in@gmail.com',
-  whatsapp: '919821810933',
   quickLinks: [
     { label: 'Home', to: '/' },
     { label: 'About', to: '/#about' },
@@ -116,7 +114,6 @@ export const footerData = {
 };
 
 export const contactData = {
-  phone: '9821810933',
   email: 'instantproduction.in@gmail.com',
   address: 'Sector-69, Noida',
   directorName: 'Rahul Sharma',
