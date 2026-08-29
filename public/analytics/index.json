@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-28T11:32:59.526Z",
+  "updated": "2026-08-29T07:11:45.973Z",
   "days": [
     {
       "date": "2026-08-18",
@@ -77,11 +77,18 @@
       "impressions": null,
       "ctr": null,
       "position": null
+    },
+    {
+      "date": "2026-08-29",
+      "clicks": null,
+      "impressions": null,
+      "ctr": null,
+      "position": null
     }
   ],
   "latest": {
-    "date": "2026-08-28",
-    "takenAt": "2026-08-28T11:32:59.525Z",
+    "date": "2026-08-29",
+    "takenAt": "2026-08-29T07:11:45.972Z",
     "searchConsole": {
       "ok": false,
       "reason": "not-configured",
