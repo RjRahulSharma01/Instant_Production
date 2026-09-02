@@ -1,7 +1,7 @@
 ---
 title: Only 2.7% of influencer ads survive ASCI review
 slug: asci-influencer-violations-fy26
-excerpt: ASCI processed 1,609 influencer ads in FY 2025-26. It asked for changes to 97.3% of them. Over half failed on category, not on a missing #ad.
+excerpt: "ASCI processed 1,609 influencer ads in FY 2025-26. It asked for changes to 97.3% of them. Over half failed on category, not on a missing #ad."
 category: Influencer Marketing
 banner: /images/blog/influencer-paid.webp
 bannerAlt: A stack of brand PR packages waiting to be couriered to creators
