@@ -3,8 +3,8 @@ title: When AI video is actually worth it (and when it is not)
 slug: ai-video-actually-worth-it
 excerpt: Generative video is cheap and fast, which makes it easy to use for the wrong brief. A practical test for deciding between AI and a real shoot.
 category: AI Video
-banner: /images/blog/ai-video-worth-it.webp
-bannerAlt: When AI video is actually worth it (and when it is not)
+banner: /images/blog/ai-video-actually-worth-it.webp
+bannerAlt: A film clapperboard half solid, half dissolving into flowing data particles
 publishAt: 2026-08-10
 tags: [AI Video, Production]
 keywords: [AI video production, AI vs traditional shoot, generative video for brands]
