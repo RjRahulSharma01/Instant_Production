@@ -3,9 +3,8 @@ title: The coaching ad claims that now carry a penalty
 slug: coaching-ad-claims-ccpa
 excerpt: The CCPA has fined 18 coaching institutes a total of Rs 54.6 lakh and issued 45 notices. Almost all of it comes down to three claims nobody needed to make.
 category: Content Strategy
-banner: https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDMyNDExfDB8MXxzZWFyY2h8Mnx8Y29hY2hpbmd8ZW58MHx8fHwxNzg2OTEyMjE2fDA&ixlib=rb-4.1.0&q=80&w=1080
-bannerAlt: A funnel narrowing from enquiries at the top to a small number of enrolments
-bannerCaption: ''
+banner: /images/blog/coaching-ad-claims-ccpa.webp
+bannerAlt: An abstract field of light representing scrutinised coaching advertising claims
 publishAt: 2026-08-17
 tags:
   - Education
