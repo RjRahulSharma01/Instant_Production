@@ -1,7 +1,7 @@
 ---
 title: SEBI's ad code makes 5 lakh followers a celebrity
 slug: sebi-ad-code-finfluencer-celebrity
-excerpt: SEBI's draft ad code, released 23 June 2026, counts any influencer above 5 lakh followers as a celebrity — and celebrity ads still need prior approval.
+excerpt: SEBI's draft ad code, released 23 June 2026, counts any influencer above 5 lakh followers as a celebrity, and celebrity ads still need prior approval.
 category: Influencer Marketing
 banner: /images/blog/influencer-paid.webp
 bannerAlt: A creator filming a sponsored segment on a phone rig at a desk
@@ -34,7 +34,7 @@ Right now, stock brokers, depository participants, investment advisers, research
 
 SEBI's definition of "advertisement" is deliberately wide: print, broadcast, digital and outdoor, with podcasts, streaming services, social media and online news sites named explicitly. A Reels partnership and a hoarding at Lower Parel are the same object under this code.
 
-For routine ads, pre-clearance goes away. Entities upload each ad or its link to a central portal within 24 hours of running it, and supervisory bodies — the exchanges, depositories and AMFI — review after the fact and flag violations to SEBI. Mutual funds already work this way.
+For routine ads, pre-clearance goes away. Entities upload each ad or its link to a central portal within 24 hours of running it, and supervisory bodies (the exchanges, depositories and AMFI) review after the fact and flag violations to SEBI. Mutual funds already work this way.
 
 ## The celebrity definition is the part that changes media plans
 
@@ -64,7 +64,7 @@ Most clients we work with in this space run a barbell: two or three large creato
 
 Two practical consequences we're already planning for.
 
-First, the brief changes shape. If the celebrity can only name the brand and list what it offers, the specific hook — the fee comparison, the feature walkthrough, the "here's how I use it" segment — has to move to a creator below the threshold, or into owned content. Splitting the message across tiers is now a compliance decision, not a creative one.
+First, the brief changes shape. If the celebrity can only name the brand and list what it offers, the specific hook, whether that is the fee comparison, the feature walkthrough or the "here's how I use it" segment, has to move to a creator below the threshold, or into owned content. Splitting the message across tiers is now a compliance decision, not a creative one.
 
 Second, follower count becomes a contract field. Campaign sheets that track engagement rate and CPM now need a per-platform follower snapshot, dated, attached to the agreement. The threshold gets crossed mid-campaign by anyone growing well.
 
@@ -75,11 +75,11 @@ Beyond celebrities, the code bans a list of things that show up in securities cr
 - Guaranteed, risk-free or assured-return claims. Only Online Bond Platform Providers may advertise fixed returns, and only with disclaimers.
 - Testimonials, and content that runs down rivals or makes unfair comparisons.
 - SEBI or Market Infrastructure Institution logos and imagery, unless permitted.
-- Incentives — vouchers, coupons, perks — that push trading, revive dormant accounts or drive app downloads.
+- Incentives such as vouchers, coupons and perks that push trading, revive dormant accounts or drive app downloads.
 
 Two more provisions change production rather than messaging. Any ad citing a specific security or scheme as an example must carry the disclaimer on the same page or in the same video frame, not at the end. And any rating, ranking or past-performance claim must come from a recognised Past Risk and Return Verification Agency (PaRRVA), with the ad explaining what the rating means and where the methodology sits.
 
-Dark patterns get an outright ban, tied to Annexure I of the CCPA's Dark Patterns Guidelines, 2023 — false urgency, forced action and subscription traps by name. SEBI can enforce that with onboarding halts, which is a sharper instrument than the fines the CCPA has issued so far.
+Dark patterns get an outright ban, tied to Annexure I of the CCPA's Dark Patterns Guidelines, 2023: false urgency, forced action and subscription traps by name. SEBI can enforce that with onboarding halts, which is a sharper instrument than the fines the CCPA has issued so far.
 
 ## This is the fourth layer on the same problem
 
@@ -88,21 +88,21 @@ The ad code is not a standalone move. SEBI has been narrowing this space for two
 - September 2024: regulated entities barred from associating with unregistered finfluencers, and told to terminate existing contracts.
 - March 2025: intermediaries required to advertise using the email ID and mobile number registered on SEBI's SI Portal, with Google and Meta verifying advertisers before ads publish. Contact details were to be updated by 30 April 2025.
 - 31 July 2025: Meta began enforcing SEBI verification for securities and investment ads targeting Indian users, displaying the beneficiary's name and SEBI registration number on the ad and retaining it in the Ad Library for up to seven years.
-- 1 May 2026: SEBI's disclosure circular took effect — registered name and registration number on the home page of the social handle, and at the start of every securities-related content piece.
+- 1 May 2026: SEBI's disclosure circular took effect, requiring registered name and registration number on the home page of the social handle, and at the start of every securities-related content piece.
 
 If you have already done the May 2026 disclosure work, the ad code is an extension of it rather than a new system. If you haven't, that one is live law today, not a draft.
 
 ## What to do this quarter
 
-The code is still a consultation paper. It has not been notified, and SEBI has proposed a six-month transition from notification, so nothing here bites before mid-2027 at the earliest on the current path. That's the honest caveat — and also the reason to move now rather than later.
+The code is still a consultation paper. It has not been notified, and SEBI has proposed a six-month transition from notification, so nothing here bites before mid-2027 at the earliest on the current path. That's the honest caveat, and also the reason to move now rather than later.
 
 Three things worth doing while it's cheap:
 
 1. Pull a follower snapshot for every creator on your roster, per platform, and mark who sits above 5 lakh on any single handle. That list is your future approval queue.
-2. Rewrite the standard creator brief into two versions — a brand-level script for above-threshold creators, and a product-level script for everyone else. You will need both regardless of how the final code lands.
+2. Rewrite the standard creator brief into two versions: a brand-level script for above-threshold creators, and a product-level script for everyone else. You will need both regardless of how the final code lands.
 3. Audit any AI presenter or virtual host you use. If the draft holds, that avatar is a celebrity, and nobody's workflow currently treats it as one.
 
-The gap SEBI hasn't closed is the obvious one. The code binds regulated entities, so it reaches a finfluencer only when a regulated firm pays for or engages them. The unpaid account hyping a smallcap on its own remains outside it — the same gap Meta's verification policy left open. Compliance here protects your client's licence. It does not clean up the category.
+The gap SEBI hasn't closed is the obvious one. The code binds regulated entities, so it reaches a finfluencer only when a regulated firm pays for or engages them. The unpaid account hyping a smallcap on its own remains outside it, the same gap Meta's verification policy left open. Compliance here protects your client's licence. It does not clean up the category.
 
 If you're planning creator campaigns for a SEBI-regulated brand, our [influencer marketing](/services/influencer-marketing) and [fintech](/industries/fintech) teams can pressure-test the roster against these thresholds. Our breakdown of [ASCI's FY26 influencer numbers](/blog/asci-influencer-violations-fy26) covers the disclosure side of the same problem.
 
