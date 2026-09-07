@@ -3,8 +3,8 @@ title: Content pillars are not categories
 slug: content-pillars-that-work
 excerpt: Most content pillar exercises produce a list of topics and change nothing. What makes a pillar actually useful is a claim you can defend.
 category: Content Strategy
-banner: /images/blog/content-pillars.webp
-bannerAlt: Content pillars are not categories
+banner: /images/blog/content-pillars-that-work.webp
+bannerAlt: Three architectural columns built from stacked glowing content cards
 publishAt: 2026-08-10
 tags: [Content Strategy, Social]
 keywords: [content pillars, content strategy framework, B2B content planning]
