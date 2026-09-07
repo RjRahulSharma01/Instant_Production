@@ -27,7 +27,7 @@ If your AI video pipeline can produce a recognisable human face or a recognisabl
 
 ## The eight orders
 
-Every one of these is an interim order — granted fast, often ex parte, mostly against unnamed John Doe defendants plus the platforms carrying the content.
+Every one of these is an interim order, granted fast, often ex parte, mostly against unnamed John Doe defendants plus the platforms carrying the content.
 
 | Order | Court | Month | What was restrained |
 | --- | --- | --- | --- |
@@ -44,19 +44,19 @@ The Ravi Kishan order, decided on 2 July 2026 by Justice Jyoti Singh, is the one
 
 ## What the courts decided a persona includes
 
-The Allu Arjun order is the most instructive for anyone briefing an AI video shoot, because the court enumerated what it was protecting. Not just the name and the face. It listed iconic dialogues, the "Thaggede Le" hand movement, dance style, mannerisms and vocal delivery — and noted he had registered trademarks over his name and associated marks under the Trade Marks Act, 1999.
+The Allu Arjun order is the most instructive for anyone briefing an AI video shoot, because the court enumerated what it was protecting. Not just the name and the face. It listed iconic dialogues, the "Thaggede Le" hand movement, dance style, mannerisms and vocal delivery, and noted he had registered trademarks over his name and associated marks under the Trade Marks Act, 1999.
 
 So the workaround most teams reach for first does not work. Generating a face that is *nearly* the celebrity, or a voice that is *evocative of* the celebrity, or a gesture the audience will read as the celebrity, is the thing being restrained. The Delhi High Court in the Goenka matter listed the technologies by name in its injunction: artificial intelligence, generative AI, machine learning, deepfakes, AI chatbots, face morphing, superimposition.
 
-The court in that same matter also drew a line on parody. Caricature and lampooning stay protected speech. Content that is defamatory, misleading or commercially exploitative does not get to shelter under artistic expression. For an advertiser this distinction is close to useless in practice — an ad is commercial by definition, so the parody defence was never available to you.
+The court in that same matter also drew a line on parody. Caricature and lampooning stay protected speech. Content that is defamatory, misleading or commercially exploitative does not get to shelter under artistic expression. For an advertiser this distinction is close to useless in practice, because an ad is commercial by definition, so the parody defence was never available to you.
 
 ## Where the brand's own liability sits
 
 Most of these suits target impersonators, scam operators and porn sites, not brands. That has made a lot of marketing teams read the coverage and file it under someone else's problem. It is not.
 
-ASCI's draft AI disclosure guidelines, released for consultation until 13 June 2026, place "using a person's likeness or voice without consent" in the high-risk tier — the tier where an AI label does not cure the violation. The content has to be withdrawn or restructured. Fabricated endorsements, fabricated testimonials and AI-generated fake authority figures (the invented doctor recommending a supplement) sit in the same bucket.
+ASCI's draft AI disclosure guidelines, released for consultation until 13 June 2026, place "using a person's likeness or voice without consent" in the high-risk tier, the tier where an AI label does not cure the violation. The content has to be withdrawn or restructured. Fabricated endorsements, fabricated testimonials and AI-generated fake authority figures (the invented doctor recommending a supplement) sit in the same bucket.
 
-The consent case is the one people get wrong. Get a signed release and you move out of the prohibited tier — but replicating a real person's likeness or voice with AI lands in medium risk, which carries a mandatory, prominent disclosure. Consent changes which rule applies. It does not remove the rule.
+The consent case is the one people get wrong. Get a signed release and you move out of the prohibited tier, but replicating a real person's likeness or voice with AI lands in medium risk, which carries a mandatory, prominent disclosure. Consent changes which rule applies. It does not remove the rule.
 
 > Consent is what keeps you out of court. It is not what keeps you out of the label.
 
@@ -78,7 +78,7 @@ None of this slows a shoot down meaningfully. It adds a column to the asset trac
 
 These are interim orders, not final judgments. Several were granted ex parte, meaning the court heard one side. None of them has been tested on appeal yet, and an interim injunction is not a statement of settled law. Someone reading this in 2027 may find the scope has narrowed.
 
-But the direction is not ambiguous, and the practical exposure does not depend on the law settling. A John Doe order plus a 72-hour platform takedown obligation means a campaign can be pulled off Meta and YouTube while the legal question is still open. For a brand mid-flight on a launch, that is the damage — not the eventual ruling.
+But the direction is not ambiguous, and the practical exposure does not depend on the law settling. A John Doe order plus a 72-hour platform takedown obligation means a campaign can be pulled off Meta and YouTube while the legal question is still open. For a brand mid-flight on a launch, that is the damage, not the eventual ruling.
 
 ## What to do this week
 
@@ -88,7 +88,7 @@ Then fix the intake, not the archive. The cheapest version of this problem is a 
 
 Sources:
 
-- [Delhi High Court Protects Ravi Kishan's Personality Rights; Restrains AI-Generated Deepfakes — SCC Online](https://www.scconline.com/blog/post/2026/07/09/delhi-high-court-protects-ravi-kishans-personality-rights-restrains-ai-generated-deepfakes/)
-- [Personality Rights in the Digital Age: Delhi High Court Strengthens Protection Against AI Misuse — King Stubb & Kasiva](https://ksandk.com/newsletter/personality-rights-in-india/)
-- [AI In Advertising: ASCI's New Draft Disclosure Guidelines — Global Advertising Lawyers Alliance via Mondaq](https://www.mondaq.com/india/advertising-marketing-branding/1790884/ai-in-advertising-ascis-new-draft-disclosure-guidelines)
-- [Bombay HC Permits Preity Zinta to Seek Injunction to Protect Her Personality Rights from AI and Digital Misuse — SCC Online](https://www.scconline.com/blog/post/2026/06/18/bom-hc-preity-zinta-personality-rights-case-ai-deep-fakes/)
+- [Delhi High Court Protects Ravi Kishan's Personality Rights; Restrains AI-Generated Deepfakes, SCC Online](https://www.scconline.com/blog/post/2026/07/09/delhi-high-court-protects-ravi-kishans-personality-rights-restrains-ai-generated-deepfakes/)
+- [Personality Rights in the Digital Age: Delhi High Court Strengthens Protection Against AI Misuse, King Stubb & Kasiva](https://ksandk.com/newsletter/personality-rights-in-india/)
+- [AI In Advertising: ASCI's New Draft Disclosure Guidelines, Global Advertising Lawyers Alliance via Mondaq](https://www.mondaq.com/india/advertising-marketing-branding/1790884/ai-in-advertising-ascis-new-draft-disclosure-guidelines)
+- [Bombay HC Permits Preity Zinta to Seek Injunction to Protect Her Personality Rights from AI and Digital Misuse, SCC Online](https://www.scconline.com/blog/post/2026/06/18/bom-hc-preity-zinta-personality-rights-case-ai-deep-fakes/)
