@@ -3,8 +3,8 @@ title: A university name in your ad is not approval
 slug: ugc-edtech-franchise-degree-ads
 excerpt: UGC says degrees sold through EdTech-university franchise tie-ups carry no recognition. If your ads imply otherwise, the exposure is yours too.
 category: Performance Marketing
-banner: /images/blog/coaching-admissions-claims.webp
-bannerAlt: A student comparing online course options on a laptop
+banner: /images/blog/ugc-edtech-franchise-degree-ads.webp
+bannerAlt: A graduation cap and certificate dissolving into digital pixels and browser windows
 publishAt: 2026-09-07
 tags:
   - Education
