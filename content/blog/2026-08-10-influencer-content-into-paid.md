@@ -3,8 +3,8 @@ title: The influencer mistake that wastes the whole budget
 slug: influencer-content-into-paid
 excerpt: Brands run creator campaigns, get good organic numbers, then discover they cannot legally use the best content in ads. Fix it in the brief.
 category: Influencer Marketing
-banner: /images/blog/influencer-paid.webp
-bannerAlt: The influencer mistake that wastes the whole budget
+banner: /images/blog/influencer-content-into-paid.webp
+bannerAlt: A vertical phone video clip wrapped in a chain and padlock, held back from an empty amplifier cone beside it
 publishAt: 2026-08-10
 tags: [Influencer Marketing, Paid Social]
 keywords: [influencer marketing, UGC usage rights, whitelisting, creator content paid ads]
