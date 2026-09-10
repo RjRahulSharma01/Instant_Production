@@ -1,5 +1,5 @@
 ---
-title: Your #Ad tag fails on duration, not wording
+title: "Your #Ad tag fails on duration, not wording"
 slug: ad-tag-duration-placement-asci
 excerpt: ASCI permits ten disclosure labels, Collaboration and Partnership among them. What breaks compliance is how long the label stays on screen and where it sits.
 category: Influencer Marketing
