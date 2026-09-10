@@ -3,8 +3,8 @@ title: What a doctor in India can actually publish
 slug: nmc-safe-content-for-doctors
 excerpt: The NMC does not ban doctors from marketing. It bans soliciting patients and claiming outcomes. The gap between those two things is where all the useful work sits.
 category: Content Strategy
-banner: /images/blog/healthcare-content-nmc.webp
-bannerAlt: A gate separating content that passes compliance review from content that is stopped
+banner: /images/blog/nmc-safe-content-for-doctors.webp
+bannerAlt: A coiled stethoscope and a small brass padlock resting on a blank prescription pad under warm amber light
 bannerCaption: ''
 publishAt: 2026-08-20
 tags:
