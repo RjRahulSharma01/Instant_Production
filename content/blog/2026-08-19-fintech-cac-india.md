@@ -3,9 +3,8 @@ title: Why fintech CAC keeps climbing in India
 slug: fintech-cac-india
 excerpt: Cost per lead for a mid-market lending app crossed Rs 1400 this year. Most of the rise is not competition. It is the compliance layer arriving.
 category: Performance Marketing
-banner: https://images.unsplash.com/photo-1737703638422-2cfa152cdcb7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDMyNDExfDB8MXxzZWFyY2h8MTZ8fGZpbnRlY2h8ZW58MHx8fHwxNzg2OTEyMzk4fDA&ixlib=rb-4.1.0&q=80&w=1080
-bannerAlt: A cost curve rising steeply with a widening band of uncertainty around it
-bannerCaption: ''
+banner: /images/blog/fintech-cac-india.webp
+bannerAlt: A brass funnel catching a heavy stream of glowing amber coins while a clamp pinches its neck, letting only a few coins drop out
 publishAt: 2026-08-19
 tags:
   - Fintech
