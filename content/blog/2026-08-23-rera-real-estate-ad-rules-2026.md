@@ -3,9 +3,8 @@ title: What a real estate ad can actually show now
 slug: rera-real-estate-ad-rules-2026
 excerpt: RERA now bans vague amenity claims and requires a registration number and QR code on every ad, every platform. Most live campaigns would fail it.
 category: Content Strategy
-banner: https://images.unsplash.com/photo-1596901224267-67ca38199090?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080
-bannerAlt: A modern residential apartment building exterior
-bannerCaption: 'Photo by Aman Ravi on Unsplash'
+banner: /images/blog/rera-real-estate-ad-rules-2026.webp
+bannerAlt: A heavy brass stamp pressed into the corner of a glossy property brochure showing a half-built apartment tower
 publishAt: 2026-08-23
 tags:
   - Real Estate
