@@ -3,9 +3,8 @@ title: AI video ads in India now need a label
 slug: ai-video-ad-labelling-india
 excerpt: The IT Amendment Rules 2026 took effect on 20 February and ASCI's draft labelling guidelines landed in May. Both change what an AI ad can look like.
 category: AI Video
-banner: /images/blog/ai-video-worth-it.webp
-bannerAlt: A video timeline with a disclosure label overlaid on the frame
-bannerCaption: ''
+banner: /images/blog/ai-video-ad-labelling-india.webp
+bannerAlt: A brass rubber stamp standing beside a flat video frame panel with a pressed amber wax seal set into one corner
 publishAt: 2026-08-26
 tags:
   - AI Video
