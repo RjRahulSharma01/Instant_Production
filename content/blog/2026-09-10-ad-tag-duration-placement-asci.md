@@ -4,7 +4,7 @@ slug: ad-tag-duration-placement-asci
 excerpt: ASCI permits ten disclosure labels, Collaboration and Partnership among them. What breaks compliance is how long the label stays on screen and where it sits.
 category: Influencer Marketing
 banner: /images/blog/ad-tag-duration-placement-asci.webp
-bannerAlt: A brass hourglass standing at one end of a long glass rail whose first third glows amber while the rest stays dark
+bannerAlt: An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents
 publishAt: 2026-09-10
 tags:
   - Influencer Marketing
