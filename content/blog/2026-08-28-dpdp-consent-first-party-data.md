@@ -3,9 +3,8 @@ title: The consent deadline that resets your audiences
 slug: dpdp-consent-first-party-data
 excerpt: India's consent manager framework opens 13 November 2026. Every retargeting pool built on consent you cannot evidence has to be rebuilt before then.
 category: Performance Marketing
-banner: https://images.unsplash.com/photo-1584433144859-1fc3ab64a957?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080
-bannerAlt: A smartphone showing a security lock icon on a wooden desk
-bannerCaption: 'Photo by Dan Nelson on Unsplash'
+banner: /images/blog/dpdp-consent-first-party-data.webp
+bannerAlt: An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents
 publishAt: 2026-08-28
 tags:
   - Performance Marketing
