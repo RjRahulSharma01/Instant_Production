@@ -3,9 +3,8 @@ title: Loan apps now have to show rival offers
 slug: loan-aggregator-digital-view-rbi
 excerpt: Para 6 of the RBI Digital Lending Directions took effect on 1 November 2025. A multi-lender loan app must now show every matching offer, not one.
 category: Performance Marketing
-banner: /images/blog/fintech-cac-trust.webp
-bannerAlt: A loan comparison screen showing several lender offers side by side
-bannerCaption: ''
+banner: /images/blog/loan-aggregator-digital-view-rbi.webp
+bannerAlt: An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents
 publishAt: 2026-09-02
 tags:
   - Fintech
