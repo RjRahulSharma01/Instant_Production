@@ -26,7 +26,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageStat, ImageEnhance
 
 W, H = 1200, 630
 AMBER, INK = (245, 158, 11), (5, 5, 5)
-PAD, LOGO_W = 52, 176
+PAD, LOGO_W = 40, 104
 CACHE = "/tmp/ip-banner-assets"
 LOGO_URL = "https://raw.githubusercontent.com/RjRahulSharma01/Instant_Production/main/public/brand/logo-light-800.png"
 
@@ -96,11 +96,11 @@ def build(base_path, out_path, seed_text=""):
 
     side = quieter_corner(canvas, LOGO_W, logo.height)
     lx = PAD if side == "left" else W - PAD - LOGO_W
-    ly = PAD - 8
+    ly = PAD - 4
 
     # Soft dark halo so the logo holds against bright or busy artwork
     halo = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    mask = logo.split()[3].filter(ImageFilter.GaussianBlur(22)).point(lambda p: min(255, int(p * 1.7)))
+    mask = logo.split()[3].filter(ImageFilter.GaussianBlur(16)).point(lambda p: min(255, int(p * 1.6)))
     halo.paste(Image.new("RGBA", logo.size, INK + (255,)), (lx, ly), mask)
     canvas = Image.alpha_composite(canvas.convert("RGBA"), halo).convert("RGB")
     canvas.paste(logo, (lx, ly), logo)
