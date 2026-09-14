@@ -3,9 +3,8 @@ title: The checkout copy that cost PhysicsWallah Rs 5 lakh
 slug: ccpa-dark-patterns-checkout-copy
 excerpt: CCPA fined PhysicsWallah Rs 5 lakh and McAfee Rs 1 lakh in 2026 for interface copy. Both fixed the design before the order landed. Both paid anyway.
 category: Content Strategy
-banner: /images/blog/d2c-margin-after-everyone.webp
-bannerAlt: A checkout screen with a pre-ticked add-on charge highlighted
-bannerCaption: ''
+banner: /images/blog/ccpa-dark-patterns-checkout-copy.webp
+bannerAlt: An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents
 publishAt: 2026-08-29
 tags:
   - Content Strategy
