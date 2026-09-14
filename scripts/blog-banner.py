@@ -44,23 +44,76 @@ def logo_asset():
 
 
 def procedural(seed_text):
-    """On-brand abstract backdrop used when no AI base image is available."""
+    """On-brand abstract backdrop used when no AI base image is available.
+
+    The seed selects one of several distinct motif families, plus its own
+    bloom position, palette temperature and density, so two different posts
+    never land on the same-looking pattern.
+    """
     rnd = random.Random(seed_text or "instant")
+    palette = rnd.choice([(245, 158, 11), (251, 191, 36), (217, 119, 6), (252, 211, 77)])
     im = Image.new("RGB", (W, H), INK)
     d = ImageDraw.Draw(im, "RGBA")
-    cx, cy = int(W * (0.42 + rnd.random() * 0.24)), int(H * (0.42 + rnd.random() * 0.2))
-    for r in range(470, 0, -6):
-        d.ellipse([cx - r, cy - int(r * .8), cx + r, cy + int(r * .8)],
-                  fill=AMBER + (int(30 * (1 - r / 470) ** 2.2),))
-    for _ in range(60):
-        s = rnd.randint(14, 92)
-        x, y = int(rnd.gauss(cx, 230)), int(rnd.gauss(cy, 175))
-        d.rounded_rectangle([x, y, x + s, y + int(s * .62)], radius=6,
-                            outline=AMBER + (rnd.randint(20, 135),), width=2)
-    for _ in range(220):
-        x, y = int(rnd.gauss(cx, 280)), int(rnd.gauss(cy, 215))
+    cx = int(W * rnd.choice([0.26, 0.34, 0.66, 0.74]))
+    cy = int(H * (0.34 + rnd.random() * 0.34))
+    rx = rnd.randint(300, 450)
+
+    # Radial bloom, squashed by a seed-dependent amount
+    sq = 0.58 + rnd.random() * 0.42
+    for r in range(rx, 0, -5):
+        a = int(22 * (1 - r / rx) ** 2.4)
+        d.ellipse([cx - r, cy - int(r * sq), cx + r, cy + int(r * sq)], fill=palette + (a,))
+
+    motif = rnd.randrange(6)
+
+    if motif == 0:                                   # concentric arcs
+        for i in range(rnd.randint(9, 16)):
+            r = 70 + i * rnd.randint(26, 44)
+            d.arc([cx - r, cy - int(r * sq), cx + r, cy + int(r * sq)],
+                  rnd.randint(-40, 40), rnd.randint(150, 250),
+                  fill=palette + (rnd.randint(30, 150),), width=rnd.randint(1, 3))
+    elif motif == 1:                                 # diagonal light streaks
+        for _ in range(rnd.randint(16, 26)):
+            x = rnd.randint(-300, W)
+            ln = rnd.randint(180, 620)
+            d.line([x, H + 40, x + ln, -40], fill=palette + (rnd.randint(16, 90),),
+                   width=rnd.randint(1, 4))
+    elif motif == 2:                                 # drifting rounded shards
+        for _ in range(rnd.randint(40, 70)):
+            s = rnd.randint(14, 92)
+            x, y = int(rnd.gauss(cx, 240)), int(rnd.gauss(cy, 180))
+            d.rounded_rectangle([x, y, x + s, y + int(s * .62)], radius=6,
+                                outline=palette + (rnd.randint(20, 135),), width=2)
+    elif motif == 3:                                 # triangular shard field
+        for _ in range(rnd.randint(24, 44)):
+            x, y = int(rnd.gauss(cx, 250)), int(rnd.gauss(cy, 185))
+            s = rnd.randint(18, 86)
+            d.polygon([(x, y), (x + s, y + int(s * .3)), (x + int(s * .35), y + s)],
+                      outline=palette + (rnd.randint(25, 140),))
+    elif motif == 4:                                 # vertical bar field
+        x = rnd.randint(-40, 60)
+        while x < W:
+            bw = rnd.randint(5, 15)
+            bh = int(abs(rnd.gauss(0, 190)) * (1.25 - abs(x - cx) / W))
+            if bh > 8:
+                d.rectangle([x, cy + int(rx * sq * .35) - bh, x + bw, cy + int(rx * sq * .35)],
+                            fill=palette + (rnd.randint(22, 120),))
+            x += bw + rnd.randint(10, 30)
+    else:                                            # node lattice
+        pts = [(int(rnd.gauss(cx, 250)), int(rnd.gauss(cy, 180))) for _ in range(rnd.randint(14, 22))]
+        for i, p in enumerate(pts):
+            for q in pts[i + 1:]:
+                if abs(p[0] - q[0]) + abs(p[1] - q[1]) < 210:
+                    d.line([p, q], fill=palette + (rnd.randint(14, 60),), width=1)
+        for p in pts:
+            s = rnd.randint(4, 11)
+            d.ellipse([p[0] - s, p[1] - s, p[0] + s, p[1] + s], fill=palette + (rnd.randint(90, 220),))
+
+    for _ in range(rnd.randint(140, 260)):           # dust
+        x, y = int(rnd.gauss(cx, 290)), int(rnd.gauss(cy, 220))
         s = rnd.randint(1, 4)
-        d.ellipse([x, y, x + s, y + s], fill=AMBER + (rnd.randint(60, 210),))
+        d.ellipse([x, y, x + s, y + s], fill=palette + (rnd.randint(60, 210),))
+
     return im.filter(ImageFilter.GaussianBlur(0.4))
 
 
