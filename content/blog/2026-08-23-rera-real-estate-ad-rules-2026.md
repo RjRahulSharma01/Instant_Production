@@ -4,7 +4,7 @@ slug: rera-real-estate-ad-rules-2026
 excerpt: RERA now bans vague amenity claims and requires a registration number and QR code on every ad, every platform. Most live campaigns would fail it.
 category: Content Strategy
 banner: /images/blog/rera-real-estate-ad-rules-2026.webp
-bannerAlt: A heavy brass stamp pressed into the corner of a glossy property brochure showing a half-built apartment tower
+bannerAlt: An architectural blueprint sheet unrolled on a dark surface with a small square cut cleanly out of one corner
 publishAt: 2026-08-23
 tags:
   - Real Estate
