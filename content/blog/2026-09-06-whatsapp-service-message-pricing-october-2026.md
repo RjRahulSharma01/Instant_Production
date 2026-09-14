@@ -3,9 +3,8 @@ title: WhatsApp's free reply window closes on 1 October
 slug: whatsapp-service-message-pricing-october-2026
 excerpt: From 1 October 2026, every free-text reply your team sends inside WhatsApp's 24-hour window becomes billable. Support-heavy brands should re-model now.
 category: Content Strategy
-banner: https://images.unsplash.com/photo-1661082567779-4fd2e1cb7662?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080
-bannerAlt: A person reading a chat thread on a smartphone
-bannerCaption: 'Photo by Ravi Sharma on Unsplash'
+banner: /images/blog/whatsapp-service-message-pricing-october-2026.webp
+bannerAlt: An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents
 publishAt: 2026-09-06
 tags:
   - Content Strategy
