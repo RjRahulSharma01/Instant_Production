@@ -4,7 +4,7 @@ slug: trai-140-1600-outbound-lead-calls
 excerpt: TRAI reserved the 1600 series for BFSI service calls to existing customers. Every outbound sales call your team makes belongs on 140, where DND applies.
 category: Performance Marketing
 banner: /images/blog/trai-140-1600-outbound-lead-calls.webp
-bannerAlt: Two brass telephone handsets on a dark surface, one connected by a clean amber cord and the other with its cord severed mid-air
+bannerAlt: An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents
 publishAt: 2026-09-13
 tags:
   - Performance Marketing
