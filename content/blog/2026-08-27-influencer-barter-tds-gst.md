@@ -3,9 +3,8 @@ title: The tax bill hiding in your barter deals
 slug: influencer-barter-tds-gst
 excerpt: Section 194R became Section 393(1) on 1 April 2026. Send a creator Rs 20,000 of product they keep, and 10% TDS is due before it ships.
 category: Influencer Marketing
-banner: /images/blog/influencer-paid.webp
-bannerAlt: A stack of brand PR packages waiting to be couriered to creators
-bannerCaption: ''
+banner: /images/blog/influencer-barter-tds-gst.webp
+bannerAlt: An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents
 publishAt: 2026-08-27
 tags:
   - Influencer Marketing
