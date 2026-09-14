@@ -3,9 +3,8 @@ title: Country of origin is now a filter, not a label
 slug: coo-filter-ecommerce-listings-2026
 excerpt: Rule 6(10A) took effect on 1 July 2026. Every imported product you list must now be findable through a country-of-origin filter, not just a label line.
 category: Content Strategy
-banner: /images/blog/d2c-margin-after-everyone.webp
-bannerAlt: Packaged retail products lined up for online listing photography
-bannerCaption: ''
+banner: /images/blog/coo-filter-ecommerce-listings-2026.webp
+bannerAlt: An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents
 publishAt: 2026-09-03
 tags:
   - Content Strategy
