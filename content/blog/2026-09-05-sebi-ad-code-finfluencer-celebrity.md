@@ -3,9 +3,8 @@ title: SEBI's ad code makes 5 lakh followers a celebrity
 slug: sebi-ad-code-finfluencer-celebrity
 excerpt: SEBI's draft ad code, released 23 June 2026, counts any influencer above 5 lakh followers as a celebrity, and celebrity ads still need prior approval.
 category: Influencer Marketing
-banner: /images/blog/influencer-paid.webp
-bannerAlt: A creator filming a sponsored segment on a phone rig at a desk
-bannerCaption: ''
+banner: /images/blog/sebi-ad-code-finfluencer-celebrity.webp
+bannerAlt: An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents
 publishAt: 2026-09-05
 tags:
   - Influencer Marketing
