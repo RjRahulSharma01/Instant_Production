@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-20T05:03:22.153Z",
+  "updated": "2026-09-21T05:09:14.238Z",
   "days": [
     {
       "date": "2026-08-18",
@@ -238,11 +238,18 @@
       "impressions": null,
       "ctr": null,
       "position": null
+    },
+    {
+      "date": "2026-09-21",
+      "clicks": null,
+      "impressions": null,
+      "ctr": null,
+      "position": null
     }
   ],
   "latest": {
-    "date": "2026-09-20",
-    "takenAt": "2026-09-20T05:03:22.151Z",
+    "date": "2026-09-21",
+    "takenAt": "2026-09-21T05:09:14.237Z",
     "searchConsole": {
       "ok": false,
       "reason": "not-configured",
