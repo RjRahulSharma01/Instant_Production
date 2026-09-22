@@ -4,7 +4,7 @@ slug: ai-likeness-injunctions-india-2026
 excerpt: Delhi and Bombay High Courts issued at least eight AI likeness injunctions between February and July 2026. Not one of them needed a new statute.
 category: AI Video
 banner: /images/blog/ai-likeness-injunctions-india-2026.webp
-bannerAlt: An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents
+bannerAlt: "An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents"
 publishAt: 2026-09-03
 tags:
   - AI Video

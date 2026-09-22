@@ -4,7 +4,7 @@ slug: nmc-safe-content-for-doctors
 excerpt: The NMC does not ban doctors from marketing. It bans soliciting patients and claiming outcomes. The gap between those two things is where all the useful work sits.
 category: Content Strategy
 banner: /images/blog/nmc-safe-content-for-doctors.webp
-bannerAlt: An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents
+bannerAlt: "An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents"
 publishAt: 2026-08-20
 tags:
   - Healthcare

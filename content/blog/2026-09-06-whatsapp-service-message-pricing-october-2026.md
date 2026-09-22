@@ -4,7 +4,7 @@ slug: whatsapp-service-message-pricing-october-2026
 excerpt: From 1 October 2026, every free-text reply your team sends inside WhatsApp's 24-hour window becomes billable. Support-heavy brands should re-model now.
 category: Content Strategy
 banner: /images/blog/whatsapp-service-message-pricing-october-2026.webp
-bannerAlt: An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents
+bannerAlt: "An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents"
 publishAt: 2026-09-06
 tags:
   - Content Strategy

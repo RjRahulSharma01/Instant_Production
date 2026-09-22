@@ -4,7 +4,7 @@ slug: asci-influencer-violations-fy26
 excerpt: "ASCI processed 1,609 influencer ads in FY 2025-26. It asked for changes to 97.3% of them. Over half failed on category, not on a missing #ad."
 category: Influencer Marketing
 banner: /images/blog/asci-influencer-violations-fy26.webp
-bannerAlt: An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents
+bannerAlt: "An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents"
 publishAt: 2026-09-02
 tags:
   - Influencer Marketing

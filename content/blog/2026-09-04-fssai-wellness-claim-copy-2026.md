@@ -4,7 +4,7 @@ slug: fssai-wellness-claim-copy-2026
 excerpt: FSSAI told every food business to stop using "100%" in May 2025. AYUSH restricted ashwagandha to root only in 2026. Most wellness ad copy still hasn't moved.
 category: Performance Marketing
 banner: /images/blog/fssai-wellness-claim-copy-2026.webp
-bannerAlt: An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents
+bannerAlt: "An abstract Instant Production backdrop: an amber bloom on near-black charcoal with drifting geometric accents"
 publishAt: 2026-09-04
 tags:
   - Performance Marketing
