@@ -1,11 +1,12 @@
 import { useCallback } from 'react';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiArrowLeft, FiArrowRight, FiArrowUpRight, FiClock, FiRefreshCw } from 'react-icons/fi';
+import { FiArrowLeft, FiArrowRight, FiArrowUpRight, FiClock, FiEye, FiRefreshCw } from 'react-icons/fi';
 import CtaBand from '../components/CtaBand';
 import { useSeo, SITE_URL } from '../lib/seo';
 import { cardIn, fadeUp, stagger, viewport } from '../lib/motion';
 import { author, getPost, publishedPosts } from '../data/blog';
+import { useViews, VIEW_THRESHOLD } from '../lib/useViews';
 
 /* Blocks arrive pre-rendered as HTML strings from scripts/build-blog.mjs, which
    escapes the author's text before adding its own tags. The content is
@@ -171,6 +172,7 @@ export default function BlogPost() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const post = getPost(slug);
+  const views = useViews(slug, Boolean(post));
 
   useSeo({
     title: post?.metaTitle || post?.title,
@@ -280,6 +282,14 @@ export default function BlogPost() {
               </time>
               <span aria-hidden="true">·</span>
               <span className="flex items-center gap-1.5"><FiClock aria-hidden="true" />{post.readingMinutes} min read</span>
+              {views !== null && views >= VIEW_THRESHOLD && (
+                <>
+                  <span aria-hidden="true">·</span>
+                  <span className="flex items-center gap-1.5">
+                    <FiEye aria-hidden="true" />{views.toLocaleString('en-IN')} views
+                  </span>
+                </>
+              )}
               {post.updated && (
                 <>
                   <span aria-hidden="true">·</span>
