@@ -215,7 +215,7 @@ export default function BlogPost() {
     image: coverUrl,
     datePublished: post.date,
     ...(post.updated ? { dateModified: post.updated } : {}),
-    keywords: (post.keywords || []).join(', '),
+    keywords: [...(post.keywords || []), 'Rahul Sharma'].join(', '),
     author: {
       '@type': 'Person',
       name: author.name,
