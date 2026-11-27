@@ -365,7 +365,12 @@ function readPosts() {
       date: data.publishAt,
       updated: data.updated || null,
       draft: data.draft === true,
-      tags: Array.isArray(data.tags) ? data.tags : data.tags ? [data.tags] : [],
+      // Every article carries the author's name tag, past and future, so the
+      // byline, the tag row and the name search all point at the same person.
+      tags: (() => {
+        const t = Array.isArray(data.tags) ? data.tags : data.tags ? [data.tags] : [];
+        return t.some((x) => String(x).toLowerCase() === '#rahulsharma') ? t : [...t, '#rahulsharma'];
+      })(),
       keywords: Array.isArray(data.keywords) ? data.keywords : data.keywords ? [data.keywords] : [],
       related: Array.isArray(data.related) ? data.related : data.related ? [data.related] : [],
       metaTitle: data.metaTitle || null,

@@ -21,6 +21,9 @@ export const author = {
     'https://www.linkedin.com/in/rahulsharmamat/',
     'https://www.instagram.com/aurbtaorahul',
     'https://sites.google.com/view/rahulsharamamat/home',
+    'https://x.com/rahulsharmamatt',
+    'https://github.com/rahulsharmamat',
+    'https://www.quora.com/profile/Rahul-Sharma-37399',
   ],
   alumniOf: 'Indian Institute of Management Ahmedabad',
   avatar: '/brand/author-rahul.webp',
@@ -30,6 +33,8 @@ export const author = {
   links: [
     { label: 'Instagram', href: 'https://www.instagram.com/aurbtaorahul' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/rahulsharmamat/' },
+    { label: 'X', href: 'https://x.com/rahulsharmamatt' },
+    { label: 'GitHub', href: 'https://github.com/rahulsharmamat' },
   ],
 };
 
